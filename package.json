@@ -1,0 +1,33 @@
+{
+  "name": "simplifly-astro",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/react": "^4.3.0",
+    "@astrojs/sitemap": "^3.4.0",
+    "@astrojs/tailwind": "^6.0.2",
+    "@fontsource-variable/open-sans": "^5.1.1",
+    "@fontsource/kanit": "^5.1.1",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "astro": "^5.8.0",
+    "astro-embed": "^0.9.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.4.0",
+    "swiper": "^11.2.0",
+    "tailwindcss": "^3.4.15"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.16",
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.14.1"
+  }
+}
