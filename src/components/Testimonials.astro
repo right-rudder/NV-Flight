@@ -9,7 +9,7 @@ const testimonialSchemaItems = content.reviews.map((review) => ({
 }));
 ---
 
-<section id="testimonials" class="bg-sky-100 py-8 lg:py-24">
+<section id="testimonials" class="bg-muted-50 py-8 lg:py-24">
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
     <div class="flex flex-wrap justify-evenly items-start align-middle">
       <div
@@ -24,7 +24,7 @@ const testimonialSchemaItems = content.reviews.map((review) => ({
         }
         {
           content.heading && (
-            <h2 class="text-5xl lg:text-6xl font-title text-center lg:text-right font-bold tracking-tight text-sky-950">
+            <h2 class="text-5xl lg:text-6xl font-title text-center lg:text-right font-bold tracking-tight text-black">
               {content.heading}
             </h2>
           )
@@ -50,14 +50,14 @@ const testimonialSchemaItems = content.reviews.map((review) => ({
       </div>
       <div class="w-full lg:w-2/3 lg:max-w-2xl px-4 mt-12 lg:mt-0 lg:px-12">
         <ul
-          class="flex flex-col justify-center align-middle items-center divide-y-2 divide-sky-200"
+          class="flex flex-col justify-center align-middle items-center divide-y-2 divide-accent-200"
         >
           {
             content.reviews.map((review, index) => (
               <li class={`${index > 3 ? "hidden lg:block" : ""} py-12`}>
                 <blockquote class="relative mx-auto">
                   <svg
-                    class="absolute -top-6 -start-8 size-16 text-sky-200/90"
+                    class="absolute -top-6 -start-8 size-16 text-primary-300/90"
                     width="16"
                     height="16"
                     viewBox="0 0 16 16"
@@ -71,7 +71,7 @@ const testimonialSchemaItems = content.reviews.map((review) => ({
                     />
                   </svg>
                   <svg
-                    class="absolute bottom-6 end-8 size-16 text-sky-200/90 rotate-180"
+                    class="absolute bottom-6 end-8 size-16 text-primary-300/90 rotate-180"
                     width="16"
                     height="16"
                     viewBox="0 0 16 16"
@@ -85,12 +85,12 @@ const testimonialSchemaItems = content.reviews.map((review) => ({
                     />
                   </svg>
 
-                  <div class="relative z-10">
+                  <div class="relative z-10 p-4">
                     <p class="text-gray-700 font-normal text-lg leading-relaxed font-sans px-2">
                       <em>{review.body}</em>
                     </p>
                   </div>
-                  <p class="mt-2 text-4xl text-sky-800 font-bold uppercase tracking-tighter font-title text-center">
+                  <p class="mt-2 text-4xl text-accent-800 font-bold uppercase tracking-tighter font-title text-center">
                     {review.author}
                   </p>
                 </blockquote>

@@ -113,8 +113,53 @@ const homePage = {
         "Check out what they have to say about their experiences with us.",
       ],
       buttonText: "Leave Us a Review",
-      buttonLink: "https://g.co/kgs/TLWS5Yz",
+      buttonLink: "#",
       reviews: [
+        {
+          title: "Best Flight School in Reno!",
+          body: "NV Flight constantly reminds me of how welcoming and supportive the aviation community can be, and their knowledgeable flight instructors truly put the students and their safety first. The office staff always greet people with a smile, and the aircraft are amazingly maintained. I would highly recommend this flight school for anyone just getting started in aviation or looking to advance their skills!",
+          author: "Lauren E.",
+        },
+        {
+          title: "Great Flight Training",
+          body: "I'm 19 and I recently acquired my certificate. The instructors were extremely helpful and patient throughout the process. Highly recommend NV Flight School to anyone looking to start their aviation journey.",
+          author: "Jack R.",
+        },
+        {
+          title: "Personalized and Memorable Intro Flight",
+          body: "I booked my man an introductory flight as a surprise for Father’s Day. We had one-on-one time with the instructor without feeling rushed. It was very laid back, and we were able to take lots of videos and pictures. Affordable price as well! HIGHLY recommend them. Will definitely go back for more.",
+          author: "Lara",
+        },
+        {
+          title: "Exceptional for All Levels of Training",
+          body: "I would recommend NV Flight for anyone looking to learn to fly or achieve advanced ratings. The instruction is professional, and the aircraft are top-notch. A great place to fly.",
+          author: "Jack Woods",
+        },
+        {
+          title: "Ideal for Refreshing or Advancing Your Skills",
+          body: "If you're looking for a great flight school to touch up on some skills, pursue a new rating, or just get current, I would highly recommend NV Flight.",
+          author: "Roger (Battle Born Bullies)",
+        },
+        {
+          title: "Fantastic Rentals and Great Support",
+          body: "A great place to learn how to fly and rent reasonably priced single-engine aircraft. Cherie at the office is amazing. Planes are well-maintained and ready to fly every time I go for a rental. Thank you, NV Flight!",
+          author: "Fernando Lista",
+        },
+        {
+          title: "Supportive and Skilled Instructors",
+          body: "Great staff and excellent pilots at NV Flight. I recommend them very highly. I love flying with them every opportunity I have. Cherie will help get you scheduled. Highly recommend!",
+          author: "Aerial Imaging",
+        },
+        {
+          title: "Welcoming and Goal-Oriented Environment",
+          body: "Great place to learn and grow your skills. The staff is friendly and accommodating with a true passion to help pilots achieve their goals.",
+          author: "Matthew Owens",
+        },
+        {
+          title: "Outstanding Instructors and Staff",
+          body: "Went through my private pilot training with NV Flight. Outstanding instructors and staff who really care about your success.",
+          author: "Jordan West",
+        },
         {
           title: "A More Affordable School with a Great Curriculum",
           body: "Awesome school! I’ve been flying here for a little over a year and have nothing but good to say. It is a more affordable school than most. They are also flexible and work with my schedule. I’m taking my commercial checkride in a few days, and I feel prepared for each stage of training.",
