@@ -1,113 +1,113 @@
 export const navbarLinks = [
   {
     name: "New to Flying?",
-    link: "/pilot-training-made-simple",
+    link: "/#",
     submenu: [
       {
         name: "Pilot Training Made Simple",
-        link: "/pilot-training-made-simple",
+        link: "/#",
       },
       {
         name: "Discovery Flight",
-        link: "/discovery-flight",
+        link: "/#",
       },
       {
         name: "Enroll at NVFlight",
-        link: "/enroll-at-NVFlight",
+        link: "/#",
       },
       {
         name: "Pilot Training",
-        link: "/pilot-training",
+        link: "/#",
       },
       {
         name: "Begin Pilot Career",
-        link: "/begin-pilot-career",
+        link: "/#",
       },
       {
         name: "Timeline",
-        link: "/timeline-to-be-a-pilot",
+        link: "/#",
       },
       {
         name: "Cost",
-        link: "/approximate-pilot-training-costs",
+        link: "/#",
       },
     ],
   },
   {
     name: "Programs",
-    link: "/programs",
+    link: "/#",
     submenu: [
       {
         name: "Private Pilot",
-        link: "/programs/private-pilot",
+        link: "/#",
       },
       {
         name: "Instrument Rating",
-        link: "/programs/instrument-rating",
+        link: "/#",
       },
       {
         name: "Commercial Pilot",
-        link: "/programs/commercial-pilot",
+        link: "/#",
       },
       {
         name: "Multi-Engine Rating",
-        link: "/programs/multi-engine-rating",
+        link: "/#",
       },
       {
         name: "Certified Flight Instructor",
-        link: "/programs/certified-flight-instructor",
+        link: "/#",
       },
       {
         name: "CFI - Instruments",
-        link: "/programs/certified-flight-instructor/#addons",
+        link: "/#",
       },
       {
         name: "Multi-Engine Instructor",
-        link: "/programs/certified-flight-instructor/#addons",
+        link: "/#",
       },
       {
         name: "Ground School",
-        link: "/programs/ground-school",
+        link: "/#",
       },
     ],
   },
 
   {
     name: "Financing",
-    link: "/financing",
+    link: "/#",
     submenu: [
       {
         name: "Stratus Financial",
-        link: "/stratus-finance",
+        link: "/#",
       },
     ],
   },
 
   {
     name: "About Us",
-    link: "/NVFlight",
+    link: "/#",
     submenu: [
       {
         name: "Our Team",
-        link: "/NVFlight/team",
+        link: "/#",
       },
       {
         name: "Visit Us",
-        link: "/NVFlight/visit",
+        link: "/#",
       },
       {
         name: "Join Us",
-        link: "/NVFlight/join-us",
+        link: "/#",
       },
       {
         name: "Blog",
-        link: "/blog",
+        link: "/#",
       },
     ],
   },
   {
     name: "Enroll Now",
-    link: "/enroll-at-NVFlight",
+    link: "/#",
     submenu: [],
   },
 ];
