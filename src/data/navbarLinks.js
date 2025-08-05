@@ -2,36 +2,6 @@ export const navbarLinks = [
   {
     name: "New to Flying?",
     link: "/#",
-    submenu: [
-      {
-        name: "Pilot Training Made Simple",
-        link: "/#",
-      },
-      {
-        name: "Discovery Flight",
-        link: "/#",
-      },
-      {
-        name: "Enroll at NVFlight",
-        link: "/#",
-      },
-      {
-        name: "Pilot Training",
-        link: "/#",
-      },
-      {
-        name: "Begin Pilot Career",
-        link: "/#",
-      },
-      {
-        name: "Timeline",
-        link: "/#",
-      },
-      {
-        name: "Cost",
-        link: "/#",
-      },
-    ],
   },
   {
     name: "Programs",
@@ -50,19 +20,11 @@ export const navbarLinks = [
         link: "/#",
       },
       {
-        name: "Multi-Engine Rating",
-        link: "/#",
-      },
-      {
         name: "Certified Flight Instructor",
         link: "/#",
       },
       {
         name: "CFI - Instruments",
-        link: "/#",
-      },
-      {
-        name: "Multi-Engine Instructor",
         link: "/#",
       },
       {
