@@ -3,20 +3,20 @@ import ProgramCard from "./ProgramCard.astro";
 const { content } = Astro.props;
 ---
 
-<section class="bg-accent-600 pt-12 pb-8 lg:pt-16 overflow-hidden">
+<section class="bg-accent-700 pt-12 pb-8 lg:pt-16 overflow-hidden">
   <div class="container mx-auto">
     {content.upperHeading && (
-      <p class="uppercase text-lg lg:text-xl max-w-3xl mx-auto font-heading text-center font-bold tracking-wide text-accent-200 mb-3">
+      <p class="uppercase text-lg lg:text-xl max-w-3xl mx-auto font-heading text-center font-bold tracking-wide text-muted-800 mb-3">
         {content.upperHeading}
       </p>
     )}
     {content.heading && (
-      <h2 class="mb-3 text-4xl lg:text-6xl max-w-4xl mx-auto font-heading text-center font-bold tracking-tight text-muted-700 uppercase">
+      <h2 class="mb-3 text-4xl lg:text-6xl max-w-4xl mx-auto font-heading text-center font-bold tracking-tight text-accent-200">
         {content.heading}
       </h2>
     )}
     {content.description && (
-      <p class="mb-12 text-lg max-w-3xl mx-auto text-center tracking-wide font-sans text-accent-100/90">
+      <p class="mb-12 text-lg max-w-3xl mx-auto text-center tracking-wide font-sans text-muted-50">
         {content.description}
       </p>
     )}

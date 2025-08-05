@@ -48,7 +48,9 @@ const Navbar = ({ pathname }) => {
     const match = (link) => link === pathname || link + "/" === pathname;
     return (
       match(menuItem.link) ||
-      menuItem.submenu?.some((i) => match(i.link) || i.subsubmenu?.some((s) => match(s.link))) ||
+      menuItem.submenu?.some(
+        (i) => match(i.link) || i.subsubmenu?.some((s) => match(s.link))
+      ) ||
       menuItem.subsubmenu?.some((i) => match(i.link))
     );
   };
@@ -115,7 +117,7 @@ const Navbar = ({ pathname }) => {
 
                   {item.submenu?.length > 0 && (
                     <ul
-                      className={`absolute top-full left-0 bg-forest/95 text-cloud whitespace-nowrap rounded-md overflow-hidden transition-all ${
+                      className={`absolute top-full left-0 bg-accent-900/95 text-cloud whitespace-nowrap rounded-md overflow-hidden transition-all ${
                         hoveredIndex === idx
                           ? "max-h-screen opacity-100"
                           : "max-h-0 opacity-0"
@@ -134,7 +136,9 @@ const Navbar = ({ pathname }) => {
                         >
                           <a
                             href={sub.link || "#"}
-                            target={sub.link?.includes("http") ? "_blank" : "_self"}
+                            target={
+                              sub.link?.includes("http") ? "_blank" : "_self"
+                            }
                           >
                             {sub.name}
                           </a>
@@ -153,7 +157,11 @@ const Navbar = ({ pathname }) => {
                                 >
                                   <a
                                     href={ss.link}
-                                    target={ss.link.includes("http") ? "_blank" : "_self"}
+                                    target={
+                                      ss.link.includes("http")
+                                        ? "_blank"
+                                        : "_self"
+                                    }
                                     className="text-cloud"
                                   >
                                     {ss.name}
@@ -191,9 +199,7 @@ const Navbar = ({ pathname }) => {
 
       <div
         className={`${
-          openMobile
-            ? "max-h-screen"
-            : "max-h-0"
+          openMobile ? "max-h-screen" : "max-h-0"
         } overflow-hidden transition-max-height duration-700 ease-in-out lg:hidden bg-gradient-to-b from-primary-900 via-primary-800 to-accent-300 absolute w-full z-20 top-0 transition-colors duration-700 ease-in-out`}
       >
         <div className="flex justify-end p-6">
@@ -231,9 +237,7 @@ const Navbar = ({ pathname }) => {
               {item.submenu?.length > 0 && (
                 <ul
                   className={`${
-                    hoveredIndex === idx
-                      ? "max-h-screen"
-                      : "max-h-0"
+                    hoveredIndex === idx ? "max-h-screen" : "max-h-0"
                   } overflow-hidden transition-all`}
                 >
                   {item.submenu.map((sub, sidx) => (
@@ -243,25 +247,21 @@ const Navbar = ({ pathname }) => {
                       className="pl-4 py-2 hover:text-teal"
                     >
                       <a href={sub.link || "#"}>{sub.name}</a>
-                      {sub.subsubmenu?.length > 0 &&
-                        hoveredIndex === idx && (
-                          <ul
-                            className={`${
-                              subHoveredIndex === sidx
-                                ? "max-h-screen"
-                                : "max-h-0"
-                            } overflow-hidden transition-all pl-6`}
-                          >
-                            {sub.subsubmenu.map((ss, ssidx) => (
-                              <li
-                                key={ssidx}
-                                className="py-1 hover:text-emerald"
-                              >
-                                <a href={ss.link}>{ss.name}</a>
-                              </li>
-                            ))}
-                          </ul>
-                        )}
+                      {sub.subsubmenu?.length > 0 && hoveredIndex === idx && (
+                        <ul
+                          className={`${
+                            subHoveredIndex === sidx
+                              ? "max-h-screen"
+                              : "max-h-0"
+                          } overflow-hidden transition-all pl-6`}
+                        >
+                          {sub.subsubmenu.map((ss, ssidx) => (
+                            <li key={ssidx} className="py-1 hover:text-emerald">
+                              <a href={ss.link}>{ss.name}</a>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -277,18 +277,23 @@ const Navbar = ({ pathname }) => {
             <FaPhone className="text-emerald size-5" /> {PHONE_NUMBER}
           </a>
           <div className="flex justify-center space-x-4">
-            {[LINKEDIN_URL, INSTAGRAM_URL, FACEBOOK_URL, TWITTER_URL, YOUTUBE_URL].map(
-              (url, i) =>
-                url ? (
-                  <a
-                    key={i}
-                    href={url}
-                    target="_blank"
-                    className="hover:text-teal transition-colors"
-                  >
-                    Icon
-                  </a>
-                ) : null
+            {[
+              LINKEDIN_URL,
+              INSTAGRAM_URL,
+              FACEBOOK_URL,
+              TWITTER_URL,
+              YOUTUBE_URL,
+            ].map((url, i) =>
+              url ? (
+                <a
+                  key={i}
+                  href={url}
+                  target="_blank"
+                  className="hover:text-teal transition-colors"
+                >
+                  Icon
+                </a>
+              ) : null
             )}
           </div>
         </div>
