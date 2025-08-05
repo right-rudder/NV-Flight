@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import programsSwiper from "../data/programSwiper";
+import enrollInfo from "../data/enroll-info";
+import ProgramSwiper from "../components/ProgramSwiper.astro";
+import EnrollForm from "../components/EnrollForm.astro";
+
+
+const { data } = enrollInfo;
+---
+
+<BaseLayout
+  siteTitle={data.pageTitle}
+  siteDescription={data.pageDescription}
+  keywords={data.pageKeywords}
+>
+  <div class="h-24 lg:h-28 w-full bg-accent-300"></div>
+
+  <EnrollForm />
+  <ProgramSwiper content={programsSwiper} />
+  <script src="../scripts/creativeSwiper.js"></script>
+</BaseLayout>

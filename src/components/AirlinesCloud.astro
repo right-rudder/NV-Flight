@@ -1,0 +1,46 @@
+---
+import ImageComp from "./ImageComp.astro";
+
+const { data } = Astro.props;
+---
+
+<section class="p-5">
+  <div class="bg-gradient-to-br from-accent-200 via-white to-accent-300 pt-24 rounded-lg">
+    <div class="mx-auto max-w-5xl px-6 lg:px-8">
+      <h3
+        class="text-4xl lg:text-6xl lg:max-w-5xl font-title text-center font-bold tracking-tight text-accent-950"
+      >
+        Your Path From Student Pilot to First Officer
+      </h3>
+      <h4
+        class="mx-auto mt-4 text-lg lg:text-2xl max-w-3xl text-center tracking-loose text-gray-900"
+      >
+        Our student pilots have gone on to fly with…
+      </h4>
+
+      <div
+        class="mx-auto mt-12 flex flex-wrap justify-center align-middle items-center gap-16"
+      >
+        {
+          data.airlines.map((airline) => (
+            <a
+              href={airline.link}
+              target="_blank"
+            >
+              <ImageComp
+                imagePath={airline.imagePath}
+                imageAlt={airline.imageAlt}
+                styles="max-w-52 lg:max-w-40 lg:max-h-16 object-contain hover:scale-110 duration-500 ease-in-out"
+              />
+            </a>
+          ))
+        }
+      </div>
+      <div class="w-full flex justify-center mt-20">
+        <a href="/pilot-training" class="btn-primary text-xl w-full lg:w-1/2"
+          >Start Pilot Career Training</a
+        >
+      </div>
+    </div>
+  </div>
+</section>

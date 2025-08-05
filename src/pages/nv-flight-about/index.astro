@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import HeaderSmall from "../../components/HeaderSmall.astro";
+import CTAColor from "../../components/CTAColor.astro";
+import flyWithUsCTA from "../../data/fly-with-us-cta";
+import ProgramSwiper from "../../components/ProgramSwiper.astro";
+import programsSwiper from "../../data/programSwiper";
+import PageSummary from "../../components/PageSummary.astro";
+import ContentSplit from "../../components/ContentSplit.astro";
+import TestimonialsSwiper from "../../components/TestimonialsSwiper.astro";
+import Why from "../../components/Why.astro";
+
+import pageData from "../../data/whyData.js";
+---
+<BaseLayout
+  siteTitle={pageData.pageTitle}
+  siteDescription={pageData.pageDescription}
+  keywords={pageData.pageKeywords}
+>
+  <!-- HEADER -->
+  <HeaderSmall content={pageData.header} />
+  <!-- PAGE SUMMARY -->
+  <PageSummary content={pageData.pageSummary} />
+  
+  <Why />
+    <div id="info"></div>
+  <ContentSplit content={pageData.contentSplit} />
+  
+  
+  <TestimonialsSwiper />
+
+  <ProgramSwiper content={programsSwiper} />
+  <CTAColor content={flyWithUsCTA} />
+  <script src="../../scripts/creativeSwiper.js"></script>
+</BaseLayout>

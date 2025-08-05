@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import HeaderSmall from "../../components/HeaderSmall.astro";
+import GridPrograms from "../../components/GridPrograms.astro";
+import programs from "../../data/programSwiper";
+import CTAColor from "../../components/CTAColor.astro";
+import flyWithUsCTA from "../../data/fly-with-us-cta";
+
+import coursesIndex from "../../data/coursesIndex.js";
+
+const { data } = coursesIndex;
+
+---
+<BaseLayout
+  siteTitle={data.pageTitle}
+  siteDescription={data.pageDescription}
+  keywords={data.pageKeywords}
+  >
+  
+  <HeaderSmall content = {data.header} />
+  <GridPrograms content={programs} />
+  <CTAColor content={flyWithUsCTA} />
+</BaseLayout>
+

@@ -1,0 +1,54 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  courseWorkload?: string;
+  price?: string;
+  programDuration?: string;
+}
+
+const {
+  title,
+  description,
+  courseWorkload = "Varies based on student schedule and progress",
+  price = "Varies based on individual progress",
+  programDuration = "Self-paced"
+} = Astro.props;
+---
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": title,
+  "description": description,
+  "provider": {
+    "@type": "Organization",
+    "name": "NVFlight Flight School",
+    "sameAs": "https://NVFlightco.com"
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "onsite",
+    "courseWorkload": courseWorkload,
+    "timeRequired": programDuration,
+    "location": {
+      "@type": "Place",
+      "name": "NVFlight Flight School at Falcon Field Airport",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Reno",
+        "addressRegion": "AZ",
+        "postalCode": "85215",
+        "streetAddress": "4855 E Falcon Dr"
+      }
+    },
+    "offers": {
+      "@type": "Offer",
+      "category": "Flight Training",
+      "priceCurrency": "USD",
+      "price": price,
+      "availability": "https://schema.org/InStock"
+    }
+  }
+})}>
+</script>

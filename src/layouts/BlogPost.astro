@@ -1,0 +1,109 @@
+---
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "../components/FormattedDate.astro";
+import BaseLayout from "./BaseLayout.astro";
+import { KEYWORDS } from "../consts";
+import CTAColor from "../components/CTAColor.astro";
+import flyWithUsCTA from "../data/fly-with-us-cta";
+import BlogPostSchema from "../components/BlogPostSchema.astro";
+
+type Props = CollectionEntry<"blog">["data"];
+const {
+  title,
+  author,
+  description,
+  pubDate,
+  updatedDate,
+  heroImage,
+  category,
+  tags,
+  keywords,
+} = Astro.props;
+---
+
+<BaseLayout
+  siteTitle={title + " | NVFlight Flight School Blog"}
+  siteDescription={description}
+  keywords={category + ", " + tags.join(", ") + keywords ? keywords : KEYWORDS}
+  ogImage={heroImage}
+>
+  <section
+    class="flex pt-20 justify-center bg-gradient-to-b from-accent-50 to-accent-100"
+  >
+    <article class="mx-auto max-w-4xl">
+      <div
+        class="mb-12 lg:mb-0 aspect-square lg:aspect-video lg:rounded-t-md shadow-md overflow-hidden"
+      >
+        {
+          heroImage && (
+            <img
+              class="object-cover h-full w-full bg-white"
+              src={heroImage}
+              alt={title}
+            />
+          )
+        }
+      </div>
+      <div class="mx-auto max-w-4xl bg-white prose font-sans pt-12 pb-32 px-5">
+        <div class="title">
+          <div class="date animate-fade-bottom">
+            <FormattedDate date={pubDate} />
+            {
+              updatedDate && (
+                <div class="last-updated-on">
+                  Last updated on <FormattedDate date={updatedDate} />
+                </div>
+              )
+            }
+          </div>
+          <h1
+            class="text-6xl leading-[3.5rem] m-0 font-title font-bold animate-fade-top"
+          >
+            {title}
+          </h1>
+          <p class="text-sm font-light animate-fade-top">Published by:</p>
+          <p class="-mt-5 text-base font-medium animate-fade-bottom">
+            {author}
+          </p>
+          <div class="md:flex gap-2 hidden">
+            <span
+              class="bg-accent-600 text-white inline-block px-3 py-1 rounded-md"
+            >
+              {category}
+            </span>
+            {
+              tags
+                .slice(0, 3)
+                .map((tag, index) => (
+                  <span
+                    class={`bg-teal-500 text-white capitalize inline-block px-3 py-1 rounded-md`}
+                  >
+                    {tag}
+                  </span>
+                ))
+            }
+          </div>
+          <hr />
+        </div>
+        <div
+          class="flex relative justify-center prose-a:text-accent-500 prose-a:font-semibold hover:prose-a:text-amber-400 prose-a:transition-colors prose-a:duration-200"
+        >
+          <slot />
+        </div>
+      </div>
+    </article>
+  </section>
+  <CTAColor content={flyWithUsCTA} />
+
+  <!-- Add BlogPost Schema for SEO -->
+  <BlogPostSchema
+    title={title}
+    description={description}
+    publishDate={pubDate}
+    updateDate={updatedDate}
+    authorName={author}
+    featuredImage={heroImage}
+    tags={tags}
+    section={category}
+  />
+</BaseLayout>

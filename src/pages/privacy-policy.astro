@@ -1,0 +1,42 @@
+---
+import privacyPolicies from "../data/privacy-policy";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { COMPANY_NAME } from "../consts";
+
+const { data } = privacyPolicies;
+---
+
+<BaseLayout
+  siteTitle=`Privacy Policy | ${COMPANY_NAME}`
+  siteDescription=`Privacy Policy of ${COMPANY_NAME}`
+>
+  <div class="h-24 lg:h-32 w-full"></div>
+
+  <section class="pt-12 font-serif flex flex-col items-center bg-white">
+    <h1
+      class="mx-auto text-center px-6 lg:px-0 text-mariner-950 font-black max-w-4xl text-5xl lg:text-6xl"
+      set:html={data.heading}
+    />
+    <p
+      class="mx-auto mt-2 text-muted-400 text-center"
+      set:html={data.subheading}
+    />
+    <div class="w-4/5 mt-12 lg:w-3/5 py-10">
+      {
+        data.content.map((part) => (
+          <div class="mb-12">
+            <h2 class="font-bold text-mariner-900 tracking-tight uppercase mb-3 text-3xl">
+              {part.heading}
+            </h2>
+            {part.paragraphs.map((paragraph) => (
+              <p
+                class="mb-3 leading-relaxed text-muted-700 text-justify"
+                set:html={paragraph}
+              />
+            ))}
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>

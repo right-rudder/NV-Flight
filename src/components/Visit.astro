@@ -1,0 +1,80 @@
+---
+import { LOCATIONS } from "../consts";
+import { SiGooglemaps } from "react-icons/si";
+import { FaPhoneVolume } from "react-icons/fa6";
+import { IoIosMail } from "react-icons/io";
+
+const { content } = Astro.props;
+---
+
+<section class="px-4 md:px-16 py-12 flex flex-col items-center justify-center">
+  <div class="w-full text-center">
+    {
+      content.upperHeading && (
+        <h3 class="mx-auto uppercase text-lg lg:text-xl max-w-3xl font-sans font-bold tracking-tight text-accent-600">
+          {content.upperHeading}
+        </h3>
+      )
+    }
+    {
+      content.heading && (
+        <h2 class="mx-auto mb-3 text-4xl lg:text-6xl max-w-3xl font-title font-bold tracking-tight text-accent-950">
+          {content.heading}
+        </h2>
+      )
+    }
+    {
+      content.subHeading && (
+        <p class="mx-auto mb-12 text-lg max-w-3xl tracking-loose text-gray-900">
+          {content.subHeading}
+        </p>
+      )
+    }
+  </div>
+  <div
+    class="flex flex-col lg:flex-row justify-between items-center gap-12 w-full"
+  >
+    {
+      LOCATIONS.map((loc) => (
+        <div class="flex flex-col gap-4">
+          <h3 class="mb-3 text-xl lg:text-2xl max-w-3xl font-title font-bold tracking-tight text-accent-950">
+            {loc.title}
+          </h3>
+          <div class="flex items-center gap-2">
+            <SiGooglemaps />
+            <a
+              href={loc.gMaps}
+              target="_blank"
+              class="text-accent-800 hover:brightness-110 hover:scale-105 transition-all duration-300"
+              set:html={`Falcon Field (KFFZ) <br/>${loc.address} <br/>${loc.city}, ${loc.state} ${loc.zip}`}
+            />
+          </div>
+          <div class="flex items-center gap-2">
+            <FaPhoneVolume />
+            <a
+              href={`tel:${loc.phone}`}
+              class="text-accent-800 hover:brightness-110 hover:scale-105 transition-all duration-300"
+              set:html={`${loc.phone}`}
+            />
+          </div>
+          <div class="flex items-center gap-2">
+            <IoIosMail />
+            <a
+              href={`mailto:${loc.email}`}
+              class="text-accent-800 hover:brightness-110 hover:scale-105 transition-all duration-300"
+              set:html={`${loc.email}`}
+            />
+          </div>
+        </div>
+      ))
+    }
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106524.15450588454!2d-111.69759349021899!3d33.452437258764384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872ba5acf819b911%3A0x94d7f96b6510541b!2sNVFlight%20Flight%20School!5e0!3m2!1sen!2snl!4v1686322192481!5m2!1sen!2snl"
+      height="350"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      class="w-full lg:w-1/2 aspect-auto"></iframe>
+  </div>
+</section>

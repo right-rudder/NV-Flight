@@ -1,0 +1,50 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HeaderScreen from "../components/HeaderScreen.astro";
+import ProgramSwiper from "../components/ProgramSwiper.astro";
+import CTAColor from "../components/CTAColor.astro";
+import Testimonials from "../components/Testimonials.astro";
+import programsSwiper from "../data/programSwiper";
+import BlogFeed from "../components/BlogFeed.astro";
+import homePage from "../data/homePage";
+import flyWithUsCTA from "../data/fly-with-us-cta";
+import AirlinesCloud from "../components/AirlinesCloud.astro";
+import FAQs from "../components/FAQs";
+import { GeneralFAQs } from "../data/general-faqs";
+
+const data = {
+  siteTitle: "Wrong route | NVFlight Flight School, Reno, NV",
+  pageDescription:
+    "The page you are looking for doesn't exist. Please check your instruments and try again.",
+  pageKeywords:
+    "404, not found, wrong route, NVFlight Flight School, Reno, Arizona",
+  header: {
+    imagePath: "/src/assets/mael-balland-QRQHIYyIlp8-unsplash.jpg",
+    imageAlt: "NVFlight training aircraft instruments panel",
+    headerH1: `Check your<br>instruments`,
+    paragraph:
+      "The page you are looking for doesn't exist. Please check your instruments and try again.",
+    buttons: [
+      {
+        name: "Go to Home",
+        link: "/",
+        primary: true,
+      },
+      {
+        name: "Book a Discovery Flight",
+        link: "/discovery-flight",
+        primary: true,
+      },
+    ],
+  },
+};
+---
+
+<BaseLayout
+  siteTitle={data.siteTitle}
+  siteDescription={data.pageDescription}
+  keywords={data.pageKeywords}
+>
+  <!-- HEADER -->
+  <HeaderScreen content={data.header} />
+</BaseLayout>

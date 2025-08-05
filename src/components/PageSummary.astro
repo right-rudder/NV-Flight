@@ -1,0 +1,48 @@
+---
+import { FaCheck } from "react-icons/fa";
+const { content } = Astro.props;
+---
+
+<section id={content.title} class="bg-accent-950 py-12 lg:py-32">
+  <div class="flex items-center justify-center gap-9 md:gap-12 flex-wrap">
+    <div class="lg:w-1/3">
+      <h2
+        class="mt-2 text-4xl font-bold tracking-tight leading-tighter font-title text-accent-100 md:text-5xl lg:text-7xl text-center lg:text-right px-3 md:px-0"
+        set:html={content.title}
+      />
+      <ul class="width-min mt-4">
+        {
+          content.keypoints &&
+            content.keypoints.map((keypoint) => (
+              <li class="flex text-lg items-center lg:justify-end p-1 text-white/90">
+                <FaCheck className="text-yellow-500 mr-2" /> {keypoint}
+              </li>
+            ))
+        }
+      </ul>
+    </div>
+    <div
+      class="lg:w-1/3 text-lg leading-relaxed text-pretty font-light text-white text-center lg:text-left"
+    >
+      {
+        content.paragraphs &&
+          content.paragraphs.map((paragraph) => (
+            <p class="mb-3 px-9 lg:px-0" set:html={paragraph} />
+          ))
+      }
+      {
+        content.buttons &&
+          content.buttons.map((btn) => (
+            <div class="mt-8 lg:mt-6 flex justify-center lg:justify-start">
+              <a
+                href={btn.link}
+                class={`${btn.primary ? "btn-primary" : "btn-accent"} `}
+              >
+                <span class="drop-shadow-sm">{btn.name}</span>
+              </a>
+            </div>
+          ))
+      }
+    </div>
+  </div>
+</section>

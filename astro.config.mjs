@@ -5,17 +5,17 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://simpliflyco.com/",
+  site: "https://NVFlightco.com/",
   integrations: [tailwind(), sitemap(), react()],
   redirects: {
     "/posts/[...slug]": "/blog/[...slug]",
-    "/our-team": "/simplifly/team",
+    "/our-team": "/NVFlight/team",
     "/private-pilot-training": "/programs/private-pilot",
     "/instrument-rating": "/programs/instrument-rating",
     "/commercial-pilot-training": "/programs/commercial-pilot",
     "/multi-engine-rating": "/programs/multi-engine-rating",
-    "/instruct-at-simplifly": "/programs/certified-flight-instructor",
-    "/visit-simplifly": "/simplifly/visit",
-    "/why-simplifly": "/simplifly",
+    "/instruct-at-NVFlight": "/programs/certified-flight-instructor",
+    "/visit-NVFlight": "/NVFlight/visit",
+    "/why-NVFlight": "/NVFlight",
   },
 });

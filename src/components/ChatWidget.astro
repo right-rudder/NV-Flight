@@ -1,0 +1,39 @@
+---
+
+---
+
+<div
+  id="chat-widget-placeholder"
+  data-chat-widget
+  data-widget-id="67f931769b3f523332a17b30"
+  data-location-id="vOzUw0VQMTzKJeSbQmjy"
+>
+</div>
+
+<script type="module">
+  let chatLoaded = false;
+
+  function loadChatWidget() {
+    if (chatLoaded) return;
+    chatLoaded = true;
+
+    const script = document.createElement("script");
+    script.src = "https://beta.leadconnectorhq.com/loader.js";
+    script.setAttribute(
+      "data-resources-url",
+      "https://beta.leadconnectorhq.com/chat-widget/loader.js",
+    );
+    script.setAttribute("data-widget-id", "67f931769b3f523332a17b30");
+    document.body.appendChild(script);
+  }
+
+  function onScrollLoadChat() {
+    if (window.scrollY > 100) {
+      // Customize scroll threshold here
+      loadChatWidget();
+      window.removeEventListener("scroll", onScrollLoadChat);
+    }
+  }
+
+  window.addEventListener("scroll", onScrollLoadChat, { passive: true });
+</script>

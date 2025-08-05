@@ -1,0 +1,325 @@
+---
+import enrollData from "../data/enrollData.js";
+import programsSwiper from "../data/programSwiper";
+const GHL_ENROLL_FORM_WEBHOOK_URL = import.meta.env.GHL_ENROLL_FORM_WEBHOOK_URL;
+const PORTAL_API_KEY = import.meta.env.PORTAL_API_KEY;
+---
+
+<section class="relative isolate bg-white">
+  <div class="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
+    <div class="relative px-6 sm:pt-32 lg:static lg:px-8 lg:py-24">
+      <div class="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
+        <h2 class="text-5xl font-title font-bold tracking-tight text-accent-950">
+          {enrollData.upperHeading}
+        </h2>
+        <p class="mt-6 text-lg leading-8 text-gray-600">
+          {enrollData.description}
+        </p>
+
+        {
+          enrollData.sections.map((section) => (
+            <div>
+              <h3 class="text-4xl mt-9 font-title font-bold tracking-tight text-accent-900">
+                {section.title}
+              </h3>
+              <p class="mt-3 text-lg text-gray-600">{section.content}</p>
+            </div>
+          ))
+        }
+
+        <h3
+          class="text-4xl mt-9 font-title font-bold tracking-tight text-accent-900"
+        >
+          {enrollData.contactTitle}
+        </h3>
+        <dl class="mt-10 space-y-4 text-base leading-7 text-gray-600">
+          <div class="flex gap-x-4">
+            <dt class="flex-none">
+              <span class="sr-only">Address</span>
+              <svg
+                class="h-7 w-6 text-gray-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z"
+                ></path>
+              </svg>
+            </dt>
+            <a
+              href="https://maps.app.goo.gl/EUM1zMbDq8yUS2fU8"
+              target="_blank"
+              class="hover:text-accent-800 duration-200 hover:underline"
+              >{enrollData.address}</a
+            >
+          </div>
+          <div class="flex gap-x-4">
+            <dt class="flex-none">
+              <span class="sr-only">Telephone</span>
+              <svg
+                class="h-7 w-6 text-gray-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"
+                ></path>
+              </svg>
+            </dt>
+            <dd>
+              <a
+                class="hover:text-accent-800 duration-200 hover:underline"
+                href={`tel:${enrollData.phone}`}>{enrollData.phone}</a
+              >
+            </dd>
+          </div>
+          <div class="flex gap-x-4">
+            <dt class="flex-none">
+              <span class="sr-only">Email</span>
+              <svg
+                class="h-7 w-6 text-gray-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
+                ></path>
+              </svg>
+            </dt>
+            <dd>
+              <a
+                class="hover:text-accent-800 duration-200 hover:underline"
+                href={`mailto:${enrollData.email}`}>{enrollData.email}</a
+              >
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+
+    <div
+      class="bg-accent-500/20 mx-auto w-full h-full flex justify-center align-top items-start p-6"
+    >
+      <form
+        id="contact-form"
+        class="w-full max-w-xl pt-10 pb-20 h-fit sticky top-48"
+      >
+        <div>
+          <div class="mb-4">
+            <label for="first-name" class="block mb-0 font-semibold"
+              >First Name</label
+            >
+            <input
+              type="text"
+              id="first-name"
+              name="first-name"
+              autocomplete="given-name"
+              class="w-full h-9 p-2 border bg-gray-100 border-gray-400 rounded-sm focus:outline focus:outline-accent-600/50 focus:ring focus:ring-accent-600/50 focus:border-accent-600/50"
+              required
+            />
+          </div>
+          <div class="mb-4">
+            <label for="last-name" class="block mb-0 font-semibold"
+              >Last Name</label
+            >
+            <input
+              type="text"
+              id="last-name"
+              name="last-name"
+              autocomplete="family-name"
+              class="w-full h-9 p-2 border bg-gray-100 border-gray-400 rounded-sm focus:outline focus:outline-accent-600/50 focus:ring focus:ring-accent-600/50 focus:border-accent-600/50"
+              required
+            />
+          </div>
+          <div class="mb-4">
+            <label for="phone" class="block mb-0 font-semibold">Phone</label>
+            <input
+              type="text"
+              id="phone"
+              name="phone"
+              autocomplete="tel"
+              class="w-full h-9 p-2 border bg-gray-100 border-gray-400 rounded-sm focus:outline focus:outline-accent-600/50 focus:ring focus:ring-accent-600/50 focus:border-accent-600/50"
+              required
+            />
+          </div>
+          <div class="mb-4">
+            <label for="email" class="block mb-0 font-semibold">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              autocomplete="email"
+              class="w-full h-9 p-2 border bg-gray-100 border-gray-400 rounded-sm focus:outline focus:outline-accent-600/50 focus:ring focus:ring-accent-600/50 focus:border-accent-600/50"
+              required
+            />
+          </div>
+          <div class="mb-4">
+            <label for="interes-program" class="block mb-0 font-semibold"
+              >Which pilot program are you interested in?</label
+            >
+            <select
+              required
+              id="interes-program"
+              name="interes-program"
+              class="w-full h-9 p-2 border bg-gray-100 border-gray-400 rounded-sm focus:outline focus:outline-accent-600/50 focus:ring focus:ring-accent-600/50 focus:border-accent-600/50"
+            >
+              {
+                programsSwiper.cards.map((program) => (
+                  <option>{program.title}</option>
+                ))
+              }
+            </select>
+          </div>
+          <p class="hidden">
+            <label>
+              Don't fill this out if you're human:
+              <input name="confirm-email" />
+            </label>
+          </p>
+        </div>
+        <div class="mt-8">
+          <input
+            type="checkbox"
+            name="agree-data-collection"
+            id="agree-data-collection"
+            class="mr-2 size-6 lg:size-5"
+          />
+          <label
+            for="agree-data-collection"
+            class="text-gray-800 text-sm lg:text-base"
+            set:html={enrollData.checkboxText}
+          />
+        </div>
+        <button
+          id="submit-button"
+          form="contact-form"
+          disabled
+          type="submit"
+          class="mx-auto mt-8 btn-primary cursor-not-allowed bg-gray-400 hover:bg-gray-400 hover:text-white"
+        >
+          Send Request
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+<script src="../scripts/creativeSwiper.js"></script>
+<script define:vars={{ GHL_ENROLL_FORM_WEBHOOK_URL, PORTAL_API_KEY }}>
+  const checkbox = document.getElementById("agree-data-collection");
+  const submitButton = document.getElementById("submit-button");
+
+  checkbox.addEventListener("change", function () {
+    if (checkbox.checked) {
+      submitButton.disabled = false;
+      submitButton.classList.remove(
+        "cursor-not-allowed",
+        "bg-gray-400",
+        "hover:bg-gray-400",
+      );
+    } else {
+      submitButton.disabled = true;
+      submitButton.classList.add(
+        "cursor-not-allowed",
+        "bg-gray-400",
+        "hover:bg-gray-400",
+      );
+    }
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("contact-form");
+    if (!form) {
+      console.error("Form element not found.");
+      return;
+    }
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(form);
+      const confirmEmail = formData.get("confirm-email")?.trim();
+
+      if (confirmEmail) return;
+
+      const webhookURL = GHL_ENROLL_FORM_WEBHOOK_URL;
+      const apiKey = PORTAL_API_KEY;
+
+      const urlEncodedBody = new URLSearchParams(formData).toString();
+
+      const excludedFields = [
+        "first-name",
+        "last-name",
+        "email",
+        "phone",
+        "confirm-email",
+        "agree-data-collection",
+      ];
+      const metadata = {};
+
+      for (const [key, value] of formData.entries()) {
+        if (!excludedFields.includes(key)) {
+          metadata[key] = value?.trim?.() ?? value;
+        }
+      }
+
+      const jsonBody = {
+        first_name: formData.get("first-name")?.trim() || "",
+        last_name: formData.get("last-name")?.trim() || "",
+        email: formData.get("email")?.trim() || "",
+        phone: formData.get("phone")?.trim() || "",
+        campaign: "enrollment",
+        account_random_id: "ac_g6n9ybnw",
+        metadata: metadata,
+      };
+
+      try {
+        const [ghlRes, portalRes] = await Promise.all([
+          fetch(webhookURL, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: urlEncodedBody,
+          }),
+          fetch("https://portal.rightruddermarketing.com/api/leads", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+              "x-api-key": apiKey,
+            },
+            body: JSON.stringify(jsonBody),
+          }),
+        ]);
+
+        if (ghlRes.ok && portalRes.ok) {
+          window.location.href = "/form-confirmation";
+        } else {
+          console.error("Submission failed", {
+            ghlStatus: ghlRes.status,
+            portalStatus: portalRes.status,
+          });
+        }
+      } catch (err) {
+        console.error("Submission error:", err);
+      }
+    });
+  });
+</script>
+
+<script src="../scripts/emailValidation.js"></script>

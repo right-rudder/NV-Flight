@@ -1,0 +1,33 @@
+---
+import { YouTube } from "astro-embed";
+const { video, data } = Astro.props;
+---
+
+<div class="bg-accent-950">
+  <div
+    class="flex flex-col lg:flex-row items-stretch py-24 justify-center gap-20 px-8 max-w-7xl mx-auto"
+  >
+    <div class="flex-1 flex justify-center items-center">
+      <YouTube
+        id={video.videoId}
+        class="aspect-video w-full"
+        params="start=0"
+        posterQuality="max"
+      />
+    </div>
+
+    <div class="flex-1 flex items-center">
+      <div class="mx-auto space-y-8">
+        <h2 class="text-lg font-bold text-accent-300 uppercase tracking-wide">
+          {data.header}
+        </h2>
+        <p class="text-4xl md:text-5xl font-semibold text-white leading-tight">
+          {video.title}
+        </p>
+        <p class="text-lg md:text-xl text-gray-200 leading-relaxed">
+          {data.text}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

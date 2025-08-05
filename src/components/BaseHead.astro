@@ -1,0 +1,176 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  keywords: string;
+  image?: string;
+}
+
+const canonicalURL = new URL(Astro.url, Astro.site).toString();
+
+const {
+  title,
+  description,
+  keywords,
+  image = "/src/assets/nvflight-nobg.webp"
+} = Astro.props;
+---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<!-- Site Created By:
+       _____  _       _     _     _____           _     _
+      |  __ \(_)     | |   | |   |  __ \         | |   | |
+      | |__) |_  __ _| |__ | |_  | |__) |   _  __| | __| | ___ _ __
+      |  _  /| |/ _` | '_ \| __| |  _  / | | |/ _` |/ _` |/ _ \ '__|
+      | | \ \| | (_| | | | | |_  | | \ \ |_| | (_| | (_| |  __/ |
+      |_|  \_\_|\__, |_| |_|\__| |_|  \_\__,_|\__,_|\__,_|\___|_|
+      |  \/  |   __/ |  | |      | | (_)
+      | \  / | _|___/ __| | _____| |_ _ _ __   __ _
+      | |\/| |/ _` | '__| |/ / _ \ __| | '_ \ / _` |
+      | |  | | (_| | |  |   <  __/ |_| | | | | (_| |
+      |_|  |_|\__,_|_|  |_|\_\___|\__|_|_| |_|\__, |
+                                               __/ |
+                                              |___/
+    Nice to see you here.  Find new student pilots with Right Rudder Marketing.  https://rightruddermarketing.com/contact-us -->
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="icon" type="image/svg+xml" href="/nvflight-favicon.webp" />
+<meta name="generator" content={Astro.generator} />
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL} />
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<meta name="keywords" content={keywords} />
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(image, Astro.url)} />
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={new URL(image, Astro.url)} />
+<link rel="sitemap" href="/sitemap-index.xml" />
+<!-- Google Tag Manager -->
+<script type="text/partytown">
+  (function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+    var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l != "dataLayer" ? "&l=" + l : "";
+    j.async = true;
+    j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, "script", "dataLayer", "G-75X25DPQQC");
+</script>
+<!-- End Google Tag Manager -->
+<!-- Google tag (gtag.js) -->
+<script
+  type="text/partytown"
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-75X25DPQQC"></script>
+<script type="text/partytown">
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+
+  gtag("config", "G-75X25DPQQC");
+</script>
+<!-- Updated Schema for NVFlight Flight School -->
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "LocalBusiness",
+    "name": "NVFlight Flight School",
+    "description": "NVFlight Flight School offers professional flight training in Reno, NV. We provide private pilot training, instrument rating training, commercial pilot training, multi-engine training, and certified flight instructor courses at Falcon Field Airport.",
+    "keywords": "NVFlight Flight School, flight training Reno NV, flight school, pilot training, private pilot training, instrument rating training, commercial pilot training, multi-engine training, certified flight instructor, discovery flight, Falcon Field Airport",
+    "image": "/src/assets/nvflight-nobg.webp",
+    "logo": "/nvflight-favicon.webp",
+    "telephone": "+1 480-256-8355",
+    "email": "info@NVFlightco.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "4855 E Falcon Dr",
+      "addressLocality": "Reno",
+      "addressRegion": "AZ",
+      "addressCountry": "US",
+      "postalCode": "85215"
+    },
+    "currenciesAccepted": "USD",
+    "paymentAccepted": "Cash, Credit Card, Debit Card, Financing",
+    "areaServed": {
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": 33.4557,
+        "longitude": -111.7281
+      },
+      "geoRadius": 50000
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "100"
+    },
+    "url": "https://NVFlightco.com/",
+    "priceRange": "$$",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 33.4557,
+      "longitude": -111.7281
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Sunday",
+        "opens": "09:00",
+        "closes": "17:00"
+      }
+    ],
+    "makesOffer": {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "serviceType": "Flight Instruction"
+      },
+      "priceCurrency": "USD",
+      "price": "Varies"
+    },
+    "identifier": [
+      {
+        "@type": "PropertyValue",
+        "name": "Airport Code",
+        "value": "FFZ"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "ICAO Code",
+        "value": "KFFZ"
+      }
+    ],
+    "hasMap": "https://maps.app.goo.gl/CPLB59b8BbPALwtf7"
+  }
+</script>
