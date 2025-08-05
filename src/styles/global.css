@@ -7,6 +7,12 @@
   @apply text-center uppercase hover:scale-105 font-heading font-bold py-3 px-8 bg-primary-600 w-fit text-white rounded-sm hover:bg-primary-700 duration-100;
   }
 
+  .btn-gradient {
+    @apply text-center uppercase hover:scale-105 font-heading font-bold
+           py-3 px-8 bg-accent-700
+           w-fit text-white rounded-md duration-100;
+  }
+
   .btn-accent {
   @apply text-center hover:scale-105 font-heading uppercase font-medium py-3 px-6 bg-accent-600 w-fit text-accent-950 hover:text-muted-800 hover:bg-accent-600/80 duration-300 ring-2 hover:ring-accent-600 ring-accent-600;
   }

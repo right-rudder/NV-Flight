@@ -8,7 +8,7 @@ const homePage = {
 
     // top header
     header: {
-      imagePath: "/src/assets/hero-image.jpg",
+      imagePath: "/src/assets/hero-image-index.jpg",
       imageAlt: "NV Flight School Cessna 172 on the runway",
       headerH1: `WHERE DREAMS TAKE FLIGHT`,
       paragraph:
