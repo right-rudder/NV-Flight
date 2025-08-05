@@ -6,7 +6,7 @@ const programsSwiper = {
   cards: [
     {
       title: "Private Pilot",
-      imagePath: "/src/assets/two-pilot-smiling.webp",
+      imagePath: "/src/assets/plane_cherokee_ground.webp",
       imageAlt:
         "NVFlight Flight School student and flight instructor in a Cessna airplane",
       description:
@@ -15,8 +15,7 @@ const programsSwiper = {
     },
     {
       title: "Instrument Rating",
-      imagePath:
-        "/src/assets/montain-&-plane2.jpg",
+      imagePath: "/src/assets/plane_flying_cockpit.webp",
       imageAlt: "NVFlight Flight School Cirrus airplane instrument panel",
       description:
         "Navigate through clouds and the skies with precision through our Instrument Rating course.",
@@ -24,7 +23,7 @@ const programsSwiper = {
     },
     {
       title: "Commercial Pilot",
-      imagePath: "/src/assets/montain-&-plane2.jpg",
+      imagePath: "/src/assets/stutent_and_cfi_ground.webp",
       imageAlt:
         "NVFlight Flight School student and flight instructor in a Cessna airplane cockpit",
       description:
@@ -33,7 +32,7 @@ const programsSwiper = {
     },
     {
       title: "Multi-Engine Rating",
-      imagePath: "/src/assets/multi-pass.webp",
+      imagePath: "/src/assets/simulator.webp",
       imageAlt: "NVFlight Flight School student by a multi-engine airplane",
       description:
         "Master the art of multi engine flying and unlock new horizons in your aviation career.",
@@ -41,7 +40,7 @@ const programsSwiper = {
     },
     {
       title: "Certified Flight Instructor",
-      imagePath: "/src/assets/montain-&-plane2.jpg",
+      imagePath: "/src/assets/student_pilot_flying.webp",
       imageAlt:
         "NVFlight Flight School student and flight instructor in a Cessna airplane cockpit",
       description:
@@ -50,7 +49,7 @@ const programsSwiper = {
     },
     {
       title: "Certified Flight Instructor Instruments",
-      imagePath: "/src/assets/montain-&-plane2.jpg",
+      imagePath: "/src/assets/planes_ground_sunset.webp",
       imageAlt:
         "NVFlight Flight School student and flight instructor in a Cessna airplane cockpit",
       description:
@@ -59,7 +58,7 @@ const programsSwiper = {
     },
     {
       title: "Multi-Engine Instructor",
-      imagePath: "/src/assets/montain-&-plane2.jpg",
+      imagePath: "/src/assets/plane_wing_sunset.webp",
       imageAlt:
         "NVFlight Flight School student and flight instructor in a Cessna airplane cockpit",
       description:
