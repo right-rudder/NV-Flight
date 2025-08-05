@@ -10,8 +10,7 @@ const visitData = {
   // Top Header
   header: {
     stars: true,
-    imagePath:
-      "/src/assets/visitors-to-falcon-field-airport-NVFlight-flight-school-Reno-az-croped.webp",
+    imagePath: "/src/assets/montain-&-plane2.jpg",
     imageAlt: "NVFlight Flight School campus and facilities",
     headerH1: `Visit US`,
     paragraph: `Explore NVFlight Flight School and see firsthand our state-of-the-art facilities and training environment. Schedule a visit today and take the first step towards your aviation career.`,

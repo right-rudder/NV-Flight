@@ -10,7 +10,7 @@ const certifiedFlightInstructorData = {
   // Top Header
   header: {
     stars: true,
-    imagePath: "/src/assets/airline-pilot-courses-at-NVFlight-flight-school.webp",
+    imagePath: "/src/assets/montain-&-plane2.jpg",
     imageAlt:
       "NVFlight Flight School student and flight instructor in a Cessna airplane cockpit",
     headerH1: `Certified Flight <br>INSTRUCTOR (CFI)</span>`,

@@ -11,7 +11,7 @@ const aproxPilotTrainingCosts = {
     //top header
     header: {
       stars: true,
-      imagePath: "/src/assets/NVFlight-flight-school-happy-pilots-2.jpg",
+      imagePath: "/src/assets/montain-&-plane2.jpg",
       imageAlt:
         "NVFlight Flight School airplane landing at Falcon Field Airport in Reno, Arizona",
       headerH1: `Approximate<br>Training Costs`,

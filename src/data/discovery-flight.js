@@ -11,7 +11,7 @@ const discoveryFlight = {
     //top header
     header: {
       stars: true,
-      imagePath: "/src/assets/NVFlight-flight-school-discovery-flight.jpg",
+      imagePath: "/src/assets/montain-&-plane2.jpg",
       imageAlt: "NVFlight Flight School flight over Reno, NV",
       headerH1: `Discovery Flight`,
       paragraph:
@@ -33,33 +33,38 @@ const discoveryFlight = {
         {
           title: "What Happens After the Flight?",
           paragraphs: [
-            "So, you've completed your discovery flight and are ready to take the next step? NVFlight is here to help you take flight towards your aviation dreams and attain your goals. Let's dive into what happens after your first flight with us."
+            "So, you've completed your discovery flight and are ready to take the next step? NVFlight is here to help you take flight towards your aviation dreams and attain your goals. Let's dive into what happens after your first flight with us.",
           ],
         },
       ],
       nextSteps: [
         {
           title: "Create a Training Plan",
-          description: "Work with a certified flight instructor (CFI) to set a schedule, review the syllabus, and address any questions."
+          description:
+            "Work with a certified flight instructor (CFI) to set a schedule, review the syllabus, and address any questions.",
         },
         {
           title: "Complete Prerequisites",
-          description: "Get your medical exam, study materials, and start ground school to prepare for your written exam."
+          description:
+            "Get your medical exam, study materials, and start ground school to prepare for your written exam.",
         },
         {
           title: "Begin Flight Training",
-          description: "Start logging flight hours, attending ground school, and mastering essential piloting skills with your CFI."
+          description:
+            "Start logging flight hours, attending ground school, and mastering essential piloting skills with your CFI.",
         },
         {
           title: "Pass Your Checkride",
-          description: "Prepare with stage checks and ensure you're confident and ready to earn your pilot's license."
+          description:
+            "Prepare with stage checks and ensure you're confident and ready to earn your pilot's license.",
         },
         {
           title: "Continue Your Aviation Journey",
-          description: "Keep learning with advanced ratings like an instrument or commercial certificate. Whether for fun or career, we’re here to support you."
+          description:
+            "Keep learning with advanced ratings like an instrument or commercial certificate. Whether for fun or career, we’re here to support you.",
         },
       ],
-        button: {
+      button: {
         text: "Contact Us",
         link: "/contact",
       },

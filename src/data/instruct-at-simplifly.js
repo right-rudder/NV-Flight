@@ -10,8 +10,7 @@ const instructAtNVFlight = {
     //top header
     header: {
       stars: true,
-      imagePath:
-        "/src/assets/airline-pilot-courses-at-NVFlight-flight-school.webp",
+      imagePath: "/src/assets/montain-&-plane2.jpg",
       imageAlt:
         "NVFlight Flight School airplane landing at Falcon Field Airport in Reno, Arizona",
       headerH1: `Career Track<br>Pilots`,

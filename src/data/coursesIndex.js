@@ -12,7 +12,7 @@ const coursesIndex = {
     // Top Header
     header: {
       stars: true,
-      imagePath: "/src/assets/airline-pilot-courses-at-NVFlight-flight-school.webp",
+      imagePath: "/src/assets/montain-&-plane2.jpg",
       imageAlt:
         "Photograph of a NVFlight Flight School aircraft soaring over the Arizona landscape",
       headerH1: `Pilot <br>PROGRAMS</span>`,

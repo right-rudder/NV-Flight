@@ -10,7 +10,7 @@ const groundSchoolData = {
   // Top Header
   header: {
     stars: false,
-    imagePath: "/src/assets/NVFlight-flight-school-flying-over-arizona.jpg",
+    imagePath: "/src/assets/montain-&-plane2.jpg",
     imageAlt: "NVFlight students participating in a ground school session",
     headerH1: `Ground School at <br>NVFlight`,
     paragraph: `Join our in-person ground school sessions in Reno, NV—open to anyone who wants to sharpen their aviation knowledge. Whether you're training at NVFlight, another school, or haven’t started flight training yet, our $50, 3-hour sessions are a great way to build your confidence and understanding. Each session is led by our instructor Dolly Woodhall and covers essential topics for every student pilot.`,
