@@ -4,7 +4,7 @@ import groundSchoolSessions from "../data/sessions";
 
 <section class="py-20 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="text-4xl font-title font-bold text-sky-900 mb-10">Ground School Sessions</h2>
+    <h2 class="text-4xl font-title font-bold text-accent-900 mb-10">Ground School Sessions</h2>
 
     <div id="session-container"></div>
   </div>
@@ -26,11 +26,11 @@ import groundSchoolSessions from "../data/sessions";
 
       const section = document.createElement("section");
       section.innerHTML = `
-        <h3 class="text-2xl font-semibold text-sky-800 mb-4">${title}</h3>
+        <h3 class="text-2xl font-semibold text-accent-800 mb-4">${title}</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 ${isPast ? '' : 'mb-12'}">
           ${list.map(session => `
             <div class="border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition duration-200 ${isPast ? 'opacity-70' : ''}">
-              <h3 class="text-xl ${isTBD ? 'font-bold text-sky-800' : isPast ? 'font-semibold text-gray-600' : 'font-semibold text-sky-800'} mb-1">
+              <h3 class="text-xl ${isTBD ? 'font-bold text-accent-800' : isPast ? 'font-semibold text-gray-600' : 'font-semibold text-accent-800'} mb-1">
                 ${isTBD ? session.topics.join(" + ") : session.date}
               </h3>
               <p class="${isPast ? 'text-gray-500' : 'text-gray-600'} mb-2">

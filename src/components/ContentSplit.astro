@@ -17,7 +17,7 @@ const { content } = Astro.props;
     }
     {
       content.heading && (
-        <h2 class="mx-auto mb-6 text-4xl lg:text-6xl lg:max-w-3xl font-title text-center font-bold tracking-tight text-sky-950">
+        <h2 class="mx-auto mb-6 text-4xl lg:text-6xl lg:max-w-3xl font-title text-center font-bold tracking-tight text-accent-950">
           {content.heading}
         </h2>
       )
@@ -61,7 +61,7 @@ const { content } = Astro.props;
                   />
                 </svg>
                 <span class="leading-snug">
-                  <strong class="font-bold text-sky-900 tracking-tight uppercase">
+                  <strong class="font-bold text-accent-900 tracking-tight uppercase">
                     {bullet.title}
                   </strong>{" "}
                   {bullet.descriptions.map((dec) => (

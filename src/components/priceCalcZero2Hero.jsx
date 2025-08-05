@@ -53,13 +53,13 @@ const PriceCalcZero2Hero = () => {
         priceCplSolo +
         priceCfi +
         priceCfii +
-        priceMe,
+        priceMe
     );
   }, []);
 
   return (
     <section id="cost-calc" className="overflow-hidden">
-      <div className="bg-sky-100 py-16 sm:py-32">
+      <div className="bg-accent-100 py-16 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto w-full lg:mx-0">
             <h3 className="section-upper">
@@ -73,7 +73,7 @@ const PriceCalcZero2Hero = () => {
             <div className="relative group w-full lg:w-1/2">
               <div
                 aria-hidden="true"
-                className="absolute top-0 w-full h-full rounded-2xl bg-gradient-to-br from-sky-200 to-sky-300 shadow-lg transition duration-500 group-hover:scale-105 transform-gpu"
+                className="absolute top-0 w-full h-full rounded-2xl bg-gradient-to-br from-accent-200 to-accent-300 shadow-lg transition duration-500 group-hover:scale-105 transform-gpu"
               ></div>
               <div className="relative p-5 pt-12 md:p-8 md:pl-8 md:rounded-r-2xl lg:pl-10 lg:p-12">
                 <div className="mt-2 flex justify-between gap-6 w-full">
@@ -244,7 +244,7 @@ const PriceCalcZero2Hero = () => {
             <div className="relative z-10 min-h-[screen-1/2] m-0 lg:-mx-4 group w-full lg:w-3/5 lg:max-w-3/5">
               <div
                 aria-hidden="true"
-                className="absolute top-0 w-full h-full rounded-2xl bg-gradient-to-b from-sky-200 to-sky-100 shadow-xl transition duration-500 group-hover:scale-105 transform-gpu"
+                className="absolute top-0 w-full h-full rounded-2xl bg-gradient-to-b from-accent-200 to-accent-100 shadow-xl transition duration-500 group-hover:scale-105 transform-gpu"
               ></div>
               <div className="relative p-6 space-y-6 lg:p-8">
                 <div className="p-6 lg:p-8">
@@ -297,7 +297,7 @@ const PriceCalcZero2Hero = () => {
                     )}
                     {instrument && (
                       <li className="space-x-2 flex flex-nowrap align-middle items-center">
-                        <span className="text-sky-500 font-semibold">
+                        <span className="text-accent-500 font-semibold">
                           <FaCheckCircle className="text-green-600 text-xl" />
                         </span>
                         <span>Instrument Rating</span>
@@ -305,7 +305,7 @@ const PriceCalcZero2Hero = () => {
                     )}
                     {cplSolo && (
                       <li className="space-x-2 flex flex-nowrap align-middle items-center">
-                        <span className="text-sky-500 font-semibold">
+                        <span className="text-accent-500 font-semibold">
                           <FaCheckCircle className="text-green-600 text-xl" />
                         </span>
                         <span>Commercial Pilot Certificate</span>
@@ -313,7 +313,7 @@ const PriceCalcZero2Hero = () => {
                     )}
                     {cfi && (
                       <li className="space-x-2 flex flex-nowrap align-middle items-center">
-                        <span className="text-sky-500 font-semibold">
+                        <span className="text-accent-500 font-semibold">
                           <FaCheckCircle className="text-green-600 text-xl" />
                         </span>
                         <span>Certified Flight Instructor</span>
@@ -321,7 +321,7 @@ const PriceCalcZero2Hero = () => {
                     )}
                     {cfii && (
                       <li className="space-x-2 flex flex-nowrap align-middle items-center">
-                        <span className="text-sky-500 font-semibold">
+                        <span className="text-accent-500 font-semibold">
                           <FaCheckCircle className="text-green-600 text-xl" />
                         </span>
                         <span>Certified Flight Instructor-Instrument</span>
@@ -329,7 +329,7 @@ const PriceCalcZero2Hero = () => {
                     )}
                     {me && (
                       <li className="space-x-2 flex flex-nowrap align-middle items-center">
-                        <span className="text-sky-500 font-semibold">
+                        <span className="text-accent-500 font-semibold">
                           <FaCheckCircle className="text-green-600 text-xl" />
                         </span>
                         <span>Multi-Engine Rating</span>
@@ -468,7 +468,7 @@ const PriceCalcZero2Hero = () => {
             <div className="relative group w-full lg:w-1/2">
               <div
                 aria-hidden="true"
-                className="absolute top-0 w-full h-full rounded-2xl bg-gradient-to-l from-sky-200 to-sky-300 shadow-lg transition duration-500 group-hover:scale-105 transform-gpu"
+                className="absolute top-0 w-full h-full rounded-2xl bg-gradient-to-l from-accent-200 to-accent-300 shadow-lg transition duration-500 group-hover:scale-105 transform-gpu"
               ></div>
               <div className="relative p-5 pt-12 md:p-8 md:pl-8 md:rounded-r-2xl lg:pr-10 lg:p-12">
                 <fieldset>
