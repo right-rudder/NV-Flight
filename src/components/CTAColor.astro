@@ -4,7 +4,7 @@ import ImageComp from "./ImageComp.astro";
 ---
 
 <section
-  class="relative lg:mt-0 h-screen lg:h-[81vh] -z-0 bg-gray-800 text-muted-50 flex flex-col items-center justify-center overflow-hidden"
+  class="relative isolate lg:mt-0 h-screen -z-0 bg-gray-800 text-muted-50 flex flex-col items-center justify-center overflow-hidden py-12"
 >
   <div
       class="absolute inset-0 bg-muted-950/50 -z-10 blur-3xl"
@@ -13,17 +13,20 @@ import ImageComp from "./ImageComp.astro";
   <ImageComp
     imagePath={content.imagePath}
     imageAlt={content.imageAlt}
-    styles="absolute inset-0 -z-0 object-cover object-center w-full h-full animate-slow-zoom"
+    styles="absolute inset-0 size-full object-cover object-center md:object-center -z-20"
   />
   <div
     class="text-white py-12 mt-20 lg:mt-0 text-left z-10 flex flex-col items-start gap-4 px-5 h-full lg:pt-28 justify-center"
   >
+    <p class="text-3xl lg:text-4xl font-sans font-bold tracking-wide text-accent-600">
+      {content.paragraph1}
+    </p>
     <h3
-      class="text-5xl md:text-6xl lg:text-7xl text-left md:max-w-3xl lg:max-w-5xl lg:leading-[3.3rem] font-title font-black uppercase lg:tracking-tight text-accent-950"
+      class="text-5xl md:text-6xl lg:text-7xl text-left md:max-w-3xl lg:max-w-5xl font-title font-black uppercase lg:tracking-tight text-muted-50"
       set:html={content.headerH1}
     />
     <p
-      class="text-base lg:text-2xl mt-3 font-sans font-semibold tracking-wide text-gray-700 text-left max-w-6xl"
+      class="text-base lg:text-2xl mt-3 font-sans font-semibold tracking-wide text-muted-50 text-left max-w-6xl"
       set:html={content.paragraph}
     />
     <div
