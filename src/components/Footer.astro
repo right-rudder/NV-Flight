@@ -100,15 +100,15 @@ const { pathname } = Astro.url;
           <div class="flex justify-center items-center">
             {
             LOCATIONS.map((location, index) => (
-              <div class="text-right lg:text-center bg-accent-950/20 rounded p-4 flex flex-col justify-between">
+              <div class="text-right lg:text-center bg-primary-800/80 rounded p-4 flex flex-col justify-between pt-3 pb-12 px-6">
                 <p
-                  class="font-bold tracking-wide text-base text-accent-900 leading-none"
+                  class="font-bold tracking-wide text-md uppercase text-accent-200 leading-none pb-2"
                   set:html={location.title}
                 />
                 <a
                   href={location.gMaps}
                   target="_blank"
-                  class="space-y-1 py-1 font-sans2 hover:underline transition-colors text-sm lg:text-base duration-300 text-gray-900 hover:text-accent-950"
+                  class="space-y-1 py-1 font-sans2 hover:underline transition-colors text-sm lg:text-base duration-300 text-accent-100 hover:text-accent-950"
                 >
                   <>
                     <span class="">{location.address}</span>
@@ -122,7 +122,7 @@ const { pathname } = Astro.url;
                   aria-labelledby="Call Us Now"
                   title="Call Us Now"
                   href={`tel:${location.phone}`}
-                  class="text-right py-1 text-sm lg:text-base hover:underline justify-end lg:justify-center font-sans2 lg:text-center transition-colors duration-300 text-gray-900 hover:text-accent-950 flex items-center align-middle"
+                  class="text-right py-1 text-sm lg:text-base hover:underline justify-end lg:justify-center font-sans2 lg:text-center transition-colors duration-300 text-accent-100 hover:text-accent-950 flex items-center align-middle"
                 >
                   <FaPhoneSquareAlt className="mr-2 text-lg" />
                   {location.phone}
