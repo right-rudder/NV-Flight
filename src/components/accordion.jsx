@@ -18,9 +18,9 @@ const Accordion = ({ faq, toggled, onShow, index }) => {
             {faq.title}
           </p>
           {toggled ? (
-            <FaMinus className="mr-3 pointer-events-none text-sky-700/50" />
+            <FaMinus className="mr-3 pointer-events-none text-muted-700/50" />
           ) : (
-            <FaPlus className="mr-3 pointer-events-none text-sky-700/50" />
+            <FaPlus className="mr-3 pointer-events-none text-muted-700/50" />
           )}
         </div>
       </dt>

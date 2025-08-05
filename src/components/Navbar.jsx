@@ -85,7 +85,7 @@ const Navbar = ({ pathname }) => {
               className="flex items-center duration-200 hover:brightness-110"
             >
               <img
-                src="/src/assets/nvflight-nobg.webp"
+                src="/nvflight-nobg.webp"
                 alt="NV Flight School Logo"
                 className={`${
                   navBar || openMobile ? "h-16 mt-2" : "h-20 mt-3"

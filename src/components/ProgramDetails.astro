@@ -12,7 +12,7 @@ const faqs = program.faqs;
   <div class="w-full text-center">
     {
       program.upperHeading && (
-        <h3 class="mx-auto uppercase text-lg lg:text-xl max-w-3xl font-sans font-bold tracking-tight text-sky-600">
+        <h3 class="mx-auto uppercase text-lg lg:text-xl max-w-3xl font-sans font-bold tracking-tight text-accent-600">
           {program.upperHeading}
         </h3>
       )
@@ -71,7 +71,7 @@ const faqs = program.faqs;
             <ul class="space-y-3">
               {program.addons.map((addon) => (
                 <li class="bg-white/70 text-center md:text-left py-8 px-7 rounded-md shadow-sm hover:scale-105 hover:shadow-md transition-all duration-300">
-                  <h4 class="font-semibold text-xl text-sky-700">
+                  <h4 class="font-semibold text-xl text-muted-700">
                     {addon.title}
                     <span class="text-sm text-gray-500">{addon.duration}</span>
                   </h4>

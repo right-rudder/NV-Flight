@@ -84,11 +84,11 @@ const posts = (await getCollection("blog")).sort(
                 alt={post.data.title}
                 class="absolute inset-0 -z-10 h-full w-full object-cover group-hover:scale-110 group-hover:brightness-125 duration-200"
               />
-              <div class="absolute inset-0 -z-10 bg-gradient-to-t from-slate-950 via-slate-900/20 group-hover:bg-sky-600/60 duration-200" />
+              <div class="absolute inset-0 -z-10 bg-gradient-to-t from-slate-950 via-slate-900/20 group-hover:bg-accent-600/60 duration-200" />
               <div class="absolute inset-0 -z-10 ring-1 ring-inset ring-sky-400/10" />
 
               <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm leading-6 text-gray-100">
-                <time datetime="2020-03-16" class="mr-8 text-sky-600">
+                <time datetime="2020-03-16" class="mr-8 text-accent-600">
                   <FormattedDate date={post.data.pubDate} />
                 </time>
                 <div class="-ml-4 flex items-center gap-x-4">
