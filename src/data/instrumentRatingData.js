@@ -11,7 +11,7 @@ const instrumentRatingData = {
   header: {
     stars: true,
     imagePath:
-      "/src/assets/flying-a-multi-engine-plane-at-NVFlight-flight-school-Reno-az.jpg",
+      "/src/assets/montain-&-plane2.jpg",
     imageAlt: "NVFlight Flight School Cirrus airplane instrument panel",
     headerH1: `Instrument <br>RATING</span>`,
     paragraph: `Advance your skills with NVFlight Flight School's Instrument Rating program. Learn to navigate through clouds, low visibility, and controlled airspace with confidence.`,

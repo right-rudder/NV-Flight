@@ -10,7 +10,7 @@ interface Props {
 const {
   title = SITE_TITLE,
   description = SITE_DESCRIPTION,
-  logoUrl = "/nvflight-nobg.webp"
+  logoUrl = "/src/assets/nvflight-nobg.webp"
 } = Astro.props;
 
 const fullLogoUrl = new URL(logoUrl, Astro.site?.toString() || "https://NVFlightco.com").toString();

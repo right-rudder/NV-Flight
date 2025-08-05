@@ -68,8 +68,8 @@ const Navbar = ({ pathname }) => {
       <div
         className={`${
           navBar || openMobile
-            ? "transition-colors duration-700 ease-in-out bg-gradient-to-b from-muted-900 via-primary-900 to-transparent font-bold"
-            : "bg-muted-900 shadow-md"
+            ? "bg-muted-900 shadow-md"
+            : "transition-colors duration-700 ease-in-out bg-gradient-to-b from-muted-900 via-primary-950 to-transparent font-bold pb-6"
         } text-accent-100`}
       >
         <div className="px-4 lg:px-12 mx-auto">
@@ -85,7 +85,7 @@ const Navbar = ({ pathname }) => {
               className="flex items-center duration-200 hover:brightness-110"
             >
               <img
-                src="/nvflight-nobg.webp"
+                src="/src/assets/nvflight-nobg.webp"
                 alt="NV Flight School Logo"
                 className={`${
                   navBar || openMobile ? "h-16 mt-2" : "h-20 mt-3"
@@ -208,7 +208,7 @@ const Navbar = ({ pathname }) => {
         <div className="text-center pb-8">
           <a href="/">
             <img
-              src="/nvflight-nobg.webp"
+              src="/src/assets/nvflight-nobg.webp"
               alt="NV Flight Logo"
               className="mx-auto h-20 drop-shadow-md"
             />

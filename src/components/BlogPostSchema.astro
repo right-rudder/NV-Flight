@@ -28,7 +28,7 @@ const publishDateIso = new Date(publishDate).toISOString();
 const updateDateIso = updateDate ? new Date(updateDate).toISOString() : publishDateIso;
 
 // Image with fallback
-const articleImage = featuredImage ? new URL(featuredImage, Astro.url).toString() : new URL("/nvflight-nobg.webp", Astro.url).toString();
+const articleImage = featuredImage ? new URL(featuredImage, Astro.url).toString() : new URL("/src/assets/nvflight-nobg.webp", Astro.url).toString();
 ---
 
 <script type="application/ld+json" set:html={JSON.stringify({
