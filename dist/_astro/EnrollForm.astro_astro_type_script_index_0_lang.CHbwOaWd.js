@@ -1,0 +1,1 @@
+document.getElementById("email").addEventListener("input",function(){const e=this.value;/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/.test(e)?this.setCustomValidity(""):this.setCustomValidity("Please enter a valid email address.")});

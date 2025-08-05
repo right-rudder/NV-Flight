@@ -12,6 +12,7 @@ export const KEYWORDS =
 
 export const OG_IMAGE = "/nvflight-nobg.webp";
 
+
 export const COMPANY_NAME = "NVFlight Flight School";
 
 export const CITY_STATE = "Reno, NV";

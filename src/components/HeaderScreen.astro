@@ -37,7 +37,7 @@ const { content } = Astro.props;
         content.buttons.map((btn) => (
           <a
             href={btn.link}
-            class={`${btn.primary ? "btn-gradient" : "btn-accent"} w-full md:w-auto`}
+            class={`${btn.primary ? "btn-accent" : "btn-accent"} w-full md:w-auto`}
           >
             <span class="drop-shadow-sm">{btn.name}</span>
           </a>
