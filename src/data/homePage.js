@@ -145,56 +145,6 @@ const homePage = {
           body: "A great place to learn how to fly and rent reasonably priced single-engine aircraft. Cherie at the office is amazing. Planes are well-maintained and ready to fly every time I go for a rental. Thank you, NV Flight!",
           author: "Fernando Lista",
         },
-        {
-          title: "Supportive and Skilled Instructors",
-          body: "Great staff and excellent pilots at NV Flight. I recommend them very highly. I love flying with them every opportunity I have. Cherie will help get you scheduled. Highly recommend!",
-          author: "Aerial Imaging",
-        },
-        {
-          title: "Welcoming and Goal-Oriented Environment",
-          body: "Great place to learn and grow your skills. The staff is friendly and accommodating with a true passion to help pilots achieve their goals.",
-          author: "Matthew Owens",
-        },
-        {
-          title: "Outstanding Instructors and Staff",
-          body: "Went through my private pilot training with NV Flight. Outstanding instructors and staff who really care about your success.",
-          author: "Jordan West",
-        },
-        {
-          title: "A More Affordable School with a Great Curriculum",
-          body: "Awesome school! I’ve been flying here for a little over a year and have nothing but good to say. It is a more affordable school than most. They are also flexible and work with my schedule. I’m taking my commercial checkride in a few days, and I feel prepared for each stage of training.",
-          author: "Jared H.",
-        },
-        {
-          title: "One of the Best Flight Schools I’ve Trained At",
-          body: "After several years and multiple flight schools, NV Flight School succeeded where everyone else failed. They found discrepancies in my logbook and insurance that previous schools missed. Thanks to their thorough staff, those mistakes were caught and fixed before becoming a problem.",
-          author: "David D.",
-        },
-        {
-          title: "Highly Recommended for Serious Pilots",
-          body: "Training at NV Flight School has been a fantastic experience. The instructors are knowledgeable, patient, and truly invested in student success. Aircraft are well-maintained, and the operation runs seamlessly. Pricing is fair and transparent.",
-          author: "Tanner G.",
-        },
-        {
-          title: "Best School for Career-Oriented Pilots",
-          body: "The perfect flight school if you want to make a career out of aviation! The instructors and administrators truly make you feel like they care and just want to see you succeed.",
-          author: "Paul B.",
-        },
-        {
-          title: "Flexibility That Fits Any Schedule",
-          body: "NV Flight School is a great school. I appreciated the flexibility they provide, allowing me to work full-time while earning my PPL at the same time. Cannot thank my instructor enough for all the hard work she put into getting me ready for my checkride!",
-          author: "Josh A.",
-        },
-        {
-          title: "Supportive and Encouraging Student Environment",
-          body: "Fantastic school! Great instructors and very affordable! I feel fortunate to find a school that allows me to work and learn aviation simultaneously. The student environment is healthy—not competitive, and everyone encourages each other.",
-          author: "Kathryn W.",
-        },
-        {
-          title: "Exceptional Instructors and Training",
-          body: "NV Flight School is top-notch! I completed my CFI with them, and they helped me feel confident in my teaching. The instructors have a real passion for aviation—if you want to understand aviation deeply, this is the place to go!",
-          author: "Zach F.",
-        },
       ],
     },
   },
