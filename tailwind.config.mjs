@@ -5,17 +5,50 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Open Sans Variable", ...defaultTheme.fontFamily.sans],
-        title: ["Kanit", ...defaultTheme.fontFamily.sans],
-        stock: [
-          "ui-sans-serif",
-          "system-ui",
-          "sans-serif",
-          "Apple Color Emoji",
-          "Segoe UI Emoji",
-          "Segoe UI Symbol",
-          "Noto Color Emoji",
-        ],
+        sans: ["Inter", ...defaultTheme.fontFamily.sans],
+        heading: ["Exo 2", ...defaultTheme.fontFamily.sans],
+        display: ["Orbitron", ...defaultTheme.fontFamily.sans],
+      },
+      colors: {
+        muted: {
+          50: "#fafafa",
+          100: "#f4f4f5",
+          200: "#e4e4e7",
+          300: "#d4d4d8",
+          400: "#a1a1aa",
+          500: "#71717a",
+          600: "#52525b",
+          700: "#3f3f46",
+          800: "#27272a",
+          900: "#18181b",
+          950: "#09090b",
+        },
+        primary: {
+          50: "#E8F6F2",
+          100: "#D1ECE5",
+          200: "#A3D9CB",
+          300: "#75C5B1",
+          400: "#47B197",
+          500: "#2ECC71",
+          600: "#27A05C",
+          700: "#1E7444",
+          800: "#164D2E",
+          900: "#0F2818",
+          950: "#08120C",
+        },
+        accent: {
+          50: "#E6F9F7",
+          100: "#CCF3EF",
+          200: "#99E7DE",
+          300: "#66DBCD",
+          400: "#33CFBC",
+          500: "#38B2AC",
+          600: "#319187",
+          700: "#256A63",
+          800: "#1A4842",
+          900: "#0E2421",
+          950: "#07110F",
+        },
       },
       minHeight: {
         "1/2": "50vh",
@@ -27,26 +60,11 @@ export default {
         "3/4": "75vh",
       },
       keyframes: {
-        zoom: {
-          "0%": { transform: "scale(1)" },
-          "100%": { transform: "scale(1.2)" },
-        },
-        "fade-from-left": {
-          "0%": { opacity: 0, transform: "translateX(-15px)" },
-          "100%": { opacity: 1, transform: "translateX(0)" },
-        },
-        "fade-from-right": {
-          "0%": { opacity: 0, transform: "translateX(15px)" },
-          "100%": { opacity: 1, transform: "translateX(0)" },
-        },
-        "fade-from-top": {
-          "0%": { opacity: 0, transform: "translateY(-15px)" },
-          "100%": { opacity: 1, transform: "translateY(0)" },
-        },
-        "fade-from-bottom": {
-          "0%": { opacity: 0, transform: "translateY(15px)" },
-          "100%": { opacity: 1, transform: "translateY(0)" },
-        },
+        zoom: { "0%": { transform: "scale(1)" }, "100%": { transform: "scale(1.2)" } },
+        "fade-from-left": { "0%": { opacity: 0, transform: "translateX(-15px)" }, "100%": { opacity: 1, transform: "translateX(0)" } },
+        "fade-from-right": { "0%": { opacity: 0, transform: "translateX(15px)" }, "100%": { opacity: 1, transform: "translateX(0)" } },
+        "fade-from-top": { "0%": { opacity: 0, transform: "translateY(-15px)" }, "100%": { opacity: 1, transform: "translateY(0)" } },
+        "fade-from-bottom": { "0%": { opacity: 0, transform: "translateY(15px)" }, "100%": { opacity: 1, transform: "translateY(0)" } },
       },
       animation: {
         "fade-left": "fade-from-left 0.9s ease-out",

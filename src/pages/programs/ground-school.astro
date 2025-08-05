@@ -1,0 +1,109 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import HeaderSmall from "../../components/HeaderSmall.astro";
+import GroundSchoolSessions from "../../components/GroundSchoolSessions.astro";
+import CTAContact from "../../components/CTAContact.astro";
+import contactCTA from "../../data/contactCTA";
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+import pageData from "../../data/ground-school.js";
+import groundClassroom from "../../assets/happy-visitors-at-NVFlight-flight-school-in-Reno-arizona-for-pilot-training-cropped.webp";
+import pilotStudying from "../../assets/pilot_with_checkride_pass.webp";
+
+const formURL = "https://www.flightcircle.com/shop/f97c5d7539a7/4000020629";
+---
+<BaseLayout
+  siteTitle={pageData.pageTitle}
+  siteDescription={pageData.pageDescription}
+  keywords={pageData.pageKeywords}
+>
+  <!-- HEADER -->
+  <HeaderSmall content={pageData.header} />
+  <div id="form" class="scroll-my-4"></div>
+
+  <section class="bg-white py-24">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <!-- Left Content Block -->
+      <div class="lg:pr-8">
+        <h2 class="text-4xl font-title font-bold text-sky-900 mb-6">
+          Join NVFlight’s In-Person Ground School
+        </h2>
+        <p class="text-lg text-gray-700 mb-6">
+          Whether you’re just getting started or looking to sharpen your skills, our 3-hour ground school sessions give you the knowledge you need to succeed as a pilot. Only $50 per class and open to all student pilots — even if you train elsewhere.
+        </p>
+        <ul class="text-gray-700 space-y-2 list-disc list-inside">
+          <li>Led by experienced instructor Dolly</li>
+          <li>Focused 3-hour in-person classes</li>
+          <li>Key FAA topics like Weather, Airspace, Systems, and more</li>
+          <li>Located in Reno, NV</li>
+        </ul>
+
+        <div class="w-full h-full order-last lg:order-first my-10">
+          <Image src={groundClassroom} alt="Certified flight instructor Dolly Woodhall preparing for class" class="rounded-xl shadow-lg w-full h-auto object-cover" />
+        </div>
+
+        <h3 class="text-3xl font-title font-bold text-sky-900 mb-4">
+          Who Can Join?
+        </h3>
+        <p class="text-lg text-gray-700 mb-6">
+          You don’t need to be a NVFlight student to participate. These sessions are perfect for students from other flight schools or future pilots who haven’t committed to a program yet.
+        </p>
+        <ul class="text-gray-700 space-y-2 list-disc list-inside">
+          <li>No enrollment required</li>
+          <li>Clear, easy-to-follow instruction</li>
+          <li>Open to all levels of experience</li>
+        </ul>
+      </div>
+
+      <!-- Right: Form Embed -->
+      <div class="w-full h-full">
+        <iframe
+          src={formURL}
+          class="w-full h-full min-h-[32rem] rounded-lg shadow-lg"
+          id="flight-circle-embed"
+          title="Flight Circle Ground School Registration"
+        ></iframe>
+        <a
+          href={formURL}
+          class="text-blue-600 hover:underline mt-4 block text-sm"
+          {...(formURL.includes("https") && { target: "_blank", rel: "noopener noreferrer" })}
+        >
+          Not working? Click here to sign up manually.
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-sky-500 py-24">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center align-middle">
+      <!-- Left Image -->
+      <div class="w-full h-full order-last lg:order-first">
+        <Image src={pilotStudying} alt="Certified flight instructor Dolly Woodhall preparing for class" class="rounded-xl shadow-lg w-full h-auto object-cover" />
+      </div>
+
+      <!-- Right Text Block -->
+      <div>
+        <h2 class="text-4xl font-title font-bold text-sky-950 mb-6">
+          Meet Your Instructor: Dolly Woodhall
+        </h2>
+        <p class="text-lg text-gray-100 mb-6">
+          Dolly Woodhall is a Certified Flight Instructor (CFI) with a passion for helping students truly understand aviation. With years of flying and teaching experience, Dolly brings a calm, clear, and encouraging approach to every session.
+        </p>
+        <p class="text-lg text-gray-100 mb-6">
+          She’s trained dozens of pilots at all levels and is known for breaking down complex topics into simple, easy-to-grasp lessons. Whether you're preparing for your checkride or just starting ground school, you'll be in good hands with Dolly leading the class.
+        </p>
+        <ul class="text-gray-100 space-y-2 list-disc list-inside">
+          <li>Certified Flight Instructor (CFI)</li>
+          <li>Experienced teaching both beginners and advanced students</li>
+          <li>Supportive, approachable, and detail-oriented</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div id="schedule" class="scroll-my-8"></div>
+  <GroundSchoolSessions />
+
+  <CTAContact content={contactCTA} />
+</BaseLayout>

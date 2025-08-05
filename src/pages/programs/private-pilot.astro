@@ -1,0 +1,34 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import HeaderSmall from "../../components/HeaderSmall.astro";
+import CTAColor from "../../components/CTAColor.astro";
+import flyWithUsCTA from "../../data/fly-with-us-cta";
+import ProgramDetails from "../../components/ProgramDetails.astro";
+import programData from "../../data/privatePilotData.js";
+import CourseSchema from "../../components/CourseSchema.astro";
+import BreadcrumbSchema from "../../components/BreadcrumbSchema.astro";
+
+const breadcrumbItems = [
+  { name: "Home", item: "/" },
+  { name: "Programs", item: "/programs" },
+  { name: "Private Pilot License", item: "/programs/private-pilot" },
+];
+---
+
+<BaseLayout
+  siteTitle={programData.pageTitle}
+  siteDescription={programData.pageDescription}
+  keywords={programData.pageKeywords}
+>
+  <HeaderSmall content={programData.header} />
+  <ProgramDetails program={programData.details} />
+  <CTAColor content={flyWithUsCTA} />
+
+  <CourseSchema
+    title={programData.pageTitle}
+    description={programData.pageDescription}
+    courseWorkload="Approximately 55-60 hours of flight time and ground instruction"
+    programDuration="3-6 months on average"
+  />
+  <BreadcrumbSchema items={breadcrumbItems} />
+</BaseLayout>

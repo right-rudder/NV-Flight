@@ -1,0 +1,62 @@
+---
+import groundSchoolSessions from "../data/sessions";
+---
+
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-4xl font-title font-bold text-sky-900 mb-10">Ground School Sessions</h2>
+
+    <div id="session-container"></div>
+  </div>
+
+  <script type="module" define:vars={{ groundSchoolSessions }}>
+    const sessions = groundSchoolSessions;
+
+    const now = new Date();
+    const parseDate = (dateStr) => dateStr === "TBD" ? null : new Date(dateStr);
+
+    const scheduled = sessions.filter((s) => parseDate(s.date) && parseDate(s.date) > now);
+    const past = sessions.filter((s) => parseDate(s.date) && parseDate(s.date) <= now).sort((a, b) => parseDate(b.date) - parseDate(a.date));
+    const upcoming = sessions.filter((s) => !parseDate(s.date));
+
+    const container = document.getElementById("session-container");
+
+    const renderSessions = (title, list, isTBD = false, isPast = false) => {
+      if (!list.length) return;
+
+      const section = document.createElement("section");
+      section.innerHTML = `
+        <h3 class="text-2xl font-semibold text-sky-800 mb-4">${title}</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 ${isPast ? '' : 'mb-12'}">
+          ${list.map(session => `
+            <div class="border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition duration-200 ${isPast ? 'opacity-70' : ''}">
+              <h3 class="text-xl ${isTBD ? 'font-bold text-sky-800' : isPast ? 'font-semibold text-gray-600' : 'font-semibold text-sky-800'} mb-1">
+                ${isTBD ? session.topics.join(" + ") : session.date}
+              </h3>
+              <p class="${isPast ? 'text-gray-500' : 'text-gray-600'} mb-2">
+                ${isTBD ? 'Date: <span class="font-semibold">TBD</span>' : session.time}
+              </p>
+              ${!isTBD ? `
+              <ul class="list-disc list-inside ${isPast ? 'text-gray-500' : 'text-gray-700'} text-sm mb-4">
+                ${session.topics.map(t => `<li>${t}</li>`).join("")}
+              </ul>` : `
+              <p class="text-gray-600 text-sm mb-4">Time: <span class="font-semibold">TBD</span></p>`}
+              <span class="inline-block px-3 py-1 text-sm rounded-full ${isPast ? 'bg-gray-100 text-gray-600' : isTBD ? 'bg-yellow-100 text-yellow-800' : 'bg-green-100 text-green-800'}">
+                ${session.status}
+              </span>
+              ${!isTBD && !isPast ? `
+              <a href="https://www.flightcircle.com/shop/f97c5d7539a7/4000020629" target="_blank" class="block mt-3 text-center text-white bg-sky-600 hover:bg-sky-700 px-4 py-2 rounded text-sm font-medium">
+                Register – $50
+              </a>` : ''}
+            </div>
+          `).join("")}
+        </div>
+      `;
+      container.appendChild(section);
+    };
+
+    renderSessions("Scheduled Sessions", scheduled);
+    renderSessions("To Be Scheduled", upcoming, true);
+    renderSessions("Past Sessions", past, false, true);
+  </script>
+</section>

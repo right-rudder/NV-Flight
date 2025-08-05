@@ -1,0 +1,181 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProgramSwiper from "../components/ProgramSwiper.astro";
+import CTAColor from "../components/CTAColor.astro";
+import programsSwiper from "../data/programSwiper";
+import flyWithUsCTA from "../data/fly-with-us-cta";
+import ImageComp from "../components/ImageComp.astro";
+import HeaderSmall from "../components/HeaderSmall.astro";
+import CTAVideo from "../components/CTAVideo.astro";
+import videoList from "../data/videos.js";
+
+const data = {
+  pageTitle: "Financing | NVFlight Flight School, Reno, NV",
+  pageDescription:
+    "NVFlight Flight School  offers flight training in Reno, NV. We offer private pilot training, instrument rating training, commercial pilot training, and more. Contact us today!",
+  pageKeywords:
+    "flight training, flight school, pilot training, private pilot training, instrument rating training, commercial pilot training, Reno, NV",
+  header: {
+    imagePath: "/src/assets/pilot_thumbs.png",
+    imageAlt: "NVFlight Flight School Team at the runway",
+    headerH1: `Financing for Pilot Training`,
+    paragraph:
+      "We are committed to helping you achieve your aviation dreams, which is why we have partnered with reputable financing companies to offer you convenient options tailored to your needs.",
+    buttons: [
+      {
+        name: "Start Your Journey",
+        link: "/enroll-at-NVFlight",
+        primary: true,
+      },
+      {
+        name: "Book a Discovery Flight",
+        link: "/discovery-flight",
+        primary: true,
+      },
+    ],
+  },
+};
+
+// Video related logic
+const currentVideo = videoList.find((v: { description: string }) =>
+  v.description?.trim().toLowerCase() === 'financing info'
+) || null;
+const dataForVideo = {
+  header: 'How we can help you fund your training',
+  text: 'We understand that financing your flight training can be a significant concern. That’s why we’ve partnered with Stratus Financial, Flight Training Finance, and AOPA to provide you with tailored financing solutions that make your dream of becoming a pilot more accessible than ever.',
+};
+---
+
+<BaseLayout
+  siteTitle={data.pageTitle}
+  siteDescription={data.pageDescription}
+  keywords={data.pageKeywords}
+>
+  <!-- HEADER -->
+  <HeaderSmall content={data.header} />
+
+  <section class="py-24 bg-sky-50">
+    <div class="">
+      <h2 class="text-xl font-semibold italic text-center mx-auto">
+        NVFlight has partnered with the following companies to help our
+        students fund their pilot training
+      </h2>
+    </div>
+    <div class="flex flex-wrap justify-center items-center gap-10 mt-10">
+      <a href="/stratus-finance" class="w-full md:w-1/5">
+        <ImageComp
+          imagePath="/src/assets/stratus_logo.webp"
+          imageAlt="Stratus Finance logo"
+          styles="object-contain max-h-16 w-full px-4"
+        />
+      </a>
+      <a
+        href="https://www.flighttrainingfinancellc.com"
+        target="_blank"
+        class="w-full md:w-1/5"
+      >
+        <ImageComp
+          imagePath="/src/assets/flight-training-finance.webp"
+          imageAlt="Flight Training Finance logo"
+          styles="object-contain max-h-16 w-full px-4"
+        />
+      </a>
+      <a
+        href="https://finance.aopa.org"
+        target="_blank"
+        class="w-full md:w-1/5"
+      >
+        <ImageComp
+          imagePath="/src/assets/aopa.webp"
+          imageAlt="AOPA Finance logo"
+          styles="object-contain max-h-16 w-full px-4"
+        />
+      </a>
+    </div>
+  </section>
+
+  <section class="bg-sky-100 flex flex-col items-center py-24">
+    <div class="max-w-4xl flex flex-col pt-10 px-5 mb-10">
+      <h3 class="text-5xl font-title uppercase font-semibold pb-5">
+        Stratus Financial
+      </h3>
+      <p class="text-lg pb-5">
+        Stratus Financial was founded by FAA Certificated Flight and Ground
+        Instructors passionate about helping others achieve their aviation
+        dreams. We know it's not just about achieving your dreams (because we
+        looked up in the sky every time, we heard an airplane too!), but funding
+        your family's dreams as well. That's why Stratus was created, because
+        with Stratus, the sky is no longer the limit.
+      </p>
+      <p class="text-lg pb-5">
+        Stratus Financial specializes in offering comprehensive loan programs
+        designed specifically for flight training and aircraft financing. With
+        Stratus Financial, you can benefit from financing options that align
+        with the unique requirements of pursuing a career in aviation.
+      </p>
+      <p class="text-lg pb-5">
+        Stratus Financial helps pilots acheive their dreams and fills the
+        constant pilot demand through student pilots' access to instructional
+        funding, including flight school loans, and fast traction built by
+        flight schools.
+      </p>
+      <p class="text-lg pb-5">
+        We've prepared a free informational booklet to help you understand how
+        financing with Stratus Financial works. Click below to find out more and
+        download the booklet.
+      </p>
+      <div class="flex flex-col lg:flex-row gap-5">
+        <a href="/stratus-finance" class={`btn-primary w-full md:w-auto`}>
+          <span class="drop-shadow-sm">CHECK OUT STRATUS</span>
+        </a>
+        <a
+          href="https://drive.google.com/file/d/1AiDCTqE746dCHuYuW2g-Sh_Z0tNQPttq/view?usp=share_link"
+          target="_blank"
+          class={`btn-primary w-full md:w-auto`}
+        >
+          <span class="drop-shadow-sm">DOWNLOAD STRATUS BOOKLET</span>
+        </a>
+      </div>
+      <h3 class="text-5xl font-title uppercase font-semibold pt-20 pb-5">
+        Flight Training Finance
+      </h3>
+      <p class="text-lg pb-5">
+        Flight Training Finance offers finance programs for part-time fixed wing
+        pilot training. Check out their website to get more information and
+        apply.
+      </p>
+      <div class="flex flex-col lg:flex-row gap-5">
+        <a
+          href="https://www.flighttrainingfinancellc.com"
+          class={`btn-primary w-full md:w-auto`}
+        >
+          <span class="drop-shadow-sm">FLIGHT TRAINING FINANCE</span>
+        </a>
+      </div>
+
+      <h3 class="text-5xl font-title uppercase font-semibold pt-20 pb-5">
+        AOPA
+      </h3>
+      <p class="text-lg pb-5">
+        Backed by the Aircraft Owners and Pilots Association, AOPA Finance
+        understands the distinct needs of aspiring pilots. They provide access
+        to customized financing solutions and offer exceptional customer service
+        to support you throughout the financing process.
+      </p>
+      <div class="flex flex-col lg:flex-row gap-5">
+        <a
+          href="https://finance.aopa.org"
+          class={`btn-primary w-full md:w-auto`}
+        >
+          <span class="drop-shadow-sm">CHECK OUT AOPA</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <CTAVideo video={currentVideo} data={dataForVideo} />
+
+  <ProgramSwiper content={programsSwiper} />
+  <CTAColor content={flyWithUsCTA} />
+  <script src="../scripts/creativeSwiper.js"></script>
+</BaseLayout>

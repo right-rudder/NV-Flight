@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn-primary {
+  @apply text-center uppercase hover:scale-105 font-heading font-bold py-3 px-8 bg-primary-600 w-fit text-white rounded-sm hover:bg-primary-700 duration-100;
+  }
+
+  .btn-accent {
+  @apply text-center hover:scale-105 font-heading uppercase font-medium py-3 px-6 bg-accent-600 w-fit text-accent-950 hover:text-muted-800 hover:bg-accent-600/80 duration-300 ring-2 hover:ring-accent-600 ring-accent-600;
+  }
+
+  .btn-animate {
+  @apply relative overflow-hidden px-3 text-white transition-all;
+  }
+  .btn-animate::before {
+  content: "";
+  @apply absolute bottom-0 left-0 top-0 h-full bg-black/30 transition-all duration-300;
+  width: 0;
+  z-index: 0;
+  }
+  .btn-animate:hover::before {
+  @apply w-full;
+  }
+
+  .btn-white {
+  @apply text-center hover:scale-105 backdrop-blur-md uppercase font-display font-bold py-3 px-6 ring-1 ring-slate-900 w-fit bg-primary-50/10 hover:bg-primary-600 hover:ring-primary-100 hover:text-primary-50 text-slate-900 duration-300;
+  }
+
+  .paragraph {
+  @apply text-gray-600 lg:text-base leading-loose font-sans;
+  }
+
+  .tooltip {
+  @apply invisible opacity-0 absolute w-[24rem] rounded-lg z-50 -top-10 left-12 shadow-md shadow-slate-800/50 bg-primary-50 text-center text-gray-800 p-6;
+  }
+
+  .has-tooltip {
+  @apply relative;
+  }
+
+  .has-tooltip:hover .tooltip {
+  @apply visible opacity-95 transition-all duration-300 top-0 cursor-help;
+  }
+
+  .section-upper {
+  @apply mx-auto mt-12 uppercase text-lg lg:text-xl lg:max-w-3xl font-sans text-center font-bold tracking-tight text-primary-600;
+  }
+
+  .section-title {
+  @apply mx-auto text-4xl lg:text-6xl lg:max-w-5xl font-heading text-center font-bold tracking-tight text-primary-950;
+  }
+
+  .section-description {
+  @apply mx-auto mb-12 text-lg max-w-3xl text-center tracking-wider text-gray-900;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+  @apply bg-primary-100 rounded-sm opacity-20 hover:opacity-70 duration-300 ease-in-out px-8 py-9;
+  }
+  }
+
+  .outlined-text {
+  text-shadow:
+  -1px -1px 0 white,
+  1px -1px 0 white,
+  -1px 1px 0 white,
+  1px 1px 0 white;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+  color: rgb(1, 26, 68) !important;
+  }
+
+  .swiper-pagination-bullet {
+  background-color: rgb(71, 184, 228) !important;
+  opacity: 0.5;
+  }
+
+  .swiper-pagination-bullet-active {
+  background-color: rgb(39, 130, 235) !important;
+  }
+
+  .swiper-slide {
+  height: auto !important;
+  }
+
+  @keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+  }
+  @keyframes marquee2 {
+  0% { transform: translateX(50%); }
+  100% { transform: translateX(0%); }
+  }
+  @keyframes marqueemobile {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+  }
+  @keyframes marquee2mobile {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(0%); }
+}
+
+.animate-marquee  { animation: marquee 50s linear infinite; }
+.animate-marquee2 { animation: marquee2 50s linear infinite; }
+.animate-marqueemobile { animation: marqueemobile 50s linear infinite; }
+.animate-marquee2mobile { animation: marquee2mobile 50s linear infinite; }

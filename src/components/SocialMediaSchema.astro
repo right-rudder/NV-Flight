@@ -1,0 +1,74 @@
+---
+import { SITE_TITLE, SITE_DESCRIPTION, COMPANY_NAME, LOCATIONS, FACEBOOK_URL, INSTAGRAM_URL } from "../consts";
+
+interface Props {
+  title?: string;
+  description?: string;
+  logoUrl?: string;
+}
+
+const {
+  title = SITE_TITLE,
+  description = SITE_DESCRIPTION,
+  logoUrl = "/nvflight-nobg.webp"
+} = Astro.props;
+
+const fullLogoUrl = new URL(logoUrl, Astro.site?.toString() || "https://NVFlightco.com").toString();
+const websiteUrl = Astro.site?.toString() || "https://NVFlightco.com";
+
+const primaryLocation = LOCATIONS.length > 0
+  ? LOCATIONS[0]
+  : { phone: "N/A", address: "N/A", city: "N/A", state: "N/A", zip: "N/A" }; // Fallback values
+---
+
+<!-- LocalBusiness Schema -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FlightSchool",
+  "name": COMPANY_NAME,
+  "url": websiteUrl,
+  "logo": fullLogoUrl,
+  "image": fullLogoUrl,
+  "description": description,
+  "telephone": primaryLocation.phone,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": primaryLocation.address,
+    "addressLocality": primaryLocation.city,
+    "addressRegion": primaryLocation.state,
+    "postalCode": primaryLocation.zip,
+    "addressCountry": "US"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": primaryLocation.phone,
+    "contactType": "customer service",
+    "areaServed": "US",
+    "availableLanguage": ["en"]
+  },
+  "sameAs": [
+    FACEBOOK_URL,
+    INSTAGRAM_URL,
+    websiteUrl
+  ].filter(Boolean)
+})}>
+</script>
+
+<!-- WebSite Schema for Search Box -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": title,
+  "alternateName": COMPANY_NAME,
+  "url": websiteUrl,
+  "description": description,
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": `${websiteUrl}/search?q={search_term_string}`
+    },
+    "query-input": "required name=search_term_string"
+  }
+})}>
+</script>

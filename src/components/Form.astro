@@ -1,0 +1,212 @@
+---
+const checkboxText = `I agree to <a href="/terms-of-service" target="_blank" class="font-semibold hover:underline">terms</a> & <a href="/privacy-policy" target="_blank" class="font-semibold hover:underline">conditions</a> provided by the company. By providing my phone number, I agree to receive text messages from the business.`;
+const GHL_CONTACT_FORM_WEBHOOK_URL = import.meta.env
+  .GHL_CONTACT_FORM_WEBHOOK_URL;
+const PORTAL_API_KEY = import.meta.env.PORTAL_API_KEY;
+---
+
+<div
+  class="mx-auto w-full h-full flex flex-col justify-center align-top items-start p-6"
+>
+  <h2
+    class="mx-auto mb-3 text-4xl lg:text-6xl max-w-3xl font-title font-bold tracking-tight text-sky-950"
+  >
+    Contact Us
+  </h2>
+  <form id="contact-form" class="w-full max-w-xl pt-10 pb-20 h-full mx-auto">
+    <div class="">
+      <div class="mb-4">
+        <label for="first-name" class="block mb-0 font-semibold">
+          First Name
+        </label>
+        <input
+          type="text"
+          id="first-name"
+          name="first-name"
+          autocomplete="given-name"
+          class="w-full h-9 p-2 border bg-gray-100 border-gray-400 rounded-sm focus:outline focus:outline-sky-600/50 focus:ring focus:ring-sky-600/50 focus:border-sky-600/50"
+          required
+        />
+      </div>
+      <div class="mb-4">
+        <label for="last-name" class="block mb-0 font-semibold">
+          Last Name
+        </label>
+        <input
+          type="text"
+          id="last-name"
+          name="last-name"
+          autocomplete="family-name"
+          class="w-full h-9 p-2 border bg-gray-100 border-gray-400 rounded-sm focus:outline focus:outline-sky-600/50 focus:ring focus:ring-sky-600/50 focus:border-sky-600/50"
+          required
+        />
+      </div>
+      <div class="mb-4">
+        <label for="phone" class="block mb-0 font-semibold"> Phone </label>
+        <input
+          type="text"
+          id="phone"
+          name="phone"
+          autocomplete="tel"
+          class="w-full h-9 p-2 border bg-gray-100 border-gray-400 rounded-sm focus:outline focus:outline-sky-600/50 focus:ring focus:ring-sky-600/50 focus:border-sky-600/50"
+          required
+        />
+      </div>
+      <div class="mb-4">
+        <label for="email" class="block mb-0 font-semibold"> Email </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          autocomplete="email"
+          class="w-full h-9 p-2 border bg-gray-100 border-gray-400 rounded-sm focus:outline focus:outline-sky-600/50 focus:ring focus:ring-sky-600/50 focus:border-sky-600/50"
+          required
+        />
+      </div>
+      <div class="mb-4">
+        <label for="interes-program" class="block mb-0 font-semibold"
+          >Message Us</label
+        >
+        <textarea
+          id="message"
+          name="message"
+          placeholder="Write to us, we're happy to help"
+          class="w-full h-24 p-2 border bg-gray-100 border-gray-400 rounded-sm focus:outline focus:outline-sky-600/50 focus:ring focus:ring-sky-600/50 focus:border-sky-600/50"
+          required></textarea>
+      </div>
+      <p class="hidden">
+        <label>
+          Don't fill this out if you're human:
+          <input name="confirm-email" />
+        </label>
+      </p>
+    </div>
+    <div class="mt-8">
+      <input
+        type="checkbox"
+        name="agree-data-collection"
+        id="agree-data-collection"
+        class="mr-2 size-6 lg:size-5"
+      />
+
+      <label
+        for="agree-data-collection"
+        class="text-gray-800 text-sm lg:text-base"
+        set:html={checkboxText}
+      />
+    </div>
+    <button
+      id="submit-button"
+      form="contact-form"
+      disabled
+      type="submit"
+      class="mx-auto mt-8 btn-primary cursor-not-allowed bg-gray-400 hover:bg-gray-400 hover:text-white"
+    >
+      Send Message
+    </button>
+  </form>
+</div>
+<script define:vars={{ GHL_CONTACT_FORM_WEBHOOK_URL, PORTAL_API_KEY }}>
+  const checkbox = document.getElementById("agree-data-collection");
+  const submitButton = document.getElementById("submit-button");
+
+  checkbox.addEventListener("change", function () {
+    if (checkbox.checked) {
+      submitButton.disabled = false;
+      submitButton.classList.remove(
+        "cursor-not-allowed",
+        "bg-gray-400",
+        "hover:bg-gray-400",
+      );
+    } else {
+      submitButton.disabled = true;
+      submitButton.classList.add(
+        "cursor-not-allowed",
+        "bg-gray-400",
+        "hover:bg-gray-400",
+      );
+    }
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("contact-form");
+    if (!form) {
+      console.error("Form element not found.");
+      return;
+    }
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(form);
+      const confirmEmail = formData.get("confirm-email")?.trim();
+
+      if (confirmEmail) return;
+
+      const webhookURL = GHL_CONTACT_FORM_WEBHOOK_URL;
+      const apiKey = PORTAL_API_KEY;
+
+      const urlEncodedBody = new URLSearchParams(formData).toString();
+
+      const excludedFields = [
+        "first-name",
+        "last-name",
+        "email",
+        "phone",
+        "confirm-email",
+        "agree-data-collection",
+      ];
+      const metadata = {};
+
+      for (const [key, value] of formData.entries()) {
+        if (!excludedFields.includes(key)) {
+          metadata[key] = value?.trim?.() ?? value;
+        }
+      }
+
+      const jsonBody = {
+        first_name: formData.get("first-name")?.trim() || "",
+        last_name: formData.get("last-name")?.trim() || "",
+        email: formData.get("email")?.trim() || "",
+        phone: formData.get("phone")?.trim() || "",
+        campaign: "contact_us",
+        account_random_id: "ac_g6n9ybnw",
+        metadata: metadata,
+      };
+
+      try {
+        const [ghlRes, portalRes] = await Promise.all([
+          fetch(webhookURL, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: urlEncodedBody,
+          }),
+          fetch("https://portal.rightruddermarketing.com/api/leads", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+              "x-api-key": apiKey,
+            },
+            body: JSON.stringify(jsonBody),
+          }),
+        ]);
+
+        if (ghlRes.ok && portalRes.ok) {
+          window.location.href = "/form-confirmation";
+        } else {
+          console.error("Submission failed", {
+            ghlStatus: ghlRes.status,
+            portalStatus: portalRes.status,
+          });
+        }
+      } catch (err) {
+        console.error("Submission error:", err);
+      }
+    });
+  });
+</script>
+
+<script src="../scripts/emailValidation.js"></script>

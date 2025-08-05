@@ -1,0 +1,49 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+const { content } = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/*.{jpeg,jpg,png,gif,webp}"
+);
+
+if (!images[content.imagePath]) {
+  throw new Error(
+    `"${content.imagePath}" does not exist in glob: "/src/assets/*.{jpeg,jpg,png,gif,webp}"`
+  );
+}
+---
+
+<section class="relative h-[50vh] lg:h-[40vh] bg-gray-800 text-white flex items-center justify-center overflow-hidden m-4 rounded-xl">
+  <!-- Background Image -->
+  <Image
+    src={images[content.imagePath]()}
+    alt={content.imageAlt}
+    loading="lazy"
+    class="absolute inset-0 w-full h-full object-cover object-center z-0 animate-slow-zoom"
+  />
+
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-gradient-to-b from-white/60 to-white/70 z-10"></div>
+
+  <!-- Content -->
+  <div class="relative z-20 w-full max-w-7xl px-4 md:px-6 flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16">
+    <h3
+      class="text-4xl sm:text-5xl lg:text-6xl font-title font-black uppercase tracking-tight text-sky-950 w-full lg:w-4/6 leading-tight"
+      set:html={content.headerH1}
+    />
+    <div class="w-full lg:w-2/6 flex flex-wrap items-start gap-4">
+      {
+        content.buttons.map((btn) => (
+          <a
+            href={btn.link}
+            class={`${btn.primary ? "btn-primary" : "btn-white"} w-full sm:w-auto text-lg text-center`}
+          >
+            {btn.name}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,46 @@
+---
+interface Testimonial {
+  author: string;
+  text: string;
+  datePublished?: string;
+}
+
+interface Props {
+  items: Testimonial[];
+}
+
+const { items } = Astro.props;
+const today = new Date().toISOString().split('T')[0]; // Default date if not provided
+---
+
+{items.map((item, index) => (
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "Organization",
+      "name": "NVFlight Flight School",
+      "image": "/nvflight-nobg.webp",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "4855 E Falcon Dr",
+        "addressLocality": "Reno",
+        "addressRegion": "AZ",
+        "postalCode": "85215",
+        "addressCountry": "US"
+      }
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "5"
+    },
+    "name": `Student Testimonial: ${item.author}`,
+    "author": {
+      "@type": "Person",
+      "name": item.author
+    },
+    "reviewBody": item.text,
+    "datePublished": item.datePublished || today
+  })}>
+  </script>
+))}

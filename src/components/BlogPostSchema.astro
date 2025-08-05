@@ -1,0 +1,62 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  publishDate: Date;
+  updateDate?: Date;
+  authorName: string;
+  authorUrl?: string;
+  featuredImage?: string;
+  tags?: string[];
+  section?: string;
+}
+
+const {
+  title,
+  description,
+  publishDate,
+  updateDate,
+  authorName,
+  authorUrl = "https://NVFlightco.com/about",
+  featuredImage,
+  tags = [],
+  section = "Aviation Training"
+} = Astro.props;
+
+// Format for Google
+const publishDateIso = new Date(publishDate).toISOString();
+const updateDateIso = updateDate ? new Date(updateDate).toISOString() : publishDateIso;
+
+// Image with fallback
+const articleImage = featuredImage ? new URL(featuredImage, Astro.url).toString() : new URL("/nvflight-nobg.webp", Astro.url).toString();
+---
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": title,
+  "description": description,
+  "image": articleImage,
+  "author": {
+    "@type": "Person",
+    "name": authorName,
+    "url": authorUrl
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "NVFlight Flight School",
+    "logo": {
+      "@type": "ImageObject",
+      "url": new URL("/NVFlight-favicon.png", Astro.url).toString()
+    }
+  },
+  "datePublished": publishDateIso,
+  "dateModified": updateDateIso,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": Astro.url
+  },
+  "keywords": tags.join(", "),
+  "articleSection": section
+})}>
+</script>
