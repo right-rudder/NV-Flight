@@ -28,7 +28,7 @@ const { pathname } = Astro.url;
 ---
 
 <footer
-  class="relative bg-gradient-to-b from-muted-900 font-sans to-accent-800 overflow-hidden"
+  class="relative bg-gradient-to-b from-muted-900 font-sans to-primary-800 overflow-hidden"
 >
   <div
     class="px-4 pt-24 pb-16 lg:pb-2 md:pt-12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8"
@@ -58,13 +58,13 @@ const { pathname } = Astro.url;
           >
             <a
               href="/privacy-policy"
-              class="mt-3 mr-4 transition-colors duration-300 text-sm text-white hover:text-accent-400"
+              class="mt-3 mr-4 transition-colors duration-300 text-sm text-white hover:text-primary-400"
               >Privacy Policy
             </a>
-            <span class="text-accent-400 text-sm pt-3"> &#x2022; </span>
+            <span class="text-primary-400 text-sm pt-3"> &#x2022; </span>
             <a
               href="/terms-of-service"
-              class="mt-3 ml-4 transition-colors duration-300 text-sm text-white hover:text-accent-400"
+              class="mt-3 ml-4 transition-colors duration-300 text-sm text-white hover:text-primary-400"
               >Terms of Service
             </a>
           </div>
@@ -78,7 +78,7 @@ const { pathname } = Astro.url;
             <div
               class={`${index % 2 === 0 ? "text-left" : "text-right lg:text-left"} lg:col-span-2`}
             >
-              <p class="font-bold text-xl font-sans lg:text-md tracking-wide text-accent-200">
+              <p class="font-bold text-xl font-sans lg:text-md tracking-wide text-primary-200">
                 {column.title}
               </p>
               <ul class="mt-2 space-y-2 text-lg font-sans2 lg:text-sm">
@@ -86,7 +86,7 @@ const { pathname } = Astro.url;
                   <li>
                     <a
                       href={link.link}
-                      class="transition-colors duration-200 text-white hover:text-accent-400"
+                      class="transition-colors duration-200 text-white hover:text-primary-400"
                     >
                       {link.name}
                     </a>
@@ -102,13 +102,13 @@ const { pathname } = Astro.url;
             LOCATIONS.map((location, index) => (
               <div class="text-right lg:text-center bg-primary-800/80 rounded p-4 flex flex-col justify-between pt-3 pb-12 px-6">
                 <p
-                  class="font-bold tracking-wide text-md uppercase text-accent-200 leading-none pb-2"
+                  class="font-bold tracking-wide text-md uppercase text-primary-200 leading-none pb-2"
                   set:html={location.title}
                 />
                 <a
                   href={location.gMaps}
                   target="_blank"
-                  class="space-y-1 py-1 font-sans2 hover:underline transition-colors text-sm lg:text-base duration-300 text-accent-100 hover:text-accent-950"
+                  class="space-y-1 py-1 font-sans2 hover:underline transition-colors text-sm lg:text-base duration-300 text-primary-100 hover:text-primary-950"
                 >
                   <>
                     <span class="">{location.address}</span>
@@ -122,7 +122,7 @@ const { pathname } = Astro.url;
                   aria-labelledby="Call Us Now"
                   title="Call Us Now"
                   href={`tel:${location.phone}`}
-                  class="text-right py-1 text-sm lg:text-base hover:underline justify-end lg:justify-center font-sans2 lg:text-center transition-colors duration-300 text-accent-100 hover:text-accent-950 flex items-center align-middle"
+                  class="text-right py-1 text-sm lg:text-base hover:underline justify-end lg:justify-center font-sans2 lg:text-center transition-colors duration-300 text-primary-100 hover:text-primary-950 flex items-center align-middle"
                 >
                   <FaPhoneSquareAlt className="mr-2 text-lg" />
                   {location.phone}

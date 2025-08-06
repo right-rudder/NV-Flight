@@ -93,7 +93,7 @@ const homePage = {
     flyWithUsCTA: {
       imagePath: "src/assets/montain-&-plane.jpg",
       imageAlt: "NV Flight School team on the runway",
-      headerH1: `<span class="text-accent-600">Start Your Aviation Journey</br></span>With a Discovery Flight`,
+      headerH1: `<span class="text-primary-600">Start Your Aviation Journey</br></span>With a Discovery Flight`,
       paragraph:
         "A discovery flight is the best way to determine if being a pilot is right for you. Whether you're trying it out for fun or want to fly professionally, you’ll see Reno from a whole new perspective.",
       buttons: [

@@ -25,14 +25,14 @@ if (!images[data.imagePath])
         <div class="lg:max-w-lg">
           {
             data.upperHeading && (
-              <h3 class="mx-auto mt-12 uppercase text-lg lg:text-xl lg:max-w-3xl font-sans text-center font-bold tracking-tight text-accent-600">
+              <h3 class="mx-auto mt-12 uppercase text-lg lg:text-xl lg:max-w-3xl font-sans text-center font-bold tracking-tight text-primary-600">
                 {data.upperHeading}
               </h3>
             )
           }
           {
             data.heading && (
-              <h2 class="mx-auto mb-3 text-4xl lg:text-6xl lg:max-w-3xl font-title text-center font-bold tracking-tight text-accent-950">
+              <h2 class="mx-auto mb-3 text-4xl lg:text-6xl lg:max-w-3xl font-title text-center font-bold tracking-tight text-primary-950">
                 {data.heading}
               </h2>
             )
@@ -81,7 +81,7 @@ if (!images[data.imagePath])
                   {data.list.items.map((item) => (
                     <li class="flex gap-x-3">
                       <svg
-                        class="mt-1 size-8 flex-none text-accent-400"
+                        class="mt-1 size-8 flex-none text-primary-400"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
