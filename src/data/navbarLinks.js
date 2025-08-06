@@ -1,6 +1,6 @@
 export const navbarLinks = [
   {
-    name: "New to Flying?",
+    name: "Become a Pilot",
     link: "/#",
   },
   {
@@ -33,18 +33,6 @@ export const navbarLinks = [
       },
     ],
   },
-
-  {
-    name: "Financing",
-    link: "/#",
-    submenu: [
-      {
-        name: "Stratus Financial",
-        link: "/#",
-      },
-    ],
-  },
-
   {
     name: "About Us",
     link: "/#",
