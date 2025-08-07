@@ -199,8 +199,8 @@ const Navbar = ({ pathname }) => {
 
       <div
         className={`${
-          openMobile ? "max-h-screen" : "max-h-0"
-        } overflow-hidden transition-max-height duration-700 ease-in-out lg:hidden bg-gradient-to-b from-primary-900 via-primary-800 to-primary-300 absolute w-full z-20 top-0 transition-colors duration-700 ease-in-out`}
+          openMobile ? "min-h-screen" : "max-h-0"
+        } overflow-hidden transition-max-height duration-700 ease-in-out lg:hidden bg-gradient-to-b from-muted-900 to-primary-700 absolute w-full z-20 top-0 transition-colors duration-700 ease-in-out`}
       >
         <div className="flex justify-end p-6">
           <button
@@ -214,23 +214,23 @@ const Navbar = ({ pathname }) => {
         <div className="text-center pb-8">
           <a href="/">
             <img
-              src="/src/assets/nvflight-nobg.webp"
+              src="/nvflight-nobg.webp"
               alt="NV Flight Logo"
               className="mx-auto h-20 drop-shadow-md"
             />
           </a>
         </div>
-        <ul className="px-4 space-y-4 text-primary-100 text-center">
+        <ul className="px-4 space-y-4 text-primary-100 text-center group">
           {mobileNavbarLinks.map((item, idx) => (
             <li
               key={idx}
               onClick={() => handleItemClick(idx)}
-              className="relative"
+              className="relative group"
             >
               <a
                 href={item.link || "#"}
                 target={item.link?.includes("http") ? "_blank" : "_self"}
-                className="block font-medium text-xl py-2 hover:text-emerald"
+                className="block font-medium text-xl py-2 hover:text-emerald group-last:btn-primary"
               >
                 {item.name}
               </a>
@@ -269,34 +269,6 @@ const Navbar = ({ pathname }) => {
             </li>
           ))}
         </ul>
-        <div className="px-6 py-8 border-t border-cloud/20 space-y-4 text-cloud text-center">
-          <a
-            href={`tel:${PHONE_NUMBER}`}
-            className="inline-flex items-center gap-2 text-lg font-semibold"
-          >
-            <FaPhone className="text-emerald size-5" /> {PHONE_NUMBER}
-          </a>
-          <div className="flex justify-center space-x-4">
-            {[
-              LINKEDIN_URL,
-              INSTAGRAM_URL,
-              FACEBOOK_URL,
-              TWITTER_URL,
-              YOUTUBE_URL,
-            ].map((url, i) =>
-              url ? (
-                <a
-                  key={i}
-                  href={url}
-                  target="_blank"
-                  className="hover:text-teal transition-colors"
-                >
-                  Icon
-                </a>
-              ) : null
-            )}
-          </div>
-        </div>
       </div>
     </nav>
   );

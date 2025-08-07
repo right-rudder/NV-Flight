@@ -1,5 +1,5 @@
 const flyWithUsCTA = {
-  imagePath: "/src/assets/discovery-flight-nv.webp",
+  imagePath: "/src/assets/montain-&-plane2.jpg",
   imageAlt: "NV Flight Flight School Discovery Flight",
   paragraph1: "Fly With Us",
   headerH1: `Discover the joy of reaching new heights`,
