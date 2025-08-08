@@ -12,7 +12,7 @@ export const KEYWORDS =
 
 export const OG_IMAGE = "/nvflight-nobg.webp";
 
-export const LOGO_NO_BG = "/nvflight-nobg.webp";
+export const LOGO_NO_BG = "/src/assets/nvflight-nobg.webp";
 
 
 export const COMPANY_NAME = "NV Flight Flight School";

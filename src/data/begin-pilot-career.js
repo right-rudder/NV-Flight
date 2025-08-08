@@ -109,7 +109,7 @@ const beginPilotCareer = {
         link: "/enroll-at-NVFlight",
         primary: true,
       },
-      imagePath: "/src/assets/female_pilot_smiling.webp",
+      imagePath: "/src/assets/montain-&-plane2.jpg",
       imageAlt:
         "sun city aviation founder luke poulos in front of a sun city airplane",
     },
