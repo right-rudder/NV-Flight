@@ -8,7 +8,6 @@ import programsSwiper from "../../data/programSwiper";
 import PageSummary from "../../components/PageSummary.astro";
 import ContentSplit from "../../components/ContentSplit.astro";
 import TestimonialsSwiper from "../../components/TestimonialsSwiper.astro";
-import Why from "../../components/Why.astro";
 
 import pageData from "../../data/whyData.js";
 ---
@@ -21,12 +20,11 @@ import pageData from "../../data/whyData.js";
   <HeaderSmall content={pageData.header} />
   <!-- PAGE SUMMARY -->
   <PageSummary content={pageData.pageSummary} />
-  
-  <Why />
+
     <div id="info"></div>
   <ContentSplit content={pageData.contentSplit} />
-  
-  
+
+
   <TestimonialsSwiper />
 
   <ProgramSwiper content={programsSwiper} />
