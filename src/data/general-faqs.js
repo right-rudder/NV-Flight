@@ -9,18 +9,19 @@ export const GeneralFAQs = [
   },
   {
     title: "Why is mountain flying training important in Reno?",
-    content: `The Reno/Tahoe area is surrounded by mountains, and flying here comes with unique challenges like high-altitude takeoffs, rapidly changing weather, and terrain navigation. Our dedicated <a href="/programs/mountain-flying" class="text-primary-500 hover:underline hover:brightness-125 duration-200">Mountain Flying Endorsement</a> program prepares you to handle these conditions safely.`,
+    content: `The Reno/Tahoe area is surrounded by mountains, and flying here comes with unique challenges like high-altitude takeoffs, rapidly changing weather, and terrain navigation. Our dedicated <a href="/programs/mountain-flying" class="text-primary-500 hover:underline hover:brightness-125 duration-200">Mountain Flying Training</a> program prepares you to handle these conditions safely.`,
   },
   {
     title: "What aircraft do you use for flight training?",
-    content: `Our training fleet includes modern, well-maintained Cessna and Piper aircraft, ideal for both initial and advanced training. All maintenance is performed in-house by our expert mechanical team, ensuring aircraft reliability and safety.`,
+    content: `Our training fleet includes carefully preserved Piper Cherokee 180 aircraft, ideal for both initial and advanced training. All maintenance is performed in-house by our expert mechanical team, ensuring aircraft reliability and safety.`,
   },
   {
     title: "How long does it take to become a private pilot?",
-    content: `On average, students can earn their Private Pilot Certificate in 4–6 months with consistent lessons. Your timeline may vary based on your availability, lesson frequency, and weather. <a href="/programs/private-pilot-asel" class="text-primary-500 hover:underline hover:brightness-125 duration-200">See program details</a>.`,
+    content: `On average, students can earn their Private Pilot Certificate in 2-3 months with consistent lessons. Your timeline may vary based on your availability, lesson frequency, and weather. <a href="/programs/private-pilot-asel" class="text-primary-500 hover:underline hover:brightness-125 duration-200">See program details</a>.`,
   },
   {
-    title: "Can I visit the school or schedule a Discovery Flight before enrolling?",
+    title:
+      "Can I visit the school or schedule a Discovery Flight before enrolling?",
     content: `Yes! We encourage you to visit our Reno location, meet our instructors, and book a Discovery Flight to experience what flying is all about. <a href="/contact" class="text-primary-500 hover:underline hover:brightness-125 duration-200">Contact us to schedule your visit</a>.`,
   },
   {
