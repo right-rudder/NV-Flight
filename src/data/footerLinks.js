@@ -69,7 +69,7 @@ export const footerLinks = [
     title: "About",
     links: [
       {
-        name: "Why NVFlight",
+        name: "Why NV Flight",
         link: "/NVFlight",
       },
       {

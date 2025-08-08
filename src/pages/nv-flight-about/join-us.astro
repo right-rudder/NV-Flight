@@ -60,15 +60,15 @@ const jobCards = [
   keywords={pageData.pageKeywords}
 >
   <HeaderSmall content={pageData.header} />
-  <section class="relative mt-8 z-10 text-accent-100 scroll-my-20 lg:scroll-my-28 pt-8 pb-8">
+  <section class="relative mt-8 z-10 text-primary-100 scroll-my-20 lg:scroll-my-28 pt-8 pb-8">
     <div class="max-w-7xl mx-auto px-6">
       <h1 class="text-center text-4xl lg:text-6xl font-sans2 -skew-x-12 font-bold mb-12">Career Opportunities at NVFlight</h1>
       <div class="flex flex-col lg:flex-row gap-8 justify-center items-center">
         {jobCards.map((card) => (
-          <div class="bg-accent-600 text-white max-w-96 h-full p-6 rounded-lg shadow-md flex flex-col justify-between hover:scale-105 transition duration-300 ease-in-out">
+          <div class="bg-primary-600 text-white max-w-96 h-full p-6 rounded-lg shadow-md flex flex-col justify-between hover:scale-105 transition duration-300 ease-in-out">
             <div>
               <h2 class="text-2xl font-semibold mb-2">{card.title}</h2>
-              <p class="mb-8 text-sm text-accent-100">{card.description}</p>
+              <p class="mb-8 text-sm text-primary-100">{card.description}</p>
             </div>
             <div class="mt-auto flex flex-col gap-2">
               <span
@@ -96,7 +96,7 @@ const jobCards = [
   </section>
 
   <section
-    class="flex flex-col lg:flex-row items-center justify-center w-full bg-accent-500/20"
+    class="flex flex-col lg:flex-row items-center justify-center w-full bg-primary-500/20"
     id="application-form"
   >
     <div>

@@ -37,7 +37,7 @@ export default function FAQs({ faqs, type }) {
               {type}
             </p>
           )}
-          <h2 className="mx-auto mb-3 text-4xl lg:text-6xl lg:max-w-3xl font-title text-center font-bold tracking-tight text-accent-700">
+          <h2 className="mx-auto mb-3 text-4xl lg:text-6xl lg:max-w-3xl font-title text-center font-bold tracking-tight text-primary-700">
             Frequently Asked Questions
           </h2>
           <dl className="mt-16 divide-y divide-muted-400" id="faq-list">
@@ -46,12 +46,12 @@ export default function FAQs({ faqs, type }) {
                 <dt>
                   <button
                     type="button"
-                    className="flex w-full items-start justify-between text-left text-primary-900 hover:text-accent-500 group"
+                    className="flex w-full items-start justify-between text-left text-primary-900 hover:text-primary-500 group"
                     aria-expanded={open === idx}
                     onClick={() => handleClick(idx)}
                   >
                     <span className="text-base font-semibold">{faq.title}</span>
-                    <span className="ml-6 flex h-7 items-center text-accent-700 group-hover:text-accent-500 font-bold">
+                    <span className="ml-6 flex h-7 items-center text-primary-700 group-hover:text-primary-500 font-bold">
                       <PlusIcon open={open === idx} />
                     </span>
                   </button>
@@ -72,7 +72,7 @@ export default function FAQs({ faqs, type }) {
           If you have any additional questions please send us an email to{" "}
           <a
             href={`mailto:${EMAIL_ADDRESS}`}
-            className="text-accent-500 hover:underline hover:brightness-125 duration-200"
+            className="text-primary-500 hover:underline hover:brightness-125 duration-200"
           >
             {EMAIL_ADDRESS}
           </a>

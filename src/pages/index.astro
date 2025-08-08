@@ -5,14 +5,14 @@ import ProgramSwiper from "../components/ProgramSwiper.astro";
 import CTAColor from "../components/CTAColor.astro";
 import Testimonials from "../components/Testimonials.astro";
 import programsSwiper from "../data/programSwiper";
-import BlogFeed from "../components/BlogFeed.astro";
 import homePage from "../data/homePage";
 import flyWithUsCTA from "../data/fly-with-us-cta";
-import AirlinesCloud from "../components/AirlinesCloud.astro";
 import FAQs from "../components/FAQs";
 import FAQSchema from "../components/FAQSchema.astro";
 import { GeneralFAQs } from "../data/general-faqs";
-import Why from "../components/Why.astro";
+import CTAWhyUs from "../components/CTAWhyUs.astro";
+import ProgramsCarousel from "../components/ProgramsCarousel";
+import programs from "../data/programs.js";
 const { data } = homePage;
 
 // Transform FAQ format for schema
@@ -32,8 +32,9 @@ const faqSchemaItems = GeneralFAQs.map((faq) => ({
   <!-- HEADER -->
   <HeaderScreen content={data.header} />
 
-  <Why />
+  <CTAWhyUs />
   <ProgramSwiper content={programsSwiper} />
+  <ProgramsCarousel dataPrograms={programs} client:visible/>
   <Testimonials content={data.testimonials} />
   <!-- <BlogFeed data={data.blogfeed} /> -->
   <CTAColor content={flyWithUsCTA} />

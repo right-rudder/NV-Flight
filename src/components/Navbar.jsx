@@ -72,7 +72,7 @@ const Navbar = ({ pathname }) => {
           navBar || openMobile
             ? "bg-muted-900 shadow-md"
             : "transition-colors duration-700 ease-in-out bg-gradient-to-b from-muted-900 via-primary-950 to-transparent font-bold pb-6"
-        } text-accent-100`}
+        } text-primary-100`}
       >
         <div className="px-4 lg:px-12 mx-auto">
           <div
@@ -117,7 +117,7 @@ const Navbar = ({ pathname }) => {
 
                   {item.submenu?.length > 0 && (
                     <ul
-                      className={`absolute top-full left-0 bg-accent-900/95 text-cloud whitespace-nowrap rounded-md overflow-hidden transition-all ${
+                      className={`absolute top-full left-0 bg-primary-900/95 text-cloud whitespace-nowrap rounded-md overflow-hidden transition-all ${
                         hoveredIndex === idx
                           ? "max-h-screen opacity-100"
                           : "max-h-0 opacity-0"
@@ -187,9 +187,9 @@ const Navbar = ({ pathname }) => {
                 <IoIosArrowForward className="transform rotate-90 text-forest size-6" />
               ) : (
                 <div className="space-y-1">
-                  <span className="block h-0.5 w-6 bg-accent-100"></span>
-                  <span className="block h-0.5 w-6 bg-accent-100"></span>
-                  <span className="block h-0.5 w-6 bg-accent-100"></span>
+                  <span className="block h-0.5 w-6 bg-primary-100"></span>
+                  <span className="block h-0.5 w-6 bg-primary-100"></span>
+                  <span className="block h-0.5 w-6 bg-primary-100"></span>
                 </div>
               )}
             </button>
@@ -199,14 +199,14 @@ const Navbar = ({ pathname }) => {
 
       <div
         className={`${
-          openMobile ? "max-h-screen" : "max-h-0"
-        } overflow-hidden transition-max-height duration-700 ease-in-out lg:hidden bg-gradient-to-b from-primary-900 via-primary-800 to-accent-300 absolute w-full z-20 top-0 transition-colors duration-700 ease-in-out`}
+          openMobile ? "min-h-screen" : "max-h-0"
+        } overflow-hidden transition-max-height duration-700 ease-in-out lg:hidden bg-gradient-to-b from-muted-900 to-primary-700 absolute w-full z-20 top-0 transition-colors duration-700 ease-in-out`}
       >
         <div className="flex justify-end p-6">
           <button
             onClick={handleHamburgerClick}
             aria-label="Close menu"
-            className="text-accent-100 hover:text-teal transition-colors"
+            className="text-primary-100 hover:text-teal transition-colors"
           >
             &#10005;
           </button>
@@ -214,23 +214,23 @@ const Navbar = ({ pathname }) => {
         <div className="text-center pb-8">
           <a href="/">
             <img
-              src="/src/assets/nvflight-nobg.webp"
+              src="/nvflight-nobg.webp"
               alt="NV Flight Logo"
               className="mx-auto h-20 drop-shadow-md"
             />
           </a>
         </div>
-        <ul className="px-4 space-y-4 text-accent-100 text-center">
+        <ul className="px-4 space-y-4 text-primary-100 text-center group">
           {mobileNavbarLinks.map((item, idx) => (
             <li
               key={idx}
               onClick={() => handleItemClick(idx)}
-              className="relative"
+              className="relative group"
             >
               <a
                 href={item.link || "#"}
                 target={item.link?.includes("http") ? "_blank" : "_self"}
-                className="block font-medium text-xl py-2 hover:text-emerald"
+                className="block font-medium text-xl py-2 hover:text-emerald group-last:btn-primary"
               >
                 {item.name}
               </a>
@@ -269,34 +269,6 @@ const Navbar = ({ pathname }) => {
             </li>
           ))}
         </ul>
-        <div className="px-6 py-8 border-t border-cloud/20 space-y-4 text-cloud text-center">
-          <a
-            href={`tel:${PHONE_NUMBER}`}
-            className="inline-flex items-center gap-2 text-lg font-semibold"
-          >
-            <FaPhone className="text-emerald size-5" /> {PHONE_NUMBER}
-          </a>
-          <div className="flex justify-center space-x-4">
-            {[
-              LINKEDIN_URL,
-              INSTAGRAM_URL,
-              FACEBOOK_URL,
-              TWITTER_URL,
-              YOUTUBE_URL,
-            ].map((url, i) =>
-              url ? (
-                <a
-                  key={i}
-                  href={url}
-                  target="_blank"
-                  className="hover:text-teal transition-colors"
-                >
-                  Icon
-                </a>
-              ) : null
-            )}
-          </div>
-        </div>
       </div>
     </nav>
   );

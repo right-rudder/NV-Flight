@@ -10,7 +10,7 @@ const multiEngineData = {
   // Top Header
   header: {
     stars: true,
-    imagePath: "/src/assets/multi-pass.webp",
+    imagePath: "/src/assets/montain-&-plane2.jpg",
     imageAlt: "NVFlight Flight School student by a multi-engine airplane",
     headerH1: `Multi-Engine <br>RATING</span>`,
     paragraph: `Take your flying skills to the next level with NVFlight Flight School's Multi-Engine Rating program. Learn to operate twin-engine aircraft with confidence and precision.`,
@@ -57,7 +57,7 @@ const multiEngineData = {
     ],
 
     cta: {
-      imagePath: "/src/assets/female_pilot_smiling.webp",
+      imagePath: "/src/assets/montain-&-plane2.jpg",
       imageAlt: "Female pilot smiling",
       title: "Enroll in the Multi-Engine Rating Program",
       description:

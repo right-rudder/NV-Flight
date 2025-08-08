@@ -10,14 +10,14 @@ const { content } = Astro.props;
   <div class="pr-4 lg:pr-12 py-6 lg:py-0">
     {
       content.upperHeading && (
-        <h3 class="mx-auto mt-12 uppercase text-lg lg:text-xl lg:max-w-3xl font-sans text-center font-bold tracking-tight text-accent-600">
+        <h3 class="mx-auto mt-12 uppercase text-lg lg:text-xl lg:max-w-3xl font-sans text-center font-bold tracking-tight text-primary-600">
           {content.upperHeading}
         </h3>
       )
     }
     {
       content.heading && (
-        <h2 class="mx-auto mb-6 text-4xl lg:text-6xl lg:max-w-3xl font-title text-center font-bold tracking-tight text-accent-950">
+        <h2 class="mx-auto mb-6 text-4xl lg:text-6xl lg:max-w-3xl font-title text-center font-bold tracking-tight text-primary-950">
           {content.heading}
         </h2>
       )
@@ -47,7 +47,7 @@ const { content } = Astro.props;
             {content.bullets.map((bullet) => (
               <li class="flex gap-x-3 text-gray-400">
                 <svg
-                  class="mt-1 size-8 flex-none text-accent-600"
+                  class="mt-1 size-8 flex-none text-primary-600"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -61,7 +61,7 @@ const { content } = Astro.props;
                   />
                 </svg>
                 <span class="leading-snug">
-                  <strong class="font-bold text-accent-900 tracking-tight uppercase">
+                  <strong class="font-bold text-primary-900 tracking-tight uppercase">
                     {bullet.title}
                   </strong>{" "}
                   {bullet.descriptions.map((dec) => (
