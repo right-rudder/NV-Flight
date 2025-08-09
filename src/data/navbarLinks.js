@@ -52,4 +52,9 @@ export const navbarLinks = [
     link: "/#",
     submenu: [],
   },
+  {
+    name: "Contact Us",
+    link: "/#",
+    submenu: [],
+  }
 ];
