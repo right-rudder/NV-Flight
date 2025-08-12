@@ -30,16 +30,16 @@ const courseLD = {
 <BaseLayout siteTitle={siteTitle} siteDescription={siteDescription}>
   <script type="application/ld+json">{JSON.stringify(courseLD)}</script>
 
-  <header class="relative isolate overflow-hidden">
+  <header class="relative isolate overflow-hidden mt-32">
     <div class="mx-auto max-w-7xl px-6 py-12 sm:py-16 lg:px-8">
       <div class="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:items-center">
         <div>
-          <p class="text-xs uppercase tracking-[0.2em] text-sky-700">{data.part} {data.part && data.syllabus ? "•" : ""} {data.syllabus}</p>
+          <p class="text-xs uppercase tracking-[0.2em] text-accent-700">{data.part} {data.part && data.syllabus ? "•" : ""} {data.syllabus}</p>
           <h1 class="mt-2 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">{data.title}</h1>
           <p class="mt-6 text-lg leading-8 text-slate-700">{data.description}</p>
           <div class="mt-8 flex gap-3">
-            <a href="/contact" class="inline-flex items-center rounded-lg bg-sky-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-sky-700">Start the conversation</a>
-            <a href="/contact" class="inline-flex items-center rounded-lg border border-sky-200 px-5 py-2.5 text-sm font-medium text-sky-700 hover:bg-sky-50">Request availability</a>
+            <a href="/contact" class="inline-flex items-center rounded-lg bg-primary-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-accent-700">Get Started</a>
+            <a href="/contact" class="inline-flex items-center rounded-lg border border-accent-200 px-5 py-2.5 text-sm font-medium text-accent-700 hover:bg-accent-50">Contact Us</a>
           </div>
         </div>
         <div class="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
@@ -93,7 +93,7 @@ const courseLD = {
                 <ul class="mt-3 list-disc pl-6 text-slate-700">
                   {data.idealFor.map((i) => <li>{i}</li>)}
                 </ul>
-                <a href="/contact" class="mt-5 inline-flex w-full items-center justify-center rounded-lg bg-sky-600 px-4 py-2 text-sm font-medium text-white hover:bg-sky-700">Talk to an instructor</a>
+                <a href="/contact" class="mt-5 inline-flex w-full items-center justify-center rounded-lg bg-accent-600 px-4 py-2 text-sm font-medium text-white hover:bg-accent-700">Talk to an instructor</a>
               </div>
             )}
           </div>
