@@ -13,7 +13,7 @@ export const GeneralFAQs = [
   },
   {
     title: "What aircraft do you use for flight training?",
-    content: `Our training fleet includes carefully preserved Piper Cherokee 180 aircraft, ideal for both initial and advanced training. All maintenance is performed in-house by our expert mechanical team, ensuring aircraft reliability and safety.`,
+    content: `Our training fleet consists ofcarefully preserved Piper Cherokee 180 aircraft, ideal for both initial and advanced training. All maintenance is performed in-house by our expert mechanical team, ensuring aircraft reliability and safety.`,
   },
   {
     title: "How long does it take to become a private pilot?",
