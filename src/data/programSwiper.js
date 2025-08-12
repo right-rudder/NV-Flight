@@ -31,7 +31,7 @@ const programsSwiper = {
     },
     {
       title: "Flight Instructor ASEL",
-      imagePath: "/src/assets/montain-&-plane2.jpg",
+      imagePath: "/src/assets/nv-flight-reno_7904_Original.webp",
       imageAlt: "Instructor guiding a student during a preflight inspection",
       description:
         "61 Training Program — Gleim Syllabus. Become a Certified Flight Instructor (CFI) and launch your professional teaching career in aviation.",
@@ -39,7 +39,7 @@ const programsSwiper = {
     },
     {
       title: "Flight Instructor Instrument",
-      imagePath: "/src/assets/montain-&-plane2.jpg",
+      imagePath: "/src/assets/nv-flight-reno_5364_Original.webp",
       imageAlt: "Instructor and student working on instrument approach charts",
       description:
         "61 Training Program — Gleim CFII Syllabus. Take your teaching to the next level. Train pilots for safe, precise instrument flight as a CFII.",

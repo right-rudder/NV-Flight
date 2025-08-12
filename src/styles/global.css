@@ -4,7 +4,7 @@
 
 @layer components {
   .btn-primary {
-  @apply text-center uppercase hover:scale-105 font-heading font-bold py-3 px-8 bg-primary-700 w-fit text-white rounded-sm hover:bg-primary-700 duration-100;
+  @apply text-center uppercase hover:scale-105 font-heading font-bold py-3 px-8 bg-primary-700 w-fit text-white rounded-sm hover:bg-primary-700 duration-100 rounded-lg;
   }
 
   .btn-accent {
@@ -25,7 +25,7 @@
   }
 
   .btn-white {
-  @apply text-center hover:scale-105 backdrop-blur-md uppercase font-display font-bold py-3 px-6 ring-1 ring-slate-900 w-fit bg-primary-50/10 hover:bg-primary-600 hover:ring-primary-100 hover:text-primary-50 text-slate-900 duration-300;
+  @apply text-center hover:scale-105 backdrop-blur-md uppercase font-display font-bold py-3 px-6 ring-1 ring-slate-900 w-fit bg-primary-50/10 hover:bg-primary-600 hover:ring-primary-400 hover:text-primary-50 text-white duration-300 rounded-lg;
   }
 
   .paragraph {

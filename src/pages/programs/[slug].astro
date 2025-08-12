@@ -2,6 +2,8 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ImageComp from "../../components/ImageComp.astro";
 import { getCollection } from "astro:content";
+import CTAColor from "../../components/CTAColor.astro";
+import flyWithUsCTA2 from "../../data/fly-with-us-cta2";
 
 export async function getStaticPaths() {
   const items = await getCollection("programs");
@@ -84,7 +86,7 @@ const courseLD = {
             <ul class="mt-4 flex flex-col gap-2 pl-6 text-slate-700">
               {data.prerequisites.map((p) => <li class="flex items-center gap-2">
                 <svg class="text-primary-500 size-5 rotate-90" viewBox="0 0 64 64"><path fill="currentColor" d="M32 2C15.432 2 2 15.432 2 32s13.432 30 30 30s30-13.432 30-30S48.568 2 32 2m5.143 28.305V49H26.857V30.305H16L32 15l16 15.305z"/></svg>
-                
+
                 <span class="lg:text-lg">{p}</span></li>)}
             </ul>
           </>}
@@ -113,4 +115,5 @@ const courseLD = {
       </div>
     </section>
   </main>
+  <CTAColor content={flyWithUsCTA2} />
 </BaseLayout>
