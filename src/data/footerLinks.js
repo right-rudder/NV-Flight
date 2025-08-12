@@ -4,31 +4,31 @@ export const footerLinks = [
     links: [
       {
         name: "Discovery Flight",
-        link: "/discovery-flight",
+        link: "/#",
       },
       {
         name: "Enroll at NVFlight",
-        link: "/enroll-at-NVFlight",
+        link: "/#",
       },
       {
         name: "Pilot Training",
-        link: "/pilot-training",
+        link: "/#",
       },
       {
         name: "Begin Pilot Career",
-        link: "/begin-pilot-career",
+        link: "/#",
       },
       {
         name: "Timeline",
-        link: "/timeline-to-be-a-pilot",
+        link: "/#",
       },
       {
         name: "Cost",
-        link: "/approximate-pilot-training-costs",
+        link: "/#",
       },
       {
         name: "Contact Us",
-        link: "/contact",
+        link: "/#",
       },
     ],
   },
@@ -36,32 +36,24 @@ export const footerLinks = [
     title: "Training",
     links: [
       {
-        name: "Private Pilot",
-        link: "/programs/private-pilot",
+        name: "Private Pilot ASEL",
+        link: "/programs/private-pilot-asel",
       },
       {
-        name: "Instrument Rating",
-        link: "/programs/instrument-rating",
+        name: "Instrument Pilot ASEL",
+        link: "/programs/instrument-pilot-asel",
       },
       {
-        name: "Commercial Pilot",
-        link: "/programs/commercial-pilot",
+        name: "Commercial Pilot ASEL",
+        link: "/programs/commercial-pilot-asel",
       },
       {
-        name: "Multi-Engine Rating",
-        link: "/programs/multi-engine-rating",
+        name: "Flight Instructor ASEL",
+        link: "/programs/flight-instructor-asel",
       },
       {
-        name: "CFI",
-        link: "/programs/certified-flight-instructor",
-      },
-      {
-        name: "CFII",
-        link: "/programs/certified-flight-instructor/#addons",
-      },
-      {
-        name: "MEI",
-        link: "/programs/certified-flight-instructor/#addons",
+        name: "Flight Instructor Instrument",
+        link: "/programs/flight-instructor-instrument",
       },
     ],
   },
@@ -70,27 +62,27 @@ export const footerLinks = [
     links: [
       {
         name: "Why NV Flight",
-        link: "/NVFlight",
+        link: "/#",
       },
       {
         name: "Our Team",
-        link: "/NVFlight/team",
+        link: "/#",
       },
       {
         name: "Visit Us",
-        link: "/NVFlight/visit",
+        link: "/#",
       },
       {
         name: "Join Us",
-        link: "/NVFlight/join-us",
+        link: "/#",
       },
       {
         name: "Financing",
-        link: "/financing",
+        link: "/#",
       },
       {
         name: "Blog",
-        link: "/blog",
+        link: "/#",
       },
     ],
   },
