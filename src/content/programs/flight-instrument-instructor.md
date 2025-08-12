@@ -23,5 +23,6 @@ idealFor:
   - "Active CFIs expanding qualifications"
   - "Career builders targeting higher-value instruction"
   - "Safety-focused mentors"
+  - "Pilots passionate about instrument flying"
 ---
 

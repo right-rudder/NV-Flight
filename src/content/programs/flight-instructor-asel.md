@@ -23,4 +23,5 @@ idealFor:
   - "Pilots passionate about teaching"
   - "Career-focused aviators"
   - "Future flight instructors"
+  - "Pilots seeking to enhance their teaching skills"
 ---
