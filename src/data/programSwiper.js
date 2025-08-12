@@ -6,7 +6,7 @@ const programsSwiper = {
   cards: [
     {
       title: "Private Pilot ASEL",
-      imagePath: "/src/assets/montain-&-plane2.jpg",
+      imagePath: "/src/assets/nv-flight-reno_9255_Original.webp",
       imageAlt:
         "Student and instructor beside a Cessna on the ramp at NV Flight",
       description:
@@ -15,7 +15,7 @@ const programsSwiper = {
     },
     {
       title: "Instrument Pilot ASEL",
-      imagePath: "/src/assets/montain-&-plane2.jpg",
+      imagePath: "/src/assets/nv-flight-reno_4186_Original.webp",
       imageAlt: "Panel showing instruments and navigation displays",
       description:
         "61 Training Program — Gleim Syllabus. Learn to safely fly in low visibility and complex airspace using the full suite of modern instruments.",
@@ -23,7 +23,7 @@ const programsSwiper = {
     },
     {
       title: "Commercial Pilot ASEL",
-      imagePath: "/src/assets/montain-&-plane2.jpg",
+      imagePath: "/src/assets/nv-flight-reno_7960_Original.webp",
       imageAlt: "NV Flight aircraft in flight over the Sierra Nevada",
       description:
         "61 Training Program — Gleim Syllabus. Prepare for a career in aviation. Train to the standards required for paid flying and advanced pilot proficiency.",

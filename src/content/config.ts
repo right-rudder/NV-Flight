@@ -25,6 +25,7 @@ const programs = defineCollection({
     description: z.string(),
     imagePath: z.string(),
     imageAlt: z.string(),
+    introduction: z.string().optional(),
     part: z.string().optional(), // "Part 141/61", "Part 61"
     syllabus: z.string().optional(), // "Gleim"
     highlights: z.array(z.string()).default([]),

@@ -29,7 +29,7 @@ export default function FAQs({ faqs, type }) {
   };
 
   return (
-    <div className="bg-muted-300">
+    <div className="bg-white">
       <div className="mx-auto max-w-7xl px-6 py-20 sm:py-32 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-4xl">
           {type && (
@@ -58,7 +58,9 @@ export default function FAQs({ faqs, type }) {
                 </dt>
                 <dd
                   className={`mt-2 pr-12 text-base text-muted-600 overflow-hidden transition-all duration-300 ease-in-out ${
-                    open === idx ? "max-h-[500px] opacity-100" : "max-h-0 opacity-70"
+                    open === idx
+                      ? "max-h-[500px] opacity-100"
+                      : "max-h-0 opacity-70"
                   }`}
                 >
                   {/* Render HTML content safely */}

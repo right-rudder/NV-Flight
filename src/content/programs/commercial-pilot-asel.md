@@ -1,7 +1,7 @@
 ---
 title: "Commercial Pilot ASEL"
 description: "61 Training Program — Gleim syllabus. Prepare for a career in aviation. Train to the standards required for paid flying and advanced pilot proficiency."
-imagePath: "/src/assets/montain-&-plane2.jpg"
+imagePath: "/src/assets/nv-flight-reno_7960_Original.webp"
 imageAlt: "NV Flight aircraft in flight over the Sierra Nevada"
 part: "Part 61"
 syllabus: "Gleim"
