@@ -1,7 +1,7 @@
 ---
 title: "Flight Instructor Instrument (CFII)"
 description: "61 Training Program — Gleim CFII syllabus. Take your teaching to the next level. Train pilots for safe, precise instrument flight as a CFII."
-imagePath: "/src/assets/instructor-instrument.jpg"
+imagePath: "/src/assets/montain-&-plane2.jpg"
 imageAlt: "Instructor and student working on instrument approach charts"
 part: "Part 61"
 syllabus: "Gleim CFII"
