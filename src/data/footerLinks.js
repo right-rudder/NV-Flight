@@ -7,7 +7,7 @@ export const footerLinks = [
         link: "/#",
       },
       {
-        name: "Enroll at NVFlight",
+        name: "Enroll at NV Flight",
         link: "/#",
       },
       {
