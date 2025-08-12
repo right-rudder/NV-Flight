@@ -18,19 +18,23 @@ const blogCollection = defineCollection({
   }),
 });
 
-// const locationCollection = defineCollection({
-//   type: "content",
-//   schema: z.object({
-//     city: z.string(),
-//     stateShort: z.string(),
-//     stateLong: z.string(),
-//     description: z.string(),
-//     keyPlace1: z.string(),
-//     keyPlace2: z.string(),
-//   }),
-// });
+const programs = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    imagePath: z.string(),
+    imageAlt: z.string(),
+    part: z.string().optional(), // "Part 141/61", "Part 61"
+    syllabus: z.string().optional(), // "Gleim"
+    highlights: z.array(z.string()).default([]),
+    outcomes: z.array(z.string()).default([]),
+    prerequisites: z.array(z.string()).default([]),
+    idealFor: z.array(z.string()).default([]),
+  }),
+});
 
 export const collections = {
   blog: blogCollection,
-  // location: locationCollection,
+  programs: programs,
 };

@@ -5,23 +5,23 @@ export const navbarLinks = [
   },
   {
     name: "Programs",
-    link: "/#",
+    link: "/programs",
     submenu: [
       {
         name: "Private Pilot ASEL",
-        link: "/#",
+        link: "/programs/private-pilot-asel",
       },
       {
         name: "Instrument Pilot ASEL",
-        link: "/#",
+        link: "/programs/instrument-pilot-asel",
       },
       {
         name: "Commercial Pilot ASEL",
-        link: "/#",
+        link: "/programs/commercial-pilot-asel",
       },
       {
         name: "Flight Instructor ASEL",
-        link: "/#",
+        link: "/programs/flight-instructor-asel",
       }
     ],
   },
