@@ -40,32 +40,20 @@ export const mobileNavbarLinks = [
         link: "/programs",
       },
       {
-        name: "Private Pilot",
-        link: "/programs/private-pilot",
+        name: "Private Pilot ASEL",
+        link: "/programs/private-pilot-asel",
       },
       {
-        name: "Instrument Rating",
-        link: "/programs/instrument-rating",
+        name: "Instrument Pilot ASEL",
+        link: "/programs/instrument-pilot-asel",
       },
       {
-        name: "Commercial Pilot",
-        link: "/programs/commercial-pilot",
+        name: "Commercial Pilot ASEL",
+        link: "/programs/commercial-pilot-asel",
       },
       {
-        name: "Multi-Engine Rating",
-        link: "/programs/multi-engine-rating",
-      },
-      {
-        name: "Certified Flight Instructor",
-        link: "/programs/certified-flight-instructor",
-      },
-      {
-        name: "CFI - Instruments",
-        link: "/programs/certified-flight-instructor/#addons",
-      },
-      {
-        name: "Multi-Engine Instructor",
-        link: "/programs/certified-flight-instructor/#addons",
+        name: "Flight Instructor ASEL",
+        link: "/programs/flight-instructor-asel",
       },
     ],
   },
