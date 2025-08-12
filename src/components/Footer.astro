@@ -1,34 +1,23 @@
 ---
-const today = new Date();
 import { FaPhoneSquareAlt } from "react-icons/fa";
-import { IoLocationSharp } from "react-icons/io5";
-import { MdEmail } from "react-icons/md";
 import {
-  EMAIL_ADDRESS,
-  PHONE_NUMBER,
-  ADDRESS_LINE_1,
-  ADDRESS_LINE_2,
   FACEBOOK_URL,
   INSTAGRAM_URL,
-  LINKEDIN_URL,
   TWITTER_URL,
-  YOUTUBE_URL,
   SITE_DESCRIPTION,
   LOCATIONS,
+  LOGO_NO_BG
 } from "../consts";
 import { footerLinks } from "../data/footerLinks";
-import logo from "/src/assets/nvflight-nobg.webp";
-import { Image } from "astro:assets";
 import ImageComp from "./ImageComp.astro";
 
 const date = new Date();
 const year = date.getFullYear();
 
-const { pathname } = Astro.url;
 ---
 
 <footer
-  class="relative bg-gradient-to-b from-muted-900 font-sans to-accent-800 overflow-hidden"
+  class="relative bg-gradient-to-br from-muted-900 font-sans to-primary-800 overflow-hidden"
 >
   <div
     class="px-4 pt-24 pb-16 lg:pb-2 md:pt-12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8"
@@ -41,10 +30,10 @@ const { pathname } = Astro.url;
           title="Company"
           class="flex justify-center items-center w-full"
         >
-          <Image
-            src={logo}
-            alt="Right Rudder Marketing Logo"
-            class="object-contain h-36 w-auto px-5 lg:px-0 drop-shadow-lg"
+          <ImageComp
+            imagePath={LOGO_NO_BG}
+            imageAlt="NV Flight Logo"
+            styles="object-contain h-36 w-auto px-5 lg:px-0 drop-shadow-lg"
           />
         </a>
         <div class="mt-2 lg:max-w-sm font-sans2">
@@ -58,13 +47,13 @@ const { pathname } = Astro.url;
           >
             <a
               href="/privacy-policy"
-              class="mt-3 mr-4 transition-colors duration-300 text-sm text-white hover:text-accent-400"
+              class="mt-3 mr-4 transition-colors duration-300 text-sm text-white hover:text-primary-400"
               >Privacy Policy
             </a>
-            <span class="text-accent-400 text-sm pt-3"> &#x2022; </span>
+            <span class="text-primary-400 text-sm pt-3"> &#x2022; </span>
             <a
               href="/terms-of-service"
-              class="mt-3 ml-4 transition-colors duration-300 text-sm text-white hover:text-accent-400"
+              class="mt-3 ml-4 transition-colors duration-300 text-sm text-white hover:text-primary-400"
               >Terms of Service
             </a>
           </div>
@@ -78,7 +67,7 @@ const { pathname } = Astro.url;
             <div
               class={`${index % 2 === 0 ? "text-left" : "text-right lg:text-left"} lg:col-span-2`}
             >
-              <p class="font-bold text-xl font-sans lg:text-md tracking-wide text-accent-200">
+              <p class="font-bold text-xl font-sans lg:text-md tracking-wide text-primary-200">
                 {column.title}
               </p>
               <ul class="mt-2 space-y-2 text-lg font-sans2 lg:text-sm">
@@ -86,7 +75,7 @@ const { pathname } = Astro.url;
                   <li>
                     <a
                       href={link.link}
-                      class="transition-colors duration-200 text-white hover:text-accent-400"
+                      class="transition-colors duration-200 text-white hover:text-primary-400"
                     >
                       {link.name}
                     </a>
@@ -102,13 +91,13 @@ const { pathname } = Astro.url;
             LOCATIONS.map((location, index) => (
               <div class="text-right lg:text-center bg-primary-800/80 rounded p-4 flex flex-col justify-between pt-3 pb-12 px-6">
                 <p
-                  class="font-bold tracking-wide text-md uppercase text-accent-200 leading-none pb-2"
+                  class="font-bold tracking-wide text-md uppercase text-primary-200 leading-none pb-2"
                   set:html={location.title}
                 />
                 <a
                   href={location.gMaps}
                   target="_blank"
-                  class="space-y-1 py-1 font-sans2 hover:underline transition-colors text-sm lg:text-base duration-300 text-accent-100 hover:text-accent-950"
+                  class="space-y-1 py-1 font-sans2 hover:underline transition-colors text-sm lg:text-base duration-300 text-primary-100 hover:text-primary-950"
                 >
                   <>
                     <span class="">{location.address}</span>
@@ -122,7 +111,7 @@ const { pathname } = Astro.url;
                   aria-labelledby="Call Us Now"
                   title="Call Us Now"
                   href={`tel:${location.phone}`}
-                  class="text-right py-1 text-sm lg:text-base hover:underline justify-end lg:justify-center font-sans2 lg:text-center transition-colors duration-300 text-accent-100 hover:text-accent-950 flex items-center align-middle"
+                  class="text-right py-1 text-sm lg:text-base hover:underline justify-end lg:justify-center font-sans2 lg:text-center transition-colors duration-300 text-primary-100 hover:text-primary-950 flex items-center align-middle"
                 >
                   <FaPhoneSquareAlt className="mr-2 text-lg" />
                   {location.phone}
@@ -140,7 +129,7 @@ const { pathname } = Astro.url;
       class="mx-auto flex flex-col gap-2 lg:flex-row justify-between items-center align-middle max-w-7xl"
     >
       <p class="text-sm text-gray-100 text-center">
-        © Copyright {year} &#x2022; NVFlight Flight School & Aircraft Management,
+        © Copyright {year} &#x2022; NV Flight Flight School,
         LLC. &#x2022; All rights reserved.
       </p>
       <span class="text-white text-center flex gap-2">
@@ -161,21 +150,6 @@ const { pathname } = Astro.url;
       <div
         class="flex items-center justify-center align-middle mt-4 space-x-4 sm:mt-0"
       >
-        {
-          LINKEDIN_URL && (
-            <a
-              href={LINKEDIN_URL}
-              target="_blank"
-              aria-label="LinkedIn"
-              title="LinkedIn"
-              class="transition-colors duration-300 text-white hover:text-white/70 hover:scale-105"
-            >
-              <svg viewBox="0 0 16 16" fill="currentColor" class="h-8 lg:h-5">
-                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
-              </svg>
-            </a>
-          )
-        }
         {
           INSTAGRAM_URL && (
             <a
@@ -227,30 +201,6 @@ const { pathname } = Astro.url;
                 fill="currentColor"
               >
                 <path d="M10.053,7.988l5.631,8.024h-1.497L8.566,7.988H10.053z M21,6v12	c0,1.657-1.343,3-3,3H6c-1.657,0-3-1.343-3-3V6c0-1.657,1.343-3,3-3h12C19.657,3,21,4.343,21,6z M17.538,17l-4.186-5.99L16.774,7	h-1.311l-2.704,3.16L10.552,7H6.702l3.941,5.633L6.906,17h1.333l3.001-3.516L13.698,17H17.538z" />
-              </svg>
-            </a>
-          )
-        }
-        {
-          YOUTUBE_URL && (
-            <a
-              href={YOUTUBE_URL}
-              target="_blank"
-              aria-label="Youtube"
-              title="Youtube"
-              class="transition-colors duration-300 text-white hover:text-white/70 hover:scale-105"
-            >
-              <svg
-                class="size-7"
-                xmlns="http://www.w3.org/2000/svg"
-                x="0px"
-                y="0px"
-                width="100"
-                height="100"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.254,4,12,4,12,4S5.746,4,4.186,4.418 c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.746,2,12,2,12s0,4.254,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768 C5.746,20,12,20,12,20s6.254,0,7.814-0.418c0.861-0.23,1.538-0.908,1.768-1.768C22,16.254,22,12,22,12S22,7.746,21.582,6.186z M10,15.464V8.536L16,12L10,15.464z" />
               </svg>
             </a>
           )

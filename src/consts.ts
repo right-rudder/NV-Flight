@@ -12,6 +12,8 @@ export const KEYWORDS =
 
 export const OG_IMAGE = "/nvflight-nobg.webp";
 
+export const LOGO_NO_BG = "/src/assets/nvflight-nobg.webp";
+
 
 export const COMPANY_NAME = "NV Flight Flight School";
 
@@ -27,17 +29,7 @@ export const LOCATIONS = [
     gMaps: "https://maps.app.goo.gl/UyDnbjRikTJSNHeG8",
     phone: "775-242-5994",
     email: "renodesk@nvflight.com",
-  },
-  /* {
-    title: `Ground Training Center`,
-    address: "4710 E Falcon Dr Suite 105",
-    city: "Reno",
-    state: "AZ",
-    zip: "85215",
-    gMaps: "https://maps.app.goo.gl/CPLB59b8BbPALwtf7",
-    phone: "1-480-256-8355",
-    email: "info@NVFlightco.com",
-  }, */
+  }
 ];
 
 export const PHONE_NUMBER = "775-242-5994";

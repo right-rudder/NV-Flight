@@ -17,14 +17,14 @@ const { data } = Astro.props;
     <div class="my-9 text-center">
       {
         data.upperHeading && (
-          <h3 class="mx-auto mt-12 uppercase text-lg lg:text-xl lg:max-w-3xl font-sans text-center font-bold tracking-tight text-accent-600">
+          <h3 class="mx-auto mt-12 uppercase text-lg lg:text-xl lg:max-w-3xl font-sans text-center font-bold tracking-tight text-primary-600">
             {data.upperHeading}
           </h3>
         )
       }
       {
         data.heading && (
-          <h2 class="mx-auto mb-3 text-4xl lg:text-6xl lg:max-w-3xl font-title text-center font-bold tracking-tight text-accent-950">
+          <h2 class="mx-auto mb-3 text-4xl lg:text-6xl lg:max-w-3xl font-title text-center font-bold tracking-tight text-primary-950">
             {data.heading}
           </h2>
         )
@@ -72,7 +72,7 @@ const { data } = Astro.props;
   >
     {
       posts.map((post, index) => (
-        <article class="relative group w-full lg:m-0 md:w-2/5 lg:w-1/4 isolate flex flex-col justify-end overflow-hidden rounded-md bg-white px-8 pb-8 pt-48 hover:ring-1 hover:ring-accent-300 duration-200">
+        <article class="relative group w-full lg:m-0 md:w-2/5 lg:w-1/4 isolate flex flex-col justify-end overflow-hidden rounded-md bg-white px-8 pb-8 pt-48 hover:ring-1 hover:ring-primary-300 duration-200">
           <img
             src={post.data.heroImage}
             alt={post.data.title}
@@ -84,7 +84,7 @@ const { data } = Astro.props;
           <div class="absolute inset-0 -z-10 rounded-md ring-1 ring-inset ring-gray-900/10" />
 
           <div class="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm leading-6 text-gray-100 bg-gray-900/20 rounded-md px-4 py-2 backdrop-blur-md">
-            <time datetime="2020-03-16" class="mr-8 text-accent-400">
+            <time datetime="2020-03-16" class="mr-8 text-primary-400">
               <FormattedDate date={post.data.pubDate} />
             </time>
             <div class="-ml-4 flex items-center gap-x-4">
@@ -94,7 +94,7 @@ const { data } = Astro.props;
               >
                 <circle cx="1" cy="1" r="1" />
               </svg>
-              <div class="flex font-bold text-base text-accent-200">
+              <div class="flex font-bold text-base text-primary-200">
                 {post.data.author}
               </div>
             </div>

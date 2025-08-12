@@ -14,7 +14,7 @@ const pilotTrainingMadeSimple = {
         "/src/assets/NVFlight-flight-school-airplane-landing-at-falcon-field-airport-pilot-training-Reno-arizona.webp",
       imageAlt:
         "NVFlight Flight School airplane landing at Falcon Field Airport in Reno, Arizona",
-      headerH1: `PILOT TRAINING</br><span class="text-accent-300">MADE SIMPLE</span>`,
+      headerH1: `PILOT TRAINING</br><span class="text-primary-300">MADE SIMPLE</span>`,
       paragraph:
         "How would you like to learn to fly? At NVFlight, we make it easy to get started. Our flight school offers a variety of pilot training programs to help you achieve your aviation goals.",
       buttons: [

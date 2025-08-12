@@ -49,7 +49,7 @@ const commercialPilotData = {
     ],
 
     cta: {
-      imagePath: "/src/assets/female_pilot_smiling.webp",
+      imagePath: "/src/assets/montain-&-plane2.jpg",
       imageAlt: "Female pilot smiling",
       title: "Enroll in the Commercial Pilot Program",
       description:

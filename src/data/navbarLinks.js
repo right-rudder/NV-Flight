@@ -1,6 +1,6 @@
 export const navbarLinks = [
   {
-    name: "New to Flying?",
+    name: "Become a Pilot",
     link: "/#",
   },
   {
@@ -8,43 +8,23 @@ export const navbarLinks = [
     link: "/#",
     submenu: [
       {
-        name: "Private Pilot",
+        name: "Private Pilot ASEL",
         link: "/#",
       },
       {
-        name: "Instrument Rating",
+        name: "Instrument Pilot ASEL",
         link: "/#",
       },
       {
-        name: "Commercial Pilot",
+        name: "Commercial Pilot ASEL",
         link: "/#",
       },
       {
-        name: "Certified Flight Instructor",
+        name: "Flight Instructor ASEL",
         link: "/#",
-      },
-      {
-        name: "CFI - Instruments",
-        link: "/#",
-      },
-      {
-        name: "Ground School",
-        link: "/#",
-      },
+      }
     ],
   },
-
-  {
-    name: "Financing",
-    link: "/#",
-    submenu: [
-      {
-        name: "Stratus Financial",
-        link: "/#",
-      },
-    ],
-  },
-
   {
     name: "About Us",
     link: "/#",
