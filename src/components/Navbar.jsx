@@ -110,7 +110,7 @@ const Navbar = ({ pathname }) => {
                   <a
                     href={item.link || "#"}
                     target={item.link?.includes("http") ? "_blank" : "_self"}
-                    className="block py-4 lg:text-lg hover:text-emerald duration-300"
+                    className="block py-4 lg:text-lg hover:text-emerald duration-300 group-last:bg-primary-500"
                   >
                     {item.name}
                   </a>
