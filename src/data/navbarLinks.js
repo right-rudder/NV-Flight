@@ -26,6 +26,10 @@ export const navbarLinks = [
       {
         name: "Flight Instructor Instrument",
         link: "/programs/flight-instructor-instrument",
+      },
+      {
+        name: "Mountain Flight Training",
+        link: "/programs/mountain-flight-training",
       }
     ],
   },

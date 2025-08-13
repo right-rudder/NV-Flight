@@ -55,6 +55,14 @@ export const mobileNavbarLinks = [
         name: "Flight Instructor ASEL",
         link: "/programs/flight-instructor-asel",
       },
+      {
+        name: "Flight Instructor Instrument",
+        link: "/programs/flight-instructor-instrument",
+      },
+      {
+        name: "Mountain Flight Training",
+        link: "/programs/mountain-flight-training",
+      },
     ],
   },
 
