@@ -69,6 +69,42 @@ const discoveryFlight = {
         link: "/contact",
       },
     },
+    princing: {
+      upperHeading: "Discovery Flight Package",
+      heading: "Experience the Thrill of Flight",
+      description:
+        "Our Discovery Flight is a fantastic way to experience flying firsthand. Whether you're considering a career in aviation or just want to see what it's like to be in the cockpit, this flight is perfect for you.",
+      pricingCards: [
+        {
+          title: "Reno Local Discovery Flight",
+          price: "$185",
+          description:
+            "Take a short flight around the Reno area and get a feel for flying. This introductory flight is perfect for those new to aviation.",
+          features: [
+            "Approx. 40-minutes flight with a certified flight instructor",
+            "Hands-on flying experience",
+            "Pre-flight briefing and post-flight debrief",
+            "Opportunity to ask questions about flight training",
+          ],
+        },
+        {
+          title: "Lake Tahoe Discovery Flight",
+          price: "$275",
+          description:
+            "Experience the breathtaking views of Lake Tahoe while flying with us. This extended flight allows you to enjoy the stunning scenery and get a more in-depth flying experience.",
+          features: [
+            "Approx. 75-minutes flight with a certified flight instructor",
+            "More in-depth flying experience",
+            "Extended pre-flight briefing and post-flight debrief",
+            "Opportunity to take the controls for a longer period",
+          ],
+        },
+      ],
+      button: {
+        text: "Book Now",
+        link: "/contact",
+      },
+    },
   },
 };
 export default discoveryFlight;

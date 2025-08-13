@@ -13,7 +13,7 @@ highlights:
   - "Solo flight milestones and pre-checkride prep"
 outcomes:
   - "Operate as PIC for VFR day/night flights"
-  - "Plan and execute cross-country flights using modern nav tools"
+  - "Plan and execute cross-country flights using modern navigation tools"
   - "Demonstrate safe, standardized procedures and checklists"
 prerequisites:
   - "Minimum 17 years old for certificate (solo may occur earlier)"

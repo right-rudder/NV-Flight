@@ -1,7 +1,7 @@
 export const GeneralFAQs = [
   {
     title: "What makes NV Flight different from other flight schools in Reno?",
-    content: `NV Flight offers specialized mountain flying endorsements, in-house mechanical expertise, and instructors with over 15 years of global experience. We focus on building versatile pilots who can fly safely and confidently in any environment. <a href="/about" class="text-primary-500 hover:underline hover:brightness-125 duration-200">Learn more about our approach</a>.`,
+    content: `NV Flight offers specialized mountain flying training, flight instructor leadership with over 20 years of combined flight experience, and exceptional in-house aircraft maintenance. We focus on building versatile pilots who can fly safely and confidently in any environment. <a href="/about" class="text-primary-500 hover:underline hover:brightness-125 duration-200">Learn more about our approach</a>.`,
   },
   {
     title: "Do I need any prior flight experience to get started?",
@@ -13,7 +13,7 @@ export const GeneralFAQs = [
   },
   {
     title: "What aircraft do you use for flight training?",
-    content: `Our training fleet consists ofcarefully preserved Piper Cherokee 180 aircraft, ideal for both initial and advanced training. All maintenance is performed in-house by our expert mechanical team, ensuring aircraft reliability and safety.`,
+    content: `Our training fleet consists of well-equipped Piper Cherokee 180 aircraft, ideal for both initial and advanced training. All maintenance is performed in-house by our expert mechanical team, ensuring aircraft reliability and safety.`,
   },
   {
     title: "How long does it take to become a private pilot?",
