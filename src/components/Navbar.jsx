@@ -2,16 +2,6 @@ import { navbarLinks } from "../data/navbarLinks.js";
 import { mobileNavbarLinks } from "../data/mobileNavbarLinks.js";
 import { useEffect, useState } from "react";
 import { IoIosArrowForward } from "react-icons/io";
-import { FaPhone } from "react-icons/fa";
-
-import {
-  FACEBOOK_URL,
-  INSTAGRAM_URL,
-  LINKEDIN_URL,
-  TWITTER_URL,
-  YOUTUBE_URL,
-  PHONE_NUMBER,
-} from "../consts.ts";
 
 const Navbar = ({ pathname }) => {
   const [openMobile, setOpenMobile] = useState(false);

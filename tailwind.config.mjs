@@ -5,9 +5,11 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter", ...defaultTheme.fontFamily.sans],
-        heading: ["Exo 2", ...defaultTheme.fontFamily.sans],
-        display: ["Orbitron", ...defaultTheme.fontFamily.sans],
+        // Body font: Poppins
+        sans: ["Poppins", ...defaultTheme.fontFamily.sans],
+        // Heading font: TeX Gyre Adventor
+        heading: ["TeX Gyre Adventor", "Arial", "sans-serif"],
+        display: ["TeX Gyre Adventor", "Arial", "sans-serif"],
       },
       colors: {
         muted: {
