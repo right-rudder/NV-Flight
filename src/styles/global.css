@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 @import url('https://fontlibrary.org/face/tex-gyre-adventor');
+@import url('https://fonts.cdnfonts.com/css/altform');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Import fonts */
+/* Components using Tailwind font tokens */
 @layer components {
   .btn-primary {
     @apply text-center uppercase hover:scale-105 font-heading font-bold py-3 px-8 bg-primary-700 w-fit text-white rounded-sm hover:bg-primary-700 duration-100 rounded-lg;

@@ -5,11 +5,11 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        // Body font: Poppins
-        sans: ["Poppins", ...defaultTheme.fontFamily.sans],
-        // Heading font: TeX Gyre Adventor
-        heading: ["TeX Gyre Adventor", "Arial", "sans-serif"],
-        display: ["TeX Gyre Adventor", "Arial", "sans-serif"],
+        // Body / small / paragraphs: Altform
+        sans: ["Altform", ...defaultTheme.fontFamily.sans],
+        // Headings / big / important text: Texgyreadventor
+        heading: ["Texgyreadventor", "Arial", "sans-serif"],
+        display: ["Texgyreadventor", "Arial", "sans-serif"],
       },
       colors: {
         muted: {
