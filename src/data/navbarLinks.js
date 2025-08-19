@@ -1,5 +1,6 @@
-export const navbarLinks = [
-  {
+export const navbarLinks = {
+  center: [
+    {
     name: "Become a Pilot",
     link: "/#",
   },
@@ -55,9 +56,18 @@ export const navbarLinks = [
       },
     ],
   },
-  {
-    name: "Enroll Now",
-    link: "/#",
-    submenu: [],
-  },
-];
+  ],
+
+  buttons: [
+    {
+      name: "Enroll Now",
+      link: "/#",
+      submenu: [],
+    },
+    {
+      name: "Contact Us",
+      link: "/contact",
+      submenu: [],
+    },
+  ]
+};

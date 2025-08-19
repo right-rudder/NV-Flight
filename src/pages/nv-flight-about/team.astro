@@ -1,37 +1,144 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import HeaderSmall from "../../components/HeaderSmall.astro";
-import CTAColor from "../../components/CTAColor.astro";
-import flyWithUsCTA from "../../data/fly-with-us-cta";
-import About from "../../components/About.astro";
+import teamData from "../../data/teamData.json"; // Assuming team data is in JSON format
 
+const {
+  title = "Our Team",
+  subtitle = "",
+  members = [],
+} = Astro.props;
 
-import pageData from "../../data/teamData.js";
-import CTAVideo from "../../components/CTAVideo.astro";
-import videoList from "../../data/videos.js";
-import { getCurrentVideo } from "../../scripts/videoSpinner.js";
+// Group members by `group` (fallback to "Team")
+const grouped = members.reduce((acc, m) => {
+  const key = m.group || "Team";
+  acc[key] = acc[key] || [];
+  acc[key].push(m);
+  return acc;
+}, {});
+// Sort featured first within each group
+Object.keys(grouped).forEach((k) => {
+  grouped[k] = grouped[k].slice().sort((a, b) => {
+    const fa = a.featured ? -1 : 0;
+    const fb = b.featured ? -1 : 0;
+    return fa - fb;
+  });
+});
 
-
-const currentVideo = getCurrentVideo(videoList, 'instructor testimonial');
-const dataForVideo = {
-  header: 'Meet Our Team of Experts',
-  text: 'At NVFlight, our instructors are not just teachers; they are passionate aviators dedicated to your success. With years of experience and a commitment to excellence, they will guide you every step of the way on your journey to becoming a skilled pilot.',
+// Minimal social icon SVGs
+const Icon = {
+  linkedin: (cls = "h-5 w-5") => `<svg class="${cls}" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.05h.05c.53-1 1.82-2.05 3.75-2.05C20.4 8 23 10.2 23 14.4V23h-4v-7.2c0-1.72-.03-3.94-2.4-3.94-2.4 0-2.77 1.87-2.77 3.82V23h-4V8z"/></svg>`,
+  x: (cls = "h-5 w-5") => `<svg class="${cls}" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-7.1 8.1L23 22h-7.8l-4.9-6.6L4.7 22H1.6l7.4-8.4L1 2h7.9l4.4 6L18.9 2Zm-2.7 18h2.2L7.9 4H5.6l10.6 16Z"/></svg>`,
+  globe: (cls = "h-5 w-5") => `<svg class="${cls}" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 .001 20.001A10 10 0 0 0 12 2Zm1 17.93V18h-2v1.93A8.002 8.002 0 0 1 4.07 13H6v-2H4.07A8.002 8.002 0 0 1 11 4.07V6h2V4.07A8.002 8.002 0 0 1 19.93 11H18v2h1.93A8.002 8.002 0 0 1 13 19.93Z"/></svg>`,
+  mail: (cls = "h-5 w-5") => `<svg class="${cls}" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z"/></svg>`,
 };
-
-
 ---
-<BaseLayout
-  siteTitle={pageData.pageTitle}
-  siteDescription={pageData.pageDescription}
-  keywords={pageData.pageKeywords}
-  >
 
-  <HeaderSmall content={pageData.header} />
+<BaseLayout siteTitle={title} siteDescription={subtitle}>
+  <section class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+  <header class="mb-10 text-center">
+    <p class="text-sm font-medium uppercase tracking-wider text-muted-500">Meet the team</p>
+    <h2 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">
+      {title}
+    </h2>
+    {subtitle && (
+      <p class="mx-auto mt-3 max-w-2xl text-base text-muted-600">
+        {subtitle}
+      </p>
+    )}
+  </header>
 
-  <About content={pageData.details} />
-  <CTAVideo video={currentVideo} data={dataForVideo} />
+  {Object.entries(grouped).map(([group, list]) => (
+    <section class="mb-16" aria-labelledby={`team-${group.replace(/\s+/g, "-").toLowerCase()}`}>
+      <div class="mb-6 flex items-end justify-between">
+        <h3 id={`team-${group.replace(/\s+/g, "-").toLowerCase()}`} class="text-xl font-semibold tracking-tight">
+          {group}
+        </h3>
+        <span class="text-sm text-muted-500">{list.length} {list.length === 1 ? "member" : "members"}</span>
+      </div>
 
-  <CTAColor content={flyWithUsCTA} />
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {list.map((m) => (
+          <article
+            class={[
+              "group relative overflow-hidden rounded-2xl border border-muted-200 bg-white/70 p-5 shadow-sm backdrop-blur transition hover:shadow-md dark:border-muted-800 dark:bg-muted-900/60",
+              m.featured ? "sm:col-span-2 lg:col-span-3 lg:grid lg:grid-cols-3 lg:gap-6" : ""
+            ].join(" ")}
+          >
+            {/* Image */}
+            <div class={["relative mb-4 aspect-[4/3] w-full overflow-hidden rounded-xl bg-muted-100 dark:bg-muted-800", m.featured ? "lg:mb-0 lg:col-span-1" : ""].join(" ")}>
+              {m.image ? (
+                <img
+                  src={m.image}
+                  alt={m.name ? `${m.name} headshot` : "Team member headshot"}
+                  loading="lazy"
+                  class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                />
+              ) : (
+                <div class="flex h-full w-full items-center justify-center text-muted-400">No image</div>
+              )}
+              <div class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/5 dark:ring-white/10"></div>
+            </div>
 
+            {/* Content */}
+            <div class={["lg:col-span-2", m.featured ? "" : ""].join(" ")}>
+              <div class="flex flex-wrap items-start justify-between gap-3">
+                <div>
+                  <h4 class="text-lg font-semibold leading-tight">{m.name}</h4>
+                  {m.role && <p class="mt-0.5 text-sm text-muted-600">{m.role}</p>}
+                </div>
+
+                {/* Socials */}
+                {(m.links && (m.links.linkedin || m.links.x || m.links.website || m.links.email)) && (
+                  <nav class="flex items-center gap-2 text-muted-500">
+                    {m.links.website && <a href={m.links.website} class="inline-flex items-center rounded-full p-2 hover:text-muted-900 focus:outline-none focus:ring-2 focus:ring-primary-400" aria-label="Website" rel="noopener noreferrer" target="_blank" set:html={Icon.globe()} />}
+                    {m.links.linkedin && <a href={m.links.linkedin} class="inline-flex items-center rounded-full p-2 hover:text-muted-900 focus:outline-none focus:ring-2 focus:ring-primary-400" aria-label="LinkedIn" rel="noopener noreferrer" target="_blank" set:html={Icon.linkedin()} />}
+                    {m.links.x && <a href={m.links.x} class="inline-flex items-center rounded-full p-2 hover:text-muted-900 focus:outline-none focus:ring-2 focus:ring-primary-400" aria-label="X" rel="noopener noreferrer" target="_blank" set:html={Icon.x()} />}
+                    {m.links.email && <a href={`mailto:${m.links.email}`} class="inline-flex items-center rounded-full p-2 hover:text-muted-900 focus:outline-none focus:ring-2 focus:ring-primary-400" aria-label="Email" set:html={Icon.mail()} />}
+                  </nav>
+                )}
+              </div>
+
+              {/* Bio with native expand/collapse */}
+              {m.bio && (
+                <details class="mt-4 group/open">
+                  <summary class="cursor-pointer list-none text-sm text-muted-700 transition hover:text-muted-900 focus:outline-none">
+                    <span class="inline-flex items-center gap-2">
+                      <span class="line-clamp-2 text-left">{m.bio}</span>
+                      <span class="shrink-0 text-xs text-muted-500 group-open:hidden">Read more</span>
+                      <span class="hidden shrink-0 text-xs text-muted-500 group-open:inline">Show less</span>
+                    </span>
+                  </summary>
+                  <div class="pt-3 text-sm text-muted-700">{m.bio}</div>
+                </details>
+              )}
+
+              {/* Articles / highlights */}
+              {Array.isArray(m.articles) && m.articles.length > 0 && (
+                <div class="mt-5">
+                  <p class="mb-2 text-xs font-medium uppercase tracking-wider text-muted-500">Latest</p>
+                  <ul class="flex flex-wrap gap-2">
+                    {m.articles.map((a) => (
+                      <li>
+                        <a
+                          href={a.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="inline-flex items-center gap-1 rounded-full border border-muted-200 px-3 py-1 text-xs text-muted-700 transition hover:bg-muted-100 dark:border-muted-700 dark:text-muted-300 dark:hover:bg-muted-800"
+                        >
+                          <span class="truncate">{a.label}</span>
+                          <span aria-hidden="true">↗</span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  ))}
+  </section>
 </BaseLayout>
 

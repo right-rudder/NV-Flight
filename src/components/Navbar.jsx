@@ -41,16 +41,16 @@ const Navbar = ({ pathname }) => {
         </a>
 
         {/* Center: Links (named group for dimming: group/nav) */}
-        <ul className="hidden lg:flex space-x-8 font-medium text-sm group/nav">
-          {navbarLinks.map((item, idx) => (
+        <ul className="hidden lg:flex space-x-8 font-medium text-md group/nav">
+          {navbarLinks.center.map((item, idx) => (
             <li key={idx} className="relative group">
               <a
                 href={item.link || "#"}
                 className={`inline-block transition-all duration-300
-                  group-hover/nav:opacity-50 hover:opacity-100 focus-visible:opacity-100
-                  hover:text-accent-300 focus-visible:text-accent-300
+                  group-hover/nav:[&:not(:hover)]:opacity-50
+                  hover:text-primary-300 focus-visible:text-accent-300
                   font-medium font-semibold
-                  ${isActive(item) ? "text-accent-300" : ""}`}
+                  ${isActive(item) ? "text-primary-300" : ""}`}
               >
                 {item.name}
               </a>
@@ -87,16 +87,13 @@ const Navbar = ({ pathname }) => {
         </ul>
 
         {/* Right: Action buttons */}
+
         <div className="hidden lg:flex items-center space-x-4">
-          <a href="/login" className="text-sm font-medium hover:text-emerald">
-            Log In
-          </a>
-          <a
-            href="/signup"
-            className="px-4 py-2 bg-emerald text-white rounded-md text-sm font-semibold hover:bg-emerald/90"
-          >
-            Get Started
-          </a>
+          {navbarLinks.buttons.map((item, idx) => (
+            <a key={idx} href={item.link || "#"} className="text-sm font-medium hover:text-emerald">
+              {item.name}
+            </a>
+          ))}
         </div>
 
         {/* Mobile toggle */}
