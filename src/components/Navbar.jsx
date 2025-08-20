@@ -14,6 +14,12 @@ const Navbar = ({ pathname }) => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.classList.toggle("overflow-hidden", openMobile);
+    return () => document.body.classList.remove("overflow-hidden");
+  }, [openMobile]);
+
   const isActive = (item) =>
     item.link === pathname ||
     item.link + "/" === pathname ||
@@ -40,57 +46,124 @@ const Navbar = ({ pathname }) => {
           />
         </a>
 
-        {/* Center: Links (named group for dimming: group/nav) */}
+        {/* Center: Links (desktop) */}
         <ul className="hidden lg:flex space-x-8 font-medium text-md group/nav">
           {navbarLinks.center.map((item, idx) => (
-            <li key={idx} className="relative group">
+            <li
+              key={idx}
+              className={`relative group transition-all duration-300
+                  group-hover/nav:[&:not(:hover)]:opacity-50
+                  hover:text-primary-300 focus-visible:text-primary-300
+                  font-medium font-semibold`}
+            >
               <a
                 href={item.link || "#"}
-                className={`inline-block transition-all duration-300
-                  group-hover/nav:[&:not(:hover)]:opacity-50
-                  hover:text-primary-300 focus-visible:text-accent-300
-                  font-medium font-semibold
-                  ${isActive(item) ? "text-primary-300" : ""}`}
+                className={`inline-flex items-center gap-1 ${isActive(item) ? "text-primary-300" : ""}`}
               >
-                {item.name}
+                <span>{item.name}</span>
+
+                {/* ▼ arrow for main links that have a submenu */}
+                {item.submenu?.length > 0 && (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    className="size-5 transition-transform duration-200 group-hover:rotate-180"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                )}
               </a>
 
-              {/* Dropdown (stays open on hover, fade + slide) */}
+              {/* Submenu dropdown (wider + underline animation on items) */}
               {item.submenu?.length > 0 && (
                 <div
-                  className="absolute left-1/2 -translate-x-1/2 top-full mt-3
-                             hidden group-hover:block
-                             bg-white rounded-lg shadow-lg border border-gray-200
-                             min-w-[220px] py-3 z-50
-                             opacity-0 group-hover:opacity-100
-                             translate-y-2 group-hover:translate-y-0
-                             transition-all duration-300 ease-out"
+                  className="absolute left-1/2 -translate-x-1/2 top-full
+               hidden group-hover:block z-50"
                 >
-                  <ul className="flex flex-col space-y-1 px-2">
-                    {item.submenu.map((sub, sidx) => (
-                      <li key={sidx}>
-                        <a
-                          href={sub.link || "#"}
-                          className="block text-sm text-gray-800 rounded-md px-3 py-2
-                                     transition-colors duration-200
-                                     hover:bg-accent-50 hover:text-accent-600"
-                        >
-                          {sub.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
+                  <div
+                    className="relative bg-primary-950/80 text-muted-200 rounded-md shadow-lg
+                 min-w-[320px] py-2
+                 opacity-0 translate-y-2 transition-all duration-300 ease-out
+                 group-hover:opacity-100 group-hover:translate-y-0"
+                  >
+                    {/* Hover bridge: fills the tiny gap above the panel so :hover never breaks */}
+                    <span className="pointer-events-auto absolute -top-3 left-0 right-0 h-3 content-['']"></span>
+
+                    <ul className="flex flex-col">
+                      {item.submenu.map((sub, sidx) => (
+                        <li key={sidx}>
+                          <a
+                            href={sub.link || "#"}
+                            className="relative flex items-center justify-between gap-3 px-4 py-2
+                         text-sm rounded-md transition-colors duration-200
+                         hover:text-accent-300 focus-visible:text-accent-300"
+                          >
+                            {/* Underline animation on label (as requested) */}
+                            <span
+                              className="relative inline-block pb-0.5
+                               after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-0
+                               after:h-[1px] after:bg-accent-600 after:scale-x-0 after:origin-left
+                               after:transition-transform after:duration-300
+                               hover:after:scale-x-100 focus-visible:after:scale-x-100"
+                            >
+                              {sub.name}
+                            </span>
+
+                            {/* → arrow icon on the right */}
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              strokeWidth={1.5}
+                              stroke="currentColor"
+                              className="size-6 opacity-60 group-hover:opacity-100 transition-opacity"
+                              aria-hidden="true"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                              />
+                            </svg>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               )}
             </li>
           ))}
         </ul>
 
-        {/* Right: Action buttons */}
-
+        {/* Right: Action buttons (desktop) */}
         <div className="hidden lg:flex items-center space-x-4">
           {navbarLinks.buttons.map((item, idx) => (
-            <a key={idx} href={item.link || "#"} className="text-sm font-medium hover:text-emerald">
+            <a
+              key={idx}
+              href={item.link || "#"}
+              className={idx === 0 ? "btn-primary" : "btn-accent"}
+            >
+              {item.icon && (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+                  />
+                </svg>
+              )}
               {item.name}
             </a>
           ))}
@@ -114,37 +187,75 @@ const Navbar = ({ pathname }) => {
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu (unchanged) */}
       <div
-        className={`lg:hidden overflow-hidden transition-all ${
-          openMobile ? "max-h-screen" : "max-h-0"
-        }`}
+        className={`lg:hidden fixed inset-0 z-[60]
+        bg-gradient-to-b from-muted-950 to-primary-950 text-muted-100
+        transform transition-transform duration-300 ease-out
+        ${openMobile ? "translate-y-0" : "-translate-y-full"}`}
+        aria-hidden={!openMobile}
       >
-        <ul className="bg-white text-charcoal px-6 py-4 space-y-4">
-          {mobileNavbarLinks.map((item, idx) => (
-            <li key={idx}>
-              <a
-                href={item.link || "#"}
-                className="block py-2 hover:text-emerald font-medium"
-              >
-                {item.name}
-              </a>
-            </li>
-          ))}
-          <li>
-            <a href="/login" className="block py-2 hover:text-emerald">
-              Log In
+        <div className="flex h-full flex-col">
+          {/* Top bar */}
+          <div className="flex items-center justify-between h-16 px-6 border-b border-muted-800">
+            <a href="/" className="flex items-center">
+              <img
+                src="/nvflight-nobg.webp"
+                alt="NV Flight"
+                className="h-10 object-contain"
+              />
             </a>
-          </li>
-          <li>
-            <a
-              href="/signup"
-              className="block px-4 py-2 bg-emerald text-white rounded-md hover:bg-emerald/90"
+            <button
+              onClick={() => setOpenMobile(false)}
+              className="text-muted-200 hover:text-emerald text-2xl leading-none"
+              aria-label="Close menu"
             >
-              Get Started
-            </a>
-          </li>
-        </ul>
+              ×
+            </button>
+          </div>
+
+          {/* Main nav links */}
+          <div className="flex-1 overflow-y-auto px-6 py-8">
+            <nav className="space-y-6">
+              {mobileNavbarLinks.links.map((item, idx) => (
+                <a
+                  key={idx}
+                  href={item.link || "#"}
+                  className="block font-heading text-3xl leading-tight tracking-tight
+                             hover:text-primary-300 transition-colors"
+                  onClick={() => setOpenMobile(false)}
+                >
+                  {item.name}
+                </a>
+              ))}
+            </nav>
+          </div>
+
+          {/* Footer section: CTA + extras */}
+          <div className="px-6 py-6 border-t border-muted-800 space-y-4">
+            {mobileNavbarLinks.buttons?.length > 0 && (
+              <div className="space-y-3">
+                {mobileNavbarLinks.buttons.map((btn, idx) => (
+                  <a
+                    key={idx}
+                    href={btn.link || "#"}
+                    className="block w-full text-center font-heading text-lg py-3 rounded-md
+                               bg-emerald text-white hover:bg-emerald/90 transition-colors"
+                    onClick={() => setOpenMobile(false)}
+                  >
+                    {btn.name}
+                  </a>
+                ))}
+              </div>
+            )}
+
+            <div className="flex items-center justify-between text-sm text-muted-300">
+              <span className="opacity-50">
+                © {new Date().getFullYear()} NV Flight
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     </nav>
   );

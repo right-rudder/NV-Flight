@@ -1,6 +1,6 @@
 export const navbarLinks = {
   center: [
-    {
+  {
     name: "Become a Pilot",
     link: "/#",
   },
@@ -40,19 +40,15 @@ export const navbarLinks = {
     submenu: [
       {
         name: "Our Team",
-        link: "/#",
+        link: "/nv-flight-about/team",
       },
       {
-        name: "Visit Us",
-        link: "/#",
-      },
-      {
-        name: "Join Us",
-        link: "/#",
+        name: "Our Fleet",
+        link: "/nv-flight-about/fleet",
       },
       {
         name: "Blog",
-        link: "/#",
+        link: "/nv-flight-about/blog",
       },
     ],
   },

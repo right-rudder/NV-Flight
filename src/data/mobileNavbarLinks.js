@@ -1,44 +1,13 @@
-export const mobileNavbarLinks = [
+export const mobileNavbarLinks = {
+  links: [
   {
-    name: "New to Flying?",
-    submenu: [
-      {
-        name: "Pilot Training Made Simple",
-        link: "/pilot-training-made-simple",
-      },
-      {
-        name: "Discovery Flight",
-        link: "/discovery-flight",
-      },
-      {
-        name: "Enroll at NVFlight",
-        link: "/enroll-at-NVFlight",
-      },
-      {
-        name: "Pilot Training",
-        link: "/pilot-training",
-      },
-      {
-        name: "Begin Pilot Career",
-        link: "/begin-pilot-career",
-      },
-      {
-        name: "Timeline",
-        link: "/timeline-to-be-a-pilot",
-      },
-      {
-        name: "Cost",
-        link: "/approximate-pilot-training-costs",
-      },
-    ],
+    name: "Become a Pilot",
+    link: "/#",
   },
   {
     name: "Programs",
+    link: "/programs",
     submenu: [
-      {
-        name: "All Programs",
-        link: "/programs",
-      },
       {
         name: "Private Pilot ASEL",
         link: "/programs/private-pilot-asel",
@@ -62,56 +31,43 @@ export const mobileNavbarLinks = [
       {
         name: "Mountain Flight Training",
         link: "/programs/mountain-flight-training",
-      },
+      }
     ],
   },
-
   {
-    name: "Financing",
+    name: "About Us",
+    link: "/#",
     submenu: [
-      {
-        name: "Financing",
-        link: "/financing",
-      },
-      {
-        name: "Stratus Financial",
-        link: "/stratus-finance",
-      },
-    ],
-  },
-
-  {
-    name: "NVFlight",
-    submenu: [
-      {
-        name: "Why NVFlight",
-        link: "/NVFlight",
-      },
       {
         name: "Our Team",
-        link: "/NVFlight/team",
+        link: "/#",
       },
       {
         name: "Visit Us",
-        link: "/NVFlight/visit",
+        link: "/#",
       },
       {
         name: "Join Us",
-        link: "/NVFlight/join-us",
+        link: "/#",
       },
       {
         name: "Blog",
-        link: "/blog",
-      },
-      {
-        name: "Contact",
-        link: "/contact",
+        link: "/#",
       },
     ],
   },
-  {
-    name: "Start Today",
-    link: "/enroll-at-NVFlight",
-    submenu: [],
-  },
-];
+  ],
+
+  buttons: [
+    {
+      name: "Enroll Now",
+      link: "/#",
+      submenu: [],
+    },
+    {
+      name: "Contact Us",
+      link: "/contact",
+      submenu: [],
+    },
+  ],
+};
