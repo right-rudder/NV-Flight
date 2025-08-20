@@ -2,7 +2,7 @@ export const navbarLinks = {
   center: [
   {
     name: "Become a Pilot",
-    link: "/#",
+    link: "/become-a-pilot",
   },
   {
     name: "Programs",
