@@ -18,7 +18,7 @@ import ImageComp from "./ImageComp.astro";
   <div
     class="text-white py-12 mt-20 lg:mt-0 text-left z-10 flex flex-col items-start gap-4 px-5 h-full lg:pt-28 justify-center"
   >
-    <p class="text-3xl lg:text-4xl font-sans font-bold tracking-wide text-primary-600">
+    <p class="text-3xl lg:text-4xl font-sans font-bold tracking-wide text-primary-200">
       {content.paragraph1}
     </p>
     <h3
@@ -36,7 +36,7 @@ import ImageComp from "./ImageComp.astro";
         content.buttons.map((btn) => (
           <a
             href={btn.link}
-            class="btn-accent w-full text-2xl md:w-auto"
+            class="btn-primary w-full text-2xl md:w-auto"
           >
             {btn.name}
           </a>

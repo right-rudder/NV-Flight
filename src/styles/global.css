@@ -1,5 +1,5 @@
-@import url('https://fontlibrary.org/face/tex-gyre-adventor');
-@import url('https://fonts.cdnfonts.com/css/altform');
+@import url("https://fontlibrary.org/face/tex-gyre-adventor");
+@import url("https://fonts.cdnfonts.com/css/altform");
 
 @tailwind base;
 @tailwind components;
@@ -16,49 +16,79 @@
   }
 
   /* PRIMARY */
-  .btn-primary { @apply bg-primary-700 border border-primary-700/30 text-white; }
+  .btn-primary {
+    @apply bg-primary-700 border border-primary-700/30 text-white overflow-hidden;
+  }
   .btn-primary::before {
-    content:"";
+    content: "";
     @apply absolute inset-0 rounded-full bg-primary-200;
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 300ms ease;
     z-index: -1; /* <-- behind content */
   }
-  .btn-primary:hover::before { transform: scaleX(1); }
-  .btn-primary:hover { @apply text-primary-800 shadow-lg; }
-  .btn-primary svg { @apply transition-transform duration-300; }
-  .btn-primary:hover svg { transform: translateX(2px); }
+  .btn-primary:hover::before {
+    transform: scaleX(1);
+  }
+  .btn-primary:hover {
+    @apply text-primary-800 shadow-lg;
+  }
+  .btn-primary svg {
+    @apply transition-transform duration-300;
+  }
+  .btn-primary:hover svg {
+    transform: translateX(2px);
+  }
 
   /* ACCENT */
-  .btn-accent { @apply border border-accent-300/40 text-primary-700; }
+  .btn-accent {
+    @apply border border-accent-300/40 text-primary-700 overflow-hidden;
+  }
   .btn-accent::before {
-    content:"";
+    content: "";
     @apply absolute inset-0 rounded-full bg-accent-500;
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 300ms ease;
     z-index: -1; /* <-- */
   }
-  .btn-accent:hover::before { transform: scaleX(1); }
-  .btn-accent:hover { @apply text-muted-900 shadow-lg; }
-  .btn-accent svg { @apply transition-transform duration-300; }
-  .btn-accent:hover svg { transform: translateX(2px); }
+  .btn-accent:hover::before {
+    transform: scaleX(1);
+  }
+  .btn-accent:hover {
+    @apply text-muted-900 shadow-lg;
+  }
+  .btn-accent svg {
+    @apply transition-transform duration-300;
+  }
+  .btn-accent:hover svg {
+    transform: translateX(2px);
+  }
 
   /* WHITE */
-  .btn-white { @apply border border-accent-200 text-accent-200 bg-transparent font-display; }
+  .btn-white {
+    @apply border border-accent-200 text-accent-200 bg-transparent font-display overflow-hidden;
+  }
   .btn-white::before {
-    content:"";
+    content: "";
     @apply absolute inset-0 rounded-full bg-muted-200;
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 300ms ease;
     z-index: -1; /* <-- */
   }
-  .btn-white:hover::before { transform: scaleX(1); }
-  .btn-white:hover { @apply text-primary-900 shadow-lg; }
-  .btn-white svg { @apply transition-transform duration-300; }
-  .btn-white:hover svg { transform: translateX(2px); }
+  .btn-white:hover::before {
+    transform: scaleX(1);
+  }
+  .btn-white:hover {
+    @apply text-primary-900 shadow-lg;
+  }
+  .btn-white svg {
+    @apply transition-transform duration-300;
+  }
+  .btn-white:hover svg {
+    transform: translateX(2px);
+  }
 
   /* Keep your animation helper, but modernize the fill sweep to match */
   .btn-animate {
@@ -112,9 +142,9 @@
 .outlined-text {
   text-shadow:
     -1px -1px 0 white,
-     1px -1px 0 white,
+    1px -1px 0 white,
     -1px 1px 0 white,
-     1px 1px 0 white;
+    1px 1px 0 white;
 }
 
 .swiper-button-prev,
@@ -123,12 +153,12 @@
 }
 
 .swiper-pagination-bullet {
-  background-color: rgb(71, 184, 228) !important;
+  background-color: #a1a1aa !important;
   opacity: 0.5;
 }
 
 .swiper-pagination-bullet-active {
-  background-color: rgb(39, 130, 235) !important;
+  background-color: #27272a !important;
 }
 
 .swiper-slide {
@@ -136,23 +166,47 @@
 }
 
 @keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 @keyframes marquee2 {
-  0% { transform: translateX(50%); }
-  100% { transform: translateX(0%); }
+  0% {
+    transform: translateX(50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
 }
 @keyframes marqueemobile {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-100%); }
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 @keyframes marquee2mobile {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(0%); }
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
 }
 
-.animate-marquee { animation: marquee 50s linear infinite; }
-.animate-marquee2 { animation: marquee2 50s linear infinite; }
-.animate-marqueemobile { animation: marqueemobile 50s linear infinite; }
-.animate-marquee2mobile { animation: marquee2mobile 50s linear infinite; }
+.animate-marquee {
+  animation: marquee 50s linear infinite;
+}
+.animate-marquee2 {
+  animation: marquee2 50s linear infinite;
+}
+.animate-marqueemobile {
+  animation: marqueemobile 50s linear infinite;
+}
+.animate-marquee2mobile {
+  animation: marquee2mobile 50s linear infinite;
+}
