@@ -113,7 +113,7 @@ const homePage = {
         "Check out what they have to say about their experiences with us.",
       ],
       buttonText: "Leave Us a Review",
-      buttonLink: "#",
+      buttonLink: "https://g.page/r/CXZqN1dEQOpxEBM/review",
       reviews: [
         {
           title: "Best Flight School in Reno!",
