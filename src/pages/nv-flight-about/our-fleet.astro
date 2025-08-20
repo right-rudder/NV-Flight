@@ -9,10 +9,9 @@ import flyWithUsCTA from "../../data/fly-with-us-cta";
 import FAQs from "../../components/FAQs";
 import FAQSchema from "../../components/FAQSchema.astro";
 import { GeneralFAQs } from "../../data/general-faqs";
-const { data } = pageDate;
-
-
 import ServicesCarousel from "../../components/ServicesCarousel.astro";
+import FleetCard from "../../components/FleetCard.astro";
+const { data } = pageDate;
 
 const faqSchemaItems = GeneralFAQs.map((faq) => ({
   question: faq.title,
@@ -34,6 +33,13 @@ const faqSchemaItems = GeneralFAQs.map((faq) => ({
         description={ data.fleet.description }
         title={ data.fleet.title }
     />
+
+    
+  {
+    data.fleet.planes.map((plane, index) => (
+      <FleetCard content={plane} index={index} />
+    ))
+  }
 
   <FAQs faqs={data.fleetFAQs} type="General" client:visible />
   <FAQSchema items={faqSchemaItems} />
