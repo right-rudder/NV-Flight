@@ -15,7 +15,7 @@ const year = date.getFullYear();
 ---
 
 <footer
-  class="relative bg-[url('/src/assets/reno-montain-footer.webp')] bg-cover bg-no-repeat bg-center text-white px-5"
+  class="relative bg-[url('/src/assets/reno-montain-footer.webp')] bg-cover bg-no-repeat bg-top text-white px-5"
 >
   <!-- Lighter overlay -->
 
@@ -35,7 +35,7 @@ const year = date.getFullYear();
             styles="object-contain h-36 w-auto drop-shadow-lg"
           />
         </a>
-        <p class="text-sm text-gray-200 mb-4">{SITE_SHORT_DESCRIPTION}</p>
+        <p class="text-sm text-gray-200 mb-4 font-medium">{SITE_SHORT_DESCRIPTION}</p>
 
         
 
@@ -73,7 +73,7 @@ const year = date.getFullYear();
             <ul class="mt-2 space-y-2">
               {column.links.map((link) => (
                 <li>
-                  <a href={link.link} class="transition-colors duration-200 text-gray-300 hover:text-primary-400 font-semibold">
+                  <a href={link.link} class="transition-colors duration-200 text-gray-200 hover:text-primary-400 font-semibold">
                     {link.name}
                   </a>
                 </li>
@@ -84,7 +84,7 @@ const year = date.getFullYear();
         {LOCATIONS.map((location) => (
           <div class="mb-4 flex flex-col items-center lg:items-start gap-2">
             <p class="font-bold tracking-wide text-primary-200">{location.title}</p>
-            <a href={location.gMaps} target="_blank" class="block text-sm hover:underline font-semibold">
+            <a href={location.gMaps} target="_blank" class="block text-sm text-gray-200 hover:underline font-semibold">
               {location.address}<br />{location.city}, {location.state} {location.zip}
             </a>
             <a href={`tel:${location.phone}`} class="mt-1 flex items-center text-sm hover:text-primary-400 gap-2 font-semibold">
