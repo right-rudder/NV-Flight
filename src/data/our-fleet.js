@@ -45,7 +45,7 @@ const fleetPage = {
           horsepower: "180 HP",
           airworthiness: "Standard/Normal",
           speed: "Cruise ~107 mph",
-          imagePath: "/src/assets/Plane-N733AJ-flying-sky.webp",
+          imagePath: "/src/assets/Plane-N733AJ-ground-sunset.webp",
           imageAlt: "Piper Cherokee 180 N733AJ parked on the ramp",
           description:
             "The Cherokee 180 N733AJ is a versatile trainer equipped for private through commercial training. Its balanced performance and forgiving handling make it an excellent choice for pilots in training.",
@@ -63,11 +63,15 @@ const fleetPage = {
           equipment: ["Four-place intercom", "Standard training configuration"],
           images: [
             {
-              imagePath: "/src/assets/placeholder-img.jpg",
+              imagePath: "/src/assets/Plane-N733AJ-flying-sky.webp",
               imageAlt: "Cockpit view of Cherokee 180 N733AJ",
             },
             {
-              imagePath: "/src/assets/placeholder-img.jpg",
+              imagePath: "/src/assets/Plane-N733AJ-ground-blue-sky-clouds.webp",
+              imageAlt: "Side view of Cherokee 180 N733AJ",
+            },
+            {
+              imagePath: "/src/assets/N733AJ- (3).webp",
               imageAlt: "Side view of Cherokee 180 N733AJ",
             },
           ],
@@ -85,7 +89,7 @@ const fleetPage = {
           horsepower: "180 HP",
           airworthiness: "Standard/Normal",
           speed: "Cruise ~107 mph",
-          imagePath: "/src/assets/Plane-N7824W-flying-sky.webp",
+          imagePath: "/src/assets/Plane-N7824W-ground-ice-clouds.webp",
           imageAlt: "Piper Cherokee 180 N7824W in flight over Nevada",
           description:
             "Cherokee 180 N7824W is a robust aircraft offering consistent performance for student pilots. A dependable platform for training in both VFR and IFR conditions.",
@@ -102,12 +106,16 @@ const fleetPage = {
           equipment: ["Modern intercom system", "Training-friendly setup"],
           images: [
             {
-              imagePath: "/src/assets/placeholder-img.jpg",
+              imagePath: "/src/assets/Plane-N7824W-flying-sky.webp",
               imageAlt: "Cockpit interior of Cherokee 180 N7824W",
             },
             {
-              imagePath: "/src/assets/placeholder-img.jpg",
-              imageAlt: "Cherokee 180 N7824W taxiing at Reno",
+              imagePath: "/src/assets/N7824W- (2).webp",
+              imageAlt: "Cockpit interior of Cherokee 180 N7824W",
+            },
+            {
+              imagePath: "/src/assets/N7824W-.webp",
+              imageAlt: "Cockpit interior of Cherokee 180 N7824W",
             },
           ],
         },
@@ -136,16 +144,7 @@ const fleetPage = {
           ],
           avionics: ["IFR training instruments", "Dual comm radios", "GPS"],
           equipment: ["Four-place intercom", "Comfortable seating"],
-          images: [
-            {
-              imagePath: "/src/assets/placeholder-img.jpg",
-              imageAlt: "Instrument panel of Cherokee 180 N7969W",
-            },
-            {
-              imagePath: "/src/assets/placeholder-img.jpg",
-              imageAlt: "Cherokee 180 N7969W preparing for takeoff",
-            },
-          ],
+          images: [],
         },
       ],
       simulators: [
