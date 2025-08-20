@@ -2,6 +2,7 @@
 // Import Swiper styles. The JS will be imported in the client-side script.
 import 'swiper/css';
 import 'swiper/css/navigation';
+import ImageComp from './ImageComp.astro';
 
 const { title, services, description } = Astro.props;
 ---
@@ -42,17 +43,15 @@ const { title, services, description } = Astro.props;
         <div class="swiper-slide bg-white border border-gray-200 rounded-xl overflow-hidden h-auto">
           <figure class="flex flex-col gap-6 relative min-h-[400px] md:min-h-[500px] h-full">
             {/* BG image */}
-            <img 
-              src={plane.imagePath} 
-              alt={plane.imageAlt} 
+            <ImageComp
+              imagePath={plane.imagePath}
+              imageAlt={plane.imageAlt} 
               loading="lazy"
-              class="opacity-20 md:opacity-70 rounded-xl w-full h-full object-cover object-center absolute inset-0"
-              height="400" 
-              width="600" 
+              styles="opacity-20 md:opacity-70 rounded-xl w-full h-full object-cover object-center absolute inset-0"
             />
 
             {/* Gradient mask */}
-            <div class="absolute rounded-xl overflow-hidden w-full h-full inset-0 bg-gradient-to-r from-white/90 via-white/70 to-transparent"></div>
+            <div class="absolute rounded-xl overflow-hidden w-full h-full inset-0 bg-gradient-to-r from-white/80 via-white/60 to-transparent"></div>
 
             {/* Content */}
             <figcaption class="relative z-10 p-6 sm:p-8 md:p-12 max-w-xl flex flex-col gap-4 h-full justify-center">

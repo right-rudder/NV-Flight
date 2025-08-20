@@ -6,7 +6,7 @@ const fleetPage = {
       "NV Flight fleet, Piper Cherokee 180, Reno flight school planes, Nevada pilot training aircraft, mountain flying planes, flight simulators Reno",
 
     header: {
-      imagePath: "/src/assets/placeholder-img.jpg",
+      imagePath: "/src/assets/Planes-all-fleet-back.webp",
       imageAlt: "NV Flight fleet of Piper Cherokee aircraft on the ramp",
       headerH1: `Our Fleet`,
       paragraph:
@@ -45,7 +45,7 @@ const fleetPage = {
           horsepower: "180 HP",
           airworthiness: "Standard/Normal",
           speed: "Cruise ~107 mph",
-          imagePath: "/src/assets/placeholder-img.jpg",
+          imagePath: "/src/assets/Plane-N733AJ-flying-sky.webp",
           imageAlt: "Piper Cherokee 180 N733AJ parked on the ramp",
           description:
             "The Cherokee 180 N733AJ is a versatile trainer equipped for private through commercial training. Its balanced performance and forgiving handling make it an excellent choice for pilots in training.",
@@ -85,7 +85,7 @@ const fleetPage = {
           horsepower: "180 HP",
           airworthiness: "Standard/Normal",
           speed: "Cruise ~107 mph",
-          imagePath: "/src/assets/placeholder-img.jpg",
+          imagePath: "/src/assets/Plane-N7824W-flying-sky.webp",
           imageAlt: "Piper Cherokee 180 N7824W in flight over Nevada",
           description:
             "Cherokee 180 N7824W is a robust aircraft offering consistent performance for student pilots. A dependable platform for training in both VFR and IFR conditions.",
@@ -124,7 +124,8 @@ const fleetPage = {
           horsepower: "180 HP",
           airworthiness: "Standard/Normal",
           speed: "Cruise ~107 mph",
-          imagePath: "/src/assets/placeholder-img.jpg",
+          imagePath:
+            "/src/assets/Plane-N7969W-on-ground-blue-skies-and-clouds.webp",
           imageAlt: "Piper Cherokee 180 N7969W on the runway",
           description:
             "The Cherokee 180 N7969W is one of our cornerstone training aircraft, perfectly suited for accelerated courses and mountain flying lessons.",
