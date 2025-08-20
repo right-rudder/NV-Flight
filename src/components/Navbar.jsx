@@ -6,11 +6,12 @@ import { IoIosArrowForward } from "react-icons/io";
 const Navbar = ({ pathname }) => {
   const [openMobile, setOpenMobile] = useState(false);
   const [navBar, setNavbar] = useState(false);
+  const [expandedIdx, setExpandedIdx] = useState(null); // which mobile section is open
 
   useEffect(() => {
     const onScroll = () => setNavbar(window.scrollY >= 40);
     onScroll();
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -24,6 +25,9 @@ const Navbar = ({ pathname }) => {
     item.link === pathname ||
     item.link + "/" === pathname ||
     item.submenu?.some((sub) => sub.link === pathname);
+
+  const toggleSection = (idx) =>
+    setExpandedIdx((cur) => (cur === idx ? null : idx));
 
   return (
     <nav
@@ -46,7 +50,7 @@ const Navbar = ({ pathname }) => {
           />
         </a>
 
-        {/* Center: Links (desktop) */}
+        {/* Center: Links (desktop, unchanged) */}
         <ul className="hidden lg:flex space-x-8 font-medium text-md group/nav">
           {navbarLinks.center.map((item, idx) => (
             <li
@@ -61,8 +65,6 @@ const Navbar = ({ pathname }) => {
                 className={`inline-flex items-center gap-1 ${isActive(item) ? "text-primary-300" : ""}`}
               >
                 <span>{item.name}</span>
-
-                {/* ▼ arrow for main links that have a submenu */}
                 {item.submenu?.length > 0 && (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -80,21 +82,15 @@ const Navbar = ({ pathname }) => {
                 )}
               </a>
 
-              {/* Submenu dropdown (wider + underline animation on items) */}
               {item.submenu?.length > 0 && (
-                <div
-                  className="absolute left-1/2 -translate-x-1/2 top-full
-               hidden group-hover:block z-50"
-                >
+                <div className="absolute left-1/2 -translate-x-1/2 top-full hidden group-hover:block z-50">
                   <div
                     className="relative bg-primary-950/80 text-muted-200 rounded-md shadow-lg
                  min-w-[320px] py-2
                  opacity-0 translate-y-2 transition-all duration-300 ease-out
                  group-hover:opacity-100 group-hover:translate-y-0"
                   >
-                    {/* Hover bridge: fills the tiny gap above the panel so :hover never breaks */}
                     <span className="pointer-events-auto absolute -top-3 left-0 right-0 h-3 content-['']"></span>
-
                     <ul className="flex flex-col">
                       {item.submenu.map((sub, sidx) => (
                         <li key={sidx}>
@@ -104,7 +100,6 @@ const Navbar = ({ pathname }) => {
                          text-sm rounded-md transition-colors duration-200
                          hover:text-accent-300 focus-visible:text-accent-300"
                           >
-                            {/* Underline animation on label (as requested) */}
                             <span
                               className="relative inline-block pb-0.5
                                after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-0
@@ -114,8 +109,6 @@ const Navbar = ({ pathname }) => {
                             >
                               {sub.name}
                             </span>
-
-                            {/* → arrow icon on the right */}
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               fill="none"
@@ -148,21 +141,20 @@ const Navbar = ({ pathname }) => {
             <a
               key={idx}
               href={item.link || "#"}
-              className={idx === 0 ? "btn-primary text-white" : "btn-accent text-white"}
+              className={idx === 0 ? "btn-primary text-white hover:text-black" : "btn-accent text-white"}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                class="size-6"
+                className="size-6"
               >
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M15.75 2.25H21a.75.75 0 0 1 .75.75v5.25a.75.75 0 0 1-1.5 0V4.81L8.03 17.03a.75.75 0 0 1-1.06-1.06L19.19 3.75h-3.44a.75.75 0 0 1 0-1.5Zm-10.5 4.5a1.5 1.5 0 0 0-1.5 1.5v10.5a1.5 1.5 0 0 0 1.5 1.5h10.5a1.5 1.5 0 0 0 1.5-1.5V10.5a.75.75 0 0 1 1.5 0v8.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V8.25a3 3 0 0 1 3-3h8.25a.75.75 0 0 1 0 1.5H5.25Z"
-                  clip-rule="evenodd"
+                  clipRule="evenodd"
                 />
               </svg>
-
               {item.name}
             </a>
           ))}
@@ -171,8 +163,10 @@ const Navbar = ({ pathname }) => {
         {/* Mobile toggle */}
         <button
           onClick={() => setOpenMobile((v) => !v)}
-          className="lg:hidden p-2"
+          className="lg:hidden p-2 touch-manipulation"
           aria-label="Toggle menu"
+          aria-expanded={openMobile}
+          aria-controls="mobile-menu"
         >
           {openMobile ? (
             <IoIosArrowForward className="rotate-90 text-emerald size-6" />
@@ -186,63 +180,145 @@ const Navbar = ({ pathname }) => {
         </button>
       </div>
 
-      {/* Mobile menu (unchanged) */}
+      {/* Mobile menu WITH tap-to-toggle submenus */}
       <div
+        id="mobile-menu"
         className={`lg:hidden fixed inset-0 z-[60]
-  bg-gradient-to-b from-muted-950 to-primary-950 text-muted-100
-  transform transition-transform duration-300 ease-out
-  ${
-    openMobile
-      ? "translate-y-0 opacity-100 visible pointer-events-auto"
-      : "-translate-y-full opacity-0 invisible pointer-events-none"
-  }`}
+          bg-gradient-to-b from-muted-950 to-primary-950 text-muted-100
+          transform transition-transform duration-300 ease-out
+          ${openMobile ? "translate-y-0 opacity-100 visible pointer-events-auto"
+                       : "-translate-y-full opacity-0 invisible pointer-events-none"}`}
         aria-hidden={!openMobile}
       >
         <div className="flex h-full flex-col">
           {/* Top bar */}
           <div className="flex items-center justify-between h-16 px-6 border-b border-muted-800">
-            <a href="/" className="flex items-center">
-              <img
-                src="/nvflight-nobg.webp"
-                alt="NV Flight"
-                className="h-10 object-contain"
-              />
+            <a href="/" className="flex items-center" onClick={() => setOpenMobile(false)}>
+              <img src="/nvflight-nobg.webp" alt="NV Flight" className="h-10 object-contain" />
             </a>
             <button
               onClick={() => setOpenMobile(false)}
-              className="text-muted-200 hover:text-emerald text-2xl leading-none"
+              className="text-muted-200 hover:text-emerald text-2xl leading-none touch-manipulation"
               aria-label="Close menu"
             >
               ×
             </button>
           </div>
 
-          {/* Main nav links */}
-          <div className="flex-1 overflow-y-auto px-6 py-8 overscroll-contain">
-            <nav className="space-y-6">
-              {mobileNavbarLinks.links.map((item, idx) => (
-                <a
-                  key={idx}
-                  href={item.link || "#"}
-                  className="block font-heading text-3xl leading-tight tracking-tight hover:text-primary-300 transition-colors"
-                  onClick={() => setOpenMobile(false)}
-                >
-                  {item.name}
-                </a>
-              ))}
+          {/* Main nav: built from desktop links, but with accordion submenus */}
+          <div className="flex-1 overflow-y-auto px-6 py-6 overscroll-contain">
+            <nav className="space-y-2">
+              {navbarLinks.center.map((item, idx) => {
+                const hasSub = item.submenu?.length > 0;
+                const open = expandedIdx === idx;
+
+                return (
+                  <div key={idx} className="border-b border-muted-800/50 pb-2">
+                    <div className="flex items-center justify-between">
+                      {/* Left: label that navigates (same as desktop) */}
+                      <a
+                        href={item.link || "#"}
+                        onClick={() => setOpenMobile(false)}
+                        className={`block font-heading text-2xl leading-tight tracking-tight py-2
+                          ${isActive(item) ? "text-primary-300" : "hover:text-primary-300"}`}
+                      >
+                        {item.name}
+                      </a>
+
+                      {/* Right: chevron toggles submenu on tap (if exists) */}
+                      {hasSub && (
+                        <button
+                          type="button"
+                          onClick={() => toggleSection(idx)}
+                          aria-expanded={open}
+                          aria-controls={`mobile-sub-${idx}`}
+                          className="p-2 -mr-2 touch-manipulation text-muted-100 hover:text-primary-300 transition"
+                        >
+                          <IoIosArrowForward
+                            className={`size-6 transition-transform ${open ? "rotate-90" : ""}`}
+                            aria-hidden="true"
+                          />
+                          <span className="sr-only">Toggle {item.name} submenu</span>
+                        </button>
+                      )}
+                    </div>
+
+                    {/* Submenu panel (animated height) */}
+                    {hasSub && (
+                      <div
+                        id={`mobile-sub-${idx}`}
+                        className={`overflow-hidden transition-all duration-300 ease-out
+                          ${open ? "max-h-[70vh] opacity-100" : "max-h-0 opacity-0"}`}
+                      >
+                        <ul className="mt-1 pl-2">
+                          {item.submenu.map((sub, sidx) => (
+                            <li key={sidx}>
+                              <a
+                                href={sub.link || "#"}
+                                onClick={() => setOpenMobile(false)}
+                                className={`flex items-center justify-between gap-3 px-1 py-2
+                                  text-base rounded-md transition-colors duration-200
+                                  ${pathname === sub.link ? "text-accent-300" : "hover:text-accent-300"}`}
+                              >
+                                <span className="relative inline-block pb-0.5
+                                  after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-0
+                                  after:h-[1px] after:bg-accent-600 after:scale-x-0 after:origin-left
+                                  after:transition-transform after:duration-300
+                                  hover:after:scale-x-100">
+                                  {sub.name}
+                                </span>
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  strokeWidth={1.5}
+                                  stroke="currentColor"
+                                  className="size-5 opacity-70"
+                                  aria-hidden="true"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                                  />
+                                </svg>
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+
+              {/* (Optional) Extra mobile-only links list. Remove if you don't want duplicates. */}
+              {/* {mobileNavbarLinks?.links?.length > 0 && (
+                <div className="mt-4 space-y-2">
+                  {mobileNavbarLinks.links.map((item, idx) => (
+                    <a
+                      key={`m-${idx}`}
+                      href={item.link || "#"}
+                      className="block font-heading text-2xl leading-tight tracking-tight hover:text-primary-300 transition-colors"
+                      onClick={() => setOpenMobile(false)}
+                    >
+                      {item.name}
+                    </a>
+                  ))}
+                </div>
+              )} */}
             </nav>
           </div>
 
           {/* Footer section: CTA + extras */}
           <div className="px-6 py-6 border-t border-muted-800 space-y-4">
             {mobileNavbarLinks.buttons?.length > 0 && (
-              <div className="space-y-3">
+              <div className="space-y-3 flex flex-col justify-center items-center">
                 {mobileNavbarLinks.buttons.map((btn, idx) => (
                   <a
                     key={idx}
                     href={btn.link || "#"}
-                    className="block w-full text-center font-heading text-lg py-3 rounded-md
-                         bg-emerald text-white hover:bg-emerald/90 transition-colors"
+                    className="btn-primary"
                     onClick={() => setOpenMobile(false)}
                   >
                     {btn.name}
@@ -250,11 +326,8 @@ const Navbar = ({ pathname }) => {
                 ))}
               </div>
             )}
-
             <div className="flex items-center justify-between text-sm text-muted-300">
-              <span className="opacity-50">
-                © {new Date().getFullYear()} NV Flight
-              </span>
+              <span className="opacity-50">© {new Date().getFullYear()} NV Flight</span>
             </div>
           </div>
         </div>
