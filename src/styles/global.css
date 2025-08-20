@@ -7,80 +7,56 @@
 
 /* Components using Tailwind font tokens */
 @layer components {
-  .btn-primary {
+  .btn-primary,
+  .btn-accent,
+  .btn-white {
     @apply relative inline-flex items-center justify-center gap-2
-           font-heading font-bold tracking-tight
-           px-7 py-3 rounded-full w-fit bg-primary-700
-           border border-primary-700/30 text-white
-           transition-all duration-300
-           hover:-translate-y-0.5 active:translate-y-0;
+           font-heading font-bold tracking-tight px-7 py-3 rounded-full w-fit
+           transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 isolate; /* <-- isolate */
   }
+
+  /* PRIMARY */
+  .btn-primary { @apply bg-primary-700 border border-primary-700/30 text-white; }
   .btn-primary::before {
-    content: "";
-    @apply absolute inset-0 rounded-full bg-primary-200 text-primary-950;
+    content:"";
+    @apply absolute inset-0 rounded-full bg-primary-200;
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 300ms ease;
-    z-index: 0;
+    z-index: -1; /* <-- behind content */
   }
   .btn-primary:hover::before { transform: scaleX(1); }
-  .btn-primary > * { position: relative; z-index: 1; }
   .btn-primary:hover { @apply text-primary-800 shadow-lg; }
-  .btn-primary:focus-visible {
-    @apply outline-none ring-2 ring-primary-200 ring-offset-0;
-  }
   .btn-primary svg { @apply transition-transform duration-300; }
   .btn-primary:hover svg { transform: translateX(2px); }
 
-  /* Accent: lighter outline that fills with brand accent on hover */
-  .btn-accent {
-    @apply relative inline-flex items-center justify-center gap-2
-           font-heading font-bold tracking-tight
-           px-7 py-3 rounded-full w-fit
-           border border-accent-300/40 text-primary-700
-           transition-all duration-300
-           hover:-translate-y-0.5 active:translate-y-0;
-  }
+  /* ACCENT */
+  .btn-accent { @apply border border-accent-300/40 text-primary-700; }
   .btn-accent::before {
-    content: "";
-    @apply absolute inset-0 rounded-full bg-accent-500 text-muted-900;
+    content:"";
+    @apply absolute inset-0 rounded-full bg-accent-500;
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 300ms ease;
-    z-index: 0;
+    z-index: -1; /* <-- */
   }
   .btn-accent:hover::before { transform: scaleX(1); }
-  .btn-accent > * { position: relative; z-index: 1; }
   .btn-accent:hover { @apply text-muted-900 shadow-lg; }
-  .btn-accent:focus-visible {
-    @apply outline-none ring-2 ring-accent-400/60 ring-offset-0;
-  }
   .btn-accent svg { @apply transition-transform duration-300; }
   .btn-accent:hover svg { transform: translateX(2px); }
 
-  /* White variant: subtle outline that inverts to dark fill on hover */
-  .btn-white {
-    @apply relative inline-flex items-center justify-center gap-2
-           font-display font-bold tracking-tight
-           px-7 py-3 rounded-full w-fit
-           border border-accent-200 text-accent-200 bg-transparent
-           transition-all duration-300
-           hover:-translate-y-0.5 active:translate-y-0;
-  }
+  /* WHITE */
+  .btn-white { @apply border border-accent-200 text-accent-200 bg-transparent font-display; }
   .btn-white::before {
-    content: "";
+    content:"";
     @apply absolute inset-0 rounded-full bg-muted-200;
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 300ms ease;
-    z-index: 0;
+    z-index: -1; /* <-- */
   }
   .btn-white:hover::before { transform: scaleX(1); }
-  .btn-white > * { position: relative; z-index: 1; }
   .btn-white:hover { @apply text-primary-900 shadow-lg; }
-  .btn-white:focus-visible {
-    @apply outline-none ring-2 ring-muted-900/60 ring-offset-0;
-  }
   .btn-white svg { @apply transition-transform duration-300; }
   .btn-white:hover svg { transform: translateX(2px); }
 
