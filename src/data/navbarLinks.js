@@ -59,11 +59,13 @@ export const navbarLinks = {
       name: "Enroll Now",
       link: "/#",
       submenu: [],
+      primary: true,
     },
     {
       name: "Contact Us",
       link: "/contact",
       submenu: [],
+      primary: false,
     },
   ]
 };

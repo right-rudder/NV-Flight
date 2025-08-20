@@ -10,8 +10,8 @@
   .btn-primary {
     @apply relative inline-flex items-center justify-center gap-2
            font-heading font-bold tracking-tight
-           px-7 py-3 rounded-full w-fit
-           border border-white/30 text-white
+           px-7 py-3 rounded-full w-fit bg-primary-700
+           border border-primary-700/30 text-white
            transition-all duration-300
            hover:-translate-y-0.5 active:translate-y-0;
   }
@@ -25,9 +25,9 @@
   }
   .btn-primary:hover::before { transform: scaleX(1); }
   .btn-primary > * { position: relative; z-index: 1; }
-  .btn-primary:hover { @apply text-muted-950 shadow-lg; }
+  .btn-primary:hover { @apply text-primary-800 shadow-lg; }
   .btn-primary:focus-visible {
-    @apply outline-none ring-2 ring-white/60 ring-offset-0;
+    @apply outline-none ring-2 ring-primary-200 ring-offset-0;
   }
   .btn-primary svg { @apply transition-transform duration-300; }
   .btn-primary:hover svg { transform: translateX(2px); }
@@ -37,13 +37,13 @@
     @apply relative inline-flex items-center justify-center gap-2
            font-heading font-bold tracking-tight
            px-7 py-3 rounded-full w-fit
-           border border-accent-300/40 text-accent-100
+           border border-accent-300/40 text-primary-700
            transition-all duration-300
            hover:-translate-y-0.5 active:translate-y-0;
   }
   .btn-accent::before {
     content: "";
-    @apply absolute inset-0 rounded-full bg-accent-500;
+    @apply absolute inset-0 rounded-full bg-accent-500 text-muted-900;
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 300ms ease;
@@ -61,15 +61,15 @@
   /* White variant: subtle outline that inverts to dark fill on hover */
   .btn-white {
     @apply relative inline-flex items-center justify-center gap-2
-           font-display font-bold uppercase tracking-tight
+           font-display font-bold tracking-tight
            px-7 py-3 rounded-full w-fit
-           border border-muted-900/60 text-muted-900 bg-transparent
+           border border-accent-200 text-accent-200 bg-transparent
            transition-all duration-300
            hover:-translate-y-0.5 active:translate-y-0;
   }
   .btn-white::before {
     content: "";
-    @apply absolute inset-0 rounded-full bg-muted-900;
+    @apply absolute inset-0 rounded-full bg-muted-200;
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 300ms ease;
@@ -77,7 +77,7 @@
   }
   .btn-white:hover::before { transform: scaleX(1); }
   .btn-white > * { position: relative; z-index: 1; }
-  .btn-white:hover { @apply text-white shadow-lg; }
+  .btn-white:hover { @apply text-primary-900 shadow-lg; }
   .btn-white:focus-visible {
     @apply outline-none ring-2 ring-muted-900/60 ring-offset-0;
   }

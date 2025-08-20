@@ -30,7 +30,7 @@ const Navbar = ({ pathname }) => {
       id="navbar"
       className={`fixed top-0 left-0 w-full z-50 transition-colors ${
         navBar
-          ? "bg-muted-950/80 shadow-sm text-white py-2 backdrop-blur-md"
+          ? "bg-muted-950/80 shadow-sm text-white py-2"
           : "bg-gradient-to-b from-muted-950 via-primary-950 to-transparent text-white py-6"
       }`}
     >
@@ -148,22 +148,21 @@ const Navbar = ({ pathname }) => {
             <a
               key={idx}
               href={item.link || "#"}
-              className={idx === 0 ? "btn-primary" : "btn-accent"}
+              className={idx === 0 ? "btn-primary text-white" : "btn-accent text-white"}
             >
-              {item.icon && (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
-                  />
-                </svg>
-              )}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="size-6"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M15.75 2.25H21a.75.75 0 0 1 .75.75v5.25a.75.75 0 0 1-1.5 0V4.81L8.03 17.03a.75.75 0 0 1-1.06-1.06L19.19 3.75h-3.44a.75.75 0 0 1 0-1.5Zm-10.5 4.5a1.5 1.5 0 0 0-1.5 1.5v10.5a1.5 1.5 0 0 0 1.5 1.5h10.5a1.5 1.5 0 0 0 1.5-1.5V10.5a.75.75 0 0 1 1.5 0v8.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V8.25a3 3 0 0 1 3-3h8.25a.75.75 0 0 1 0 1.5H5.25Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+
               {item.name}
             </a>
           ))}
@@ -190,9 +189,13 @@ const Navbar = ({ pathname }) => {
       {/* Mobile menu (unchanged) */}
       <div
         className={`lg:hidden fixed inset-0 z-[60]
-        bg-gradient-to-b from-muted-950 to-primary-950 text-muted-100
-        transform transition-transform duration-300 ease-out
-        ${openMobile ? "translate-y-0" : "-translate-y-full"}`}
+  bg-gradient-to-b from-muted-950 to-primary-950 text-muted-100
+  transform transition-transform duration-300 ease-out
+  ${
+    openMobile
+      ? "translate-y-0 opacity-100 visible pointer-events-auto"
+      : "-translate-y-full opacity-0 invisible pointer-events-none"
+  }`}
         aria-hidden={!openMobile}
       >
         <div className="flex h-full flex-col">
@@ -215,14 +218,13 @@ const Navbar = ({ pathname }) => {
           </div>
 
           {/* Main nav links */}
-          <div className="flex-1 overflow-y-auto px-6 py-8">
+          <div className="flex-1 overflow-y-auto px-6 py-8 overscroll-contain">
             <nav className="space-y-6">
               {mobileNavbarLinks.links.map((item, idx) => (
                 <a
                   key={idx}
                   href={item.link || "#"}
-                  className="block font-heading text-3xl leading-tight tracking-tight
-                             hover:text-primary-300 transition-colors"
+                  className="block font-heading text-3xl leading-tight tracking-tight hover:text-primary-300 transition-colors"
                   onClick={() => setOpenMobile(false)}
                 >
                   {item.name}
@@ -240,7 +242,7 @@ const Navbar = ({ pathname }) => {
                     key={idx}
                     href={btn.link || "#"}
                     className="block w-full text-center font-heading text-lg py-3 rounded-md
-                               bg-emerald text-white hover:bg-emerald/90 transition-colors"
+                         bg-emerald text-white hover:bg-emerald/90 transition-colors"
                     onClick={() => setOpenMobile(false)}
                   >
                     {btn.name}

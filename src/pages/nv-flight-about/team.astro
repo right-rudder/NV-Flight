@@ -3,9 +3,13 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import HeaderScreen from "../../components/HeaderScreen.astro";
 import teamPageData from "../../data/teamData";
 import TeamSwiper from "../../components/TeamSwiper";
+import flyWithUsCTA from "../../data/fly-with-us-cta";
+import CTAColor from "../../components/CTAColor.astro";
 
 ---
 
 <BaseLayout title={teamPageData.pageTitle} description={teamPageData.pageDescription}>
+  <HeaderScreen content={teamPageData.header} />
   <TeamSwiper pageData={teamPageData} defaultMemberId="emma-justis" client:load />
+  <CTAColor content={flyWithUsCTA} />
 </BaseLayout>

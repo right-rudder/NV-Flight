@@ -129,7 +129,7 @@ export default function TeamProfileInteractiveSwiper({
   if (!hero) {
     return (
       <section
-        className={`mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12 ${className}`}
+        className={`mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-6 ${className}`}
       >
         <p className="text-muted-700">No team data found.</p>
       </section>
@@ -184,7 +184,7 @@ export default function TeamProfileInteractiveSwiper({
 
   return (
     <section
-      className={`mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12 md:py-16 ${className}`}
+      className={`mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12 md:py-32 ${className}`}
       aria-live="polite"
     >
       {/* Kicker */}
@@ -196,7 +196,7 @@ export default function TeamProfileInteractiveSwiper({
       <div className="mt-3 grid grid-cols-1 gap-8 md:mt-6 md:grid-cols-12">
         {/* Text */}
         <div className="md:col-span-7 lg:col-span-7">
-          <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+          <h1 className="text-5xl font-semibold tracking-tight sm:text-4xl">
             {hero.name}
           </h1>
           {hero.role && (
@@ -209,7 +209,7 @@ export default function TeamProfileInteractiveSwiper({
                 {hero.certifications.map((c) => (
                   <li
                     key={c}
-                    className="rounded-full border border-muted-200 bg-white/70 px-3 py-1 text-xs text-muted-700 dark:border-muted-700 dark:bg-muted-900/60"
+                    className="rounded-full border border-accent-200 bg-accent-500/80 px-3 py-1 text-xs font-medium text-muted-700"
                   >
                     {c}
                   </li>
@@ -217,7 +217,7 @@ export default function TeamProfileInteractiveSwiper({
               </ul>
             )}
 
-          <div className="prose prose-neutral mt-6 max-w-none dark:prose-invert">
+          <div className="prose prose-neutral mt-6 max-w-none dark:prose-invert text-muted-700">
             {heroParagraphs.map((p, i) => (
               <p key={i}>{p}</p>
             ))}
@@ -226,7 +226,7 @@ export default function TeamProfileInteractiveSwiper({
 
         {/* Portrait */}
         <div className="md:col-span-5 lg:col-span-5">
-          <div className="relative overflow-hidden rounded-3xl bg-muted-100 dark:bg-muted-800">
+          <div className="relative overflow-hidden rounded-3xl bg-muted-100/70">
             {hero.image ? (
               <img
                 src={hero.image}
@@ -246,8 +246,8 @@ export default function TeamProfileInteractiveSwiper({
       {others.length > 0 && (
         <section className="mt-16 md:mt-20">
           <div className="mb-4 flex items-center justify-between">
-            <h2 className="text-xl font-semibold tracking-tight">
-              Meet the team:
+            <h2 className="text-4xl font-semibold tracking-tight mb-2">
+              Meet the rest of our team
             </h2>
             <div className="flex gap-2">
               <button
@@ -255,7 +255,7 @@ export default function TeamProfileInteractiveSwiper({
                 onClick={prev}
                 disabled={activeIdx <= 0}
                 aria-label="Previous"
-                className={`inline-flex h-10 w-10 items-center justify-center rounded-full border border-muted-200 bg-white/80 shadow-sm hover:bg-white focus:outline-none focus:ring-2 focus:ring-primary-400 dark:border-muted-700 dark:bg-muted-900/70 ${
+                className={`inline-flex h-10 w-10 items-center justify-center rounded-full border border-muted-200 bg-muted-200 shadow-sm hover:bg-white focus:outline-none focus:ring-2 focus:ring-primary-400 dark:border-muted-700 dark:bg-muted-900/70 ${
                   activeIdx <= 0 ? "opacity-50 cursor-not-allowed" : ""
                 }`}
               >
@@ -295,8 +295,8 @@ export default function TeamProfileInteractiveSwiper({
                 >
                   <div
                     onClick={() => selectByIndex(i)} // whole card clickable
-                    className={`group block w-[82vw] sm:w-[48vw] lg:w-[31vw] cursor-pointer text-left overflow-hidden rounded-2xl border border-muted-200 bg-white/70 p-4 shadow-sm transition hover:shadow-md dark:border-muted-800 dark:bg-muted-900/60 ${
-                      activeIdx === i ? "ring-2 ring-primary-400" : ""
+                    className={`group block w-[82vw] sm:w-[48vw] lg:w-[31vw] cursor-pointer text-left overflow-hidden rounded-2xl border border-muted-200 bg-muted-100/70 p-4 shadow-sm transition hover:shadow-md ${
+                      activeIdx === i ? "ring-1 ring-muted-200" : ""
                     }`}
                   >
                     <div className="relative mb-4 aspect-[4/3] w-full overflow-hidden rounded-xl bg-muted-100 dark:bg-muted-800">
@@ -331,7 +331,7 @@ export default function TeamProfileInteractiveSwiper({
                           e.stopPropagation();
                           selectByIndex(i);
                         }}
-                        className="text-sm font-medium underline underline-offset-4 hover:no-underline"
+                        className="btn-accent text-sm"
                         aria-label={`View full bio for ${m.name}`}
                       >
                         View full bio

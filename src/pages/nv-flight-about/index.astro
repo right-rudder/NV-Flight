@@ -5,7 +5,16 @@ import HeaderScreen from "../../components/HeaderScreen.astro";
 ---
 
 <BaseLayout title="About NV Flight" description="Safety-first, primacy-driven flight training with mountain expertise.">
-
+  <HeaderScreen content={{
+    headerH1: "About NV Flight",
+    paragraph: "Learn about our mission, values, and the team behind NV Flight.",
+    imagePath: "/src/assets/about-hero.webp",
+    imageAlt: "NV Flight team in front of aircraft",
+    buttons: [
+      { name: "Meet the Team", link: "/nv-flight-about/team" },
+      { name: "Contact Us", link: "/contact" }
+    ]
+  }} />
 
   <main class="mx-auto max-w-6xl px-6 py-16 space-y-24">
     <!-- Core Values -->
