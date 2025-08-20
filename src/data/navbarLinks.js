@@ -57,7 +57,7 @@ export const navbarLinks = {
   buttons: [
     {
       name: "Enroll Now",
-      link: "/#",
+      link: "/enroll",
       submenu: [],
       primary: true,
     },
