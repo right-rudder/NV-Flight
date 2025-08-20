@@ -10,7 +10,11 @@ const teamData = {
   // Top Header
   header: {
     stars: true,
+<<<<<<< Updated upstream
     imagePath: "/src/assets/montain-&-plane2.jpg",
+=======
+    imagePath: "/src/assets/hero-img.webp",
+>>>>>>> Stashed changes
     imageAlt:
       "NVFlight Flight School student and flight instructor in a Cessna airplane cockpit",
     headerH1: `Meet Our <br>TEAM</span>`,
