@@ -15,7 +15,7 @@ const year = date.getFullYear();
 ---
 
 <footer
-  class="relative bg-[url('/src/assets/reno-montain-footer.webp')] bg-cover bg-no-repeat bg-center text-white md:pt-40"
+  class="relative bg-[url('/src/assets/reno-montain-footer.webp')] bg-cover bg-no-repeat bg-center text-white px-5"
 >
   <!-- Lighter overlay -->
 
@@ -24,10 +24,10 @@ const year = date.getFullYear();
   <div
     class="relative z-10 pt-24 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl border-b border-gray-500"
   >
-    <div class="flex flex-row gap-12 justify-between lg:text-left text-center lg:pb-16 pb-10 lg:flex-nowrap flex-wrap">
+    <div class="flex flex-row gap-12 justify-between lg:text-left text-center lg:pb-16 pb-10 lg:flex-nowrap flex-wrap ">
 
       <!-- Column 1: Logo + Tagline + Location + Social -->
-      <div class="w-1/3 text-center lg:text-left">
+      <div class="lg:w-1/2 text-center lg:text-left flex flex-col items-center lg:items-start">
         <a href="/" class="flex items-center mb-4">
           <ImageComp
             imagePath={LOGO_NO_BG}
@@ -35,34 +35,9 @@ const year = date.getFullYear();
             styles="object-contain h-36 w-auto drop-shadow-lg"
           />
         </a>
-        <p class="text-md text-gray-200 mb-4">{SITE_SHORT_DESCRIPTION}</p>
+        <p class="text-sm text-gray-200 mb-4">{SITE_SHORT_DESCRIPTION}</p>
 
-        {LOCATIONS.map((location) => (
-          <div class="mb-4 flex flex-col items-center lg:items-start gap-2">
-            <p class="font-bold tracking-wide text-primary-200">{location.title}</p>
-            <a href={location.gMaps} target="_blank" class="block text-sm hover:underline">
-              {location.address}<br />{location.city}, {location.state} {location.zip}
-            </a>
-            <a href={`tel:${location.phone}`} class="mt-1 flex items-center text-sm hover:text-primary-400 gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="text-accent-500">
-                <g fill="none" fill-rule="evenodd">
-                  <path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
-                  <path fill="currentColor" d="M8.172 15.829c3.845 3.845 7.408 4.266 8.454 4.305c1.264.046 2.554-.986 3.112-2.043c-.89-1.044-2.049-1.854-3.318-2.732c-.749.748-1.672 2.138-2.901 1.64c-.699-.281-2.425-1.076-3.933-2.585S7.283 11.18 7 10.482c-.498-1.231.896-2.156 1.645-2.905c-.878-1.29-1.674-2.479-2.716-3.324c-1.072.56-2.11 1.84-2.063 3.121c.039 1.046.46 4.609 4.306 8.455m8.38 6.304c-1.44-.053-5.521-.617-9.795-4.89c-4.273-4.274-4.836-8.354-4.89-9.795c-.08-2.196 1.602-4.329 3.545-5.162a1.47 1.47 0 0 1 1.445.159c1.608 1.173 2.717 2.95 3.67 4.342A1.504 1.504 0 0 1 10.35 8.7l-1.356 1.357C9.309 10.752 9.95 11.95 11 13s2.248 1.691 2.944 2.006l1.355-1.356a1.5 1.5 0 0 1 1.918-.171c1.42.984 3.088 2.077 4.304 3.634a1.47 1.47 0 0 1 .189 1.485c-.837 1.953-2.955 3.616-5.158 3.535" />
-                </g>
-              </svg>
-              {location.phone}
-            </a>
-            <a href={`mailto:${location.email}`} class="mt-1 flex items-center text-sm hover:text-primary-400 gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="text-accent-500">
-	              <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-                  <path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                  <path d="m3 7l9 6l9-6" />
-	              </g>
-              </svg>
-              {location.email}
-            </a>
-          </div>
-        ))}
+        
 
         <!-- Social icons -->
         <div class="flex items-start align-middle mt-4 gap-4 text-accent-500">
@@ -91,19 +66,36 @@ const year = date.getFullYear();
     </div>
 
       <!-- Column 2–4: Links in one row -->
-      <div class="lg:col-span-3 grid grid-cols-3 gap-10 mt-8">
+      <div class="lg:col-span-3 w-full grid sm:grid-cols-2 md:grid-cols-4 gap-10">
         {footerLinks.map((column) => (
           <div>
             <p class="font-bold text-lg tracking-wide text-primary-200">{column.title}</p>
             <ul class="mt-2 space-y-2">
               {column.links.map((link) => (
                 <li>
-                  <a href={link.link} class="transition-colors duration-200 text-gray-300 hover:text-primary-400">
+                  <a href={link.link} class="transition-colors duration-200 text-gray-300 hover:text-primary-400 font-semibold">
                     {link.name}
                   </a>
                 </li>
               ))}
             </ul>
+          </div>
+        ))}
+        {LOCATIONS.map((location) => (
+          <div class="mb-4 flex flex-col items-center lg:items-start gap-2">
+            <p class="font-bold tracking-wide text-primary-200">{location.title}</p>
+            <a href={location.gMaps} target="_blank" class="block text-sm hover:underline font-semibold">
+              {location.address}<br />{location.city}, {location.state} {location.zip}
+            </a>
+            <a href={`tel:${location.phone}`} class="mt-1 flex items-center text-sm hover:text-primary-400 gap-2 font-semibold">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="text-accent-500">
+                <g fill="none" fill-rule="evenodd">
+                  <path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+                  <path fill="currentColor" d="M8.172 15.829c3.845 3.845 7.408 4.266 8.454 4.305c1.264.046 2.554-.986 3.112-2.043c-.89-1.044-2.049-1.854-3.318-2.732c-.749.748-1.672 2.138-2.901 1.64c-.699-.281-2.425-1.076-3.933-2.585S7.283 11.18 7 10.482c-.498-1.231.896-2.156 1.645-2.905c-.878-1.29-1.674-2.479-2.716-3.324c-1.072.56-2.11 1.84-2.063 3.121c.039 1.046.46 4.609 4.306 8.455m8.38 6.304c-1.44-.053-5.521-.617-9.795-4.89c-4.273-4.274-4.836-8.354-4.89-9.795c-.08-2.196 1.602-4.329 3.545-5.162a1.47 1.47 0 0 1 1.445.159c1.608 1.173 2.717 2.95 3.67 4.342A1.504 1.504 0 0 1 10.35 8.7l-1.356 1.357C9.309 10.752 9.95 11.95 11 13s2.248 1.691 2.944 2.006l1.355-1.356a1.5 1.5 0 0 1 1.918-.171c1.42.984 3.088 2.077 4.304 3.634a1.47 1.47 0 0 1 .189 1.485c-.837 1.953-2.955 3.616-5.158 3.535" />
+                </g>
+              </svg>
+              {location.phone}
+            </a>
           </div>
         ))}
       </div>
