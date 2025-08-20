@@ -79,9 +79,9 @@ const { title, services, description } = Astro.props;
               </div>
 
               {/* Cta */}
-              <button type="button" class="bg-primary-600 text-white px-6 py-2 rounded-lg self-start mt-6 hover:bg-primary-700 transition-colors">
+              <a href={`#${plane.tail}`} class="bg-primary-600 text-white px-6 py-2 rounded-lg self-start mt-6 hover:bg-primary-700 transition-colors">
                 View Aircraft Details
-              </button>
+              </a>
             </figcaption>
           </figure>
         </div>
@@ -99,7 +99,8 @@ const { title, services, description } = Astro.props;
     slidesPerView: 1.05,
     spaceBetween: 16,
     speed: 500,
-    loop: true,
+    initialSlide: 1,
+    loop: false,
     centeredSlides: true,
     navigation: {
       nextEl: '.js-fc-btn-next',
