@@ -22,7 +22,7 @@ export const CITY_STATE = "Reno, NV";
 
 export const LOCATIONS = [
   {
-    title: `Flight Dispatch Center`,
+    title: `Location`,
     address: "Gentry Wy",
     city: "Reno",
     state: "NV",
