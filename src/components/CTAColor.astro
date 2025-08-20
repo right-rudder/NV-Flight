@@ -4,7 +4,7 @@ import ImageComp from "./ImageComp.astro";
 ---
 
 <section
-  class="relative isolate lg:mt-0 h-screen -z-0 bg-gray-800 text-muted-50 flex flex-col items-center justify-center overflow-hidden m-8 rounded-3xl lg:px-12 py-32"
+  class="relative isolate lg:mt-0 -z-0 bg-gray-800 text-muted-50 flex flex-col items-center justify-center overflow-hidden m-5 lg:m-8 rounded-3xl lg:px-12 py-16 lg:py-32"
 >
   <div
       class="absolute inset-0 bg-muted-950/50 -z-10 blur-3xl"
@@ -16,7 +16,7 @@ import ImageComp from "./ImageComp.astro";
     styles="absolute inset-0 size-full object-cover object-center md:object-center -z-20"
   />
   <div
-    class="text-white py-12 mt-20 lg:mt-0 text-left z-10 flex flex-col items-start gap-4 px-5 h-full lg:pt-28 justify-center"
+    class="text-white py-12 lg:mt-0 text-left z-10 flex flex-col items-start gap-4 px-5 h-full lg:pt-28 justify-center"
   >
     <p class="text-3xl lg:text-4xl font-sans font-bold tracking-wide text-primary-200">
       {content.paragraph1}
@@ -36,7 +36,7 @@ import ImageComp from "./ImageComp.astro";
         content.buttons.map((btn) => (
           <a
             href={btn.link}
-            class="btn-primary w-full text-2xl md:w-auto"
+            class="btn-primary w-full md:text-2xl md:w-auto text-center"
           >
             {btn.name}
           </a>
