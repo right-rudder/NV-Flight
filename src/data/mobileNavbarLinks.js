@@ -57,7 +57,7 @@ export const mobileNavbarLinks = {
   buttons: [
     {
       name: "Enroll Now",
-      link: "/#",
+      link: "/enroll",
       submenu: [],
     },
     {
