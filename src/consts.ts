@@ -16,7 +16,7 @@ export const OG_IMAGE = "/nvflight-nobg.webp";
 export const LOGO_NO_BG = "/src/assets/nvflight-nobg.webp";
 
 
-export const COMPANY_NAME = "NVFlight";
+export const COMPANY_NAME = "NV Flight";
 
 export const CITY_STATE = "Reno, NV";
 
