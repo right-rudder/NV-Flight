@@ -36,23 +36,19 @@ export const mobileNavbarLinks = {
   },
   {
     name: "About Us",
-    link: "/#",
+    link: "/nv-flight-about",
     submenu: [
       {
         name: "Our Team",
-        link: "/#",
+        link: "/nv-flight-about/team",
       },
       {
-        name: "Visit Us",
-        link: "/#",
-      },
-      {
-        name: "Join Us",
-        link: "/#",
+        name: "Our Fleet",
+        link: "/nv-flight-about/our-fleet",
       },
       {
         name: "Blog",
-        link: "/#",
+        link: "/blog",
       },
     ],
   },
