@@ -15,7 +15,8 @@ export const OG_IMAGE = "/nvflight-nobg.webp";
 
 export const LOGO_NO_BG = "/src/assets/nvflight-nobg.webp";
 
-export const COMPANY_NAME = "NV Flight School";
+
+export const COMPANY_NAME = "NV Flight";
 
 export const CITY_STATE = "Reno, NV";
 
@@ -42,3 +43,4 @@ export const YOUTUBE_URL = null;
 export const TWITTER_URL = null;
 export const EMAIL_ADDRESS = "renodesk@nvflight.com";
 export const WEBSITE_URL = "https://NVFlightco.com/";
+export const GMAPS = "https://maps.app.goo.gl/UyDnbjRikTJSNHeG8";

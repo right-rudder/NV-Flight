@@ -3,15 +3,17 @@ import {
   PHONE_NUMBER,
   ADDRESS_LINE_1,
   ADDRESS_LINE_2,
+  GMAPS,
 } from "../consts";
 
 export default {
   upperHeading: "Get in Touch",
   description: "Have questions or need more information? Contact us today and our team will be happy to assist you.",
   contactTitle: "Contact Information",
-  address: `${ADDRESS_LINE_1}, ${ADDRESS_LINE_2}`,
+  address: `${ADDRESS_LINE_1} ${ADDRESS_LINE_2}`,
   phone: PHONE_NUMBER,
   email: EMAIL_ADDRESS,
+  gmaps: GMAPS,
   sections: [
     {
       title: "How Can We Help?",

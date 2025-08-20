@@ -3,7 +3,7 @@ import {
   PHONE_NUMBER,
   ADDRESS_LINE_1,
   ADDRESS_LINE_2,
-  SITE_DESCRIPTION,
+  GMAPS,
 } from "../consts";
 
 export default {
@@ -12,9 +12,11 @@ export default {
             and start your training to become a pilot. Fill out the form to get
             started.`,
   contactTitle: "Contact Us",
-  address: `${ADDRESS_LINE_1}, ${ADDRESS_LINE_2}`,
+  address: `${ADDRESS_LINE_1} ${ADDRESS_LINE_2}`,
   phone: PHONE_NUMBER,
   email: EMAIL_ADDRESS,
+  gmaps: GMAPS,
+
   sections: [
     {
       title: "Why Fly at NVFlight?",

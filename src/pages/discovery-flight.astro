@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HeaderScreen from "../components/HeaderScreen.astro";
+import DiscoveryForm from "../components/DiscoveryForm.astro"
+import discoveryForm from "../data/discovery-form-data.js";
+
+const { data } = discoveryForm;
+---
+
+<BaseLayout
+  siteTitle={data.pageTitle}
+  siteDescription={data.pageDescription}
+  keywords={data.pageKeywords}
+>
+  <!-- <HeaderScreen content={data.header} /> -->
+  <div id="form" />
+  <DiscoveryForm content={data.info} />
+
+  <script src="../scripts/emailValidation.js"></script>
+</BaseLayout>

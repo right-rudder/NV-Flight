@@ -10,13 +10,13 @@ const homePage = {
     header: {
       imagePath: "/src/assets/hero-image.jpg",
       imageAlt: "NV Flight School Cessna 172 on the runway",
-      headerH1: `Reach new <br>HEIGHTS</span> with us in Reno, NV`,
+      headerH1: `Pilot Training in Reno, NV`,
       paragraph:
         "Take the first step towards your aviation dreams with NV Flight School. Whether you're looking to fly for fun or pursue a career in aviation, we have the training programs to help you succeed.",
       buttons: [
         {
           name: "Get Started",
-          link: "/enroll-at-nv-flight-school",
+          link: "/enroll",
           primary: true,
         },
         {
