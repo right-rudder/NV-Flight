@@ -4,23 +4,19 @@ export const footerLinks = [
     links: [
       {
         name: "Discovery Flight",
-        link: "/#",
+        link: "/discovery-flight",
       },
       {
         name: "Enroll at NV Flight",
-        link: "/#",
+        link: "/enroll",
       },
       {
         name: "Become a Pilot",
         link: "/#",
       },
       {
-        name: "Pricing",
-        link: "/#",
-      },
-      {
         name: "Contact Us",
-        link: "/#",
+        link: "/contact",
       },
     ],
   },
@@ -57,16 +53,20 @@ export const footerLinks = [
     title: "About",
     links: [
       {
-        name: "Why NV Flight",
-        link: "/#",
+        name: "About Us",
+        link: "/nv-flight-about",
       },
       {
         name: "Our Team",
-        link: "/#",
+        link: "/nv-flight-about/team",
+      },
+      {
+        name: "Our Fleet",
+        link: "/nv-flight-about/our-fleet",
       },
       {
         name: "Blog",
-        link: "/#",
+        link: "/blog",
       },
     ],
   },
