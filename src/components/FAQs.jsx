@@ -71,13 +71,14 @@ export default function FAQs({ faqs, type }) {
           </dl>
         </div>
         <p className="text-center mt-12 text-muted-600">
-          If you have any additional questions please send us an email to{" "}
+          If you have any additional questions please feel free to{" "}
           <a
-            href={`mailto:${EMAIL_ADDRESS}`}
+            href="/contact"
             className="text-primary-500 hover:underline hover:brightness-125 duration-200"
           >
-            {EMAIL_ADDRESS}
+            contact us
           </a>
+          .
         </p>
       </div>
     </div>

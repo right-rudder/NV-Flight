@@ -67,5 +67,5 @@ export const navbarLinks = {
       submenu: [],
       primary: false,
     },
-  ]
+  ],
 };
