@@ -30,7 +30,7 @@ const Navbar = ({ pathname }) => {
       id="navbar"
       className={`fixed top-0 left-0 w-full z-50 transition-colors ${
         navBar
-          ? "bg-muted-950/80 shadow-sm text-white py-2"
+          ? "bg-muted-950/80 backdrop-blur-md shadow-sm text-white py-2"
           : "bg-gradient-to-b from-muted-950 via-primary-950 to-transparent text-white py-6"
       }`}
     >
