@@ -35,9 +35,9 @@ const faqSchemaItems = GeneralFAQs.map((faq) => ({
         title={ data.fleet.title }
     />
 
-  <ProgramSwiper content={programsSwiper} />
-  <CTAColor content={flyWithUsCTA} />
   <FAQs faqs={data.fleetFAQs} type="General" client:visible />
   <FAQSchema items={faqSchemaItems} />
+  <ProgramSwiper content={programsSwiper} />
+  <CTAColor content={flyWithUsCTA} />
   <script src="../../scripts/creativeSwiper.js"></script>
 </BaseLayout>
