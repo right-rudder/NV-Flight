@@ -56,7 +56,7 @@ const Navbar = ({ pathname }) => {
               key={idx}
               className={`relative group transition-all duration-300
                 group-hover/nav:[&:not(:hover)]:opacity-50
-                hover:text-primary-300 focus-visible:text-primary-300 font-medium font-semibold`}
+                hover:text-primary-300 focus-visible:text-primary-300 font-semibold`}
             >
               <a
                 href={item.link || "#"}
@@ -128,9 +128,16 @@ const Navbar = ({ pathname }) => {
             <a
               key={idx}
               href={item.link || "#"}
-              className={idx === 0 ? "btn-primary text-white" : "btn-accent text-white"}
+              className={
+                idx === 0 ? "btn-primary text-white" : "btn-accent text-white"
+              }
             >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="size-6"
+              >
                 <path
                   fillRule="evenodd"
                   d="M15.75 2.25H21a.75.75 0 0 1 .75.75v5.25a.75.75 0 0 1-1.5 0V4.81L8.03 17.03a.75.75 0 0 1-1.06-1.06L19.19 3.75h-3.44a.75.75 0 0 1 0-1.5Zm-10.5 4.5a1.5 1.5 0 0 0-1.5 1.5v10.5a1.5 1.5 0 0 0 1.5 1.5h10.5a1.5 1.5 0 0 0 1.5-1.5V10.5a.75.75 0 0 1 1.5 0v8.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V8.25a3 3 0 0 1 3-3h8.25a.75.75 0 0 1 0 1.5H5.25Z"
@@ -166,17 +173,31 @@ const Navbar = ({ pathname }) => {
       <div
         id="mobile-menu"
         className={`lg:hidden fixed inset-0 z-[60] bg-gradient-to-b from-muted-950 to-primary-950 text-muted-100 transform transition-transform duration-300 ease-out ${
-          openMobile ? "translate-y-0 opacity-100 visible pointer-events-auto" : "-translate-y-full opacity-0 invisible pointer-events-none"
+          openMobile
+            ? "translate-y-0 opacity-100 visible pointer-events-auto"
+            : "-translate-y-full opacity-0 invisible pointer-events-none"
         }`}
         aria-hidden={!openMobile}
       >
         <div className="flex h-full flex-col">
           {/* Top bar */}
           <div className="flex items-center justify-between h-16 px-6 border-b border-muted-800">
-            <a href="/" className="flex items-center" onClick={() => setOpenMobile(false)}>
-              <img src="/nvflight-nobg.webp" alt="NV Flight" className="h-10 object-contain" />
+            <a
+              href="/"
+              className="flex items-center"
+              onClick={() => setOpenMobile(false)}
+            >
+              <img
+                src="/nvflight-nobg.webp"
+                alt="NV Flight"
+                className="h-10 object-contain"
+              />
             </a>
-            <button onClick={() => setOpenMobile(false)} className="text-muted-200 hover:text-emerald text-2xl leading-none touch-manipulation" aria-label="Close menu">
+            <button
+              onClick={() => setOpenMobile(false)}
+              className="text-muted-200 hover:text-emerald text-2xl leading-none touch-manipulation"
+              aria-label="Close menu"
+            >
               ×
             </button>
           </div>
@@ -193,14 +214,20 @@ const Navbar = ({ pathname }) => {
                     {/* Entire row is a button that toggles */}
                     <button
                       type="button"
-                      onClick={() => (hasSub ? toggleSection(idx) : (window.location.href = item.link || "#"))}
+                      onClick={() =>
+                        hasSub
+                          ? toggleSection(idx)
+                          : (window.location.href = item.link || "#")
+                      }
                       aria-expanded={open}
                       aria-controls={`mobile-sub-${idx}`}
                       className={`w-full flex items-center justify-between gap-3 text-left py-3 touch-manipulation`}
                     >
                       <span
                         className={`font-heading text-2xl leading-tight tracking-tight ${
-                          isActive(item) ? "text-primary-300" : "hover:text-primary-300"
+                          isActive(item)
+                            ? "text-primary-300"
+                            : "hover:text-primary-300"
                         }`}
                       >
                         {item.name}
@@ -238,7 +265,9 @@ const Navbar = ({ pathname }) => {
                                 href={sub.link || "#"}
                                 onClick={() => setOpenMobile(false)}
                                 className={`flex items-center justify-between gap-3 px-1 py-2 text-base rounded-md transition-colors ${
-                                  pathname === sub.link ? "text-accent-300" : "hover:text-accent-300"
+                                  pathname === sub.link
+                                    ? "text-accent-300"
+                                    : "hover:text-accent-300"
                                 }`}
                               >
                                 <span className="relative inline-block pb-0.5 after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-0 after:h-[1px] after:bg-accent-600 after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100">
@@ -253,7 +282,11 @@ const Navbar = ({ pathname }) => {
                                   className="size-5 opacity-70"
                                   aria-hidden="true"
                                 >
-                                  <path strokeLinecap="round" strokeLinejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                                  />
                                 </svg>
                               </a>
                             </li>
@@ -284,7 +317,9 @@ const Navbar = ({ pathname }) => {
               </div>
             )}
             <div className="flex items-center justify-between text-sm text-muted-300">
-              <span className="opacity-50">© {new Date().getFullYear()} NV Flight</span>
+              <span className="opacity-50">
+                © {new Date().getFullYear()} NV Flight
+              </span>
             </div>
           </div>
         </div>
