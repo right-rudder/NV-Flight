@@ -6,6 +6,7 @@ export const SITE_TITLE =
 export const SITE_DESCRIPTION =
   "NV Flight School in Reno, NV, provides top-quality flight training for aspiring pilots. Whether you're looking to earn your private pilot license, instrument rating, or commercial pilot certificate, our experienced instructors and well-maintained fleet will help you achieve your aviation goals. We also offer multi-engine training and flight instructor certification. Start your journey with NV Flight today!";
 
+export const SITE_SHORT_DESCRIPTION = "NV Flight School in Reno, NV. Your Path to Becoming a Top-skilled Pilot";
 // Updated keywords with a focus on SEO, including relevant aviation terms and multiple localities
 export const KEYWORDS =
   "NV Flight, Flight School, flight training Reno NV, pilot school Reno NV, how to become a pilot NV, flight school near me, find a flight school Reno, private pilot license Reno NV, discovery flight Reno, introductory flight NV, instrument rating Falcon Field, commercial pilot school Reno, commercial pilot license NV, certified flight instructor training NV, CFI academy NV, airline pilot program NV, aviation academy NV, best flight school Reno, top flight schools Phoenix area, multi-engine rating NV, learn to fly Cessna Reno NV, Diamond aircraft training NV, flight training cost Reno NV, pilot certification Reno, Falcon Field flight school, KFFZ pilot training";

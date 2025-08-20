@@ -1,0 +1,143 @@
+---
+// Import Swiper styles. The JS will be imported in the client-side script.
+import 'swiper/css';
+import 'swiper/css/navigation';
+
+const { title, services, description } = Astro.props;
+---
+
+<section id="services" class="py-12 bg-gray-50">
+  <!-- Header -->
+  <header class="container flex flex-col  items-center justify-center mx-auto max-w-7xl px-6 lg:px-8 py-6 lg:py-12">
+    {title && <h2 class="text-5xl lg:text-6xl font-title text-center lg:text-right font-bold tracking-tight text-primary-700 pb-6 uppercase">{title}</h2>}
+    {description && <p class="mt-4 text-lg lg:pl-6 font-sans text-center lg:text-right font-normal text-gray-700">{description}</p>}
+    <!-- Buttons -->
+    <nav class="bs-st-button-wrapper flex justify-center gap-4 py-6">
+      <!-- Prev -->
+      <button 
+        aria-label="Previous slide"
+        class="js-fc-btn-prev group bg-primary-600 text-white rounded-full p-0 flex items-center justify-center h-10 w-10 md:h-12 md:w-12 hover:bg-primary-700 transition-colors"
+      >
+        <svg class="opacity-80 h-4 w-4 -translate-x-[1px] group-active:translate-y-[1px]" height="16" width="25" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 7C24.5523 7 25 7.44772 25 8C25 8.55228 24.5523 9 24 9V7ZM0.93934 8.93934C0.353553 8.35355 0.353553 7.44678 0.93934 6.86099L7.5033 0.297032C8.08909 -0.288757 8.99585 -0.288757 9.58164 0.297032C10.1674 0.882818 10.1674 1.78958 9.58164 2.37537L3.95711 8L9.58164 13.6246C10.1674 14.2104 10.1674 15.1172 9.58164 15.703C8.99585 16.2888 8.08909 16.2888 7.5033 15.703L0.93934 9.13907V8.93934ZM24 9H2V7H24V9Z" fill="currentColor"/>
+        </svg>
+      </button>
+
+      <!-- Next -->
+      <button
+        aria-label="Next slide"
+        class="js-fc-btn-next group bg-primary-600 text-white rounded-full p-0 flex items-center justify-center h-10 w-10 md:h-12 md:w-12 hover:bg-primary-700 transition-colors"
+      >
+        <svg class="opacity-80 h-4 w-4 translate-x-[1px] group-active:translate-y-[1px]" height="16" width="25" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 9C0.447715 9 0 8.55228 0 8C0 7.44772 0.447715 7 1 7V9ZM24.0607 7.06066C24.6464 7.64645 24.6464 8.55322 24.0607 9.13901L17.4967 15.703C16.9109 16.2888 16.0042 16.2888 15.4184 15.703C14.8326 15.1172 14.8326 14.2104 15.4184 13.6246L21.0429 8L15.4184 2.37537C14.8326 1.78958 14.8326 0.882818 15.4184 0.297032C16.0042 -0.288757 16.9109 -0.288757 17.4967 0.297032L24.0607 6.861V7.06066ZM1 7H23V9H1V7Z" fill="currentColor"/>
+        </svg>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Slides -->
+  <div class="js-fc-swiper swiper container mx-auto px-4 select-none">
+    <div class="swiper-wrapper">
+      {services.map((plane) => (
+        <div class="swiper-slide bg-white border border-gray-200 rounded-xl overflow-hidden h-auto">
+          <figure class="flex flex-col gap-6 relative min-h-[400px] md:min-h-[500px] h-full">
+            {/* BG image */}
+            <img 
+              src={plane.imagePath} 
+              alt={plane.imageAlt} 
+              loading="lazy"
+              class="opacity-20 md:opacity-70 rounded-xl w-full h-full object-cover object-center absolute inset-0"
+              height="400" 
+              width="600" 
+            />
+
+            {/* Gradient mask */}
+            <div class="absolute rounded-xl overflow-hidden w-full h-full inset-0 bg-gradient-to-r from-white/90 via-white/70 to-transparent"></div>
+
+            {/* Content */}
+            <figcaption class="relative z-10 p-6 sm:p-8 md:p-12 max-w-xl flex flex-col gap-4 h-full justify-center">
+              {/* Title */}
+              <h2 class="text-2xl md:text-3xl font-bold text-gray-800">{plane.name} ({plane.tail})</h2>
+
+              {/* Basic Info */}
+              <div class="flex flex-wrap gap-2 mt-2">
+                <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-xs">{plane.year}</span>
+                <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-xs">{plane.horsepower}</span>
+                <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-xs">{plane.engine.split(' ')[0]}</span>
+              </div>
+
+              {/* Summary */}
+              <p class="text-gray-600 mt-3 flex-1">{plane.summary}</p>
+
+              {/* Features */}
+              <div class="mt-4">
+                <h3 class="font-semibold text-gray-800 mb-2">Key Features:</h3>
+                <ul class="list-disc list-inside text-gray-600 text-sm">
+                  {plane.features.slice(0, 3).map((feature) => (
+                    <li>{feature}</li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Cta */}
+              <button type="button" class="bg-primary-600 text-white px-6 py-2 rounded-lg self-start mt-6 hover:bg-primary-700 transition-colors">
+                View Aircraft Details
+              </button>
+            </figcaption>
+          </figure>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  import Swiper from 'swiper';
+  import { Navigation } from 'swiper/modules';
+
+  const swiper = new Swiper('.js-fc-swiper', {
+    modules: [Navigation],
+    slidesPerView: 1.05,
+    spaceBetween: 16,
+    speed: 500,
+    loop: true,
+    centeredSlides: true,
+    navigation: {
+      nextEl: '.js-fc-btn-next',
+      prevEl: '.js-fc-btn-prev',
+    },
+    breakpoints: {
+      '640': {
+        slidesPerView: 1.2,
+        spaceBetween: 24,
+      },
+      '1024': {
+        slidesPerView: 1.4,
+        spaceBetween: 32,
+      },
+      '1280': {
+        slidesPerView: 1.6,
+        spaceBetween: 40,
+      },
+    }
+  });
+</script>
+
+<style>
+  /* Custom styles for the component */
+  #services {
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  }
+  /* Show buttons only when in view */
+  @keyframes show-buttons {
+    to { opacity: 1; }
+  }
+
+  @supports (animation-timeline: view()) {
+    .bs-st-button-wrapper {
+      opacity: 0;
+      animation: show-buttons linear forwards;
+      animation-timeline: view(20% block);
+    }
+  }
+</style>

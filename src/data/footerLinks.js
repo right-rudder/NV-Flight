@@ -11,19 +11,11 @@ export const footerLinks = [
         link: "/#",
       },
       {
-        name: "Pilot Training",
+        name: "Become a Pilot",
         link: "/#",
       },
       {
-        name: "Begin Pilot Career",
-        link: "/#",
-      },
-      {
-        name: "Timeline",
-        link: "/#",
-      },
-      {
-        name: "Cost",
+        name: "Pricing",
         link: "/#",
       },
       {
@@ -33,7 +25,7 @@ export const footerLinks = [
     ],
   },
   {
-    title: "Training",
+    title: "Programs",
     links: [
       {
         name: "Private Pilot ASEL",
@@ -70,18 +62,6 @@ export const footerLinks = [
       },
       {
         name: "Our Team",
-        link: "/#",
-      },
-      {
-        name: "Visit Us",
-        link: "/#",
-      },
-      {
-        name: "Join Us",
-        link: "/#",
-      },
-      {
-        name: "Financing",
         link: "/#",
       },
       {

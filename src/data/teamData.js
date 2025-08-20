@@ -1,6 +1,6 @@
 import { COMPANY_NAME } from "../consts";
 
-const teamData = {
+const teamPageData = {
   pageTitle: `The NVFlight Crew | ${COMPANY_NAME}`,
   pageDescription:
     "Discover the dedicated team behind NVFlight Flight School. Our leadership and certified flight instructors are committed to providing exceptional training and support to help you achieve your aviation goals.",
@@ -10,20 +10,16 @@ const teamData = {
   // Top Header
   header: {
     stars: true,
-<<<<<<< Updated upstream
-    imagePath: "/src/assets/montain-&-plane2.jpg",
-=======
     imagePath: "/src/assets/hero-img.webp",
->>>>>>> Stashed changes
     imageAlt:
-      "NVFlight Flight School student and flight instructor in a Cessna airplane cockpit",
+      "NV Flight School student and flight instructor in a Cessna airplane cockpit",
     headerH1: `Meet Our <br>TEAM</span>`,
-    paragraph: `Get to know the passionate and experienced team at NVFlight Flight School. Our leadership and certified flight instructors are dedicated to helping you succeed in your aviation journey.`,
+    paragraph: `Get to know the passionate and experienced team at NV Flight School. Our leadership and certified flight instructors are dedicated to helping you succeed in your aviation journey.`,
     buttons: [
       {
         name: "Enroll Today",
         link: "/enroll-at-NVFlight",
-        primary: false,
+        primary: true,
       },
       {
         name: "Discovery Flight",
@@ -40,71 +36,71 @@ const teamData = {
     subHeading:
       "Our leadership team consists of skilled and experienced aviation experts who have a deep passion for the flight training and are dedicated to delivering exceptional training and support to our students.",
 
-    leadership: [
-      // {
-      //   img: "/src/assets/montain-&-plane2.jpg",
-      //   alt: "Greg Hadley Co-Owner at NVFlight Flight School",
-      //   name: "Greg Hadley",
-      //   title: "Owner",
-      //   summary:
-      //     "Greg has had a lifelong passion for airplanes and flying, which began at a young age. While still in high school, he worked at Sky Park in Bountiful, Utah, and earned his private pilot's license. Though life led him through a successful career in HVAC construction and over 20 years in real estate, he has returned to his first love: aviation. Together with his wife, he owns and operates NVFlight, a venture that combines their shared love for flying. As he continues to work toward earning additional ratings, Greg balances his professional pursuits with personal interests that include fishing, spending time with family, and solving puzzles.",
-      // },
-      // {
-      //   img: "/src/assets/Julie-Hadley.webp",
-      //   alt: "Julie Hadley Co-Owner at NVFlight Flight School",
-      //   name: "Julie Hadley",
-      //   title: "Owner",
-      //   summary:
-      //     "With 18 years of experience in education, Julie is a lifelong learner and passionate teacher. Known for her organizational skills and talent for working with numbers, she thrives in both creative and analytical pursuits. Outside the classroom, she enjoys reading, sewing, paddle boarding, and exploring family history. A true collaborator, she loves working alongside her husband and supporting him in their shared ventures, including their exciting journey with NVFlight. Above all, she treasures spending time with her children and grandchildren, cherishing every moment with her growing family.",
-      // },
-    ],
+    teamMembers: [
+      {
+        id: "emma-justis",
+        name: "Emma Justis",
+        role: "Owner & Chief Pilot",
+        image: "/team/emma-j.webp",
+        group: "Leadership",
+        featured: true,
+        certifications: ["ASEL COMM", "AMEL ATP", "CFI", "CFII"],
+        bio: "Emma Justis is an Owner and Chief Pilot at NV Flight. Raised in Reno, she loves teaching people to fly across Nevada's stunning landscapes. With 4,000 flight hours, her background spans aerial photography, forest fire spotting, and corporate flying. When she isn't instructing in NV Flight's Piper Cherokees, she flies the Falcon 2000.",
+      },
+      {
+        id: "collin-justis",
+        name: "Collin Justis",
+        role: "Owner, Flight Instructor, Mechanic",
+        image: "/team/collin-j.webp",
+        group: "Leadership",
+        featured: true,
+        certifications: ["COMM ASEL", "CFI", "CFII", "A&P"],
+        bio: "Collin Justis is the Co-Owner of NV Flight as well as a Flight Instructor and A&P Mechanic. He has been flying for 11 years and holds commercial fixed-wing and private rotor-wing certificates alongside his aviation mechanic license. Collin teaches private, instrument, and commercial students and finds deep fulfillment in guiding pilots to become safe, thoughtful aviators.",
+      },
+      {
+        id: "trygve",
+        name: "Trygve",
+        role: "Assistant Chief Pilot",
+        image: "/team/trygve.webp",
+        group: "Leadership",
+        featured: false,
+        certifications: ["COMM ASEL", "CFI", "CFII"],
+        bio: "Trygve is the Assistant Chief Pilot at NV Flight with more than 2,000 hours across 42 U.S. states and nine countries. Raised in an airline family at Lake Tahoe, he has lived in Europe and the Middle East. He began flying 13 years ago in southern Africa in a Cessna 182 and has since flown his Piper Dakota as far as Guatemala and Maine. He has instructed for three years and is passionate about helping people grow into skilled aviators.",
+      },
 
-    heading2: "Our Certified Flight Instructors",
-    subHeading2:
-      "At NVFlight, our dedicated instructors prioritize delivering top-notch flight training to students. They combine their extensive aviation expertise, passion for the field, and commitment to creating a safe and supportive learning atmosphere. By doing so, they enable students to reach their aspirations and develop into proficient pilots.",
-
-    team: [
+      // ——— Instructors ———
       {
-        img: "/src/assets/montain-&-plane2.jpg",
-        name: "Sara Van Sciver",
-        title: "Office Manager",
+        id: "joel-guasch",
+        name: "Joel Guasch",
+        role: "Flight Instructor",
+        image: "/team/joel-g.webp",
+        group: "Instructors",
+        featured: false,
+        certifications: ["COMM ASEL", "AMEL", "CFI"],
+        bio: "Joel Guasch is a Certified Flight Instructor dedicated to sharing the joy of flight. He blends deep aviation knowledge with hands-on training to help each student reach their potential. Outside the cockpit, Joel enjoys snowboarding, mountain biking, and time in nature—an adventurous spirit that complements his approach to aviation.",
       },
       {
-        img: "/src/assets/montain-&-plane2.jpg",
-        name: "Wendi Painter",
-        title: "Office Assistant",
-      },
-    ],
-
-    cta: {
-      title: "Enroll in the CFI Program",
-      description:
-        "Start your journey as a Certified Flight Instructor at NVFlight Flight School and gain the experience needed for a successful aviation career.",
-      button: {
-        name: "Enroll Now",
-        link: "/enroll-at-NVFlight",
-      },
-    },
-
-    faqs: [
-      {
-        question:
-          "How long does it take to become a Certified Flight Instructor?",
-        answer:
-          "Most students complete their CFI training in 4-8 weeks, depending on proficiency and study schedule.",
+        id: "ben-roller",
+        name: "Ben Roller",
+        role: "Flight Instructor",
+        image: "/team/ben-r.webp",
+        group: "Instructors",
+        featured: false,
+        certifications: ["COMM ASEL", "AMEL", "CFI", "CFII"],
+        bio: "Ben Roller is a CFI and CFII who teaches private, instrument, and commercial students. He fell in love with aviation after his first air show and later earned a bachelor's in Mechanical Engineering from the University of Nevada, Reno. After graduating, he pursued flight training and quickly realized he preferred the view from the flight deck to the office. When not flying, Ben is outdoors enjoying the Sierra Nevada.",
       },
       {
-        question: "Do I need a Commercial Pilot License before becoming a CFI?",
-        answer:
-          "Yes, a Commercial Pilot License (CPL) is required before obtaining a Certified Flight Instructor (CFI) certification.",
-      },
-      {
-        question: "What can I do with a CFI certification?",
-        answer:
-          "As a CFI, you can teach student pilots, build valuable flight hours, and gain experience for future airline or corporate pilot opportunities.",
+        id: "jeremy",
+        name: "Jeremy",
+        role: "Flight Instructor",
+        image: "/team/jeremy.webp",
+        group: "Instructors",
+        featured: false,
+        certifications: ["COMM ASEL", "CFI"],
+        bio: "Jeremy is a Certified Flight Instructor with four years of flying experience. His teaching combines enthusiasm with a strong focus on safety, precision, and customer care. Inspired by NV Flight's supportive community and his family's encouragement, he helps the next generation of aviators turn their goals into reality.",
       },
     ],
   },
 };
 
-export default teamData;
+export default teamPageData;
