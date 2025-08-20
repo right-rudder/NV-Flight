@@ -2,273 +2,262 @@ import { navbarLinks } from "../data/navbarLinks.js";
 import { mobileNavbarLinks } from "../data/mobileNavbarLinks.js";
 import { useEffect, useState } from "react";
 import { IoIosArrowForward } from "react-icons/io";
-import { FaPhone } from "react-icons/fa";
-
-import {
-  FACEBOOK_URL,
-  INSTAGRAM_URL,
-  LINKEDIN_URL,
-  TWITTER_URL,
-  YOUTUBE_URL,
-  PHONE_NUMBER,
-} from "../consts.ts";
 
 const Navbar = ({ pathname }) => {
   const [openMobile, setOpenMobile] = useState(false);
   const [navBar, setNavbar] = useState(false);
 
-  const handleHamburgerClick = () => {
-    setOpenMobile((prev) => !prev);
-    document.body.classList.toggle("overflow-hidden", !openMobile);
-  };
-
-  const changeBackground = () => {
-    const scrolled = window.scrollY >= 40;
-    setNavbar(scrolled);
-
-    // toggle text color on the nav container
-    const navEl = document.getElementById("navbar");
-    if (navEl) {
-      navEl.classList.toggle("text-cloud", !scrolled);
-      navEl.classList.toggle("text-charcoal", scrolled);
-    }
-  };
-
   useEffect(() => {
-    // initialize on mount
-    changeBackground();
-    window.addEventListener("scroll", changeBackground);
-    return () => window.removeEventListener("scroll", changeBackground);
+    const onScroll = () => setNavbar(window.scrollY >= 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const [hoveredIndex, setHoveredIndex] = useState(null);
-  const [subHoveredIndex, setSubHoveredIndex] = useState(null);
+  // lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.classList.toggle("overflow-hidden", openMobile);
+    return () => document.body.classList.remove("overflow-hidden");
+  }, [openMobile]);
 
-  const isActive = (menuItem, pathname) => {
-    const match = (link) => link === pathname || link + "/" === pathname;
-    return (
-      match(menuItem.link) ||
-      menuItem.submenu?.some(
-        (i) => match(i.link) || i.subsubmenu?.some((s) => match(s.link))
-      ) ||
-      menuItem.subsubmenu?.some((i) => match(i.link))
-    );
-  };
-
-  const handleItemClick = (index) => {
-    setHoveredIndex((prev) => (prev === index ? null : index));
-    setSubHoveredIndex(null);
-  };
-
-  const handleSubItemClick = (e, subIndex) => {
-    e.stopPropagation();
-    setSubHoveredIndex((prev) => (prev === subIndex ? null : subIndex));
-  };
+  const isActive = (item) =>
+    item.link === pathname ||
+    item.link + "/" === pathname ||
+    item.submenu?.some((sub) => sub.link === pathname);
 
   return (
-    <nav id="navbar">
-      <div
-        className={`${
-          navBar || openMobile
-            ? "bg-muted-900 shadow-md"
-            : "transition-colors duration-700 ease-in-out bg-gradient-to-b from-muted-900 via-primary-950 to-transparent font-bold pb-6"
-        } text-primary-100`}
-      >
-        <div className="px-4 lg:px-12 mx-auto">
-          <div
-            className={`${
-              navBar || openMobile ? "lg:h-24" : "lg:h-30"
-            } relative flex h-24 items-center justify-between transition-all`}
-            id="navbar"
-          >
-            <a
-              href="/"
-              title="NV Flight School"
-              className="flex items-center duration-200 hover:brightness-110"
-            >
-              <img
-                src="/nvflight-nobg.webp"
-                alt="NV Flight School Logo"
-                className={`${
-                  navBar || openMobile ? "h-16 mt-2" : "h-20 mt-3"
-                } object-contain duration-500 drop-shadow-md`}
-              />
-            </a>
+    <nav
+      id="navbar"
+      className={`fixed top-0 left-0 w-full z-50 transition-colors ${
+        navBar
+          ? "bg-muted-950/80 shadow-sm text-white py-2"
+          : "bg-gradient-to-b from-muted-950 via-primary-950 to-transparent text-white py-6"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 h-16">
+        {/* Left: Logo */}
+        <a href="/" className="flex items-center">
+          <img
+            src="/nvflight-nobg.webp"
+            alt="NV Flight School"
+            className={`object-contain transition-all duration-300 ${
+              navBar ? "h-12" : "h-20"
+            }`}
+          />
+        </a>
 
-            <ul className="hidden lg:flex ml-12 space-x-8">
-              {navbarLinks.map((item, idx) => (
-                <li
-                  key={idx}
-                  className={`relative uppercase font-title tracking-tight transition-font ${
-                    isActive(item, pathname)
-                      ? "underline decoration-teal decoration-4 font-bold"
-                      : "font-medium"
-                  }`}
-                  onMouseEnter={() => setHoveredIndex(idx)}
-                  onMouseLeave={() => setHoveredIndex(null)}
-                >
-                  <a
-                    href={item.link || "#"}
-                    target={item.link?.includes("http") ? "_blank" : "_self"}
-                    className="block py-4 lg:text-lg hover:text-emerald duration-300 group-last:bg-primary-500"
-                  >
-                    {item.name}
-                  </a>
-
-                  {item.submenu?.length > 0 && (
-                    <ul
-                      className={`absolute top-full left-0 bg-primary-900/95 text-cloud whitespace-nowrap rounded-md overflow-hidden transition-all ${
-                        hoveredIndex === idx
-                          ? "max-h-screen opacity-100"
-                          : "max-h-0 opacity-0"
-                      }`}
-                    >
-                      {item.submenu.map((sub, sidx) => (
-                        <li
-                          key={sidx}
-                          className={`px-4 py-2 hover:bg-teal/80 ${
-                            isActive(sub, pathname)
-                              ? "bg-teal text-cloud"
-                              : "text-cloud"
-                          }`}
-                          onMouseEnter={() => setSubHoveredIndex(sidx)}
-                          onMouseLeave={() => setSubHoveredIndex(null)}
-                        >
-                          <a
-                            href={sub.link || "#"}
-                            target={
-                              sub.link?.includes("http") ? "_blank" : "_self"
-                            }
-                          >
-                            {sub.name}
-                          </a>
-                          {sub.subsubmenu?.length > 0 && (
-                            <ul
-                              className={`mt-1 bg-teal/90 rounded-md transition-all ${
-                                subHoveredIndex === sidx
-                                  ? "max-h-screen opacity-100"
-                                  : "max-h-0 opacity-0"
-                              }`}
-                            >
-                              {sub.subsubmenu.map((ss, ssidx) => (
-                                <li
-                                  key={ssidx}
-                                  className="px-4 py-2 hover:bg-emerald"
-                                >
-                                  <a
-                                    href={ss.link}
-                                    target={
-                                      ss.link.includes("http")
-                                        ? "_blank"
-                                        : "_self"
-                                    }
-                                    className="text-cloud"
-                                  >
-                                    {ss.name}
-                                  </a>
-                                </li>
-                              ))}
-                            </ul>
-                          )}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </li>
-              ))}
-            </ul>
-
-            <button
-              onClick={handleHamburgerClick}
-              className="lg:hidden p-2 text-charcoal"
-              aria-label="Toggle menu"
-            >
-              {openMobile ? (
-                <IoIosArrowForward className="transform rotate-90 text-forest size-6" />
-              ) : (
-                <div className="space-y-1">
-                  <span className="block h-0.5 w-6 bg-primary-100"></span>
-                  <span className="block h-0.5 w-6 bg-primary-100"></span>
-                  <span className="block h-0.5 w-6 bg-primary-100"></span>
-                </div>
-              )}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div
-        className={`${
-          openMobile ? "min-h-screen" : "max-h-0"
-        } overflow-hidden transition-max-height duration-700 ease-in-out lg:hidden bg-gradient-to-b from-muted-900 to-primary-700 absolute w-full z-20 top-0 transition-colors duration-700 ease-in-out`}
-      >
-        <div className="flex justify-end p-6">
-          <button
-            onClick={handleHamburgerClick}
-            aria-label="Close menu"
-            className="text-primary-100 hover:text-teal transition-colors"
-          >
-            &#10005;
-          </button>
-        </div>
-        <div className="text-center pb-8">
-          <a href="/">
-            <img
-              src="/nvflight-nobg.webp"
-              alt="NV Flight Logo"
-              className="mx-auto h-20 drop-shadow-md"
-            />
-          </a>
-        </div>
-        <ul className="px-4 space-y-4 text-primary-100 text-center group">
-          {mobileNavbarLinks.map((item, idx) => (
+        {/* Center: Links (desktop) */}
+        <ul className="hidden lg:flex space-x-8 font-medium text-md group/nav">
+          {navbarLinks.center.map((item, idx) => (
             <li
               key={idx}
-              onClick={() => handleItemClick(idx)}
-              className="relative group"
+              className={`relative group transition-all duration-300
+                  group-hover/nav:[&:not(:hover)]:opacity-50
+                  hover:text-primary-300 focus-visible:text-primary-300
+                  font-medium font-semibold`}
             >
               <a
                 href={item.link || "#"}
-                target={item.link?.includes("http") ? "_blank" : "_self"}
-                className="block font-medium text-xl py-2 hover:text-emerald group-last:btn-primary"
+                className={`inline-flex items-center gap-1 ${isActive(item) ? "text-primary-300" : ""}`}
               >
-                {item.name}
+                <span>{item.name}</span>
+
+                {/* ▼ arrow for main links that have a submenu */}
+                {item.submenu?.length > 0 && (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    className="size-5 transition-transform duration-200 group-hover:rotate-180"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                )}
               </a>
+
+              {/* Submenu dropdown (wider + underline animation on items) */}
               {item.submenu?.length > 0 && (
-                <ul
-                  className={`${
-                    hoveredIndex === idx ? "max-h-screen" : "max-h-0"
-                  } overflow-hidden transition-all`}
+                <div
+                  className="absolute left-1/2 -translate-x-1/2 top-full
+               hidden group-hover:block z-50"
                 >
-                  {item.submenu.map((sub, sidx) => (
-                    <li
-                      key={sidx}
-                      onClick={(e) => handleSubItemClick(e, sidx)}
-                      className="pl-4 py-2 hover:text-teal"
-                    >
-                      <a href={sub.link || "#"}>{sub.name}</a>
-                      {sub.subsubmenu?.length > 0 && hoveredIndex === idx && (
-                        <ul
-                          className={`${
-                            subHoveredIndex === sidx
-                              ? "max-h-screen"
-                              : "max-h-0"
-                          } overflow-hidden transition-all pl-6`}
-                        >
-                          {sub.subsubmenu.map((ss, ssidx) => (
-                            <li key={ssidx} className="py-1 hover:text-emerald">
-                              <a href={ss.link}>{ss.name}</a>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </li>
-                  ))}
-                </ul>
+                  <div
+                    className="relative bg-primary-950/80 text-muted-200 rounded-md shadow-lg
+                 min-w-[320px] py-2
+                 opacity-0 translate-y-2 transition-all duration-300 ease-out
+                 group-hover:opacity-100 group-hover:translate-y-0"
+                  >
+                    {/* Hover bridge: fills the tiny gap above the panel so :hover never breaks */}
+                    <span className="pointer-events-auto absolute -top-3 left-0 right-0 h-3 content-['']"></span>
+
+                    <ul className="flex flex-col">
+                      {item.submenu.map((sub, sidx) => (
+                        <li key={sidx}>
+                          <a
+                            href={sub.link || "#"}
+                            className="relative flex items-center justify-between gap-3 px-4 py-2
+                         text-sm rounded-md transition-colors duration-200
+                         hover:text-accent-300 focus-visible:text-accent-300"
+                          >
+                            {/* Underline animation on label (as requested) */}
+                            <span
+                              className="relative inline-block pb-0.5
+                               after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-0
+                               after:h-[1px] after:bg-accent-600 after:scale-x-0 after:origin-left
+                               after:transition-transform after:duration-300
+                               hover:after:scale-x-100 focus-visible:after:scale-x-100"
+                            >
+                              {sub.name}
+                            </span>
+
+                            {/* → arrow icon on the right */}
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              strokeWidth={1.5}
+                              stroke="currentColor"
+                              className="size-6 opacity-60 group-hover:opacity-100 transition-opacity"
+                              aria-hidden="true"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                              />
+                            </svg>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               )}
             </li>
           ))}
         </ul>
+
+        {/* Right: Action buttons (desktop) */}
+        <div className="hidden lg:flex items-center space-x-4">
+          {navbarLinks.buttons.map((item, idx) => (
+            <a
+              key={idx}
+              href={item.link || "#"}
+              className={idx === 0 ? "btn-primary text-white" : "btn-accent text-white"}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="size-6"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M15.75 2.25H21a.75.75 0 0 1 .75.75v5.25a.75.75 0 0 1-1.5 0V4.81L8.03 17.03a.75.75 0 0 1-1.06-1.06L19.19 3.75h-3.44a.75.75 0 0 1 0-1.5Zm-10.5 4.5a1.5 1.5 0 0 0-1.5 1.5v10.5a1.5 1.5 0 0 0 1.5 1.5h10.5a1.5 1.5 0 0 0 1.5-1.5V10.5a.75.75 0 0 1 1.5 0v8.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V8.25a3 3 0 0 1 3-3h8.25a.75.75 0 0 1 0 1.5H5.25Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+
+              {item.name}
+            </a>
+          ))}
+        </div>
+
+        {/* Mobile toggle */}
+        <button
+          onClick={() => setOpenMobile((v) => !v)}
+          className="lg:hidden p-2"
+          aria-label="Toggle menu"
+        >
+          {openMobile ? (
+            <IoIosArrowForward className="rotate-90 text-emerald size-6" />
+          ) : (
+            <div className="space-y-1">
+              <span className="block h-0.5 w-6 bg-current"></span>
+              <span className="block h-0.5 w-6 bg-current"></span>
+              <span className="block h-0.5 w-6 bg-current"></span>
+            </div>
+          )}
+        </button>
+      </div>
+
+      {/* Mobile menu (unchanged) */}
+      <div
+        className={`lg:hidden fixed inset-0 z-[60]
+  bg-gradient-to-b from-muted-950 to-primary-950 text-muted-100
+  transform transition-transform duration-300 ease-out
+  ${
+    openMobile
+      ? "translate-y-0 opacity-100 visible pointer-events-auto"
+      : "-translate-y-full opacity-0 invisible pointer-events-none"
+  }`}
+        aria-hidden={!openMobile}
+      >
+        <div className="flex h-full flex-col">
+          {/* Top bar */}
+          <div className="flex items-center justify-between h-16 px-6 border-b border-muted-800">
+            <a href="/" className="flex items-center">
+              <img
+                src="/nvflight-nobg.webp"
+                alt="NV Flight"
+                className="h-10 object-contain"
+              />
+            </a>
+            <button
+              onClick={() => setOpenMobile(false)}
+              className="text-muted-200 hover:text-emerald text-2xl leading-none"
+              aria-label="Close menu"
+            >
+              ×
+            </button>
+          </div>
+
+          {/* Main nav links */}
+          <div className="flex-1 overflow-y-auto px-6 py-8 overscroll-contain">
+            <nav className="space-y-6">
+              {mobileNavbarLinks.links.map((item, idx) => (
+                <a
+                  key={idx}
+                  href={item.link || "#"}
+                  className="block font-heading text-3xl leading-tight tracking-tight hover:text-primary-300 transition-colors"
+                  onClick={() => setOpenMobile(false)}
+                >
+                  {item.name}
+                </a>
+              ))}
+            </nav>
+          </div>
+
+          {/* Footer section: CTA + extras */}
+          <div className="px-6 py-6 border-t border-muted-800 space-y-4">
+            {mobileNavbarLinks.buttons?.length > 0 && (
+              <div className="space-y-3">
+                {mobileNavbarLinks.buttons.map((btn, idx) => (
+                  <a
+                    key={idx}
+                    href={btn.link || "#"}
+                    className="block w-full text-center font-heading text-lg py-3 rounded-md
+                         bg-emerald text-white hover:bg-emerald/90 transition-colors"
+                    onClick={() => setOpenMobile(false)}
+                  >
+                    {btn.name}
+                  </a>
+                ))}
+              </div>
+            )}
+
+            <div className="flex items-center justify-between text-sm text-muted-300">
+              <span className="opacity-50">
+                © {new Date().getFullYear()} NV Flight
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     </nav>
   );

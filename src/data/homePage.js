@@ -10,7 +10,7 @@ const homePage = {
     header: {
       imagePath: "/src/assets/hero-image.jpg",
       imageAlt: "NV Flight School Cessna 172 on the runway",
-      headerH1: `WHERE DREAMS TAKE FLIGHT`,
+      headerH1: `Reach new <br>HEIGHTS</span> with us in Reno, NV`,
       paragraph:
         "Take the first step towards your aviation dreams with NV Flight School. Whether you're looking to fly for fun or pursue a career in aviation, we have the training programs to help you succeed.",
       buttons: [
@@ -22,7 +22,7 @@ const homePage = {
         {
           name: "Book a Discovery Flight",
           link: "/discovery-flight",
-          primary: true,
+          primary: false,
         },
       ],
     },
@@ -128,22 +128,22 @@ const homePage = {
         {
           title: "Personalized and Memorable Intro Flight",
           body: "I booked my man an introductory flight as a surprise for Father’s Day. We had one-on-one time with the instructor without feeling rushed. It was very laid back, and we were able to take lots of videos and pictures. Affordable price as well! HIGHLY recommend them. Will definitely go back for more.",
-          author: "Lara",
+          author: "Lara D.",
         },
         {
           title: "Exceptional for All Levels of Training",
           body: "I would recommend NV Flight for anyone looking to learn to fly or achieve advanced ratings. The instruction is professional, and the aircraft are top-notch. A great place to fly.",
-          author: "Jack Woods",
+          author: "Jack W.",
         },
         {
           title: "Ideal for Refreshing or Advancing Your Skills",
           body: "If you're looking for a great flight school to touch up on some skills, pursue a new rating, or just get current, I would highly recommend NV Flight.",
-          author: "Roger (Battle Born Bullies)",
+          author: "Roger B.",
         },
         {
           title: "Fantastic Rentals and Great Support",
           body: "A great place to learn how to fly and rent reasonably priced single-engine aircraft. Cherie at the office is amazing. Planes are well-maintained and ready to fly every time I go for a rental. Thank you, NV Flight!",
-          author: "Fernando Lista",
+          author: "Fernando L.",
         },
       ],
     },

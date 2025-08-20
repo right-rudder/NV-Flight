@@ -4,7 +4,7 @@ import ImageComp from "./ImageComp.astro";
 ---
 
 <section
-  class="relative isolate lg:mt-0 h-screen -z-0 bg-gray-800 text-muted-50 flex flex-col items-center justify-center overflow-hidden py-12"
+  class="relative isolate lg:mt-0 h-screen -z-0 bg-gray-800 text-muted-50 flex flex-col items-center justify-center overflow-hidden m-8 rounded-3xl lg:px-12 py-32"
 >
   <div
       class="absolute inset-0 bg-muted-950/50 -z-10 blur-3xl"
@@ -36,7 +36,7 @@ import ImageComp from "./ImageComp.astro";
         content.buttons.map((btn) => (
           <a
             href={btn.link}
-            class={`${btn.primary ? "btn-accent" : "btn-accent"} w-full text-2xl md:w-auto`}
+            class="btn-accent w-full text-2xl md:w-auto"
           >
             {btn.name}
           </a>

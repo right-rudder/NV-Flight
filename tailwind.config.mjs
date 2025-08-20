@@ -5,9 +5,11 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter", ...defaultTheme.fontFamily.sans],
-        heading: ["Exo 2", ...defaultTheme.fontFamily.sans],
-        display: ["Orbitron", ...defaultTheme.fontFamily.sans],
+        // Body / small / paragraphs: Altform
+        sans: ["Altform", ...defaultTheme.fontFamily.sans],
+        // Headings / big / important text: Texgyreadventor
+        heading: ["Texgyreadventor", "Arial", "sans-serif"],
+        display: ["Texgyreadventor", "Arial", "sans-serif"],
       },
       colors: {
         muted: {

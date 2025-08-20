@@ -6,7 +6,7 @@ const flyWithUsCTA = {
   paragraph: `We are a team of aviation experts in Reno, NV with decades of combined experience in the flight training industry. Our simple and effective training programs are designed to get you safely in the air as quickly as possible.`,
   buttons: [
     {
-      name: "START FLYING TODAY",
+      name: "Book a Discovery Flight",
       link: "/discovery-flight",
       primary: true,
     },

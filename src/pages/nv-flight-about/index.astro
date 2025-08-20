@@ -1,33 +1,125 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import HeaderSmall from "../../components/HeaderSmall.astro";
-import CTAColor from "../../components/CTAColor.astro";
-import flyWithUsCTA from "../../data/fly-with-us-cta";
-import ProgramSwiper from "../../components/ProgramSwiper.astro";
-import programsSwiper from "../../data/programSwiper";
-import PageSummary from "../../components/PageSummary.astro";
-import ContentSplit from "../../components/ContentSplit.astro";
-import TestimonialsSwiper from "../../components/TestimonialsSwiper.astro";
+import HeaderScreen from "../../components/HeaderScreen.astro";
 
-import pageData from "../../data/whyData.js";
 ---
-<BaseLayout
-  siteTitle={pageData.pageTitle}
-  siteDescription={pageData.pageDescription}
-  keywords={pageData.pageKeywords}
->
-  <!-- HEADER -->
-  <HeaderSmall content={pageData.header} />
-  <!-- PAGE SUMMARY -->
-  <PageSummary content={pageData.pageSummary} />
 
-    <div id="info"></div>
-  <ContentSplit content={pageData.contentSplit} />
+<BaseLayout title="About NV Flight" description="Safety-first, primacy-driven flight training with mountain expertise.">
+  <HeaderScreen content={{
+    headerH1: "About NV Flight",
+    paragraph: "Learn about our mission, values, and the team behind NV Flight.",
+    imagePath: "/src/assets/about-hero.webp",
+    imageAlt: "NV Flight team in front of aircraft",
+    buttons: [
+      { name: "Meet the Team", link: "/nv-flight-about/team" },
+      { name: "Contact Us", link: "/contact" }
+    ]
+  }} />
 
+  <main class="mx-auto max-w-6xl px-6 py-16 space-y-24">
+    <!-- Core Values -->
+    <section>
+      <h2 class="text-2xl md:text-3xl font-bold text-muted-900">Our Core Values</h2>
+      <p class="mt-4 text-muted-700 max-w-3xl">
+        Our culture is built to excel—prioritizing safety, teaching with primacy, and tailoring training to each student’s goals. We specialize in mountain flying and produce confident, capable aviators.
+      </p>
 
-  <TestimonialsSwiper />
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="rounded-2xl border border-muted-200 bg-white p-6 shadow-sm">
+          <h3 class="text-lg font-semibold text-muted-900">Safety & Decisions</h3>
+          <p class="mt-2 text-muted-700">Safety drives every briefing, maneuver, and go/no-go decision.</p>
+        </div>
 
-  <ProgramSwiper content={programsSwiper} />
-  <CTAColor content={flyWithUsCTA} />
-  <script src="../../scripts/creativeSwiper.js"></script>
+        <div class="rounded-2xl border border-muted-200 bg-white p-6 shadow-sm">
+          <h3 class="text-lg font-semibold text-muted-900">Primacy</h3>
+          <p class="mt-2 text-muted-700">High value on doing it right the first time—habits formed early last.</p>
+        </div>
+
+        <div class="rounded-2xl border border-muted-200 bg-white p-6 shadow-sm">
+          <h3 class="text-lg font-semibold text-muted-900">Expedited Training</h3>
+          <p class="mt-2 text-muted-700">Available CFIs and aircraft keep your momentum strong and efficient.</p>
+        </div>
+
+        <div class="rounded-2xl border border-muted-200 bg-white p-6 shadow-sm">
+          <h3 class="text-lg font-semibold text-muted-900">Student-Centered</h3>
+          <p class="mt-2 text-muted-700">We listen first, then tailor a plan so you get the training you need.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Story -->
+    <section>
+      <h2 class="text-2xl md:text-3xl font-bold text-muted-900">Our Story</h2>
+      <div class="mt-6 grid items-start gap-10 lg:grid-cols-2">
+        <div class="space-y-4 text-muted-700">
+          <p>
+            NV Flight began when our founder moved back home to Reno and purchased a Cherokee. For a time, it was a one-woman show—growing organically with the support of friends and family.
+          </p>
+          <p>
+            Soon after launch, the school became a Part 141 operation. Today, NV Flight is owned by CFIs with deep experience flying in one of the most challenging environments: the mountains.
+          </p>
+          <p>
+            With ~15 years of worldwide flying experience and strong maintenance/mechanical insight, our team delivers training that builds judgment, capability, and confidence.
+          </p>
+        </div>
+
+        <ol class="relative border-s border-muted-200 ps-6">
+          <li class="mb-10 ms-6">
+            <span class="absolute -start-3 mt-1 h-2.5 w-2.5 rounded-full bg-primary-600"></span>
+            <h3 class="font-semibold text-muted-900">Humble Beginnings</h3>
+            <p class="mt-1 text-muted-700">Back in Reno with a Cherokee, growing through word of mouth.</p>
+          </li>
+          <li class="mb-10 ms-6">
+            <span class="absolute -start-3 mt-1 h-2.5 w-2.5 rounded-full bg-primary-600"></span>
+            <h3 class="font-semibold text-muted-900">Structure & Standards</h3>
+            <p class="mt-1 text-muted-700">Became a Part 141 school, reinforcing consistency and quality.</p>
+          </li>
+          <li class="ms-6">
+            <span class="absolute -start-3 mt-1 h-2.5 w-2.5 rounded-full bg-primary-600"></span>
+            <h3 class="font-semibold text-muted-900">Expert-Led Growth</h3>
+            <p class="mt-1 text-muted-700">Owned and run by CFIs seasoned in mountain flying.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Training Focus -->
+    <section>
+      <h2 class="text-2xl md:text-3xl font-bold text-muted-900">How We Train</h2>
+      <div class="mt-6 grid gap-6 md:grid-cols-3">
+        <div class="rounded-2xl border border-muted-200 bg-white p-6">
+          <h3 class="text-lg font-semibold text-muted-900">Mountain Expertise</h3>
+          <p class="mt-2 text-muted-700">Endorsements and real-world terrain experience build strong airmanship.</p>
+        </div>
+        <div class="rounded-2xl border border-muted-200 bg-white p-6">
+          <h3 class="text-lg font-semibold text-muted-900">Mechanically Savvy</h3>
+          <p class="mt-2 text-muted-700">Maintenance perspective informs smarter decisions and safer flying.</p>
+        </div>
+        <div class="rounded-2xl border border-muted-200 bg-white p-6">
+          <h3 class="text-lg font-semibold text-muted-900">Beyond a Checkride</h3>
+          <p class="mt-2 text-muted-700">We don’t just teach to fly—we train pilots for a range of objectives.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="rounded-3xl bg-muted-50 p-8 md:p-12">
+      <div class="grid gap-6 md:grid-cols-2 md:items-center">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold text-muted-900">Ready to start your training?</h2>
+          <p class="mt-3 text-muted-700">
+            Get a plan tailored to your goals and timeline—whether that’s a license, a mountain endorsement, or a pro path.
+          </p>
+        </div>
+        <div class="flex gap-4 md:justify-end">
+          <a href="/contact" class="inline-flex items-center rounded-xl bg-primary-600 px-6 py-3 font-medium text-white shadow transition hover:bg-primary-700">
+            Talk to an Instructor
+          </a>
+          <a href="/programs" class="inline-flex items-center rounded-xl border border-muted-300 px-6 py-3 font-medium text-muted-900 transition hover:bg-muted-100">
+            See Programs
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
 </BaseLayout>
