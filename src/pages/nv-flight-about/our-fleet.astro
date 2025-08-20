@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import HeaderScreen from "../../components/HeaderScreen.astro";
+import ProgramSwiper from "../../components/ProgramSwiper.astro";
+import CTAColor from "../../components/CTAColor.astro";
+import programsSwiper from "../../data/programSwiper";
+import pageDate from "../../data/our-fleet";
+import flyWithUsCTA from "../../data/fly-with-us-cta";
+import FAQs from "../../components/FAQs";
+import FAQSchema from "../../components/FAQSchema.astro";
+import { GeneralFAQs } from "../../data/general-faqs";
+const { data } = pageDate;
+
+
+import ServicesCarousel from "../../components/ServicesCarousel.astro";
+
+const faqSchemaItems = GeneralFAQs.map((faq) => ({
+  question: faq.title,
+  answer: faq.content.replace(/<[^>]*>?/gm, ""),
+}));
+
+---
+
+<BaseLayout
+  siteTitle={data.pageTitle}
+  siteDescription={data.pageDescription}
+  keywords={data.pageKeywords}
+>
+  <!-- HEADER -->
+  <HeaderScreen content={data.header} />
+
+    <ServicesCarousel
+        services={ data.fleet.planes }
+        description={ data.fleet.description }
+        title={ data.fleet.title }
+    />
+
+  <FAQs faqs={data.fleetFAQs} type="General" client:visible />
+  <FAQSchema items={faqSchemaItems} />
+  <ProgramSwiper content={programsSwiper} />
+  <CTAColor content={flyWithUsCTA} />
+  <script src="../../scripts/creativeSwiper.js"></script>
+</BaseLayout>
