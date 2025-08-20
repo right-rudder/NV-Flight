@@ -36,7 +36,7 @@ export const navbarLinks = {
   },
   {
     name: "About Us",
-    link: "/#",
+    link: "/nv-flight-about",
     submenu: [
       {
         name: "Our Team",
@@ -44,7 +44,7 @@ export const navbarLinks = {
       },
       {
         name: "Our Fleet",
-        link: "/nv-flight-about/fleet",
+        link: "/nv-flight-about/our-fleet",
       },
       {
         name: "Blog",
