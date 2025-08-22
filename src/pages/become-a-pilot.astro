@@ -7,6 +7,7 @@ import CTAWhyUs2 from "../components/CTAWhyUs2.astro";
 import FAQs from "../components/FAQs";
 import FAQSchema from "../components/FAQSchema.astro";
 import { GeneralFAQs } from "../data/general-faqs";
+import PodcastCTA from "../components/PodcastCTA.astro";
 
 // Transform FAQ format for schema
 const faqSchemaItems = GeneralFAQs.map((faq) => ({
@@ -29,5 +30,6 @@ const has = (obj, key) => obj && Array.isArray(obj[key]) && obj[key].length;
   <StepsGrid content={becomePilotData.stepItems} />
   <FAQs faqs={GeneralFAQs} type="General" client:visible />
   <FAQSchema items={faqSchemaItems} />
+  <PodcastCTA />
 
 </BaseLayout>
