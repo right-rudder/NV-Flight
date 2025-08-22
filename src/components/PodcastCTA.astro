@@ -1,61 +1,99 @@
 ---
 import podcastData from '../data/podcastData.js';
+
+// Detect Apple episode (compact) vs show (taller)
+const isAppleEpisode = podcastData.appleEmbedSrc?.includes('?i=');
+
+// Native heights
+const APPLE_BASE = podcastData.appleEmbedSrc ? (isAppleEpisode ? 175 : 450) : 0;
+const SPOTIFY_BASE = podcastData.embedSrc ? 232 : 0;
+
+// Target height so bottoms line up. Use the tallest available (usually Spotify 232 vs Apple episode 175)
+const TARGET_HEIGHT = Math.max(APPLE_BASE, SPOTIFY_BASE, 232);
+
+// Scale Apple if needed to fill the same visual height as Spotify
+const appleScale = APPLE_BASE ? TARGET_HEIGHT / APPLE_BASE : 1;
+const appleNeedsScale = podcastData.appleEmbedSrc && appleScale !== 1;
+const appleIframeStyle = appleNeedsScale
+  ? `width:${(100 / appleScale).toFixed(5)}%;height:${APPLE_BASE}px;transform:scale(${appleScale});transform-origin:top left;`
+  : `width:100%;height:100%;`;
+
+// Map CTA buttons to each platform
+const findBtn = (domain) => podcastData.ctaButtons?.find(b => b.href?.includes(domain));
+const spotifyBtn = podcastData.embedSrc
+  ? findBtn('open.spotify.com') ?? { label: 'Listen on Spotify', href: (podcastData.href ?? podcastData.embedSrc.replace('/embed/', '/')) }
+  : null;
+const appleBtn = podcastData.appleEmbedSrc
+  ? findBtn('podcasts.apple.com') ?? { label: 'Listen on Apple Podcasts', href: (podcastData.applePageHref ?? podcastData.appleEmbedSrc.replace('https://embed.', 'https://')) }
+  : null;
 ---
 
 <section
-  aria-labelledby="podcast-cta-title"
-  class="relative mx-auto max-w-6xl rounded-lg border border-primary-200 bg-accent-900/90 p-6 shadow-sm backdrop-blur md:p-10 my-8"
+  class="relative mx-auto my-10 max-w-6xl rounded-3xl border border-primary-200/60 bg-accent-900/90 p-8 text-muted-50 shadow-sm md:p-12"
 >
-  <!-- top accent -->
-  <div class="pointer-events-none absolute inset-x-0 top-0 h-1 rounded-lg bg-primary-500"></div>
+  <!-- thicker accent bar with matched rounding -->
+  <div class="pointer-events-none absolute inset-x-0 top-0 h-6 rounded-t-3xl bg-primary-500"></div>
 
-  <div class="grid items-start gap-8 md:grid-cols-2">
-    <div class="space-y-5">
-      <div class="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-zinc-500">
-        <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-emerald-50 text-emerald-700 ring-1 ring-emerald-100">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-	          <path fill="" d="M14 12c0 .74-.4 1.38-1 1.72V22h-2v-8.28c-.6-.35-1-.98-1-1.72c0-1.1.9-2 2-2s2 .9 2 2m-2-6c-3.31 0-6 2.69-6 6c0 1.74.75 3.31 1.94 4.4l1.42-1.42A3.96 3.96 0 0 1 8 12c0-2.21 1.79-4 4-4s4 1.79 4 4c0 1.19-.53 2.25-1.36 2.98l1.42 1.42A5.96 5.96 0 0 0 18 12c0-3.31-2.69-6-6-6m0-4C6.48 2 2 6.48 2 12c0 2.85 1.2 5.41 3.11 7.24l1.42-1.42A8 8 0 0 1 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8c0 2.29-.98 4.36-2.53 5.82l1.42 1.42C20.8 17.41 22 14.85 22 12c0-5.52-4.48-10-10-10" />
-          </svg>
+  <div class="flex flex-col items-center gap-6 text-center">
+    <div class="space-y-4">
+      <div class="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-wide text-primary-300">
+        <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary-300/15 text-primary-200 ring-1 ring-primary-300/30">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24"><path fill="currentColor" d="M14 12c0 .74-.4 1.38-1 1.72V22h-2v-8.28c-.6-.35-1-.98-1-1.72c0-1.1.9-2 2-2s2 .9 2 2m-2-6c-3.31 0-6 2.69-6 6c0 1.74.75 3.31 1.94 4.4l1.42-1.42A3.96 3.96 0 0 1 8 12c0-2.21 1.79-4 4-4s4 1.79 4 4c0 1.19-.53 2.25-1.36 2.98l1.42 1.42A5.96 5.96 0 0 0 18 12c0-3.31-2.69-6-6-6m0-4C6.48 2 2 6.48 2 12c0 2.85 1.2 5.41 3.11 7.24l1.42-1.42A8 8 0 0 1 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8c0 2.29-.98 4.36-2.53 5.82l1.42 1.42C20.8 17.41 22 14.85 22 12c0-5.52-4.48-10-10-10"/></svg>
         </span>
         <span>{podcastData.eyebrow}</span>
       </div>
 
-      <h2 id="podcast-cta-title" class="text-2xl font-semibold tracking-tight text-zinc-900 md:text-3xl">
+      <h2 class="text-2xl font-semibold tracking-tight md:text-3xl">
         {podcastData.title}
       </h2>
 
-      <p class="max-w-prose text-zinc-600">
+      <p class="mx-auto max-w-prose text-muted-100/90">
         {podcastData.description}
       </p>
-
-      <div class="flex flex-wrap items-center gap-3">
-        {podcastData.ctaButtons?.map((button) => (
-          <a
-            href={button.href}
-            class="inline-flex items-center gap-2 rounded-lg bg-primary-600 px-4 py-2 text-sm font-medium text-white hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={button.label}
-          >
-            {button.label}
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
-            </svg>
-          </a>
-        ))}
-      </div>
-
-      <p class="text-xs text-zinc-500">External links open in a new tab.</p>
     </div>
 
-    <!-- Players -->
-    <div class="w-full space-y-4">
+    <!-- Buttons (centered, aligned to each column width) -->
+    <div class="mx-auto grid w-full max-w-3xl grid-cols-1 gap-6 md:max-w-5xl md:grid-cols-2">
       {podcastData.embedSrc && (
-        <div class="overflow-hidden rounded-xl ring-1 ring-zinc-200">
+        <div class="flex justify-end">
+          <a
+            href={spotifyBtn?.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1 rounded-sm py-1 text-sm font-medium text-primary-200 underline decoration-primary-400/70 underline-offset-4 hover:text-primary-100 hover:decoration-primary-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-400/40"
+          >
+            {spotifyBtn?.label}
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+            </svg>
+          </a>
+        </div>
+      )}
+      {podcastData.appleEmbedSrc && (
+        <div class="flex justify-start">
+          <a
+            href={appleBtn?.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1 rounded-sm py-1 text-sm font-medium text-primary-200 underline decoration-primary-400/70 underline-offset-4 hover:text-primary-100 hover:decoration-primary-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-400/40"
+          >
+            {appleBtn?.label}
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+            </svg>
+          </a>
+        </div>
+      )}
+    </div>
+
+    <!-- Players (same column widths as buttons) -->
+    <div class="mx-auto grid w-full max-w-3xl grid-cols-1 gap-6 md:max-w-5xl md:grid-cols-2">
+      {podcastData.embedSrc && (
+        <div class="overflow-hidden rounded-2xl ring-1 ring-zinc-200/40" style={`height:${TARGET_HEIGHT}px`}>
           <iframe
             src={podcastData.embedSrc}
             width="100%"
-            height="232"
+            height="100%"
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
             title="Spotify podcast player"
@@ -64,21 +102,18 @@ import podcastData from '../data/podcastData.js';
       )}
 
       {podcastData.appleEmbedSrc && (
-        <div class="overflow-hidden rounded-xl ring-1 ring-zinc-200">
+        <div class="overflow-hidden rounded-2xl ring-1 ring-zinc-200/40" style={`height:${TARGET_HEIGHT}px`}>
           <iframe
             src={podcastData.appleEmbedSrc}
-            width="100%"
-            height="175"
+            style={appleIframeStyle}
             allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
             sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
             loading="lazy"
             title="Apple Podcasts player"
-            style="background-color: transparent; border-radius: 10px;"
+            scrolling="no"
           ></iframe>
         </div>
       )}
     </div>
   </div>
 </section>
-
-<iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450" style="width:100%;max-width:660px;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.podcasts.apple.com/us/podcast/nv-flight-briefing/id1795141117"></iframe>
