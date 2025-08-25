@@ -1,5 +1,5 @@
-# robots.txt for NVFlight Flight School
-# https://NVFlightco.com/
+# robots.txt for NV Flight School
+# https://nv-flight.com
 
 User-agent: *
 Allow: /
@@ -10,7 +10,7 @@ Disallow: /temp/
 Disallow: /draft/
 
 # Allow all bots to access the sitemap
-Sitemap: https://NVFlightco.com/sitemap-index.xml
+Sitemap: https://nv-flight.com/sitemap-index.xml
 
 # Specific instructions for major search engines
 User-agent: Googlebot
