@@ -24,7 +24,7 @@ const year = date.getFullYear();
   <div
     class="relative z-10 pt-24 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl border-b border-gray-500"
   >
-    <div class="flex flex-row gap-12 justify-between lg:text-left text-center lg:pb-16 pb-10 lg:flex-nowrap flex-wrap ">
+    <div class="flex flex-row gap-20 justify-between lg:text-left text-center lg:pb-16 pb-10 lg:flex-nowrap flex-wrap ">
 
       <!-- Column 1: Logo + Tagline + Location + Social -->
       <div class="lg:w-1/2 text-center lg:text-left flex flex-col items-center lg:items-start">
@@ -35,9 +35,9 @@ const year = date.getFullYear();
             styles="object-contain h-36 w-auto drop-shadow-lg"
           />
         </a>
-        <p class="text-sm text-gray-200 mb-4 font-medium">{SITE_SHORT_DESCRIPTION}</p>
+        <p class="text-sm text-justify text-gray-200 mb-4 font-medium">{SITE_SHORT_DESCRIPTION}</p>
 
-        
+
 
         <!-- Social icons -->
         <div class="flex items-start align-middle mt-4 gap-4 text-accent-500">
@@ -66,10 +66,10 @@ const year = date.getFullYear();
     </div>
 
       <!-- Column 2–4: Links in one row -->
-      <div class="lg:col-span-3 w-full grid sm:grid-cols-2 md:grid-cols-4 gap-10">
+      <div class="lg:col-span-4 w-full grid sm:grid-cols-2 md:grid-cols-4 gap-10">
         {footerLinks.map((column) => (
           <div>
-            <p class="font-bold text-lg tracking-wide text-primary-200">{column.title}</p>
+            <p class="font-bold text-lg text-primary-200">{column.title}</p>
             <ul class="mt-2 space-y-2">
               {column.links.map((link) => (
                 <li>
@@ -81,9 +81,10 @@ const year = date.getFullYear();
             </ul>
           </div>
         ))}
+
         {LOCATIONS.map((location) => (
           <div class="mb-4 flex flex-col items-center lg:items-start gap-2">
-            <p class="font-bold tracking-wide text-primary-200">{location.title}</p>
+            <p class="font-bold tracking-wide text-primary-200 text-lg">{location.title}</p>
             <a href={location.gMaps} target="_blank" class="block text-sm text-gray-200 hover:underline font-semibold">
               {location.address}<br />{location.city}, {location.state} {location.zip}
             </a>

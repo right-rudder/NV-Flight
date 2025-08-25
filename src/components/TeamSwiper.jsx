@@ -293,71 +293,94 @@ export default function TeamProfileInteractiveSwiper({
                   ref={(el) => (itemRefs.current[i] = el)}
                   className="shrink-0"
                 >
-                  <div
-                    onClick={() => selectByIndex(i)} // whole card clickable
-                    className={`group block w-[82vw] sm:w-[48vw] lg:w-[31vw] cursor-pointer text-left overflow-hidden rounded-2xl border border-muted-200 bg-muted-100/70 p-4 shadow-sm transition hover:shadow-md ${
-                      activeIdx === i ? "ring-1 ring-muted-200" : ""
-                    }`}
+                  <button
+                    type="button"
+                    onClick={() => selectByIndex(i)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        selectByIndex(i);
+                      }
+                    }}
+                    aria-label={`View ${m.name}'s profile`}
+                    aria-pressed={activeIdx === i}
+                    className={[
+                      "group relative block w-[82vw] sm:w-[48vw] lg:w-[31vw]",
+                      "aspect-video overflow-hidden rounded-2xl border border-muted-200 shadow-sm",
+                      "bg-muted-900", // subtle letterbox behind object-contain
+                      "focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2",
+                      activeIdx === i ? "ring-1 ring-muted-200" : "",
+                    ].join(" ")}
                   >
-                    <div className="relative mb-4 aspect-[4/3] w-full overflow-hidden rounded-xl bg-muted-100 dark:bg-muted-800">
-                      {m.image ? (
-                        <img
-                          src={m.image}
-                          alt={m.name ? `${m.name} headshot` : "Headshot"}
-                          className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
-                          loading="lazy"
-                        />
-                      ) : (
-                        <div className="flex h-full w-full items-center justify-center text-muted-400">
-                          No image
+                    {/* Image (fully visible, no crop) */}
+                    <img
+                      src={m.image}
+                      alt={`${m.name} headshot`}
+                      loading="lazy"
+                      className="absolute inset-0 h-full w-full object-contain transition duration-500 group-hover:scale-[1.02] group-hover:blur-[2px]"
+                    />
+
+                    {/* Darken overlay on hover */}
+                    <div className="absolute inset-0 bg-black/0 transition duration-300 group-hover:bg-black/40" />
+
+                    {/* Hover content */}
+                    <div className="absolute inset-0 flex items-end p-5 opacity-0 translate-y-2 transition duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+                      <div className="w-full text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.6)]">
+                        <h3 className="text-base font-semibold">{m.name}</h3>
+                        {m.role && (
+                          <p className="mt-0.5 text-sm/5 text-white/90">
+                            {m.role}
+                          </p>
+                        )}
+                        {m.bio && (
+                          <p className="mt-3 line-clamp-3 text-sm/6 text-white/90">
+                            {Array.isArray(m.bio) ? m.bio[0] : String(m.bio)}
+                          </p>
+                        )}
+
+                        <div className="mt-4 flex items-center justify-between gap-3">
+                          <span />
+                          <div className="flex items-center gap-3">
+                            {m.links?.linkedin && (
+                              <a
+                                href={m.links.linkedin}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={`${m.name} LinkedIn`}
+                                className="inline-flex items-center justify-center rounded-full bg-white/10 p-2 text-white hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/60"
+                                onClick={(e) => e.stopPropagation()}
+                                title="LinkedIn"
+                              >
+                                <svg
+                                  className="h-5 w-5"
+                                  viewBox="0 0 24 24"
+                                  fill="currentColor"
+                                  aria-hidden="true"
+                                >
+                                  <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.05h.05c.53-1 1.82-2.05 3.75-2.05C20.4 8 23 10.2 23 14.4V23h-4v-7.2c0-1.72-.03-3.94-2.4-3.94-2.4 0-2.77 1.87-2.77 3.82V23h-4V8z" />
+                                </svg>
+                              </a>
+                            )}
+
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                selectByIndex(i);
+                              }}
+                              className="btn-accent text-sm"
+                              aria-label={`View full bio for ${m.name}`}
+                            >
+                              View full bio
+                            </button>
+                          </div>
                         </div>
-                      )}
+                      </div>
                     </div>
 
-                    <h3 className="text-base font-semibold">{m.name}</h3>
-                    {m.role && (
-                      <p className="mt-0.5 text-sm text-muted-600">{m.role}</p>
-                    )}
-                    {m.bio && (
-                      <p className="mt-3 line-clamp-3 text-sm text-muted-700">
-                        {Array.isArray(m.bio) ? m.bio[0] : String(m.bio)}
-                      </p>
-                    )}
-
-                    <div className="mt-4 flex items-center justify-between">
-                      <button
-                        type="button"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          selectByIndex(i);
-                        }}
-                        className="btn-accent text-sm"
-                        aria-label={`View full bio for ${m.name}`}
-                      >
-                        View full bio
-                      </button>
-
-                      {m.links?.linkedin && (
-                        <a
-                          href={m.links.linkedin}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label={`${m.name} LinkedIn`}
-                          className="text-muted-500 hover:text-muted-900"
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          <svg
-                            className="h-5 w-5"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            aria-hidden="true"
-                          >
-                            <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.05h.05c.53-1 1.82-2.05 3.75-2.05C20.4 8 23 10.2 23 14.4V23h-4v-7.2c0-1.72-.03-3.94-2.4-3.94-2.4 0-2.77 1.87-2.77 3.82V23h-4V8z" />
-                          </svg>
-                        </a>
-                      )}
-                    </div>
-                  </div>
+                    {/* Border/shine hint */}
+                    <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/5" />
+                  </button>
                 </li>
               ))}
             </ul>

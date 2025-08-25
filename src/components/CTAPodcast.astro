@@ -1,0 +1,118 @@
+---
+import podcastData from '../data/podcastData.js';
+
+// Detect Apple episode (compact) vs show (taller)
+const isAppleEpisode = podcastData.appleEmbedSrc?.includes('?i=');
+
+// Native heights
+const APPLE_BASE = podcastData.appleEmbedSrc ? (isAppleEpisode ? 175 : 450) : 0;
+const SPOTIFY_BASE = podcastData.embedSrc ? 232 : 0;
+
+// Target height so bottoms line up. Use the tallest available (usually Spotify 232 vs Apple episode 175)
+const TARGET_HEIGHT = Math.max(APPLE_BASE, SPOTIFY_BASE, 232);
+
+// Scale Apple if needed to fill the same visual height as Spotify
+const appleScale = APPLE_BASE ? TARGET_HEIGHT / APPLE_BASE : 1;
+const appleNeedsScale = podcastData.appleEmbedSrc && appleScale !== 1;
+const appleIframeStyle = appleNeedsScale
+  ? `width:${(100 / appleScale).toFixed(5)}%;height:${APPLE_BASE}px;transform:scale(${appleScale});transform-origin:top left;`
+  : `width:100%;height:100%;`;
+
+// Map CTA buttons to each platform
+const findBtn = (domain) => podcastData.ctaButtons?.find(b => b.href?.includes(domain));
+const spotifyBtn = podcastData.embedSrc
+  ? findBtn('open.spotify.com') ?? { label: 'Listen on Spotify', href: (podcastData.href ?? podcastData.embedSrc.replace('/embed/', '/')) }
+  : null;
+const appleBtn = podcastData.appleEmbedSrc
+  ? findBtn('podcasts.apple.com') ?? { label: 'Listen on Apple Podcasts', href: (podcastData.applePageHref ?? podcastData.appleEmbedSrc.replace('https://embed.', 'https://')) }
+  : null;
+---
+
+<section
+  class="relative mx-6 my-10 max-w-6xl rounded-3xl border border-primary-200/60 bg-gradient-to-b from-muted-900 to-muted-500  p-8 text-muted-50 shadow-sm md:p-12"
+>
+  <!-- thicker accent bar with matched rounding -->
+  <div class="pointer-events-none absolute inset-x-0 top-0 h-6 rounded-t-3xl bg-primary-500"></div>
+
+  <div class="flex flex-col items-center gap-6 text-center">
+    <div class="space-y-4 py-6">
+      <div class="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-wide text-primary-300">
+        <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary-300/15 text-primary-200 ring-1 ring-primary-300/30">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24"><path fill="currentColor" d="M14 12c0 .74-.4 1.38-1 1.72V22h-2v-8.28c-.6-.35-1-.98-1-1.72c0-1.1.9-2 2-2s2 .9 2 2m-2-6c-3.31 0-6 2.69-6 6c0 1.74.75 3.31 1.94 4.4l1.42-1.42A3.96 3.96 0 0 1 8 12c0-2.21 1.79-4 4-4s4 1.79 4 4c0 1.19-.53 2.25-1.36 2.98l1.42 1.42A5.96 5.96 0 0 0 18 12c0-3.31-2.69-6-6-6m0-4C6.48 2 2 6.48 2 12c0 2.85 1.2 5.41 3.11 7.24l1.42-1.42A8 8 0 0 1 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8c0 2.29-.98 4.36-2.53 5.82l1.42 1.42C20.8 17.41 22 14.85 22 12c0-5.52-4.48-10-10-10"/></svg>
+        </span>
+        <span>{podcastData.eyebrow}</span>
+      </div>
+
+      <h2 class="text-2xl font-semibold tracking-tight md:text-3xl">
+        {podcastData.title}
+      </h2>
+
+      <p class="mx-auto max-w-prose text-muted-100/90">
+        {podcastData.description}
+      </p>
+    </div>
+
+    <div class="mx-auto grid w-full max-w-3xl grid-cols-1 gap-6 md:max-w-5xl md:grid-cols-2">
+      {podcastData.embedSrc && (
+        <div class="flex md:justify-end justify-self-center">
+          <a
+            href={spotifyBtn?.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-end gap-1 rounded-sm py-1 text-sm font-bold text-primary-200 underline decoration-primary-400/70 underline-offset-4 hover:text-primary-100 hover:decoration-primary-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-400/40"
+          >
+            {spotifyBtn?.label}
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+            </svg>
+          </a>
+        </div>
+      )}
+      {podcastData.appleEmbedSrc && (
+        <div class="flex md:justify-start justify-self-center">
+          <a
+            href={appleBtn?.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-end gap-1 rounded-sm py-1 text-sm font-bold text-primary-200 underline decoration-primary-400/70 underline-offset-4 hover:text-primary-100 hover:decoration-primary-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-400/40"
+          >
+            {appleBtn?.label}
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+            </svg>
+          </a>
+        </div>
+      )}
+    </div>
+
+    <!-- Players (same column widths as buttons) -->
+    <div class="mx-auto grid w-full max-w-3xl grid-cols-1 gap-6 md:max-w-5xl md:grid-cols-2">
+      {podcastData.embedSrc && (
+        <div class="overflow-hidden rounded-2xl ring-1 ring-zinc-200/40" style={`height:${TARGET_HEIGHT}px`}>
+          <iframe
+            src={podcastData.embedSrc}
+            width="100%"
+            height="100%"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+            title="Spotify podcast player"
+          ></iframe>
+        </div>
+      )}
+
+      {podcastData.appleEmbedSrc && (
+        <div class="overflow-hidden rounded-2xl ring-1 ring-zinc-200/40" style={`height:${TARGET_HEIGHT}px`}>
+          <iframe
+            src={podcastData.appleEmbedSrc}
+            style={appleIframeStyle}
+            allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+            sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
+            loading="lazy"
+            title="Apple Podcasts player"
+            scrolling="no"
+          ></iframe>
+        </div>
+      )}
+    </div>
+  </div>
+</section>
