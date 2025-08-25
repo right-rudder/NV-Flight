@@ -5,7 +5,7 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://nv-flight.com",
+  site: "https://nvflight.com",
   integrations: [tailwind(), sitemap(), react()],
   redirects: {
     "/posts/[...slug]": "/blog/[...slug]",
