@@ -12,7 +12,7 @@ export const footerLinks = [
       },
       {
         name: "Become a Pilot",
-        link: "/#",
+        link: "/become-a-pilot",
       },
       {
         name: "Contact Us",
@@ -66,7 +66,7 @@ export const footerLinks = [
       },
       {
         name: "Blog",
-        link: "/blog",
+        link: "/nv-flight-about/blog",
       },
     ],
   },

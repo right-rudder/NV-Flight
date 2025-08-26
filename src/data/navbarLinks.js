@@ -48,7 +48,7 @@ export const navbarLinks = {
       },
       {
         name: "Blog",
-        link: "/blog",
+        link: "/nv-flight-about/blog",
       },
     ],
   },
