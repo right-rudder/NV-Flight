@@ -1,9 +1,9 @@
 const discoveryFlight = {
   data: {
     //SEO Header Stuff
-    pageTitle: "Discovery Flight | NVFlight Flight School, Reno, NV",
+    pageTitle: "Book Your Discovery Flight | NV Flight , Reno, NV",
     pageDescription:
-      "Book a Discovery Flight at NVFlight Flight School in Reno, NV. Experience the thrill of flying and see if becoming a pilot is right for you!",
+      "Book a Discovery Flight at NV Flight in Reno, NV. Experience the thrill of flying and see if becoming a pilot is right for you!",
     pageKeywords:
       "Discovery Flight, Flight School, Flight Training, Pilot Training, Learn to Fly, Private Pilot, Sport Pilot, Recreational Pilot, Flight Instructor, Flight Instruction, Flight School Reno, NV, Kankakee Flight School, Kankakee Flight Training, Reno Pilot Training, Reno Learn to Fly, Reno Private Pilot, Reno Sport Pilot, Reno Recreational Pilot, Reno Flight Instructor, Reno Flight Instruction",
     //
@@ -12,10 +12,10 @@ const discoveryFlight = {
     header: {
       stars: true,
       imagePath: "/src/assets/montain-&-plane2.jpg",
-      imageAlt: "NVFlight Flight School flight over Reno, NV",
+      imageAlt: "NV Flight flight over Reno, NV",
       headerH1: `Discovery Flight`,
       paragraph:
-        "Fly at NVFlight and See if Flying is for You! Book a Discovery Flight Today!",
+        "Fly at NV Flight and See if Flying is for You! Book a Discovery Flight Today!",
       buttons: [],
     },
     form: {
@@ -69,7 +69,7 @@ const discoveryFlight = {
         link: "/contact",
       },
     },
-    princing: {
+    pricing: {
       upperHeading: "Discovery Flight Package",
       heading: "Experience the Thrill of Flight",
       description:
@@ -99,10 +99,22 @@ const discoveryFlight = {
             "Opportunity to take the controls for a longer period",
           ],
         },
+        {
+          title: "Virginia City Discovery Flight",
+          price: "$185",
+          description:
+            "Fly over the historic town of Virginia City and experience the thrill of flying. This flight is perfect for those interested in both aviation and history.",
+          features: [
+            "Approx. 40-minutes flight with a certified flight instructor",
+            "Hands-on flying experience",
+            "Pre-flight briefing and post-flight debrief",
+            "Opportunity to ask questions about flight training",
+          ],
+        },
       ],
       button: {
         text: "Book Now",
-        link: "/contact",
+        link: "/discovery-flight#form",
       },
     },
   },
