@@ -14,7 +14,7 @@ const programsSwiper = {
       link: "/programs/private-pilot-asel",
     },
     {
-      title: "Instrument Pilot ASEL",
+      title: "Instrument Rating ASEL",
       imagePath: "/src/assets/instrument-training-reno-flight-lessons.jpeg",
       imageAlt: "Panel showing instruments and navigation displays",
       description:
