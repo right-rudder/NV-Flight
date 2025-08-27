@@ -1,6 +1,6 @@
 ---
 title: "Private Pilot ASEL"
-description: "FAA Part 141/61 — Gleim syllabus. Your first step to becoming a pilot. Gain the skills and knowledge to fly safely and confidently as Pilot In Command."
+description: "FAA Part 141/61, Gleim syllabus. Your first step to becoming a pilot. Gain the skills and knowledge to fly safely and confidently as Pilot In Command."
 imagePath: "/src/assets/nv-flight-reno_9255_Original.webp"
 imageAlt: "Student and instructor beside a Cessna on the ramp at NV Flight"
 part: "Part 141/61"
