@@ -1,11 +1,11 @@
 import { COMPANY_NAME } from "../consts";
 
 const teamPageData = {
-  pageTitle: `The NVFlight Crew | ${COMPANY_NAME}`,
+  pageTitle: `The NV Flight Crew | ${COMPANY_NAME}`,
   pageDescription:
-    "Discover the dedicated team behind NVFlight Flight School. Our leadership and certified flight instructors are committed to providing exceptional training and support to help you achieve your aviation goals.",
+    "Discover the dedicated team behind NV Flight Flight School. Our leadership and certified flight instructors are committed to providing exceptional training and support to help you achieve your aviation goals.",
   pageKeywords:
-    "NVFlight Flight School team, flight instructors, aviation experts, leadership team, certified flight instructors, aviation training",
+    "NV Flight Flight School team, flight instructors, aviation experts, leadership team, certified flight instructors, aviation training",
 
   // Top Header
   header: {
@@ -18,7 +18,7 @@ const teamPageData = {
     buttons: [
       {
         name: "Enroll Today",
-        link: "/enroll-at-NVFlight",
+        link: "/enroll",
         primary: true,
       },
       {
