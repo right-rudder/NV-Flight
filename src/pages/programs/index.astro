@@ -16,7 +16,42 @@ const faqSchemaItems = GeneralFAQs.map((faq) => ({
   answer: faq.content.replace(/<[^>]*>?/gm, ""),
 }));
 
-const items = await getCollection("programs"); // [{ slug, data, body, ... }]
+const items = await getCollection("programs");
+
+const desiredOrder = [
+  "Private Pilot ASEL",
+  "Instrument Rating ASEL",
+  "Commercial Pilot ASEL",
+  "Flight Instructor ASEL",
+  "Flight Instructor Instrument",
+  "Mountain Flight Training",
+];
+
+// normalize: lowercase, strip non-alphanumerics, collapse spaces
+const baseNorm = (s) =>
+  String(s || "").toLowerCase().replace(/\([^)]*\)/g, "") // remove (CFII), etc.
+    .replace(/[^a-z0-9]+/g, " ").trim();
+
+// alias map to unify variants
+const alias = new Map([
+  ["instrument pilot asel", "instrument rating asel"],
+  ["flight instructor instrument cfii", "flight instructor instrument"],
+]);
+
+const norm = (s) => {
+  const raw = baseNorm(s);
+  return alias.get(raw) || raw;
+};
+
+const orderIndex = new Map(desiredOrder.map((t, i) => [norm(t), i]));
+
+const itemsSorted = items.slice().sort((a, b) => {
+  const ai = orderIndex.has(norm(a.data.title)) ? orderIndex.get(norm(a.data.title)) : 999;
+  const bi = orderIndex.has(norm(b.data.title)) ? orderIndex.get(norm(b.data.title)) : 999;
+  if (ai !== bi) return ai - bi;
+  return a.data.title.localeCompare(b.data.title);
+});
+  
 const siteTitle = "Accelerated & Individual Programs | NV Flight";
 const siteDescription = "Train with intent. Instructors tailor a plan around your schedule and goals while holding you to FAA ACS standards.";
 
@@ -49,19 +84,21 @@ const dataHero = {
 
   <section class="mx-auto max-w-7xl px-6 py-10 sm:py-16 lg:px-8">
     <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      {items.map(({ slug, data }) => (
+      {itemsSorted.map(({ slug, data }) => (
         <article class="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:shadow-lg">
           <a href={`/programs/${slug}`} class="focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2">
             <ImageComp imagePath={data.imagePath} imageAlt={data.imageAlt} styles="h-56 w-full object-cover" quality={80} />
           </a>
-          <div class="flex flex-1 flex-col p-6">
-            <h2 class="text-xl font-semibold text-slate-900 group-hover:text-accent-700">
-              <a href={`/programs/${slug}`}>{data.title}</a>
-            </h2>
-            <p class="mt-2 text-sm text-slate-600">{data.description}</p>
-            <div class="mt-4 flex items-center gap-2 text-xs text-slate-500">
-              {data.part && <span class="inline-flex items-center rounded-full bg-primary-500/40 px-2 py-1 text-primary-700 ring-1 ring-primary-200">{data.part}</span>}
-              {data.syllabus && <span class="inline-flex items-center rounded-full bg-slate-50 px-2 py-1 text-slate-700 ring-1 ring-slate-200">{data.syllabus}</span>}
+          <div class="flex flex-1 flex-col justify-between p-6">
+            <div>
+              <h2 class="text-xl font-semibold text-slate-900 group-hover:text-accent-700">
+                <a href={`/programs/${slug}`}>{data.title}</a>
+              </h2>
+              <p class="mt-2 text-sm text-slate-600">{data.description}</p>
+              <div class="mt-4 flex items-center gap-2 text-xs text-slate-500">
+                {data.part && <span class="inline-flex items-center rounded-full bg-primary-500/40 px-2 py-1 text-primary-700 ring-1 ring-primary-200">{data.part}</span>}
+                {data.syllabus && <span class="inline-flex items-center rounded-full bg-slate-50 px-2 py-1 text-slate-700 ring-1 ring-slate-200">{data.syllabus}</span>}
+              </div>
             </div>
             <div class="mt-6 flex items-center gap-3">
               <a href={`/programs/${slug}`} class="inline-flex items-center rounded-full border border-transparent btn-primary px-4 py-2 text-sm font-medium text-white transition hover:bg-accent-700">
