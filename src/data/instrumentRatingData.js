@@ -35,7 +35,7 @@ const instrumentRatingData = {
       The Instrument Rating (IFR) course at NV Flight Flight School is designed for pilots looking to enhance their flying abilities and operate safely in low-visibility conditions. This certification is a critical step for those pursuing a commercial aviation career or wanting to improve their overall pilot proficiency.
       <br/>
       <br/>
-      Throughout the course, you will gain in-depth knowledge of IFR navigation, meteorology, and the complexities of controlled airspace. You will learn to rely solely on your aircraft's instruments to maintain precise altitude, heading, and approach procedures—even in adverse weather conditions.
+      Throughout the course, you will gain in-depth knowledge of IFR navigation, meteorology, and the complexities of controlled airspace. You will learn to rely solely on your aircraft's instruments to maintain precise altitude, heading, and approach procedures, even in adverse weather conditions.
       <br/>
       <br/>
       By the end of this program, you will be proficient in instrument flight techniques, holding patterns, approach procedures, and emergency protocols. Our expert instructors will ensure that you develop the skills and confidence to pass the FAA Instrument Rating checkride and safely operate under Instrument Flight Rules (IFR).`,
