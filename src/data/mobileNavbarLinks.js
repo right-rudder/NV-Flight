@@ -48,7 +48,7 @@ export const mobileNavbarLinks = {
         },
         {
           name: "Blog",
-          link: "/nv-flight-about/blog",
+          link: "/blog",
         },
       ],
     },
