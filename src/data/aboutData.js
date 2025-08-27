@@ -12,7 +12,7 @@ const aboutData = {
       imageAlt: "NV Flight School Cessna 172 on the runway",
       headerH1: `About Our Flight School`,
       paragraph:
-        "We don’t just teach you to fly—we train you to become a pilot. Safety, solid decision-making, and a culture of excellence guide every lesson.",
+        "We don’t just teach you to fly, we train you to become a pilot. Safety, solid decision-making, and a culture of excellence guide every lesson.",
       buttons: [
         {
           name: "Learn More",
