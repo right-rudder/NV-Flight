@@ -14,7 +14,7 @@ const becomePilotData = {
     imageAlt: "NV Flight aircraft over Reno, Tahoe",
     headerH1: "Start Your Journey to Becoming a Pilot",
     paragraph:
-      "Reno’s FAA-approved Part 141 training center offering Discovery Flights, self-paced and accelerated courses, and mountain flying expertise.",
+      "Reno’s FAA-approved Part 141 training center, offering Discovery Flights, self-paced and accelerated courses, and mountain flying expertise.",
     buttons: [
       { name: "Book a Discovery Flight", link: "/contact", primary: true },
       { name: "Enroll Now", link: "/enroll", primary: false },
@@ -98,7 +98,7 @@ const becomePilotData = {
       },
       {
         title: "Mountain Flying Focus",
-        desc: "Local terrain & density-altitude procedures; mountain checkout required for rentals.",
+        desc: "Local terrain & density-altitude procedures. Mountain checkout required for rentals.",
       },
       {
         title: "Instrument Rating",
