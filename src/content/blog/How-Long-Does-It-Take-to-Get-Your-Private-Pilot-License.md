@@ -2,13 +2,13 @@
 pubDate: "February 9, 2025"
 author: Emma Justis
 title: "How Long Does It Take to Get Your Private Pilot License?"
-description: "The real timeline depends on money, time, and personal performance. Here’s how different training schedules—from accelerated to once-a-week—affect how quickly you can earn your PPL with NVFlight in Reno, NV."
+description: "The real timeline depends on money, time, and personal performance. Here’s how different training schedules—from accelerated to once-a-week—affect how quickly you can earn your PPL with NV Flight in Reno, NV."
 heroImage: "/blog/nvflight-private-pilot-time.webp"
 readingTime: 4
 category: "Training Tips"
 tags:
   [
-    "NVFlight",
+    "NV Flight",
     "Reno, NV",
     "Private Pilot",
     "Private Pilot License",
@@ -89,10 +89,10 @@ Ask yourself the three big questions:
 
 ---
 
-If you’d like a personalized game plan, **chat with your NVFlight instructor** about your schedule and goals—we’ll help you map a realistic path to your checkride.
+If you’d like a personalized game plan, **chat with your NV Flight instructor** about your schedule and goals—we’ll help you map a realistic path to your checkride.
 
 Until next time!
 
 **Emma Justis**  
 Chief Pilot  
-**NVFlight – Reno, NV**
+**NV Flight – Reno, NV**
