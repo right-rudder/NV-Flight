@@ -38,8 +38,8 @@ const programs = {
     },
     {
       title: "Instrument Rating ASEL",
-      slug: "instrument-pilot-asel",
-      imagePath: "/src/assets/instrument-pilot.jpg",
+      slug: "instrument-rating-asel",
+      imagePath: "/src/assets/instrument-rating.jpg",
       imageAlt: "Panel showing instruments and navigation displays",
       description:
         "61 Training Program, Gleim syllabus. Learn to safely fly in low visibility and complex airspace using the full suite of modern instruments.",
@@ -58,7 +58,7 @@ const programs = {
       ],
       prerequisites: [
         "Private Pilot ASEL",
-        "Current medical and recent flight experience",
+        "FAA medical (3rd Class or BasicMed equivalent) and recent flight experience",
         "Recommended: basic experience with GPS and moving map",
       ],
       idealFor: [
@@ -90,7 +90,7 @@ const programs = {
       prerequisites: [
         "Private Pilot ASEL; Instrument rating recommended",
         "Time‑building to meet aeronautical experience requirements",
-        "Current FAA medical",
+        "FAA medical (3rd Class or BasicMed equivalent)",
       ],
       idealFor: [
         "Career‑focused pilots",
@@ -121,7 +121,7 @@ const programs = {
       prerequisites: [
         "Commercial Pilot ASEL",
         "Strong teaching/communication mindset",
-        "Current FAA medical and CFI study materials",
+        "FAA medical (3rd Class or BasicMed equivalent) and CFI study materials",
       ],
       idealFor: [
         "Commercial pilots pursuing their first flying job",
@@ -152,7 +152,7 @@ const programs = {
       prerequisites: [
         "CFI (ASEL) and Instrument Rating",
         "Proficiency with IFR procedures and avionics",
-        "Current FAA medical",
+        "FAA medical (3rd Class or BasicMed equivalent)",
       ],
       idealFor: [
         "Active CFIs expanding qualifications",
