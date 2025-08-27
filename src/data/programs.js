@@ -37,7 +37,7 @@ const programs = {
       ],
     },
     {
-      title: "Instrument Pilot ASEL",
+      title: "Instrument Rating ASEL",
       slug: "instrument-pilot-asel",
       imagePath: "/src/assets/instrument-pilot.jpg",
       imageAlt: "Panel showing instruments and navigation displays",
