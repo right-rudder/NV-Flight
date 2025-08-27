@@ -3,7 +3,7 @@ import { COMPANY_NAME } from "../consts";
 const instrumentRatingData = {
   pageTitle: `Instrument Rating Course in Reno, NV | ${COMPANY_NAME}`,
   pageDescription:
-    "Join NVFlight Flight School in Reno, NV, for our Instrument Rating course. Master IFR navigation, low-visibility flying, and advance your aviation career with expert training.",
+    "Join NV Flight Flight School in Reno, NV, for our Instrument Rating course. Master IFR navigation, low-visibility flying, and advance your aviation career with expert training.",
   pageKeywords:
     "instrument rating Reno NV, IFR training Reno, flight school Reno NV, advanced pilot training Reno, aviation school Reno NV, instrument flight rules certification",
 
@@ -11,13 +11,13 @@ const instrumentRatingData = {
   header: {
     stars: true,
     imagePath: "/src/assets/montain-&-plane2.jpg",
-    imageAlt: "NVFlight Flight School Cirrus airplane instrument panel",
+    imageAlt: "NV Flight Flight School Cirrus airplane instrument panel",
     headerH1: `Instrument <br>RATING</span>`,
-    paragraph: `Advance your skills with NVFlight Flight School's Instrument Rating program. Learn to navigate through clouds, low visibility, and controlled airspace with confidence.`,
+    paragraph: `Advance your skills with NV Flight Flight School's Instrument Rating program. Learn to navigate through clouds, low visibility, and controlled airspace with confidence.`,
     buttons: [
       {
         name: "Enroll Today",
-        link: "/enroll-at-NVFlight",
+        link: "/enroll",
         primary: false,
       },
     ],
@@ -32,7 +32,7 @@ const instrumentRatingData = {
 
     title: "Overview",
     description: `
-      The Instrument Rating (IFR) course at NVFlight Flight School is designed for pilots looking to enhance their flying abilities and operate safely in low-visibility conditions. This certification is a critical step for those pursuing a commercial aviation career or wanting to improve their overall pilot proficiency.
+      The Instrument Rating (IFR) course at NV Flight Flight School is designed for pilots looking to enhance their flying abilities and operate safely in low-visibility conditions. This certification is a critical step for those pursuing a commercial aviation career or wanting to improve their overall pilot proficiency.
       <br/>
       <br/>
       Throughout the course, you will gain in-depth knowledge of IFR navigation, meteorology, and the complexities of controlled airspace. You will learn to rely solely on your aircraft's instruments to maintain precise altitude, heading, and approach procedures—even in adverse weather conditions.
@@ -52,10 +52,10 @@ const instrumentRatingData = {
       imageAlt: "Female pilot smiling",
       title: "Enroll in the Instrument Rating Program",
       description:
-        "Take your aviation skills to the next level. Join NVFlight Flight School's Instrument Rating program and become a more capable, professional pilot.",
+        "Take your aviation skills to the next level. Join NV Flight Flight School's Instrument Rating program and become a more capable, professional pilot.",
       button: {
         name: "Enroll Now",
-        link: "/enroll-at-NVFlight",
+        link: "/enroll",
       },
     },
 
