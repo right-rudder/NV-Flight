@@ -73,7 +73,7 @@ const instrumentRatingData = {
       {
         question: "What does the training include?",
         answer:
-          "The course includes IFR ground school, simulator training, in-flight instrument training, and FAA checkride preparation.",
+          "The course includes IFR ground school, in-flight instrument training, and FAA checkride preparation.",
       },
     ],
   },
