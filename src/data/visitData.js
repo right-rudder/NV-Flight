@@ -1,23 +1,23 @@
 import { COMPANY_NAME } from "../consts";
 
 const visitData = {
-  pageTitle: `Visit NVFlight Flight School in Reno, NV | ${COMPANY_NAME}`,
+  pageTitle: `Visit NV Flight Flight School in Reno, NV | ${COMPANY_NAME}`,
   pageDescription:
-    "Visit NVFlight Flight School in Reno, NV, and explore our state-of-the-art aviation training facilities. Schedule a tour today to kickstart your pilot training journey.",
+    "Visit NV Flight Flight School in Reno, NV, and explore our state-of-the-art aviation training facilities. Schedule a tour today to kickstart your pilot training journey.",
   pageKeywords:
-    "flight school Reno NV, visit NVFlight, aviation training Reno, flight school tour Reno, pilot training facilities Reno NV",
+    "flight school Reno NV, visit NV Flight, aviation training Reno, flight school tour Reno, pilot training facilities Reno NV",
 
   // Top Header
   header: {
     stars: true,
     imagePath: "/src/assets/montain-&-plane2.jpg",
-    imageAlt: "NVFlight Flight School campus and facilities",
+    imageAlt: "NV Flight Flight School campus and facilities",
     headerH1: `Visit US`,
-    paragraph: `Explore NVFlight Flight School and see firsthand our state-of-the-art facilities and training environment. Schedule a visit today and take the first step towards your aviation career.`,
+    paragraph: `Explore NV Flight Flight School and see firsthand our state-of-the-art facilities and training environment. Schedule a visit today and take the first step towards your aviation career.`,
     buttons: [
       {
         name: "Enroll Today",
-        link: "/enroll-at-NVFlight",
+        link: "/enroll",
         primary: false,
       },
       {
@@ -31,9 +31,9 @@ const visitData = {
   // Visit Details
   details: {
     upperHeading: "Plan Your Visit",
-    heading: "Welcome to NVFlight",
+    heading: "Welcome to NV Flight",
     subHeading:
-      "We invite you to visit NVFlight Flight School and experience our exceptional training environment. Our team is excited to show you around and answer any questions you may have.",
+      "We invite you to visit NV Flight Flight School and experience our exceptional training environment. Our team is excited to show you around and answer any questions you may have.",
   },
 };
 
