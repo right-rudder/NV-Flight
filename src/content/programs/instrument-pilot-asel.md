@@ -1,7 +1,7 @@
 ---
 title: "Instrument Pilot ASEL"
 description: "61 Training Program, Gleim syllabus. Learn to safely fly in low visibility and complex airspace using the full suite of modern instruments."
-imagePath: "/src/assets/nv-flight-reno_4186_Original.webp"
+imagePath: "/src/assets/instrument-training-reno-flight-lessons.jpeg"
 imageAlt: "Panel showing instruments and navigation displays"
 part: "Part 61"
 syllabus: "Gleim"
