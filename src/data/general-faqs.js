@@ -5,7 +5,7 @@ export const GeneralFAQs = [
   },
   {
     title: "Do I need any prior flight experience to get started?",
-    content: `No prior experience is required! Our programs welcome everyone—from absolute beginners to experienced pilots seeking advanced ratings or refresher training. Check out our <a href="/programs/private-pilot-asel" class="text-primary-500 hover:underline hover:brightness-125 duration-200">Private Pilot program</a> for new aviators.`,
+    content: `No prior experience is required! Our programs welcome everyone, from absolute beginners to experienced pilots seeking advanced ratings or refresher training. Check out our <a href="/programs/private-pilot-asel" class="text-primary-500 hover:underline hover:brightness-125 duration-200">Private Pilot program</a> for new aviators.`,
   },
   {
     title: "Why is mountain flying training important in Reno?",
