@@ -33,7 +33,7 @@ const discoveryFlight = {
         {
           title: "What Happens After the Flight?",
           paragraphs: [
-            "So, you've completed your discovery flight and are ready to take the next step? NVFlight is here to help you take flight towards your aviation dreams and attain your goals. Let's dive into what happens after your first flight with us.",
+            "So, you've completed your discovery flight and are ready to take the next step? NV Flight is here to help you take flight towards your aviation dreams and attain your goals. Let's dive into what happens after your first flight with us.",
           ],
         },
       ],
