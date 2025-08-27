@@ -4,9 +4,8 @@ export default function TeamProfileInteractiveSwiper({
   pageData,
   defaultMemberId,
   className = "",
-})
-
-{
+  scrollOffset = 80, // pixels to offset for sticky headers
+}) {
   // 1) Normalize input data
   const allMembers = useMemo(() => {
     if (Array.isArray(pageData?.details?.teamMembers))
@@ -16,7 +15,7 @@ export default function TeamProfileInteractiveSwiper({
     return [];
   }, [pageData]);
 
-  // 2) Build stable IDs (in case some members lack id)
+  // 2) Build stable IDs
   const toUid = (m, i) =>
     (m.id && String(m.id)) ||
     (m.name &&
@@ -56,6 +55,8 @@ export default function TeamProfileInteractiveSwiper({
   );
 
   // 5) Refs & state for arrows-only carousel
+  const sectionRef = useRef(null);
+  const heroRef = useRef(null);
   const viewportRef = useRef(null); // wrapper
   const trackRef = useRef(null); // <ul> we translate
   const itemRefs = useRef([]); // <li> refs
@@ -64,6 +65,14 @@ export default function TeamProfileInteractiveSwiper({
   const [activeIdx, setActiveIdx] = useState(0); // current focused slide
   const [x, setX] = useState(0);
   const [animate, setAnimate] = useState(false); // toggles transition
+
+  // Helper: smooth scroll to an element with offset
+  const smoothScrollTo = (el) => {
+    if (!el || typeof window === "undefined") return;
+    const rect = el.getBoundingClientRect();
+    const absoluteTop = rect.top + window.scrollY - scrollOffset;
+    window.scrollTo({ top: absoluteTop, behavior: "smooth" });
+  };
 
   // Compute translateX to center slide i
   const centerXFor = (i) => {
@@ -87,20 +96,25 @@ export default function TeamProfileInteractiveSwiper({
     setX(centerXFor(clamped));
   };
 
-  const prev = () => goTo(activeIdx - 1, true);
-  const next = () => goTo(activeIdx + 1, true);
+  const prev = () => goTo(activeIdx - 1, true); // step one card
+  const next = () => goTo(activeIdx + 1, true); // step one card
 
-  // 6) Select hero from carousel
+  // 6) Select hero from carousel + auto-scroll to hero
   const selectByIndex = (i) => {
     const pick = others[i];
     if (!pick) return;
     setSelectedUid(pick.__uid);
+
     // After selection, 'others' changes (picked card disappears).
-    // Reset carousel to start and re-center without animation.
+    // Reset carousel to start and re-center without animation, then scroll to hero.
     requestAnimationFrame(() => {
       setActiveIdx(0);
       setAnimate(false);
       setX(centerXFor(0));
+      // Wait one more frame to ensure hero section height/layout is final
+      requestAnimationFrame(() => {
+        smoothScrollTo(heroRef.current || sectionRef.current);
+      });
     });
   };
 
@@ -139,17 +153,12 @@ export default function TeamProfileInteractiveSwiper({
   const heroParagraphs = Array.isArray(hero.bio)
     ? hero.bio
     : hero.bio
-      ? String(hero.bio).split(/\n\s*\n/)
-      : [];
+    ? String(hero.bio).split(/\n\s*\n/)
+    : [];
 
   // Exact icons you provided
   const LeftArrows = () => (
-    <svg
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className="h-6 w-6"
-      aria-hidden="true"
-    >
+    <svg viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6" aria-hidden="true">
       <path
         fillRule="evenodd"
         d="M10.72 11.47a.75.75 0 0 0 0 1.06l7.5 7.5a.75.75 0 1 0 1.06-1.06L12.31 12l6.97-6.97a.75.75 0 0 0-1.06-1.06l-7.5 7.5Z"
@@ -163,12 +172,7 @@ export default function TeamProfileInteractiveSwiper({
     </svg>
   );
   const RightArrows = () => (
-    <svg
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className="h-6 w-6"
-      aria-hidden="true"
-    >
+    <svg viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6" aria-hidden="true">
       <path
         fillRule="evenodd"
         d="M13.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L11.69 12 4.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z"
@@ -184,6 +188,7 @@ export default function TeamProfileInteractiveSwiper({
 
   return (
     <section
+      ref={sectionRef}
       className={`mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12 md:py-32 ${className}`}
       aria-live="polite"
     >
@@ -193,7 +198,7 @@ export default function TeamProfileInteractiveSwiper({
       </p>
 
       {/* HERO */}
-      <div className="mt-3 grid grid-cols-1 gap-8 md:mt-6 md:grid-cols-12">
+      <div ref={heroRef} className="mt-3 grid grid-cols-1 gap-8 md:mt-6 md:grid-cols-12">
         {/* Text */}
         <div className="md:col-span-7 lg:col-span-7">
           <h1 className="text-5xl font-semibold tracking-tight sm:text-4xl">
@@ -307,23 +312,18 @@ export default function TeamProfileInteractiveSwiper({
                     className={[
                       "group relative block w-[82vw] sm:w-[48vw] lg:w-[31vw]",
                       "aspect-video overflow-hidden rounded-2xl border border-muted-200 shadow-sm",
-                      "bg-muted-900", // subtle letterbox behind object-contain
+                      "bg-muted-900",
                       "focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2",
                       activeIdx === i ? "ring-1 ring-muted-200" : "",
                     ].join(" ")}
                   >
-                    {/* Image (fully visible, no crop) */}
                     <img
                       src={m.image}
                       alt={`${m.name} headshot`}
                       loading="lazy"
                       className="absolute inset-0 h-full w-full object-contain transition duration-500 group-hover:scale-[1.02] group-hover:blur-[2px]"
                     />
-
-                    {/* Darken overlay on hover */}
                     <div className="absolute inset-0 bg-black/0 transition duration-300 group-hover:bg-black/40" />
-
-                    {/* Hover content */}
                     <div className="absolute inset-0 flex items-end p-5 opacity-0 translate-y-2 transition duration-300 group-hover:opacity-100 group-hover:translate-y-0">
                       <div className="w-full text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.6)]">
                         <h3 className="text-base font-semibold">{m.name}</h3>
@@ -337,7 +337,6 @@ export default function TeamProfileInteractiveSwiper({
                             {Array.isArray(m.bio) ? m.bio[0] : String(m.bio)}
                           </p>
                         )}
-
                         <div className="mt-4 flex items-center justify-between gap-3">
                           <span />
                           <div className="flex items-center gap-3">
@@ -361,7 +360,6 @@ export default function TeamProfileInteractiveSwiper({
                                 </svg>
                               </a>
                             )}
-
                             <button
                               type="button"
                               onClick={(e) => {
@@ -377,8 +375,6 @@ export default function TeamProfileInteractiveSwiper({
                         </div>
                       </div>
                     </div>
-
-                    {/* Border/shine hint */}
                     <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/5" />
                   </button>
                 </li>
