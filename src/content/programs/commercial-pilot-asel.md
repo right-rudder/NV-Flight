@@ -18,7 +18,7 @@ outcomes:
 prerequisites:
   - "Private Pilot ASEL; Instrument rating recommended"
   - "Time-building to meet aeronautical experience requirements"
-  - "Current FAA medical"
+  - "FAA medical (3rd Class or BasicMed equivalent)"
 idealFor:
   - "Career-focused pilots"
   - "Pilots pursuing paid flying (CFI, charter, etc.)"
