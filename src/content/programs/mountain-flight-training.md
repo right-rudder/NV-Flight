@@ -20,7 +20,7 @@ outcomes:
   - "Eligible for NV Flight mountain checkout sign-off at instructor discretion upon satisfactory completion"
 prerequisites:
   - "Private Pilot ASEL (Instrument rating recommended)"
-  - "Current FAA medical"
+  - "FAA medical (3rd Class or BasicMed equivalent)"
   - "Recent PIC experience and familiarity with short/soft-field operations"
 idealFor:
   - "Pilots new to Sierra Nevada/Western U.S. mountain operations"
