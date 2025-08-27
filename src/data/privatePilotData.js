@@ -3,7 +3,7 @@ import { COMPANY_NAME } from "../consts";
 const privatePilotData = {
   pageTitle: `Private Pilot License | ${COMPANY_NAME}`,
   pageDescription:
-    "Start your aviation journey with NVFlight Flight School’s Private Pilot License (PPL) program. Learn from experienced instructors and gain the foundational skills needed to become a licensed pilot.",
+    "Start your aviation journey with NV Flight Flight School’s Private Pilot License (PPL) program. Learn from experienced instructors and gain the foundational skills needed to become a licensed pilot.",
   pageKeywords:
     "private pilot license Arizona, flight school Reno, learn to fly, PPL certification, aviation school, beginner pilot training",
 
@@ -11,13 +11,13 @@ const privatePilotData = {
   header: {
     stars: true,
     imagePath: "/src/assets/montain-&-plane2.jpg",
-    imageAlt: "A NVFlight Flight School aircraft in flight over Arizona",
+    imageAlt: "A NV Flight Flight School aircraft in flight over Arizona",
     headerH1: `Private Pilot <br>LICENSE</span>`,
-    paragraph: `Begin your aviation journey with NVFlight Flight School’s Private Pilot License program. Gain the skills, knowledge, and confidence to take control of the skies.`,
+    paragraph: `Begin your aviation journey with NV Flight Flight School’s Private Pilot License program. Gain the skills, knowledge, and confidence to take control of the skies.`,
     buttons: [
       {
         name: "Enroll Today",
-        link: "/enroll-at-NVFlight",
+        link: "/enroll",
         primary: false,
       },
     ],
@@ -32,7 +32,7 @@ const privatePilotData = {
 
     title: "Overview",
     description: `
-      Earning your Private Pilot License (PPL) at NVFlight Flight School is your first step into the world of aviation. This program is designed for aspiring pilots who want to learn how to operate an aircraft safely and confidently. Whether you aim to fly recreationally or use this as a stepping stone toward a professional pilot career, our expert instructors will guide you through each phase of your training.
+      Earning your Private Pilot License (PPL) at NV Flight Flight School is your first step into the world of aviation. This program is designed for aspiring pilots who want to learn how to operate an aircraft safely and confidently. Whether you aim to fly recreationally or use this as a stepping stone toward a professional pilot career, our expert instructors will guide you through each phase of your training.
       <br/>
       <br/>
       Throughout the course, you will receive a combination of in-depth ground school instruction and hands-on flight training. You’ll learn about aerodynamics, flight controls, navigation, meteorology, airspace regulations, and emergency procedures. Additionally, you'll gain experience in essential skills such as radio communication, flight planning, and performing takeoffs and landings at different airports.
@@ -52,10 +52,10 @@ const privatePilotData = {
       imageAlt: "Female pilot smiling",
       title: "Start Your Aviation Journey",
       description:
-        "Take the first step toward your dream of flying. Join NVFlight Flight School’s Private Pilot License program and earn your wings with expert instruction and hands-on training.",
+        "Take the first step toward your dream of flying. Join NV Flight Flight School’s Private Pilot License program and earn your wings with expert instruction and hands-on training.",
       button: {
         name: "Enroll Now",
-        link: "/enroll-at-NVFlight",
+        link: "/enroll",
       },
     },
 

@@ -1,6 +1,6 @@
 ---
 title: "Flight Instructor ASEL"
-description: "61 Training Program — Gleim syllabus. Train to teach others to fly. Develop instructional skills and aviation knowledge to become a certified flight instructor."
+description: "61 Training Program, Gleim syllabus. Train to teach others to fly. Develop instructional skills and aviation knowledge to become a certified flight instructor."
 imagePath: "/src/assets/nv-flight-reno_7904_Original.webp"
 imageAlt: "Instructor and student beside a Cessna on the ramp at NV Flight"
 part: "Part 61"
@@ -16,9 +16,9 @@ outcomes:
   - "Demonstrated ability to evaluate student performance"
   - "Proficiency in using training aids and technology"
 prerequisites:
-  - "Commercial Pilot ASEL; Instrument rating recommended"
+  - "Commercial Pilot License and Instrument Rating"
   - "Minimum 18 years old for certificate"
-  - "Current FAA medical"
+  - "FAA medical (3rd Class or BasicMed equivalent)"
 idealFor:
   - "Pilots passionate about teaching"
   - "Career-focused aviators"

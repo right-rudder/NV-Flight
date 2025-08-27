@@ -1,9 +1,9 @@
 import { COMPANY_NAME } from "../consts";
 
 const whyData = {
-  pageTitle: `Why Choose NVFlight Flight School in Reno, NV? | ${COMPANY_NAME}`,
+  pageTitle: `Why Choose NV Flight Flight School in Reno, NV? | ${COMPANY_NAME}`,
   pageDescription:
-    "Discover why NVFlight Flight School in Reno, NV, is the top choice for aspiring pilots. With experienced instructors, modern aircraft, and personalized training, we help you achieve your aviation dreams.",
+    "Discover why NV Flight Flight School in Reno, NV, is the top choice for aspiring pilots. With experienced instructors, modern aircraft, and personalized training, we help you achieve your aviation dreams.",
   pageKeywords:
     "flight school Reno NV, pilot training Reno, aviation school Reno, personalized flight training, modern aircraft Reno NV, experienced flight instructors Reno NV",
 
@@ -11,13 +11,13 @@ const whyData = {
   header: {
     stars: true,
     imagePath: "/src/assets/montain-&-plane2.jpg",
-    imageAlt: "NVFlight Flight School campus and facilities",
-    headerH1: `Why Choose <br>NVFlight?</span>`,
-    paragraph: `Discover the reasons why NVFlight Flight School stands out as the premier choice for aspiring pilots. Our state-of-the-art facilities, experienced instructors, and personalized training programs are designed to help you achieve your aviation goals.`,
+    imageAlt: "NV Flight Flight School campus and facilities",
+    headerH1: `Why Choose <br>NV Flight?</span>`,
+    paragraph: `Discover the reasons why NV Flight Flight School stands out as the premier choice for aspiring pilots. Our state-of-the-art facilities, experienced instructors, and personalized training programs are designed to help you achieve your aviation goals.`,
     buttons: [
       {
         name: "Enroll Today",
-        link: "/enroll-at-NVFlight",
+        link: "/enroll",
         primary: false,
       },
       {
@@ -29,10 +29,10 @@ const whyData = {
   },
 
   pageSummary: {
-    title: "Why Choose NVFlight?",
+    title: "Why Choose NV Flight?",
     paragraphs: [
-      "At NVFlight, we are committed to providing exceptional flight training that prioritizes safety, quality, and personalized instruction. Our experienced instructors, modern aircraft, and comprehensive training programs ensure that you receive the best education possible.",
-      "Whether you are pursuing a career as a professional pilot or looking to fly for leisure, NVFlight offers a supportive and engaging learning environment that caters to your individual needs and goals.",
+      "At NV Flight, we are committed to providing exceptional flight training that prioritizes safety, quality, and personalized instruction. Our experienced instructors, modern aircraft, and comprehensive training programs ensure that you receive the best education possible.",
+      "Whether you are pursuing a career as a professional pilot or looking to fly for leisure, NV Flight offers a supportive and engaging learning environment that caters to your individual needs and goals.",
     ],
     buttons: [
       {
@@ -47,11 +47,11 @@ const whyData = {
     upperHeading: "Get Started",
     heading: "Your Pilot Career Begins Here",
     descriptions: [
-      "Embark on your journey to becoming a pilot with NVFlight. Our comprehensive training programs are designed to help you achieve your aviation dreams, whether you are aiming for a private pilot license or a commercial pilot career.",
+      "Embark on your journey to becoming a pilot with NV Flight. Our comprehensive training programs are designed to help you achieve your aviation dreams, whether you are aiming for a private pilot license or a commercial pilot career.",
       "Our certified flight instructors (CFIs) are dedicated to providing top-notch training and support, ensuring that you gain the skills and knowledge needed to succeed in the aviation industry.",
-      "Join the NVFlight community and take advantage of our state-of-the-art facilities, modern aircraft, and personalized training approach. Your pilot career starts here.",
+      "Join the NV Flight community and take advantage of our state-of-the-art facilities, modern aircraft, and personalized training approach. Your pilot career starts here.",
     ],
-    bulletsTitle: "Why Choose NVFlight?",
+    bulletsTitle: "Why Choose NV Flight?",
     bullets: [
       {
         title: "Experienced Instructors",
@@ -99,17 +99,17 @@ const whyData = {
     finalSection: {
       heading: "Ready to Take Off?",
       descriptions: [
-        "At NVFlight, we are dedicated to helping you achieve your aviation dreams. Our comprehensive training programs, experienced instructors, and modern facilities provide the perfect environment for you to succeed.",
-        "Whether you are just starting your journey or looking to advance your career, NVFlight offers the support and resources you need to reach your goals. Click the button below to learn more about our programs and start your journey with NVFlight today.",
+        "At NV Flight, we are dedicated to helping you achieve your aviation dreams. Our comprehensive training programs, experienced instructors, and modern facilities provide the perfect environment for you to succeed.",
+        "Whether you are just starting your journey or looking to advance your career, NV Flight offers the support and resources you need to reach your goals. Click the button below to learn more about our programs and start your journey with NV Flight today.",
       ],
     },
     finalButton: {
       name: "Get Started",
-      link: "/enroll-at-NVFlight",
+      link: "/enroll",
       primary: true,
     },
     imagePath: "/src/assets/montain-&-plane2.jpg",
-    imageAlt: "NVFlight Flight School student smiling in front of an airplane",
+    imageAlt: "NV Flight Flight School student smiling in front of an airplane",
   },
 };
 

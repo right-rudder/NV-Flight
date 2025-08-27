@@ -1,6 +1,6 @@
 ---
 title: "Commercial Pilot ASEL"
-description: "61 Training Program — Gleim syllabus. Prepare for a career in aviation. Train to the standards required for paid flying and advanced pilot proficiency."
+description: "61 Training Program, Gleim syllabus. Prepare for a career in aviation. Train to the standards required for paid flying and advanced pilot proficiency."
 imagePath: "/src/assets/nv-flight-reno_7960_Original.webp"
 imageAlt: "NV Flight aircraft in flight over the Sierra Nevada"
 part: "Part 61"
@@ -18,7 +18,7 @@ outcomes:
 prerequisites:
   - "Private Pilot ASEL; Instrument rating recommended"
   - "Time-building to meet aeronautical experience requirements"
-  - "Current FAA medical"
+  - "FAA medical (3rd Class or BasicMed equivalent)"
 idealFor:
   - "Career-focused pilots"
   - "Pilots pursuing paid flying (CFI, charter, etc.)"

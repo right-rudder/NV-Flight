@@ -13,8 +13,8 @@ const {
   logoUrl = "/src/assets/nvflight-nobg.webp"
 } = Astro.props;
 
-const fullLogoUrl = new URL(logoUrl, Astro.site?.toString() || "https://NVFlightco.com").toString();
-const websiteUrl = Astro.site?.toString() || "https://NVFlightco.com";
+const fullLogoUrl = new URL(logoUrl, Astro.site?.toString() || "https://nvflight.com/").toString();
+const websiteUrl = Astro.site?.toString() || "https://nvflight.com/";
 
 const primaryLocation = LOCATIONS.length > 0
   ? LOCATIONS[0]

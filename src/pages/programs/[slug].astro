@@ -45,9 +45,9 @@ const courseLD = {
           <div>
             <p class="text-xs uppercase tracking-[0.2em] text-accent-700">{data.part} {data.part && data.syllabus ? "•" : ""} {data.syllabus}</p>
             <h1 class="mt-2 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">{data.title}</h1>
-            <p class="mt-6 text-lg leading-8 text-slate-700">{data.description}</p>
+            <p class="mt-6 text-lg leading-8 text-slate-700 w-[96%]">{data.description}</p>
             <div class="mt-8 flex gap-3">
-              <a href="/contact" class="inline-flex items-center rounded-lg bg-primary-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-accent-700">Get Started</a>
+              <a href="/enroll" class="inline-flex items-center rounded-lg bg-primary-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-accent-700">Get Started</a>
               <a href="/contact" class="inline-flex items-center rounded-lg border border-accent-200 px-5 py-2.5 text-sm font-medium text-accent-700 hover:bg-accent-50">Contact Us</a>
             </div>
           </div>
@@ -76,7 +76,7 @@ const courseLD = {
 
             <h2 class="mt-10 text-2xl lg:text-3xl font-semibold text-slate-900">Training structure</h2>
             <p class="mt-2 text-slate-700 lg:text-lg">
-              Training combines ground lessons, flight sessions, and stage checks aligned to the ACS. Individual and accelerated pacing are available depending on instructor and aircraft availability.
+              Training combines ground lessons, flight sessions, and stage checks aligned to the ACS (Aviation Certification Standards). Individual and accelerated pacing are available depending on instructor and aircraft availability.
             </p>
 
             {data.outcomes?.length > 0 && <>

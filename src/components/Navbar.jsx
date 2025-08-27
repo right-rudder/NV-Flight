@@ -83,7 +83,7 @@ const Navbar = ({ pathname }) => {
               </a>
 
               {item.submenu?.length > 0 && (
-                <div className="absolute left-1/2 -translate-x-1/2 top-full hidden group-hover:block z-50">
+                <div className="absolute left-1/2 -translate-x-1/2 top-8 hidden group-hover:block z-50">
                   <div className="relative bg-primary-950/80 text-muted-200 rounded-md shadow-lg min-w-[320px] py-2 opacity-0 translate-y-2 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-y-0">
                     <span className="pointer-events-auto absolute -top-3 left-0 right-0 h-3 content-['']" />
                     <ul className="flex flex-col">

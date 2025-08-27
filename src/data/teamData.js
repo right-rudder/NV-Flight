@@ -1,16 +1,16 @@
 import { COMPANY_NAME } from "../consts";
 
 const teamPageData = {
-  pageTitle: `The NVFlight Crew | ${COMPANY_NAME}`,
+  pageTitle: `The NV Flight Crew | ${COMPANY_NAME}`,
   pageDescription:
-    "Discover the dedicated team behind NVFlight Flight School. Our leadership and certified flight instructors are committed to providing exceptional training and support to help you achieve your aviation goals.",
+    "Discover the dedicated team behind NV Flight Flight School. Our leadership and certified flight instructors are committed to providing exceptional training and support to help you achieve your aviation goals.",
   pageKeywords:
-    "NVFlight Flight School team, flight instructors, aviation experts, leadership team, certified flight instructors, aviation training",
+    "NV Flight Flight School team, flight instructors, aviation experts, leadership team, certified flight instructors, aviation training",
 
   // Top Header
   header: {
     stars: true,
-    imagePath: "/src/assets/hero-img.webp",
+    imagePath: "/src/assets/nv-flight-pilot-training-reno-flight-lessons.jpg",
     imageAlt:
       "NV Flight School student and flight instructor in a Cessna airplane cockpit",
     headerH1: `Meet Our <br>TEAM</span>`,
@@ -18,7 +18,7 @@ const teamPageData = {
     buttons: [
       {
         name: "Enroll Today",
-        link: "/enroll-at-NVFlight",
+        link: "/enroll",
         primary: true,
       },
       {
@@ -44,7 +44,7 @@ const teamPageData = {
         image: "/team/emma-j.webp",
         group: "Leadership",
         featured: true,
-        certifications: ["ASEL COMM", "AMEL ATP", "CFI", "CFII"],
+        certifications: ["COMM ASEL", "AMEL ATP", "CFI", "CFII"],
         bio: "Emma Justis is an Owner and Chief Pilot at NV Flight. Raised in Reno, she loves teaching people to fly across Nevada's stunning landscapes. With 4,000 flight hours, her background spans aerial photography, forest fire spotting, and corporate flying. When she isn't instructing in NV Flight's Piper Cherokees, she flies the Falcon 2000.",
       },
       {
@@ -68,7 +68,7 @@ const teamPageData = {
         bio: "Trygve is the Assistant Chief Pilot at NV Flight with more than 2,000 hours across 42 U.S. states and nine countries. Raised in an airline family at Lake Tahoe, he has lived in Europe and the Middle East. He began flying 13 years ago in southern Africa in a Cessna 182 and has since flown his Piper Dakota as far as Guatemala and Maine. He has instructed for three years and is passionate about helping people grow into skilled aviators.",
       },
 
-      // ——— Instructors ———
+      //,,,  Instructors,,, 
       {
         id: "joel-guasch",
         name: "Joel Guasch",
@@ -77,7 +77,7 @@ const teamPageData = {
         group: "Instructors",
         featured: false,
         certifications: ["COMM ASEL", "AMEL", "CFI"],
-        bio: "Joel Guasch is a Certified Flight Instructor dedicated to sharing the joy of flight. He blends deep aviation knowledge with hands-on training to help each student reach their potential. Outside the cockpit, Joel enjoys snowboarding, mountain biking, and time in nature—an adventurous spirit that complements his approach to aviation.",
+        bio: "Joel Guasch is a Certified Flight Instructor dedicated to sharing the joy of flight. He blends deep aviation knowledge with hands-on training to help each student reach their potential. Outside the cockpit, Joel enjoys snowboarding, mountain biking, and time in nature, an adventurous spirit that complements his approach to aviation.",
       },
       {
         id: "ben-roller",
@@ -98,6 +98,16 @@ const teamPageData = {
         featured: false,
         certifications: ["COMM ASEL", "CFI"],
         bio: "Jeremy is a Certified Flight Instructor with four years of flying experience. His teaching combines enthusiasm with a strong focus on safety, precision, and customer care. Inspired by NV Flight's supportive community and his family's encouragement, he helps the next generation of aviators turn their goals into reality.",
+      },
+      {
+        id: "ethan",
+        name: "Ethan",
+        role: "Flight Instructor",
+        image: "/team/cfi-ethan.webp",
+        group: "Instructors",
+        featured: false,
+        certifications: ["COMM ASEL", "CFI"],
+        bio: "Meet Ethan, a current CFI here at NV Flight taking on Private and Commercial students. Growing up, Ethan always had a passion for things that seemed “unattainable.” Wondering what the view from above was like, he took his first discovery flight at the age of 16 and instantly fell in love with it, quickly getting his private pilot during his junior year of high school! After graduating, Ethan chose to stay in Reno and attend UNR. Throughout the four years, he earned 4 pilot ratings and graduated with a dual degree, while working a full time job. When he isn’t flying, Ethan loves to work on trucks, hunt, be outdoors and travel the world. He has toured and lived in various parts of the world but always finds his way back to Reno as “there is no place more beautiful than Nevada.” Start your aviation journey with Ethan now!",
       },
     ],
   },

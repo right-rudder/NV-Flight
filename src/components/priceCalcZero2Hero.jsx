@@ -66,7 +66,7 @@ const PriceCalcZero2Hero = () => {
               Find out how much your training will cost
             </h3>
             <h2 className="section-title">
-              NVFlight’s Flight Training Estimator
+              NV Flight’s Flight Training Estimator
             </h2>
           </div>
           <div className="mt-12 m-auto -space-y-4 items-center justify-center lg:flex md:space-y-0 xl:w-full">

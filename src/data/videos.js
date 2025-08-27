@@ -30,7 +30,7 @@ const videoList = [
     videoId: "gulhBmBnj00"
   },
   {
-    title: "NVFlight Flight School",
+    title: "NV Flight Flight School",
     description: "Content",
     videoId: "dgzgM142d0k"
   },

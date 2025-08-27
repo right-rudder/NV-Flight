@@ -3,7 +3,7 @@ import { COMPANY_NAME } from "../consts";
 const multiEngineData = {
   pageTitle: `Multi-Engine Rating Course in Reno, NV | ${COMPANY_NAME}`,
   pageDescription:
-    "Earn your Multi-Engine Rating at NVFlight Flight School in Reno, NV. Master twin-engine aircraft operations and expand your career opportunities with expert training.",
+    "Earn your Multi-Engine Rating at NV Flight Flight School in Reno, NV. Master twin-engine aircraft operations and expand your career opportunities with expert training.",
   pageKeywords:
     "multi-engine rating Reno NV, twin-engine pilot training Reno, flight school Reno NV, commercial pilot training Reno, aviation school Reno NV, multi-engine certification Reno",
 
@@ -11,13 +11,13 @@ const multiEngineData = {
   header: {
     stars: true,
     imagePath: "/src/assets/montain-&-plane2.jpg",
-    imageAlt: "NVFlight Flight School student by a multi-engine airplane",
+    imageAlt: "NV Flight Flight School student by a multi-engine airplane",
     headerH1: `Multi-Engine <br>RATING</span>`,
-    paragraph: `Take your flying skills to the next level with NVFlight Flight School's Multi-Engine Rating program. Learn to operate twin-engine aircraft with confidence and precision.`,
+    paragraph: `Take your flying skills to the next level with NV Flight Flight School's Multi-Engine Rating program. Learn to operate twin-engine aircraft with confidence and precision.`,
     buttons: [
       {
         name: "Enroll Today",
-        link: "/enroll-at-NVFlight",
+        link: "/enroll",
         primary: false,
       },
     ],
@@ -32,7 +32,7 @@ const multiEngineData = {
 
     title: "Overview",
     description: `
-      The Multi-Engine Rating (MER) program at NVFlight Flight School is designed for pilots who want to expand their skill set by learning to fly twin-engine aircraft. This rating is essential for those pursuing a career in commercial aviation and offers a deeper understanding of complex aircraft systems.
+      The Multi-Engine Rating (MER) program at NV Flight Flight School is designed for pilots who want to expand their skill set by learning to fly twin-engine aircraft. This rating is essential for those pursuing a career in commercial aviation and offers a deeper understanding of complex aircraft systems.
       <br/>
       <br/>
       During the course, you will receive hands-on training in multi-engine aerodynamics, emergency procedures, engine-out operations, and aircraft performance calculations. You will learn how to safely manage engine failures, asymmetrical thrust, and other challenges unique to multi-engine flying.
@@ -61,10 +61,10 @@ const multiEngineData = {
       imageAlt: "Female pilot smiling",
       title: "Enroll in the Multi-Engine Rating Program",
       description:
-        "Advance your aviation skills and career opportunities by earning your Multi-Engine Rating at NVFlight Flight School.",
+        "Advance your aviation skills and career opportunities by earning your Multi-Engine Rating at NV Flight Flight School.",
       button: {
         name: "Enroll Now",
-        link: "/enroll-at-NVFlight",
+        link: "/enroll",
       },
     },
 

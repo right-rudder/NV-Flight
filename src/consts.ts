@@ -28,12 +28,12 @@ export const LOCATIONS = [
     state: "NV",
     zip: "89502",
     gMaps: "https://maps.app.goo.gl/UyDnbjRikTJSNHeG8",
-    phone: "775-242-5994",
+    phone: "775-227-8323",
     email: "renodesk@nvflight.com",
   },
 ];
 
-export const PHONE_NUMBER = "775-242-5994";
+export const PHONE_NUMBER = "775-227-8323";
 export const ADDRESS_LINE_1 = "Gentry Wy,";
 export const ADDRESS_LINE_2 = "Reno, Nevada 89502";
 export const FACEBOOK_URL = "https://www.facebook.com/nvflight/";
@@ -42,5 +42,5 @@ export const LINKEDIN_URL = null;
 export const YOUTUBE_URL = null;
 export const TWITTER_URL = null;
 export const EMAIL_ADDRESS = "renodesk@nvflight.com";
-export const WEBSITE_URL = "https://NVFlightco.com/";
+export const WEBSITE_URL = "https://nvflight.com/";
 export const GMAPS = "https://maps.app.goo.gl/UyDnbjRikTJSNHeG8";

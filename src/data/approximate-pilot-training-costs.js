@@ -2,7 +2,7 @@ const aproxPilotTrainingCosts = {
   data: {
     //SEO Header Stuff
     pageTitle:
-      "Approximate Pilot Training Costs | NVFlight Flight School, Reno, NV",
+      "Approximate Pilot Training Costs | NV Flight Flight School, Reno, NV",
     pageDescription:
       "Get an estimate on how much could it cost to be a pilot at different licenses and rating. We're in the Phoenix, Arizona area at Falcon Field.  Many of our students come from Reno, Gilbert, Scottsdale, Apache Junction, Chandler, Tempe, Queen Creek, Fountain Hills, Paradise Valley, Phoenix",
     pageKeywords:
@@ -13,14 +13,14 @@ const aproxPilotTrainingCosts = {
       stars: true,
       imagePath: "/src/assets/montain-&-plane2.jpg",
       imageAlt:
-        "NVFlight Flight School airplane landing at Falcon Field Airport in Reno, Arizona",
+        "NV Flight School airplane landing at Falcon Field Airport in Reno, Arizona",
       headerH1: `Approximate<br>Training Costs`,
       paragraph:
-        "The cost of flight training varies greatly depending on a number of factors such as type of training, the student's aptitude and experience level, and the type of aircraft used. Affordable options for pilot training are available at NVFlight Flight School.",
+        "The cost of flight training varies greatly depending on a number of factors such as type of training, the student's aptitude and experience level, and the type of aircraft used. Affordable options for pilot training are available at NV Flight School.",
       buttons: [
         {
           name: "Enroll Now",
-          link: "/enroll-at-NVFlight",
+          link: "/enroll",
           primary: false,
         },
       ],
@@ -29,7 +29,7 @@ const aproxPilotTrainingCosts = {
     pageSummary: {
       title: "How much is the cost of flight training?",
       paragraphs: [
-        "Although the actual cost of flight training can vary widely, plan to budget around $18,000 to $20,000 for private pilot fixed wing. To get more details on hourly rates, program pricing, and potential financing options; give us a call today and speak to a NVFlight team member.",
+        "Although the actual cost of flight training can vary widely, plan to budget around $18,000 to $20,000 for private pilot fixed wing. To get more details on hourly rates, program pricing, and potential financing options; give us a call today and speak to a NV Flight team member.",
       ],
       buttons: [
         {

@@ -1,7 +1,7 @@
 const discoveryFlight = {
   data: {
     //SEO Header Stuff
-    pageTitle: "Book Your Discovery Flight | NV Flight , Reno, NV",
+    pageTitle: "Book Your Discovery Flight | NV Flight, Reno, NV",
     pageDescription:
       "Book a Discovery Flight at NV Flight in Reno, NV. Experience the thrill of flying and see if becoming a pilot is right for you!",
     pageKeywords:
@@ -33,7 +33,7 @@ const discoveryFlight = {
         {
           title: "What Happens After the Flight?",
           paragraphs: [
-            "So, you've completed your discovery flight and are ready to take the next step? NVFlight is here to help you take flight towards your aviation dreams and attain your goals. Let's dive into what happens after your first flight with us.",
+            "So, you've completed your discovery flight and are ready to take the next step? NV Flight is here to help you take flight towards your aviation dreams and attain your goals. Let's dive into what happens after your first flight with us.",
           ],
         },
       ],

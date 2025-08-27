@@ -6,11 +6,11 @@ import HeaderSmall from "../../components/HeaderSmall.astro";
 
 const data = {
   header: {
-    imagePath: "/src/assets/montain-&-plane2.jpg", // swap for an NVFlight image if you have one
-    imageAlt: "NVFlight School aircraft over the Sierra Nevada at sunset",
+    imagePath: "/src/assets/nv-flight-reno_20220505_084802_205_Original.webp",
+    imageAlt: "NV Flight School aircraft over the Sierra Nevada at sunset",
     headerH1: "Our Blog",
     paragraph:
-      "Get the latest insights and tips from NVFlight School. Stay up-to-date with flight training news, pilot guidance, and Reno/Tahoe aviation highlights.",
+      "Get the latest insights and tips from NV Flight School. Stay up-to-date with flight training news, pilot guidance, and Reno/Tahoe aviation highlights.",
   },
 };
 
@@ -20,9 +20,9 @@ const posts = (await getCollection("blog")).sort(
 ---
 
 <BaseLayout
-  pageTitle="Blog | NVFlight School"
-  pageDescription="Read the latest insights, training tips, and Reno/Tahoe aviation updates from NVFlight School."
-  pageKeywords="NVFlight blog, flight training blog, aviation blog, pilot training Reno, flight school Nevada, pilot tips, aviation insights"
+  pageTitle="Blog | NV Flight School"
+  pageDescription="Read the latest insights, training tips, and Reno/Tahoe aviation updates from NV Flight School."
+  pageKeywords="NV Flight blog, flight training blog, aviation blog, pilot training Reno, flight school Nevada, pilot tips, aviation insights"
 >
   <!-- Header -->
   <HeaderSmall content={data.header} />

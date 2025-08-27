@@ -9,12 +9,16 @@ export const navbarLinks = {
     link: "/programs",
     submenu: [
       {
+        name: "Programs Index",
+        link: "/programs",
+      },
+      {
         name: "Private Pilot ASEL",
         link: "/programs/private-pilot-asel",
       },
       {
-        name: "Instrument Pilot ASEL",
-        link: "/programs/instrument-pilot-asel",
+        name: "Instrument Rating ASEL",
+        link: "/programs/instrument-rating-asel",
       },
       {
         name: "Commercial Pilot ASEL",
@@ -39,6 +43,10 @@ export const navbarLinks = {
     link: "/nv-flight-about",
     submenu: [
       {
+        name: "About Us",
+        link: "/nv-flight-about",
+      },
+      {
         name: "Our Team",
         link: "/nv-flight-about/team",
       },
@@ -48,7 +56,7 @@ export const navbarLinks = {
       },
       {
         name: "Blog",
-        link: "/nv-flight-about/blog",
+        link: "/blog",
       },
     ],
   },

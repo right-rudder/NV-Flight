@@ -1,6 +1,6 @@
 ---
 title: "Flight Instructor Instrument (CFII)"
-description: "61 Training Program — Gleim CFII syllabus. Take your teaching to the next level. Train pilots for safe, precise instrument flight as a CFII."
+description: "61 Training Program, Gleim CFII syllabus. Take your teaching to the next level. Train pilots for safe, precise instrument flight as a CFII."
 imagePath: "/src/assets/nv-flight-reno_5364_Original.webp"
 imageAlt: "Instructor and student working on instrument approach charts"
 part: "Part 61"
@@ -12,13 +12,13 @@ highlights:
   - "Automation management and abnormal procedures"
   - "Developing IFR training scenarios and stage checks"
 outcomes:
-  - "Instruct instrument students to ACS standards"
+  - "Teach instrument students to ACS standards"
   - "Author IFR endorsements and track instrument currency"
   - "Mentor safe, systems-aware instrument pilots"
 prerequisites:
-  - "CFI (ASEL) and Instrument Rating"
+  - "Commercial Pilot License and Instrument Rating"
   - "Proficiency with IFR procedures and avionics"
-  - "Current FAA medical"
+  - "FAA medical (3rd Class or BasicMed equivalent)"
 idealFor:
   - "Active CFIs expanding qualifications"
   - "Career builders targeting higher-value instruction"

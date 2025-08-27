@@ -1,12 +1,12 @@
 ---
 title: "Mountain Flight Training"
-description: "A focused 3-day Sierra Nevada mountain-flying immersion based in Reno. Master density altitude planning, mountain weather, terrain awareness, and high-elevation airport operations with instructor-guided routes to Truckee (TRK), South Lake Tahoe (TVL), and Mammoth Yosemite (MMH)—weather permitting."
+description: "A 3-day Sierra Nevada mountain-flying course based in Reno. Master density altitude planning, mountain weather, terrain awareness, and high-elevation operations with instructor-guided routes to local mountain airports."
 imagePath: "/src/assets/plane_flying_montain.webp"
 imageAlt: "Training aircraft flying above the Sierra Nevada near Lake Tahoe"
 part: "Part 61"
 syllabus: "NV Flight Mountain Checkout"
 highlights:
-  - "Density altitude performance planning and takeoff/landing technique"
+  - "Density altitude (DA) performance planning and takeoff/landing technique"
   - "Mountain weather: winds aloft, mountain waves, rotors, lenticulars, convective activity"
   - "Terrain/obstacle awareness, route selection, and emergency options"
   - "High-altitude airport operations and stabilized approach profiles"
@@ -17,10 +17,10 @@ outcomes:
   - "Apply performance charts for high-elevation, high-DA departures and arrivals"
   - "Interpret mountain weather hazards and choose conservative routing"
   - "Use stabilized approaches and energy management at terrain-confined airports"
-  - "Eligible for NV Flight mountain checkout sign-off at instructor discretion upon satisfactory completion"
+  - "Eligible for mountain checkout sign-off at instructor discretion upon satisfactory completion"
 prerequisites:
   - "Private Pilot ASEL (Instrument rating recommended)"
-  - "Current FAA medical"
+  - "FAA medical (3rd Class or BasicMed equivalent)"
   - "Recent PIC experience and familiarity with short/soft-field operations"
 idealFor:
   - "Pilots new to Sierra Nevada/Western U.S. mountain operations"
@@ -32,9 +32,9 @@ idealFor:
 - **Duration:** 3 days
 - **Training:** 15 hours dual instruction · 5 hours ground instruction
 - **Investment:** **$4,500.00**
-- **Typical Training Airports:** TRK (Truckee), TVL (South Lake Tahoe), MMH (Mammoth Yosemite) — **weather dependent**
+- **Typical Training Airports:** TRK (Truckee), TVL (South Lake Tahoe), MMH (Mammoth Yosemite),  **weather dependent** *
 
-> **Note:** Actual routing depends on winds, weather, airspace/TFRs, airport NOTAMs, runway conditions, and instructor discretion.
+***Note:** Actual routing depends on winds, weather, airspace/TFRs, airport NOTAMs, runway conditions, and instructor discretion.
 
 ---
 
@@ -62,10 +62,10 @@ idealFor:
 ---
 
 ## Bring & Be Ready
-- Current gov’t photo ID, pilot & medical certificates, logbook.
-- Headset, kneeboard/EFB with current charts, performance data.
-- Personal minimums template (we’ll help you refine it).
-- Season-appropriate clothing and hydration.
+- Current gov’t photo ID, pilot & medical certificates, logbook
+- Headset, kneeboard/EFB with current charts, performance data
+- Personal minimums template (We’ll help you refine it.)
+- Season-appropriate clothing and hydration
 
 ---
 
@@ -77,5 +77,5 @@ idealFor:
 ---
 
 ## Next Steps
-- Have dates in mind and recent PIC time? **Contact us** to confirm instructor/aircraft availability.
+- Have dates in mind and recent PIC time? [**Contact us**](../contact) to confirm instructor/aircraft availability.
 - Want to prep early? We’ll share recommended study materials so you show up ahead of the curve.

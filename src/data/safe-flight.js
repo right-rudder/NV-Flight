@@ -2,7 +2,7 @@ const contentSplit = {
   upperHeading: "Safety in Flight Training",
   heading: "How Safe Is Flight Training?",
   descriptions: [
-    "Flight training is designed with safety as the top priority. At NVFlight, we follow strict FAA regulations and best practices to ensure every student learns in a controlled and secure environment.",
+    "Flight training is designed with safety as the top priority. At NV Flight, we follow strict FAA regulations and best practices to ensure every student learns in a controlled and secure environment.",
     "Our certified flight instructors (CFIs) are highly trained professionals who prioritize safety throughout your training, from pre-flight checks to in-air instruction.",
     "We maintain a fleet of well-serviced aircraft, conduct routine safety inspections, and implement structured training programs to minimize risk and maximize your confidence in the air.",
   ],
@@ -42,13 +42,13 @@ const contentSplit = {
   finalSection: {
     heading: "Safety First, Always",
     descriptions: [
-      "At NVFlight, safety is at the heart of everything we do. From experienced instructors to well-maintained aircraft, we are committed to providing a secure learning environment.",
+      "At NV Flight, safety is at the heart of everything we do. From experienced instructors to well-maintained aircraft, we are committed to providing a secure learning environment.",
       "Whether you're training for a career or flying for fun, we ensure that every student receives the highest safety standards. Contact us today to learn more about our safety measures and start your flight training with confidence.",
     ],
   },
   finalButton: {
     name: "Get Started",
-    link: "/enroll-at-NVFlight",
+    link: "/enroll",
     primary: true,
   },
   imagePath: "/src/assets/NVFlight-flight-school-Reno-az-student-pilot-with-famyly-certified-private-pilot.jpg",

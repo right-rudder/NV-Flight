@@ -1,9 +1,9 @@
-const instructAtNVFlight = {
+const instructAtNV Flight = {
   data: {
     //SEO Header Stuff
-    pageTitle: "Start Your Pilot Career || NVFlight Flight School, Reno, NV",
+    pageTitle: "Start Your Pilot Career || NV Flight Flight School, Reno, NV",
     pageDescription:
-      "Begin your pilot career as a certified flight instructor (CFI) at NVFlight Flight School. We offer a 30-day CFI program to help you build the necessary hours to become an airline pilot. Contact us today!",
+      "Begin your pilot career as a certified flight instructor (CFI) at NV Flight Flight School. We offer a 30-day CFI program to help you build the necessary hours to become an airline pilot. Contact us today!",
     pageKeywords:
       "flight training, flight training Reno, flight training Arizona, flight school, flight school Reno, flight school Arizona, pilot training, CFI training, certified flight instructor, pilot career, airline pilot, Reno, NV, Arizona",
 
@@ -12,10 +12,10 @@ const instructAtNVFlight = {
       stars: true,
       imagePath: "/src/assets/montain-&-plane2.jpg",
       imageAlt:
-        "NVFlight Flight School airplane landing at Falcon Field Airport in Reno, Arizona",
+        "NV Flight Flight School airplane landing at Falcon Field Airport in Reno, Arizona",
       headerH1: `Career Track<br>Pilots`,
       paragraph:
-        "Start your pilot career after getting your commercial certificate. Start flying now and build the necessary hours to become an airline pilot. One way NVFlight can help is by becoming a certified flight instructor (CFI).",
+        "Start your pilot career after getting your commercial certificate. Start flying now and build the necessary hours to become an airline pilot. One way NV Flight can help is by becoming a certified flight instructor (CFI).",
       buttons: [
         {
           name: "30 Day CFI Program",
@@ -26,10 +26,10 @@ const instructAtNVFlight = {
     },
 
     pageSummary: {
-      title: "The NVFlight Guarantee",
+      title: "The NV Flight Guarantee",
       paragraphs: [
-        "If you have completed your private, instrument, commercial, and CFI training at NVFlight, we have an exciting opportunity for you. As a testament to our confidence in your abilities, we offer a guaranteed interview for a teaching position as a CFI within our flight school.",
-        "This exclusive opportunity allows you to showcase the knowledge and skills you have acquired during your training journey with us. Join our team of dedicated instructors, inspire future aviators, and make a meaningful impact in the aviation community. Take the next step in your career as a CFI with NVFlight and let your passion for aviation soar.",
+        "If you have completed your private, instrument, commercial, and CFI training at NV Flight, we have an exciting opportunity for you. As a testament to our confidence in your abilities, we offer a guaranteed interview for a teaching position as a CFI within our flight school.",
+        "This exclusive opportunity allows you to showcase the knowledge and skills you have acquired during your training journey with us. Join our team of dedicated instructors, inspire future aviators, and make a meaningful impact in the aviation community. Take the next step in your career as a CFI with NV Flight and let your passion for aviation soar.",
       ],
       buttons: [],
     },
@@ -38,7 +38,7 @@ const instructAtNVFlight = {
       upperHeading: "Get Started",
       heading: "Your Pilot Career",
       descriptions: [
-        "Start your pilot career after getting your commercial certificate. Start flying now and build the necessary hours to become an airline pilot. One way NVFlight can help is by becoming a certified flight instructor (CFI).",
+        "Start your pilot career after getting your commercial certificate. Start flying now and build the necessary hours to become an airline pilot. One way NV Flight can help is by becoming a certified flight instructor (CFI).",
         "Being a CFI offers a valuable opportunity to rapidly accumulate flight experience for the minimum requirements of airlines and corporate aviation companies. It is a great opportunity that allows you to apply all the knowledge and skills acquired during your own flight training.",
         "Flight instructors play a crucial role as ambassadors of the aviation community, imparting their knowledge and experience to their students. For many, it serves as their first aviation job that not only is an invaluable experience but also provides compensation.",
       ],
@@ -109,4 +109,4 @@ const instructAtNVFlight = {
   },
 };
 
-export default instructAtNVFlight;
+export default instructAtNV Flight;

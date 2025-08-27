@@ -28,8 +28,8 @@ export const footerLinks = [
         link: "/programs/private-pilot-asel",
       },
       {
-        name: "Instrument Pilot ASEL",
-        link: "/programs/instrument-pilot-asel",
+        name: "Instrument Rating ASEL",
+        link: "/programs/instrument-rating-asel",
       },
       {
         name: "Commercial Pilot ASEL",
@@ -66,7 +66,7 @@ export const footerLinks = [
       },
       {
         name: "Blog",
-        link: "/nv-flight-about/blog",
+        link: "/blog",
       },
     ],
   },

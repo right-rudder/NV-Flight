@@ -19,8 +19,8 @@ export default {
 
   sections: [
     {
-      title: "Why Fly at NVFlight?",
-      content: "Your success is our priority. Learning to fly is a transformative experience, and we are dedicated to providing you with the knowledge, skills, and support you need to reach new heights.",
+      title: "Why Fly at NV Flight?",
+      content: "Your success is our priority. Learning to fly is a transformative experience, we are dedicated to providing you with the knowledge, skills, and support you need to reach new heights.",
     },
     {
       title: "Programs to Fit Your Schedule",
