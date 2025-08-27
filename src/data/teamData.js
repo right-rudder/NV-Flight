@@ -68,7 +68,7 @@ const teamPageData = {
         bio: "Trygve is the Assistant Chief Pilot at NV Flight with more than 2,000 hours across 42 U.S. states and nine countries. Raised in an airline family at Lake Tahoe, he has lived in Europe and the Middle East. He began flying 13 years ago in southern Africa in a Cessna 182 and has since flown his Piper Dakota as far as Guatemala and Maine. He has instructed for three years and is passionate about helping people grow into skilled aviators.",
       },
 
-      // ——— Instructors ———
+      //,,,  Instructors,,, 
       {
         id: "joel-guasch",
         name: "Joel Guasch",
@@ -77,7 +77,7 @@ const teamPageData = {
         group: "Instructors",
         featured: false,
         certifications: ["COMM ASEL", "AMEL", "CFI"],
-        bio: "Joel Guasch is a Certified Flight Instructor dedicated to sharing the joy of flight. He blends deep aviation knowledge with hands-on training to help each student reach their potential. Outside the cockpit, Joel enjoys snowboarding, mountain biking, and time in nature—an adventurous spirit that complements his approach to aviation.",
+        bio: "Joel Guasch is a Certified Flight Instructor dedicated to sharing the joy of flight. He blends deep aviation knowledge with hands-on training to help each student reach their potential. Outside the cockpit, Joel enjoys snowboarding, mountain biking, and time in nature, an adventurous spirit that complements his approach to aviation.",
       },
       {
         id: "ben-roller",
