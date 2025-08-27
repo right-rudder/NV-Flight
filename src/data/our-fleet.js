@@ -34,21 +34,21 @@ const fleetPage = {
       planes: [
         {
           name: "Cherokee 180 - PIPER PA-28-180",
-          tail: "N733AJ",
+          tail: "N6576J",
           model: "Cherokee 180",
           summary:
             "1968 Piper Cherokee 180 – a four-seat, single-engine trainer perfect for all levels of flight training.",
           year: 1968,
           manufacture: "Piper Aircraft",
           engine: "Lycoming O-360-A4A (Reciprocating)",
-          weight: "Less than 12,500 lbs",
+          weight: "2,400 pounds gross weight",
           horsepower: "180 HP",
           airworthiness: "Standard/Normal",
           speed: "Cruise ~107 mph",
-          imagePath: "/src/assets/Plane-N733AJ-ground-sunset.webp",
-          imageAlt: "Piper Cherokee 180 N733AJ parked on the ramp",
+          imagePath: "/src/assets/Plane-N6576J-ground-sunset.webp",
+          imageAlt: "Piper Cherokee 180 N6576J parked on the ramp",
           description:
-            "The Cherokee 180 N733AJ is a versatile trainer equipped for private through commercial training. Its balanced performance and forgiving handling make it an excellent choice for pilots in training.",
+            "The Cherokee 180 N6576J is a versatile trainer equipped for private through commercial training. Its balanced performance and forgiving handling make it an excellent choice for pilots in training.",
           features: [
             "Four-seat cabin",
             "Dependable Lycoming engine",
@@ -63,16 +63,16 @@ const fleetPage = {
           equipment: ["Four-place intercom", "Standard training configuration"],
           images: [
             {
-              imagePath: "/src/assets/Plane-N733AJ-flying-sky.webp",
-              imageAlt: "Cockpit view of Cherokee 180 N733AJ",
+              imagePath: "/src/assets/Plane-N6576J-flying-sky.webp",
+              imageAlt: "Cockpit view of Cherokee 180 N6576J",
             },
             {
-              imagePath: "/src/assets/Plane-N733AJ-ground-blue-sky-clouds.webp",
-              imageAlt: "Side view of Cherokee 180 N733AJ",
+              imagePath: "/src/assets/Plane-N6576J-ground-blue-sky-clouds.webp",
+              imageAlt: "Side view of Cherokee 180 N6576J",
             },
             {
-              imagePath: "/src/assets/N733AJ- (3).webp",
-              imageAlt: "Side view of Cherokee 180 N733AJ",
+              imagePath: "/src/assets/N6576J- (3).webp",
+              imageAlt: "Side view of Cherokee 180 N6576J",
             },
           ],
         },
@@ -85,7 +85,7 @@ const fleetPage = {
           year: 1968,
           manufacture: "Piper Aircraft",
           engine: "Lycoming O-360-A4A (Reciprocating)",
-          weight: "Less than 12,500 lbs",
+          weight: "2,400lbs gross weight",
           horsepower: "180 HP",
           airworthiness: "Standard/Normal",
           speed: "Cruise ~107 mph",
@@ -128,7 +128,7 @@ const fleetPage = {
           year: 1968,
           manufacture: "Piper Aircraft",
           engine: "Lycoming O-360-A4A (Reciprocating)",
-          weight: "Less than 12,500 lbs",
+          weight: "2,400lbs gross weight",
           horsepower: "180 HP",
           airworthiness: "Standard/Normal",
           speed: "Cruise ~107 mph",
