@@ -9,15 +9,15 @@ export const GeneralFAQs = [
   },
   {
     title: "Why is mountain flying training important in Reno?",
-    content: `The Reno/Tahoe area is surrounded by mountains, and flying here comes with unique challenges like high-altitude takeoffs, rapidly changing weather, and terrain navigation. Our dedicated <a href="/programs/mountain-flight-training" class="text-primary-500 hover:underline hover:brightness-125 duration-200">Mountain Flying Training</a> program prepares you to handle these conditions safely.`,
+    content: `The Reno/Tahoe area is surrounded by mountains. Flying here comes with unique challenges like high-altitude takeoffs, rapidly changing weather, and terrain navigation. Our dedicated <a href="/programs/mountain-flight-training" class="text-primary-500 hover:underline hover:brightness-125 duration-200">Mountain Flying Training</a> program prepares you to handle these conditions safely.`,
   },
   {
-    title: "What aircraft do you use for flight training?",
+    title: "What type of aircraft do you use for flight training?",
     content: `Our training fleet consists of well-equipped Piper Cherokee 180 aircraft, ideal for both initial and advanced training. All maintenance is performed in-house by our expert mechanical team, ensuring aircraft reliability and safety.`,
   },
   {
     title: "How long does it take to become a private pilot?",
-    content: `On average, students can earn their Private Pilot Certificate in 2-3 months with consistent lessons. Your timeline may vary based on your availability, lesson frequency, and weather. <a href="/programs/private-pilot-asel" class="text-primary-500 hover:underline hover:brightness-125 duration-200">See program details</a>.`,
+    content: `On average, students earn their Private Pilot Certificate in 2-3 months with consistent lessons. Your timeline may vary based on your availability, lesson frequency, and weather. <a href="/programs/private-pilot-asel" class="text-primary-500 hover:underline hover:brightness-125 duration-200">See program details</a>.`,
   },
   {
     title:
