@@ -1,6 +1,6 @@
 ---
 title: "Mountain Flight Training"
-description: "A focused 3-day Sierra Nevada mountain-flying immersion based in Reno. Master density altitude planning, mountain weather, terrain awareness, and high-elevation airport operations with instructor-guided routes to Truckee (TRK), South Lake Tahoe (TVL), and Mammoth Yosemite (MMH)—weather permitting."
+description: "A focused 3-day Sierra Nevada mountain-flying immersion based in Reno. Master density altitude planning, mountain weather, terrain awareness, and high-elevation airport operations with instructor-guided routes to Truckee (TRK), South Lake Tahoe (TVL), and Mammoth Yosemite (MMH), weather permitting."
 imagePath: "/src/assets/plane_flying_montain.webp"
 imageAlt: "Training aircraft flying above the Sierra Nevada near Lake Tahoe"
 part: "Part 61"
@@ -32,7 +32,7 @@ idealFor:
 - **Duration:** 3 days
 - **Training:** 15 hours dual instruction · 5 hours ground instruction
 - **Investment:** **$4,500.00**
-- **Typical Training Airports:** TRK (Truckee), TVL (South Lake Tahoe), MMH (Mammoth Yosemite) — **weather dependent**
+- **Typical Training Airports:** TRK (Truckee), TVL (South Lake Tahoe), MMH (Mammoth Yosemite),  **weather dependent**
 
 > **Note:** Actual routing depends on winds, weather, airspace/TFRs, airport NOTAMs, runway conditions, and instructor discretion.
 
