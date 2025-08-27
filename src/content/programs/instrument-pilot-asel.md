@@ -1,5 +1,5 @@
 ---
-title: "Instrument Pilot ASEL"
+title: "Instrument Rating ASEL"
 description: "61 Training Program, Gleim syllabus. Learn to safely fly in low visibility and complex airspace using the full suite of modern instruments."
 imagePath: "/src/assets/instrument-training-reno-flight-lessons.jpeg"
 imageAlt: "Panel showing instruments and navigation displays"
