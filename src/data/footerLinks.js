@@ -29,7 +29,7 @@ export const footerLinks = [
       },
       {
         name: "Instrument Rating ASEL",
-        link: "/programs/instrument-pilot-asel",
+        link: "/programs/instrument-rating-asel",
       },
       {
         name: "Commercial Pilot ASEL",
