@@ -66,7 +66,7 @@ export const footerLinks = [
       },
       {
         name: "Blog",
-        link: "/nv-flight-about/blog",
+        link: "/blog",
       },
     ],
   },
