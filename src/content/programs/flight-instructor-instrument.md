@@ -16,7 +16,7 @@ outcomes:
   - "Author IFR endorsements and track instrument currency"
   - "Mentor safe, systems-aware instrument pilots"
 prerequisites:
-  - "CFI (ASEL) and Instrument Rating"
+  - "Commercial Pilot License and Instrument Rating"
   - "Proficiency with IFR procedures and avionics"
   - "Current FAA medical"
 idealFor:
