@@ -1,16 +1,16 @@
 const fleetPage = {
   data: {
     pageDescription:
-      "Explore NV Flight’s fleet of Piper Cherokee 180 aircraft and advanced simulators. Reliable, well-maintained training aircraft ideal for student pilots and advanced training in Reno and the Sierra Nevada.",
+      "Explore NV Flight’s fleet of Piper Cherokee 180 aircraft. Reliable, well-maintained training aircraft ideal for student pilots and advanced training in Reno and the Sierra Nevada.",
     pageKeywords:
-      "NV Flight fleet, Piper Cherokee 180, Reno flight school planes, Nevada pilot training aircraft, mountain flying planes, flight simulators Reno",
+      "NV Flight fleet, Piper Cherokee 180, Reno flight school planes, Nevada pilot training aircraft, mountain flying planes, Reno",
 
     header: {
       imagePath: "/src/assets/Planes-all-fleet-back.webp",
       imageAlt: "NV Flight fleet of Piper Cherokee aircraft on the ramp",
       headerH1: `Our Fleet`,
       paragraph:
-        "Explore our reliable Piper Cherokee 180 aircraft and advanced simulators. Each is maintained to the highest standards, providing a safe, consistent, and professional training environment.",
+        "Explore our reliable Piper Cherokee 180 aircraft. Each is maintained to the highest standards, providing a safe, consistent, and professional training environment.",
       buttons: [
         {
           name: "Contact Us",
@@ -19,7 +19,7 @@ const fleetPage = {
         },
         {
           name: "Explore Training Options",
-          link: "/training",
+          link: "/programs",
           primary: true,
         },
       ],
@@ -81,8 +81,8 @@ const fleetPage = {
           tail: "N7824W",
           model: "Cherokee 180",
           summary:
-            "1968 Piper Cherokee 180 – reliable and efficient single-engine trainer with seating for four.",
-          year: 1968,
+            "1964 Piper Cherokee 180 – reliable and efficient single-engine trainer with seating for four.",
+          year: 1964,
           manufacture: "Piper Aircraft",
           engine: "Lycoming O-360-A4A (Reciprocating)",
           weight: "2,400lbs gross weight",
@@ -124,8 +124,8 @@ const fleetPage = {
           tail: "N7969W",
           model: "Cherokee 180",
           summary:
-            "1968 Piper Cherokee 180 – trusted general aviation trainer with 180 horsepower Lycoming engine.",
-          year: 1968,
+            "1963 Piper Cherokee 180 – trusted general aviation trainer with 180 horsepower Lycoming engine.",
+          year: 1963,
           manufacture: "Piper Aircraft",
           engine: "Lycoming O-360-A4A (Reciprocating)",
           weight: "2,400lbs gross weight",
@@ -146,27 +146,6 @@ const fleetPage = {
           equipment: ["Four-place intercom", "Comfortable seating"],
           images: [],
         },
-      ],
-      simulators: [
-        // {
-        //   name: "Advanced Aviation Training Device (AATD)",
-        //   description:
-        //     "Our FAA-approved flight simulator allows students to log training time toward ratings, practice IFR procedures, and build confidence in a controlled environment.",
-        //   imagePath: "/src/assets/simulator.jpg",
-        //   imageAlt: "NV Flight FAA-approved flight simulator",
-        //   images: [
-        //     {
-        //       imagePath: "/src/assets/simulator-1.jpg",
-        //       imageAlt: "Cockpit view of NV Flight simulator",
-        //     },
-        //   ],
-        //   features: [
-        //     "FAA-approved AATD",
-        //     "IFR procedure practice",
-        //     "Scenario-based training",
-        //     "Reduced-cost training time",
-        //   ],
-        // },
       ],
     },
 
@@ -193,7 +172,7 @@ const fleetPage = {
       },
       {
         title: "Do you have simulators as part of your fleet?",
-        content: `Our focus is on real-world flight training in actual aircraft. While we provide ground training tools and materials, the Cherokee 180 fleet is the core of our hands-on instruction. For IFR practice, students fly in properly equipped training aircraft.`,
+        content: `No, our focus is on real-world flight training in actual aircraft. While we provide ground training tools and materials, the Cherokee 180 fleet is the core of our hands-on instruction. For IFR practice, students fly in properly equipped training aircraft.`,
       },
       {
         title: "Can I fly the fleet aircraft during a Discovery Flight?",
@@ -206,7 +185,7 @@ const fleetPage = {
       imageAlt: "Student and instructor preparing for a discovery flight",
       headerH1: `Fly With NV Flight`,
       paragraph:
-        "Start your aviation journey today with our fleet of dependable Piper Cherokee 180s and advanced simulators. Whether you’re beginning as a student or advancing toward a career, our aircraft and instructors are here to help you succeed.",
+        "Start your aviation journey today with our fleet of dependable Piper Cherokee 180s. Whether you’re beginning as a student or advancing toward a career, our aircraft and instructors are here to help you succeed.",
       buttons: [
         {
           name: "Book a Discovery Flight",
