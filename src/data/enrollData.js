@@ -19,7 +19,7 @@ export default {
 
   sections: [
     {
-      title: "Why Fly at NVFlight?",
+      title: "Why Fly at NV Flight?",
       content: "Your success is our priority. Learning to fly is a transformative experience, and we are dedicated to providing you with the knowledge, skills, and support you need to reach new heights.",
     },
     {
