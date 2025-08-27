@@ -17,7 +17,7 @@ export const navbarLinks = {
         link: "/programs/private-pilot-asel",
       },
       {
-        name: "Instrument Pilot ASEL",
+        name: "Instrument Rating ASEL",
         link: "/programs/instrument-pilot-asel",
       },
       {
