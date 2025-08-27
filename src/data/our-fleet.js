@@ -173,7 +173,7 @@ const fleetPage = {
     fleetFAQs: [
       {
         title: "What aircraft are included in NV Flight’s fleet?",
-        content: `Our fleet consists of well-maintained Piper Cherokee 180 aircraft. These planes are known for their stability, reliability, and forgiving flight characteristics—making them perfect for students at every level of training.`,
+        content: `Our fleet consists of well-maintained Piper Cherokee 180 aircraft. These planes are known for their stability, reliability, and forgiving flight characteristics, making them perfect for students at every level of training.`,
       },
       {
         title: "Why did NV Flight choose the Piper Cherokee 180 for training?",
