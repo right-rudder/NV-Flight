@@ -15,7 +15,7 @@ const programsSwiper = {
     },
     {
       title: "Instrument Pilot ASEL",
-      imagePath: "/src/assets/nv-flight-reno_4186_Original.webp",
+      imagePath: "/src/assets/instrument-training-reno-flight-lessons.jpeg",
       imageAlt: "Panel showing instruments and navigation displays",
       description:
         "61 Training Program, Gleim Syllabus. Learn to safely fly in low visibility and complex airspace using the full suite of modern instruments.",
