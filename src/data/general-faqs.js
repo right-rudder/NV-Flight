@@ -1,7 +1,7 @@
 export const GeneralFAQs = [
   {
     title: "What makes NV Flight different from other flight schools in Reno?",
-    content: `NV Flight offers specialized mountain flying training, flight instructor leadership with over 20 years of combined flight experience, and exceptional in-house aircraft maintenance. We focus on building versatile pilots who can fly safely and confidently in any environment. <a href="/about" class="text-primary-500 hover:underline hover:brightness-125 duration-200">Learn more about our approach</a>.`,
+    content: `NV Flight offers specialized mountain flying training, flight instructor leadership with over 20 years of combined flight experience, and exceptional in-house aircraft maintenance. We focus on building versatile pilots who can fly safely and confidently in any environment.`,
   },
   {
     title: "Do I need any prior flight experience to get started?",
@@ -9,7 +9,7 @@ export const GeneralFAQs = [
   },
   {
     title: "Why is mountain flying training important in Reno?",
-    content: `The Reno/Tahoe area is surrounded by mountains, and flying here comes with unique challenges like high-altitude takeoffs, rapidly changing weather, and terrain navigation. Our dedicated <a href="/programs/mountain-flying" class="text-primary-500 hover:underline hover:brightness-125 duration-200">Mountain Flying Training</a> program prepares you to handle these conditions safely.`,
+    content: `The Reno/Tahoe area is surrounded by mountains, and flying here comes with unique challenges like high-altitude takeoffs, rapidly changing weather, and terrain navigation. Our dedicated <a href="/programs/mountain-flight-training" class="text-primary-500 hover:underline hover:brightness-125 duration-200">Mountain Flying Training</a> program prepares you to handle these conditions safely.`,
   },
   {
     title: "What aircraft do you use for flight training?",
