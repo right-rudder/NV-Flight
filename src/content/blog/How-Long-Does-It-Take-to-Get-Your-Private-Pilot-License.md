@@ -89,7 +89,7 @@ Ask yourself the three big questions:
 
 ---
 
-If you’d like a personalized game plan, **chat with your NV Flight instructor** about your schedule and goals, we’ll help you map a realistic path to your checkride.
+If you’d like a personalized game plan, **chat with your NV Flight instructor** about your schedule and goals. We’ll help you map a realistic path to your checkride.
 
 Until next time!
 
