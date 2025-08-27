@@ -3,7 +3,7 @@ import { COMPANY_NAME } from "../consts";
 const commercialPilotData = {
   pageTitle: `Commercial Pilot | ${COMPANY_NAME}`,
   pageDescription:
-    "Launch your professional aviation career with NVFlight Flight School’s Commercial Pilot License (CPL) program. Gain the skills and experience to fly for hire.",
+    "Launch your professional aviation career with NV Flight Flight School’s Commercial Pilot License (CPL) program. Gain the skills and experience to fly for hire.",
   pageKeywords:
     "commercial pilot license Arizona, flight school Reno, CPL certification, professional pilot training, aviation career, commercial aviation training",
 
@@ -12,13 +12,13 @@ const commercialPilotData = {
     stars: true,
     imagePath: "/src/assets/montain-&-plane2.jpg",
     imageAlt:
-      "NVFlight Flight School student and flight instructor in a Cessna airplane cockpit",
+      "NV Flight Flight School student and flight instructor in a Cessna airplane cockpit",
     headerH1: `Commercial <br>PILOT LICENSE</span>`,
-    paragraph: `Turn your passion for flying into a career with NVFlight Flight School's Commercial Pilot License program. Gain the expertise needed to fly professionally and get paid to do what you love.`,
+    paragraph: `Turn your passion for flying into a career with NV Flight Flight School's Commercial Pilot License program. Gain the expertise needed to fly professionally and get paid to do what you love.`,
     buttons: [
       {
         name: "Enroll Today",
-        link: "/enroll-at-NVFlight",
+        link: "/enroll",
         primary: false,
       },
     ],
@@ -33,7 +33,7 @@ const commercialPilotData = {
 
     title: "Overview",
     description: `
-      The Commercial Pilot License (CPL) program at NVFlight Flight School is designed for pilots who want to take their skills to a professional level. This program provides advanced flight training, in-depth aeronautical knowledge, and real-world experience to prepare you for a career in aviation.
+      The Commercial Pilot License (CPL) program at NV Flight Flight School is designed for pilots who want to take their skills to a professional level. This program provides advanced flight training, in-depth aeronautical knowledge, and real-world experience to prepare you for a career in aviation.
       <br/>
       <br/>
       You will refine your piloting skills, master precision maneuvers, and develop the knowledge necessary for safe and efficient commercial flight operations. The course covers advanced aerodynamics, performance-based navigation, emergency procedures, and FAA regulations.
@@ -53,10 +53,10 @@ const commercialPilotData = {
       imageAlt: "Female pilot smiling",
       title: "Enroll in the Commercial Pilot Program",
       description:
-        "Take the next step in your aviation career. Join NVFlight Flight School's Commercial Pilot program and train to become a professional pilot.",
+        "Take the next step in your aviation career. Join NV Flight Flight School's Commercial Pilot program and train to become a professional pilot.",
       button: {
         name: "Enroll Now",
-        link: "/enroll-at-NVFlight",
+        link: "/enroll",
       },
     },
 
