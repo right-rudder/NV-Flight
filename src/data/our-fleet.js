@@ -110,7 +110,7 @@ const fleetPage = {
               imageAlt: "Cockpit interior of Cherokee 180 N7824W",
             },
             {
-              imagePath: "/src/assets/N7824W- (2).webp",
+              imagePath: "/src/assets/N7824W-plane-with-student-pilot-reno-flight-lessons.webp",
               imageAlt: "Cockpit interior of Cherokee 180 N7824W",
             },
             {
