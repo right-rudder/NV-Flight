@@ -42,7 +42,7 @@ const certifiedFlightInstructorData = {
       As a CFI, you will develop expertise in aerodynamics, flight instruction principles, and student pilot training strategies. You’ll also refine your communication skills to effectively teach flight maneuvers, emergency procedures, and airspace regulations.
       <br/>
       <br/>
-      Upon completion of this program, you will be prepared to pass the FAA Certified Flight Instructor checkride and begin your career as a flight instructor—gaining flight hours and advancing toward airline or corporate pilot opportunities.`,
+      Upon completion of this program, you will be prepared to pass the FAA Certified Flight Instructor checkride and begin your career as a flight instructor, gaining flight hours and advancing toward airline or corporate pilot opportunities.`,
 
     keyPoints: [
       "NV Flight offers accelerated and flexible CFI training programs to fit your schedule.",
