@@ -19,7 +19,7 @@ const programsSwiper = {
       imageAlt: "Panel showing instruments and navigation displays",
       description:
         "61 Training Program, Gleim Syllabus. Learn to safely fly in low visibility and complex airspace using the full suite of modern instruments.",
-      link: "/programs/instrument-pilot-asel",
+      link: "/programs/instrument-rating-asel",
     },
     {
       title: "Commercial Pilot ASEL",
