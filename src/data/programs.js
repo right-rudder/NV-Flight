@@ -145,7 +145,7 @@ const programs = {
         "Developing IFR training scenarios and stage checks",
       ],
       outcomes: [
-        "Instruct instrument students to ACS standards",
+        "Teach instrument students to ACS standards",
         "Author IFR endorsements and track instrument currency",
         "Mentor safe, systems‑aware instrument pilots",
       ],
