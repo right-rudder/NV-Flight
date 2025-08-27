@@ -80,12 +80,9 @@ export default function TeamProfileInteractiveSwiper({
     const li = itemRefs.current[i];
     if (!vp || !li) return 0;
 
-    const vpW = vp.getBoundingClientRect().width;
-    const liW = li.getBoundingClientRect().width;
-    const liLeft = li.offsetLeft; // offset within the track
-
-    const target = liLeft - (vpW - liW) / 2; // positive means move left
-    return -Math.max(0, target);
+    // Align the selected card's LEFT EDGE with the viewport's left edge.
+    // (No centering, so the card is fully visible and nothing gets cut off.)
+    return -li.offsetLeft;
   };
 
   const goTo = (i, smooth = true) => {
@@ -311,7 +308,7 @@ export default function TeamProfileInteractiveSwiper({
                     aria-pressed={activeIdx === i}
                     className={[
                       "group relative block w-[82vw] sm:w-[48vw] lg:w-[31vw]",
-                      "aspect-video overflow-hidden rounded-2xl border border-muted-200 shadow-sm",
+                      "aspect-[3/4] overflow-hidden rounded-2xl border border-muted-200 shadow-sm",
                       "bg-muted-900",
                       "focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2",
                       activeIdx === i ? "ring-1 ring-muted-200" : "",
@@ -321,9 +318,9 @@ export default function TeamProfileInteractiveSwiper({
                       src={m.image}
                       alt={`${m.name} headshot`}
                       loading="lazy"
-                      className="absolute inset-0 h-full w-full object-contain transition duration-500 group-hover:scale-[1.02] group-hover:blur-[2px]"
+                      className="absolute inset-0 h-full w-full object-contain transition duration-500 group-hover:scale-[1.02]"
                     />
-                    <div className="absolute inset-0 bg-black/0 transition duration-300 group-hover:bg-black/40" />
+                    <div className="absolute inset-0 bg-black/0 transition duration-300 group-hover:bg-black/60" />
                     <div className="absolute inset-0 flex items-end p-5 opacity-0 translate-y-2 transition duration-300 group-hover:opacity-100 group-hover:translate-y-0">
                       <div className="w-full text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.6)]">
                         <h3 className="text-base font-semibold">{m.name}</h3>
@@ -337,7 +334,7 @@ export default function TeamProfileInteractiveSwiper({
                             {Array.isArray(m.bio) ? m.bio[0] : String(m.bio)}
                           </p>
                         )}
-                        <div className="mt-4 flex items-center justify-between gap-3">
+                        <div className="mt-4 flex items-center justify-center gap-3">
                           <span />
                           <div className="flex items-center gap-3">
                             {m.links?.linkedin && (
@@ -366,7 +363,7 @@ export default function TeamProfileInteractiveSwiper({
                                 e.stopPropagation();
                                 selectByIndex(i);
                               }}
-                              className="btn-accent text-sm"
+                              className="btn-primary text-sm"
                               aria-label={`View full bio for ${m.name}`}
                             >
                               View full bio
