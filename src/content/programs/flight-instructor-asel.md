@@ -18,7 +18,7 @@ outcomes:
 prerequisites:
   - "Commercial Pilot License and Instrument Rating"
   - "Minimum 18 years old for certificate"
-  - "Current FAA medical"
+  - "FAA medical (3rd Class or BasicMed equivalent)"
 idealFor:
   - "Pilots passionate about teaching"
   - "Career-focused aviators"
