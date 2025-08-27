@@ -16,7 +16,7 @@ outcomes:
   - "Demonstrated ability to evaluate student performance"
   - "Proficiency in using training aids and technology"
 prerequisites:
-  - "Commercial Pilot ASEL; Instrument rating recommended"
+  - "Commercial Pilot License and Instrument Rating"
   - "Minimum 18 years old for certificate"
   - "Current FAA medical"
 idealFor:
