@@ -9,6 +9,10 @@ export const navbarLinks = {
     link: "/programs",
     submenu: [
       {
+        name: "Programs Index",
+        link: "/programs",
+      },
+      {
         name: "Private Pilot ASEL",
         link: "/programs/private-pilot-asel",
       },
@@ -38,6 +42,10 @@ export const navbarLinks = {
     name: "About Us",
     link: "/nv-flight-about",
     submenu: [
+      {
+        name: "About Us",
+        link: "/nv-flight-about",
+      },
       {
         name: "Our Team",
         link: "/nv-flight-about/team",
