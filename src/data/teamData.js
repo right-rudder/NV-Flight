@@ -10,7 +10,7 @@ const teamPageData = {
   // Top Header
   header: {
     stars: true,
-    imagePath: "/src/assets/hero-img.webp",
+    imagePath: "/src/assets/nv-flight-pilot-training-reno-flight-lessons.jpg",
     imageAlt:
       "NV Flight School student and flight instructor in a Cessna airplane cockpit",
     headerH1: `Meet Our <br>TEAM</span>`,
