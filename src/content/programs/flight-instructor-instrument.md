@@ -18,7 +18,7 @@ outcomes:
 prerequisites:
   - "Commercial Pilot License and Instrument Rating"
   - "Proficiency with IFR procedures and avionics"
-  - "Current FAA medical"
+  - "FAA medical (3rd Class or BasicMed equivalent)"
 idealFor:
   - "Active CFIs expanding qualifications"
   - "Career builders targeting higher-value instruction"
