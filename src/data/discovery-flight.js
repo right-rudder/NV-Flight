@@ -1,7 +1,7 @@
 const discoveryFlight = {
   data: {
     //SEO Header Stuff
-    pageTitle: "Book Your Discovery Flight | NV Flight , Reno, NV",
+    pageTitle: "Book Your Discovery Flight | NV Flight, Reno, NV",
     pageDescription:
       "Book a Discovery Flight at NV Flight in Reno, NV. Experience the thrill of flying and see if becoming a pilot is right for you!",
     pageKeywords:
