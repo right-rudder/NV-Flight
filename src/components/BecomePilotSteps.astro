@@ -45,15 +45,15 @@ const { content } = Astro.props;
         </p>
 
         <!-- Hover CTA underline + arrow nudge -->
-        {/* <div class="relative z-10 mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary-700">
-          <span class="relative after:absolute after:-bottom-0.5 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-primary-500 after:transition-transform after:duration-300 group-hover:after:scale-x-100">
+        <div class="relative z-10 mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary-700">
+          <a href={f.link} class="relative after:absolute after:-bottom-0.5 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-primary-500 after:transition-transform after:duration-300 group-hover:after:scale-x-100">
             Learn more
-          </span>
+          </a>
           <svg class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
             <path fill-rule="evenodd" d="M10.22 3.22a.75.75 0 011.06 0l5.5 5.5a.75.75 0 010 1.06l-5.5 5.5a.75.75 0 11-1.06-1.06L14.94 10 10.22 5.28a.75.75 0 010-1.06z" clip-rule="evenodd"/>
             <path d="M3 10a.75.75 0 01.75-.75h10.69a.75.75 0 010 1.5H3.75A.75.75 0 013 10z"/>
           </svg>
-        </div> */}
+        </div> 
 
         <!-- Border accent on hover -->
         <div class="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-muted-200 transition-colors duration-300 group-hover:ring-accent-500"></div>

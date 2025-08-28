@@ -32,24 +32,28 @@ const becomePilotData = {
         description:
           "Take your first lesson in the air with a Certified Flight Instructor (CFI). A discovery flight gives you hands-on flying experience, introduces you to our aircraft, and shows you what pilot training at NV Flight is all about.",
         icon: "/src/assets/Small Airplane Icon.png",
+        link: "/discovery-flight",
       },
       {
         title: "Step 2 — Meet Your Flight Instructor",
         description:
           "You’ll be paired with one of our experienced flight instructors, trained in safety, decision-making, and mountain flying. Your instructor will walk you through the training requirements and answer your questions about becoming a private pilot.",
         icon: "/src/assets/Noto Pilot Icon.png",
+        link: "/nv-flight-about/team",
       },
       {
         title: "Step 3 — Choose Your Training Path",
         description:
           "Whether you prefer a structured program or a self-paced approach, we offer flexible training options tailored to your needs.",
         icon: "/src/assets/Map Pin Check Icon.png",
+        link: "/programs",
       },
       {
         title: "Step 4 — On Your Way to Becoming a Pilot",
         description:
           "From your very first flight lesson, you’ll start developing safe flying habits and building the confidence you need to pass your FAA checkride. With Reno’s prime flying conditions and our hands-on approach, you’ll be ready to succeed.",
         icon: "/src/assets/Airplane Departure Icon.png",
+        link: "/enroll",
       },
     ],
   },
