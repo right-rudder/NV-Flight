@@ -14,9 +14,8 @@ const {
   title,
   description,
   keywords,
-  image = "/src/assets/nvflight-nobg.webp"
+  image = "/src/assets/nvflight-nobg.webp",
 } = Astro.props;
-
 ---
 
 <!-- Global Metadata -->
@@ -60,7 +59,7 @@ const {
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 <link rel="sitemap" href="/sitemap-index.xml" />
 <!-- Google Tag Manager -->
-<script type="text/partytown">
+<script is:inline>
   (function (w, d, s, l, i) {
     w[l] = w[l] || [];
     w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
@@ -70,23 +69,9 @@ const {
     j.async = true;
     j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
     f.parentNode.insertBefore(j, f);
-  })(window, document, "script", "dataLayer", "G-75X25DPQQC");
+  })(window, document, "script", "dataLayer", "GTM-MF23MRJM");
 </script>
 <!-- End Google Tag Manager -->
-<!-- Google tag (gtag.js) -->
-<script
-  type="text/partytown"
-  async
-  src="https://www.googletagmanager.com/gtag/js?id=G-75X25DPQQC"></script>
-<script type="text/partytown">
-  window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-  gtag("js", new Date());
-
-  gtag("config", "G-75X25DPQQC");
-</script>
 <!-- Updated Schema for NV Flight School -->
 <script type="application/ld+json">
   {
