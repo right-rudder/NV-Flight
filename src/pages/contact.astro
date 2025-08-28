@@ -4,6 +4,7 @@ import programsSwiper from "../data/programSwiper";
 import contactInfo from "../data/contact-info";
 import ProgramSwiper from "../components/ProgramSwiper.astro";
 import ContactForm from "../components/ContactForm.astro";
+import HeaderSmall from "../components/HeaderSmall.astro";
 
 
 const { data } = contactInfo;
@@ -14,7 +15,7 @@ const { data } = contactInfo;
   siteDescription={data.pageDescription}
   keywords={data.pageKeywords}
 >
-  <div class="h-24 lg:h-28 w-full bg-primary-300"></div>
+  <HeaderSmall content={data.header} />
 
   <ContactForm />
   <ProgramSwiper content={programsSwiper} />
