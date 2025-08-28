@@ -12,7 +12,8 @@ export default function StepsAccordion({
   buttonLabel = "Learn More",
   eyebrow = "Become a Pilot",
   heading = content.title ?? "Your Pilot Training Roadmap",
-  blurb = content.intro ?? "Follow our proven roadmap from your first Discovery Flight through advanced ratings. Each stage builds on the last so you always know what’s next.",
+  blurb = content.intro ??
+    "Follow our proven roadmap from your first Discovery Flight through advanced ratings. Each stage builds on the last so you always know what’s next.",
 }) {
   const data = useMemo(() => {
     const src = Array.isArray(steps) ? steps : [];
@@ -140,7 +141,7 @@ function Card({ step, index, isActive, hasActive, setActive, buttonLabel }) {
 
           {/* Desktop rotated label */}
           <div
-            className="pointer-events-none absolute left-3 top-1/2 z-20 hidden -translate-y-1/2 origin-left -rotate-90 md:block"
+            className="pointer-events-none absolute left-0 md:left-20 top-1/2 z-20 hidden -translate-y-1/2 origin-left -rotate-90 md:block"
             aria-hidden="true"
           >
             <div className="flex min-w-[14rem] items-center justify-between">
