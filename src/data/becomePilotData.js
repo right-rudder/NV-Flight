@@ -16,7 +16,7 @@ const becomePilotData = {
     paragraph:
       "Reno’s FAA-approved Part 141 training center, offering Discovery Flights, self-paced and accelerated courses, and mountain flying expertise.",
     buttons: [
-      { name: "Book a Discovery Flight", link: "/contact", primary: true },
+      { name: "Book a Discovery Flight", link: "/discovery-flight#form", primary: true },
     ],
   },
 
