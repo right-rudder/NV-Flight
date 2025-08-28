@@ -11,9 +11,9 @@ export const SITE_SHORT_DESCRIPTION =
 export const KEYWORDS =
   "NV Flight, Flight School, flight training Reno NV, pilot school Reno NV, how to become a pilot NV, flight school near me, find a flight school Reno, private pilot license Reno NV, discovery flight Reno, introductory flight NV, instrument rating Falcon Field, commercial pilot school Reno, commercial pilot license NV, certified flight instructor training NV, CFI academy NV, airline pilot program NV, aviation academy NV, best flight school Reno, top flight schools Phoenix area, multi-engine rating NV, learn to fly Cessna Reno NV, Diamond aircraft training NV, flight training cost Reno NV, pilot certification Reno, Falcon Field flight school, KFFZ pilot training";
 
-export const OG_IMAGE = "/nvflight-nobg.webp";
+export const OG_IMAGE = "/nvflight-OG_IMAGE.png";
 
-export const LOGO_NO_BG = "/src/assets/nvflight-nobg.webp";
+export const LOGO_NO_BG = "/src/assets/nvflight-OG_IMAGE.png";
 
 
 export const COMPANY_NAME = "NV Flight";
