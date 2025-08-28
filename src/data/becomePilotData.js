@@ -10,60 +10,46 @@ const becomePilotData = {
   // HERO (your page already renders this via HeaderScreen)
   header: {
     stars: true,
-    imagePath: "/src/assets/montain-&-plane2.jpg",
+    imagePath: "/src/assets/nvflight-reno-student-pilot-hero.webp",
     imageAlt: "NV Flight aircraft over Reno, Tahoe",
-    headerH1: "Start Your Journey to Becoming a Pilot",
+    headerH1: "Tailored Flight Training",
     paragraph:
       "Reno’s FAA-approved Part 141 training center, offering Discovery Flights, self-paced and accelerated courses, and mountain flying expertise.",
     buttons: [
       { name: "Book a Discovery Flight", link: "/contact", primary: true },
-      { name: "Enroll Now", link: "/enroll", primary: false },
     ],
   },
 
   // Ordered flow used by your “How it works” section
   steps: {
-    title: "How it works at NV Flight",
+    title: "How to Start Pilot Training with NV Flight",
+    subtitle: "What sets our training apart",
+    blurb:
+      "Getting started at our Reno flight school is simple. Follow these four steps to begin your flight training and work toward becoming a certified pilot.",
     items: [
       {
-        step: "01",
-        title: "Book a $185 Discovery Flight",
-        desc: "Hands-on intro (about 45 minutes) with a CFI, then a personalized training plan.",
+        title: "Step 1 — Schedule a Discovery Flight",
+        description:
+          "Take your first lesson in the air with a Certified Flight Instructor (CFI). A discovery flight gives you hands-on flying experience, introduces you to our aircraft, and shows you what pilot training at NV Flight is all about.",
+        icon: "/src/assets/Small Airplane Icon.png",
       },
       {
-        step: "02",
-        title: "Pick your training track",
-        desc: "Self-paced (Part 61/141) or Accelerated Private Pilot 141 in about 8 weeks.",
+        title: "Step 2 — Meet Your Flight Instructor",
+        description:
+          "You’ll be paired with one of our experienced flight instructors, trained in safety, decision-making, and mountain flying. Your instructor will walk you through the training requirements and answer your questions about becoming a private pilot.",
+        icon: "/src/assets/Noto Pilot Icon.png",
       },
       {
-        step: "03",
-        title: "Get your FAA medical",
-        desc: "Schedule a Class 3 medical so you’re cleared to solo and continue training.",
+        title: "Step 3 — Choose Your Training Path",
+        description:
+          "Whether you prefer a structured program or a self-paced approach, we offer flexible training options tailored to your needs.",
+        icon: "/src/assets/Map Pin Check Icon.png",
       },
       {
-        step: "04",
-        title: "Enroll & get your kit",
-        desc: "We’ll onboard you, set up your lessons, and provide your Gleim Private Pilot kit.",
-      },
-      {
-        step: "05",
-        title: "Train consistently",
-        desc: "Accelerated track flies ~5 days/week; self-paced sets a steady cadence that fits your schedule.",
-      },
-      {
-        step: "06",
-        title: "Stage checks & first solo",
-        desc: "Milestones confirm proficiency before solo and cross-country phases.",
-      },
-      {
-        step: "07",
-        title: "X-country & checkride prep",
-        desc: "Plan and fly to ACS standards; targeted ground and flight prep for your DPE.",
-      },
-      {
-        step: "08",
-        title: "Next ratings",
-        desc: "Continue with Instrument, Commercial, and Flight Instructor (CFI/CFII) training.",
+        title: "Step 4 — On Your Way to Becoming a Pilot",
+        description:
+          "From your very first flight lesson, you’ll start developing safe flying habits and building the confidence you need to pass your FAA checkride. With Reno’s prime flying conditions and our hands-on approach, you’ll be ready to succeed.",
+        icon: "/src/assets/Airplane Departure Icon.png",
       },
     ],
   },
@@ -72,49 +58,62 @@ const becomePilotData = {
   cta: {
     imagePath: "/src/assets/nv-flight-reno_1712_Original.webp",
     imageAlt: "NV Flight School Cessna 172 on the runway",
-    headerH1: "Why Choose NV Flight School?",
-    paragraph:
-      "Experience personalized training, expert instructors, and a commitment to your success.",
+    headerH1: "Your First Step Toward Safe, Confident Flying",
+    paragraph1:
+      "Learning to fly can feel overwhelming, but you don’t have to do it alone. At NV Flight, we guide every student with safety, clarity, and a culture of excellence so you can focus on building skills and confidence from day one.",
+    paragraph2:
+      "Our instructors specialize in mountain flying and real-world decision making, giving you experience that goes beyond the basics. With available aircraft, flexible scheduling, and training done right the first time, you’ll get the support you need to progress quickly and safely.",
     buttons: [
       {
-        name: "Book a Discovery Flight",
-        link: "/discovery-flight",
+        name: "Start Your Training Today",
+        link: "/enroll",
         primary: true,
       },
     ],
   },
 
   // Step-by-step grid like Shakuro’s “Web development solutions” (for StepByStepGrid.astro)
-  stepItems: {
-    title: "Training options & highlights",
-    items: [
+  roadmapItems: {
+    title: "Your Pilot Training Roadmap",
+    intro:
+      "Follow our proven roadmap to go from your very first flight to advanced certifications. Each stage builds on the last, so you always know what’s next.",
+    milestones: [
       {
-        title: "Accelerated PPL (Part 141)",
-        desc: "Finish in ~8 weeks, fly ~5 days/week. Starts at $12,500 and includes ~35 flight hours and ~35 ground hours with a Gleim kit.",
+        id: "ppl",
+        title: "Accelerated Private Pilot (Part 141)",
+        desc: "Begin your aviation journey with a structured 8-week program. ~5 flying days/week, from $12,500, includes ~35 flight hrs + ~35 ground hrs and a Gleim kit.",
+        img: "/src/assets/nvflight-reno-programs-become-pilot.webp",
+        href: "/programs/private-pilot-asel",
       },
       {
-        title: "Self-Paced Programs",
-        desc: "Flexible scheduling with the same high standards. Part 61 or 141 depending on your goals.",
+        id: "mountain",
+        title: "Mountain Flight Training",
+        desc: "Gain confidence in Reno-Tahoe’s unique terrain. Learn density-altitude procedures, terrain navigation, and complete a mountain checkout for rental privileges.",
+        img: "/src/assets/nvflight-reno-programs-montain-fl.webp",
+        href: "/programs/mountain-flight-training",
       },
       {
-        title: "Mountain Flying Focus",
-        desc: "Local terrain & density-altitude procedures. Mountain checkout required for rentals.",
+        id: "instrument",
+        title: "Instrument Rating (Accelerated Part 61)",
+        desc: "Advance your skills to fly safely in clouds and weather. Intensive IFR training, from $14,350, focused on real procedures and decision-making.",
+        img: "/src/assets/nv-flight-reno_5364_Original.webp",
+        href: "/programs/instrument-pilot-asel",
       },
       {
-        title: "Instrument Rating",
-        desc: "One-on-one accelerated IFR (Part 61). Starting at $14,350.",
+        id: "commercial",
+        title: "Commercial Pilot (Accelerated Part 61)",
+        desc: "Turn flying into your career path. Master commercial maneuvers and build time efficiently. Programs start at $9,950.",
+        img: "/src/assets/nv-flight-reno_8102_Original.webp",
+        href: "/programs/commercial-pilot-asel",
       },
       {
-        title: "Commercial Pilot",
-        desc: "Accelerated Commercial (Part 61). Starting at $9,950.",
-      },
-      {
+        id: "cfi",
         title: "Flight Instructor (CFI/CFII)",
-        desc: "Accelerated instructor ratings. Starting at $10,325.",
+        desc: "Launch your teaching career and build flight time while getting paid. From $10,325, includes checkride prep and lesson-plan mastery.",
+        img: "/src/assets/Trygve CFI Original.JPG",
+        href: "/programs/flight-instructor-asel",
       },
     ],
-    columns: 3,
-    numbered: false,
   },
 };
 

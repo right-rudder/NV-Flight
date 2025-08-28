@@ -86,6 +86,7 @@ const discoveryFlight = {
             "Pre-flight briefing and post-flight debrief",
             "Opportunity to ask questions about flight training",
           ],
+          img: "/src/assets/nvflight-reno-city.webp",
         },
         {
           title: "Lake Tahoe Discovery Flight",
@@ -98,6 +99,7 @@ const discoveryFlight = {
             "Extended pre-flight briefing and post-flight debrief",
             "Opportunity to take the controls for a longer period",
           ],
+          img: "/src/assets/nvflight-lake-tahoe.webp",
         },
         {
           title: "Virginia City Discovery Flight",
@@ -110,6 +112,7 @@ const discoveryFlight = {
             "Pre-flight briefing and post-flight debrief",
             "Opportunity to ask questions about flight training",
           ],
+          img: "/src/assets/nvflight-virginia-city.webp",
         },
       ],
       button: {

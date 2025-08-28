@@ -1,20 +1,26 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import HeaderScreen from "../components/HeaderScreen.astro";
 import DiscoveryForm from "../components/DiscoveryForm.astro"
 import discoveryForm from "../data/discovery-form-data.js";
+import HeaderSmall from "../components/HeaderSmall.astro";
+import discoveryFlight from "../data/discovery-flight.js";
+import DiscoveryFlightCards from "../components/DiscoveryFlightCards.astro";
+import FlightDetail from "../components/FlightDetail.astro";
 
-const { data } = discoveryForm;
+const dataForm = discoveryForm.data;
+const dataFlight = discoveryFlight.data;
 ---
 
 <BaseLayout
-  siteTitle={data.pageTitle}
-  siteDescription={data.pageDescription}
-  keywords={data.pageKeywords}
+  siteTitle={dataForm.pageTitle}
+  siteDescription={dataForm.pageDescription}
+  keywords={dataForm.pageKeywords}
 >
   <!-- <HeaderScreen content={data.header} /> -->
-  <div id="form" />
-  <DiscoveryForm content={data.info} />
+  <HeaderSmall content={dataForm.header} />
+  <FlightDetail pricing={dataFlight.pricing} />
+  <DiscoveryFlightCards flightData={dataFlight.pricing} />
+  <DiscoveryForm content={dataForm.info} />
 
   <script src="../scripts/emailValidation.js"></script>
 </BaseLayout>

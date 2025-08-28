@@ -142,7 +142,7 @@ const discoveryFlightData = discoveryFlight.data.pricing.pricingCards;
           </label>
         </div>
 
-        <button id="submit-button" form="discovery-form" disabled type="submit" class="mx-auto mt-8 btn-primary cursor-not-allowed bg-gray-400 hover:bg-gray-400 hover:text-white">
+        <button id="submit-button" form="discovery-form" disabled type="submit" class="mx-auto mt-8 btn-primary cursor-not-allowed">
           Send Message
         </button>
       </form>
@@ -215,7 +215,7 @@ const discoveryFlightData = discoveryFlight.data.pricing.pricingCards;
         ]);
 
         if (ghlRes.ok && portalRes.ok) {
-          window.location.href = "/form-confirmation";
+          window.location.href = "/discovery-form-confirmation";
         } else {
           console.error("Submission failed", {
             ghlStatus: ghlRes.status,

@@ -1,0 +1,61 @@
+---
+import ImageComp from "./ImageComp.astro";
+
+const { pricing } = Astro.props;
+
+---
+
+<section class="relative mx-auto max-w-7xl px-5 md:px-10 lg:px-20 py-16 space-y-20">
+  {pricing.pricingCards.map((card, idx) => (
+    <div
+      class={`flex flex-col lg:flex-row ${
+        idx % 2 === 1 ? "lg:flex-row-reverse" : ""
+      } items-center gap-10`}
+    >
+      <!-- Image -->
+      <div class="w-full lg:w-1/2 rounded-2xl overflow-hidden shadow-lg">
+        <ImageComp imagePath={card.img} imageAlt={card.title} styles="w-full h-auto" />
+      </div>
+
+      <!-- Text content -->
+      <div class="w-full lg:w-1/2">
+        <h3 class="text-2xl font-bold text-gray-900">{card.title}</h3>
+        <p class="text-3xl font-extrabold text-primary-600 mt-2">
+          {card.price}
+        </p>
+        <p class="mt-3 text-gray-600">{card.description}</p>
+
+        <ul class="mt-4 space-y-2 text-gray-700 text-sm">
+          {card.features.map((feature) => (
+            <li class="flex items-start gap-2">
+              <svg
+                class="h-5 w-5 text-primary-500 mt-0.5 flex-shrink-0"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+              <span>{feature}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div class="mt-6">
+          <a
+            href={pricing.button.link}
+            class="inline-flex justify-center items-center rounded-xl bg-primary-600 px-5 py-3 text-white font-semibold hover:bg-primary-700 transition"
+          >
+            {pricing.button.text}
+          </a>
+        </div>
+      </div>
+    </div>
+  ))}
+</section>
