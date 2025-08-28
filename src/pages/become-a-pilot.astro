@@ -33,7 +33,7 @@ const has = (obj, key) => obj && Array.isArray(obj[key]) && obj[key].length;
   <HeaderSmall content={becomePilotData.header} />
   <CTAWhyUs2 content={becomePilotData.cta} />
   <BecomePilotSteps content={becomePilotData.steps} />
-  <StepsAccordion steps={becomePilotData?.roadmapItems.milestones} client:load />
+  <StepsAccordion content={becomePilotData?.roadmapItems} client:load />
   <CTAColor content={flyWithUsCTA} />
   <SingleTestimony />
 
