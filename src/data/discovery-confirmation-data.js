@@ -23,4 +23,4 @@ const discoveryConfirmation = {
   },
 };
 
-export default contactConfirmation;
+export default discoveryConfirmation;

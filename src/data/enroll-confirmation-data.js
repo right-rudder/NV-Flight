@@ -23,4 +23,4 @@ const enrollConfirmation = {
   },
 };
 
-export default contactConfirmation;
+export default enrollConfirmation;
