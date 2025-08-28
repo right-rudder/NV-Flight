@@ -10,12 +10,12 @@ const { title, services, description } = Astro.props;
 <section id="services" class="py-12 bg-gray-50">
   <!-- Header -->
   <header class="container flex flex-col  items-center justify-center mx-auto max-w-7xl px-6 lg:px-8 py-6 lg:py-12">
-    {title && <h2 class="text-5xl lg:text-6xl font-title text-center lg:text-right font-bold tracking-tight text-primary-700 pb-6 uppercase">{title}</h2>}
+    {title && <h2 class="text-5xl lg:text-6xl font-title text-center font-bold tracking-tight text-primary-700 pb-6 uppercase">{title}</h2>}
     {description && <p class="mt-4 text-lg lg:pl-6 font-sans text-center lg:text-right font-normal text-gray-700">{description}</p>}
     <!-- Buttons -->
     <nav class="bs-st-button-wrapper flex justify-center gap-4 py-6">
       <!-- Prev -->
-      <button 
+      <button
         aria-label="Previous slide"
         class="js-fc-btn-prev group bg-primary-600 text-white rounded-full p-0 flex items-center justify-center h-10 w-10 md:h-12 md:w-12 hover:bg-primary-700 transition-colors"
       >
@@ -45,7 +45,7 @@ const { title, services, description } = Astro.props;
             {/* BG image */}
             <ImageComp
               imagePath={plane.imagePath}
-              imageAlt={plane.imageAlt} 
+              imageAlt={plane.imageAlt}
               loading="lazy"
               styles="opacity-20 md:opacity-70 rounded-xl w-full h-full object-cover object-center absolute inset-0"
             />

@@ -10,7 +10,7 @@ const teamPageData = {
   // Top Header
   header: {
     stars: true,
-    imagePath: "/src/assets/nv-flight-pilot-training-reno-flight-lessons.jpg",
+    imagePath: "/src/assets/nvfligh-reno-team-hero.webp",
     imageAlt:
       "NV Flight School student and flight instructor in a Cessna airplane cockpit",
     headerH1: `Meet Our <br>TEAM</span>`,
@@ -68,7 +68,7 @@ const teamPageData = {
         bio: "Trygve is the Assistant Chief Pilot at NV Flight with more than 2,000 hours across 42 U.S. states and nine countries. Raised in an airline family at Lake Tahoe, he has lived in Europe and the Middle East. He began flying 13 years ago in southern Africa in a Cessna 182 and has since flown his Piper Dakota as far as Guatemala and Maine. He has instructed for three years and is passionate about helping people grow into skilled aviators.",
       },
 
-      //,,,  Instructors,,, 
+      //,,,  Instructors,,,
       {
         id: "joel-guasch",
         name: "Joel Guasch",
