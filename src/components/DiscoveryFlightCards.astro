@@ -3,23 +3,23 @@
 const { flightData } = Astro.props;
 ---
 
-<section class="relative mx-auto max-w-7xl px-5 md:px-10 lg:px-20 py-20">
+<section class="relative mx-auto px-5 md:px-10 lg:px-20 py-20 bg-gradient-to-b from-muted-900 to-muted-700 text-white space-y-12">
   <!-- Heading -->
   <div class="text-center max-w-3xl mx-auto mb-14">
     <p class="text-primary-500 font-semibold tracking-wide uppercase">
       {flightData.upperHeading}
     </p>
-    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">
+    <h2 class="text-3xl md:text-4xl font-bold mt-2">
       {flightData.heading}
     </h2>
-    <p class="text-gray-600 mt-4">{flightData.description}</p>
+    <p class="text-muted-200 mt-4">{flightData.description}</p>
   </div>
 
   <!-- Pricing Cards -->
   <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
     {
       flightData.pricingCards.map((card) => (
-        <div class="flex flex-col bg-white rounded-2xl shadow-md border border-gray-200 overflow-hidden hover:shadow-lg transition">
+        <div class="flex flex-col bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden transition duration-300 transform-gpu hover:scale-105 hover:shadow-[0_30px_70px_-15px_theme('colors.primary.500/45%')] hover:border-primary-500 hover:ring-1 hover:ring-primary-500/30">
           <div class="p-6 flex flex-col flex-grow">
             <h3 class="text-xl font-bold text-gray-900">{card.title}</h3>
             <p class="text-3xl font-extrabold text-primary-600 mt-2">
@@ -52,10 +52,10 @@ const { flightData } = Astro.props;
 
           <div class="p-6 pt-0">
             <a
-              href={pricing.button.link}
+              href={flightData.button.link}
               class="w-full inline-flex justify-center items-center rounded-xl bg-primary-600 px-4 py-3 text-white font-semibold hover:bg-primary-700 transition"
             >
-              {pricing.button.text}
+              {flightData.button.text}
             </a>
           </div>
         </div>

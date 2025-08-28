@@ -5,9 +5,10 @@ import discoveryForm from "../data/discovery-form-data.js";
 import HeaderSmall from "../components/HeaderSmall.astro";
 import discoveryFlight from "../data/discovery-flight.js";
 import DiscoveryFlightCards from "../components/DiscoveryFlightCards.astro";
+import FlightDetail from "../components/FlightDetail.astro";
 
-const { dataForm } = discoveryForm;
-const { dataFlight } = discoveryFlight;
+const dataForm = discoveryForm.data;
+const dataFlight = discoveryFlight.data;
 ---
 
 <BaseLayout
@@ -17,7 +18,7 @@ const { dataFlight } = discoveryFlight;
 >
   <!-- <HeaderScreen content={data.header} /> -->
   <HeaderSmall content={dataForm.header} />
-  <div id="form" />
+  <FlightDetail pricing={dataFlight.pricing} />
   <DiscoveryFlightCards flightData={dataFlight.pricing} />
   <DiscoveryForm content={dataForm.info} />
 

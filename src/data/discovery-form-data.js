@@ -16,7 +16,7 @@ const discoveryForm = {
     pageKeywords: `${KEYWORDS}, discovery flight Reno, first flight lesson Nevada, introductory flight Reno NV, try flying plane Reno, scenic flights Lake Tahoe, experience flying Nevada, pilot intro flight Reno, learn to fly Reno, flight experience gift Nevada`,
 
     header: {
-      imagePath: "/src/assets/nvflight-discovery-flight-reno.jpg",
+      imagePath: "/src/assets/montain-&-plane2.jpg",
       imageAlt: `${COMPANY_NAME} aircraft flying over Reno and the Sierra Nevada mountains`,
       headerH1: "Discovery Flight",
       paragraph: `Experience the thrill of flight firsthand! Take the controls and soar over Reno, Nevada with an introductory flight at ${COMPANY_NAME}. Our discovery flights are the perfect way to explore your interest in aviation.`,
