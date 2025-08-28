@@ -2,12 +2,17 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HeaderScreen from "../components/HeaderScreen.astro";
 import becomePilotData from "../data/becomePilotData";
-import StepsGrid from "../components/StepsGrid.astro";
 import CTAWhyUs2 from "../components/CTAWhyUs2.astro";
 import FAQs from "../components/FAQs";
 import FAQSchema from "../components/FAQSchema.astro";
 import { GeneralFAQs } from "../data/general-faqs";
 import CTAPodcast from "../components/CTAPodcast.astro";
+import BecomePilotSteps from "../components/BecomePilotSteps.astro";
+import SingleTestimony from "../components/SingleTestimony.astro";
+import flyWithUsCTA from "../data/fly-with-us-cta";
+import CTAColor from "../components/CTAColor.astro";
+import StepsAccordion from "../components/StepsAccordion.jsx";
+import HeaderSmall from "../components/HeaderSmall.astro";
 
 // Transform FAQ format for schema
 const faqSchemaItems = GeneralFAQs.map((faq) => ({
@@ -17,7 +22,6 @@ const faqSchemaItems = GeneralFAQs.map((faq) => ({
 }));
 
 const has = (obj, key) => obj && Array.isArray(obj[key]) && obj[key].length;
-
 ---
 
 <BaseLayout
@@ -25,11 +29,13 @@ const has = (obj, key) => obj && Array.isArray(obj[key]) && obj[key].length;
   siteDescription={becomePilotData.pageDescription}
   keywords={becomePilotData.pageKeywords}
 >
-  <HeaderScreen content={becomePilotData.header} />
+  <!-- HEADER -->
+  <HeaderSmall content={becomePilotData.header} />
   <CTAWhyUs2 content={becomePilotData.cta} />
-  <StepsGrid content={becomePilotData.stepItems} />
-  <FAQs faqs={GeneralFAQs} type="General" client:visible />
-  <FAQSchema items={faqSchemaItems} />
-  <CTAPodcast />
+  <BecomePilotSteps content={becomePilotData.steps} />
+  <StepsAccordion steps={becomePilotData?.roadmapItems.milestones} client:load />
+  <CTAColor content={flyWithUsCTA} />
+  <SingleTestimony />
 
+  <CTAPodcast />
 </BaseLayout>

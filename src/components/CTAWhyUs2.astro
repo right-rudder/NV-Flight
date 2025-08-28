@@ -4,34 +4,39 @@ import ImageComp from "./ImageComp.astro";
 const { content } = Astro.props;
 ---
 
- <section class="py-24 px-5">
-    <div
-      class="max-w-xl gap-10 lg:max-w-7xl mx-auto flex flex-col lg:flex-row items-center lg:gap-20"
-    >
-      <div class="flex-1 relative">
-        <ImageComp
-          imagePath={content?.imagePath}
-          imageAlt={content?.imageAlt}
-          styles="w-full h-full object-cover rounded-3xl"
-        />
-        <div
-          class="h-3/4 bg-mustard-yellow absolute -z-10 -right-0 w-20 top-[12.5%]"
-        >
-        </div>
-      </div>
-      <div class="flex flex-col flex-1">
-        <h2 class="uppercase text-medium-blue font-bold tracking-widest">
-          Training with NV Flight
-        </h2>
-        <h3 class="text-5xl text-dark-blue font-bold leading-tight">
-          {content?.headerH1}
-        </h3>
-        <p class="text-gray-500 leading-relaxed my-5">
-          {content?.paragraph}
-        </p>
-        <div class="flex flex-col sm:flex-row items-center gap-5">
-          <a href="/enrollment-form" class="btn-blue">{content?.buttons?.[0]?.name}</a>
-        </div>
-      </div>
+<section class="relative overflow-hidden mt-16">
+  <div
+    class="mx-auto px-5 md:px-10 lg:px-20 pb-24 flex flex-col lg:flex-row gap-10 lg:gap-20 items-center my-16"
+  >
+    <!-- Image with polygon effect -->
+    <div class="flex-1 relative">
+      <ImageComp
+      imagePath="/src/assets/nv-flight-reno_5864_Original.webp"
+      imageAlt="Pilot and instructor in cockpit of small plane"
+      styles="w-full h-full object-cover shadow-lg rounded-md lg:[clip-path:polygon(0%_0%,_100%_5%,_100%_95%,_0%_100%)]"
+      />
     </div>
-  </section>
+
+    <!-- Text content -->
+    <div class="flex-1 flex justify-center flex-col gap-5">
+      <h3
+        class="max-w-2xl text-pretty text-4xl font-bold tracking-wide text-muted-700 sm:text-5xl"
+      >
+        {content.headerH1}
+      </h3>
+      <p class="lg:text-lg tracking-wider font-light">
+        {content.paragraph1}
+      </p>
+      <p class="lg:text-lg tracking-wider font-light">
+        {content.paragraph2}
+      </p>
+      {
+        content.buttons.map((button) => (
+          <a class="btn-primary inline-block w-fit" href={button.link}>
+            {button.name}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

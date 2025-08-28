@@ -89,7 +89,7 @@ const fleetPage = {
           horsepower: "180 HP",
           airworthiness: "Standard/Normal",
           speed: "Cruise ~107 mph",
-          imagePath: "/src/assets/Plane-N7824W-ground-ice-clouds.webp",
+          imagePath: "/src/assets/aircraft-plane-N7824W.webp",
           imageAlt: "Piper Cherokee 180 N7824W in flight over Nevada",
           description:
             "Cherokee 180 N7824W is a robust aircraft offering consistent performance for student pilots. A dependable platform for training in both VFR and IFR conditions.",
@@ -132,8 +132,7 @@ const fleetPage = {
           horsepower: "180 HP",
           airworthiness: "Standard/Normal",
           speed: "Cruise ~107 mph",
-          imagePath:
-            "/src/assets/Plane-N7969W-on-ground-blue-skies-and-clouds.webp",
+          imagePath: "/src/assets/aircraft-plane-N7969W.webp",
           imageAlt: "Piper Cherokee 180 N7969W on the runway",
           description:
             "The Cherokee 180 N7969W is one of our cornerstone training aircraft, perfectly suited for accelerated courses and mountain flying lessons.",

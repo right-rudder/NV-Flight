@@ -4,39 +4,53 @@ import ImageComp from "./ImageComp.astro";
 ---
 
 <section
-  class="relative isolate lg:mt-0 -z-0 bg-gray-800 text-muted-50 flex flex-col items-center justify-center overflow-hidden m-5 lg:m-8 rounded-3xl lg:px-12 py-16 lg:py-32"
+  class="relative isolate -z-0 bg-gray-900 text-white flex flex-col items-center justify-center overflow-hidden m-4 md:m-6 lg:m-8 rounded-3xl px-4 sm:px-6 lg:px-12 py-12 sm:py-16 lg:py-32"
 >
+  <!-- Background gradient overlay -->
   <div
-      class="absolute inset-0 bg-muted-950/50 -z-10 blur-3xl"
-    >
+    class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/70 -z-10"
+  >
   </div>
+
+  <!-- Background image -->
   <ImageComp
     imagePath={content.imagePath}
     imageAlt={content.imageAlt}
-    styles="absolute inset-0 size-full object-cover object-center md:object-center -z-20"
+    styles="absolute inset-0 size-full object-cover object-center -z-20"
   />
+
+  <!-- Content wrapper -->
   <div
-    class="text-white py-12 lg:mt-0 text-left z-10 flex flex-col items-start gap-4 px-5 h-full lg:pt-28 justify-center"
+    class="relative z-10 flex flex-col items-center lg:items-start text-center lg:text-left gap-5 max-w-5xl"
   >
-    <p class="text-3xl lg:text-4xl font-sans font-bold tracking-wide text-primary-200">
+    <!-- Top small heading -->
+    <p
+      class="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-wide text-primary-300"
+    >
       {content.paragraph1}
     </p>
+
+    <!-- Main Heading -->
     <h3
-      class="text-5xl md:text-6xl lg:text-7xl text-left md:max-w-3xl lg:max-w-5xl font-title font-black uppercase lg:tracking-tight text-muted-50"
+      class="text-4xl sm:text-5xl lg:text-7xl font-title font-black uppercase tracking-tight"
       set:html={content.headerH1}
     />
+
+    <!-- Supporting paragraph -->
     <p
-      class="text-base lg:text-2xl mt-3 font-sans font-semibold tracking-wide text-muted-50 text-left max-w-6xl"
+      class="text-base sm:text-lg lg:text-2xl font-medium text-muted-50 max-w-3xl sm:max-w-4xl mt-2 sm:mt-4"
       set:html={content.paragraph}
     />
+
+    <!-- Buttons -->
     <div
-      class="mt-6 w-full flex flex-wrap justify-start align-middle items-center gap-6 z-10"
+      class="mt-6 w-full flex flex-col sm:flex-row sm:flex-wrap gap-4 sm:gap-6 justify-center lg:justify-start"
     >
       {
         content.buttons.map((btn) => (
           <a
             href={btn.link}
-            class="btn-primary w-full md:text-2xl md:w-auto text-center"
+            class="btn-primary w-full sm:w-auto text-lg sm:text-xl px-6 py-3 text-center"
           >
             {btn.name}
           </a>
