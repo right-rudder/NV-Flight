@@ -6,34 +6,67 @@ import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
   site: "https://nvflight.com",
-  integrations: [tailwind(), sitemap(), react()],
-  redirects: {
-    "/doyle/": "/nv-flight-about",
-    "/watermark/": "/",
-    "/img_20180901_152514693_hdr/": "/nv-flight-about",
-    "/img_5937/": "/nv-flight-about",
-    "/about-us/": "/nv-flight-about/team",
-    "/accelerated-courses/": "/become-a-pilot",
-    "/contact-2/": "/contact",
-    "/our-aircraft/": "/nv-flight-about/our-fleet",
-    "/fried-gator/": "/",
-    "/placeholder-image/": "/",
-    "/international-student-pilots/": "/blog",
-    "/flight-training-financing/": "/become-a-pilot",
-    "/individual-accelerated-program/": "/programs/private-pilot-asel",
-    "/doyle/supplies-materials/": "/",
-    "/edited-copy-2/": "/",
-    "/bw-savannah-street/": "/",
-    "/far-141-flight-training/": "/",
-    "/our-pilots-achieving-goals/": "/",
-    "/learn-to-fly-reno/": "/become-a-pilot",
-    "/92812860-d09a-4c10-b71e-7e839f4ab699/": "/",
-    "/pilot-medical-qa/": "/blog",
-    "/how-long-to-get-your-private-pilot-license/": "/blog",
-    "/what-is-the-difference-between-141-and-61-flight-training/": "/blog",
-    "/wp-content/uploads/2021/12/aircraft-wb.pdf": "/",
-    "/wp-content/uploads/2023/06/n7969w-wb.pdf": "/",
-    "/wp-content/uploads/2022/08/pilot-rental-agreement-v.3.pdf": "/",
-    "/wp-content/uploads/2021/12/pa-28-180-d-poh.pdf": "/"
-  },
+  integrations: [
+    tailwind(),
+    sitemap({
+      // Exclude pages that shouldn't be indexed
+      filter: (page) => {
+        const excludePatterns = [
+          "/404",
+          "/500",
+          "/contact-form-confirmation",
+          "/discovery-form-confirmation",
+          "/enroll-form-confirmation",
+          "/privacy-policy",
+          "/terms-of-service",
+        ];
+        return !excludePatterns.some((pattern) => page.includes(pattern));
+      },
+
+      // Configure sitemap generation settings
+      changefreq: "weekly",
+      priority: 0.7,
+      lastmod: new Date(),
+
+      // Customize individual page properties
+      serialize: (item) => {
+        // Homepage gets highest priority
+        if (item.url === "" || item.url === "/") {
+          item.priority = 1.0;
+          item.changefreq = "weekly";
+        }
+        // High priority for main conversion pages
+        else if (
+          item.url.includes("/become-a-pilot") ||
+          item.url.includes("/programs") ||
+          item.url.includes("/discovery-flight") ||
+          item.url.includes("/enroll")
+        ) {
+          item.priority = 0.9;
+          item.changefreq = "monthly";
+        }
+        // Blog content gets good priority and frequent updates
+        else if (item.url.includes("/blog")) {
+          item.priority = 0.8;
+          item.changefreq = "weekly";
+        }
+        // About pages are important but change less frequently
+        else if (item.url.includes("/nv-flight-about")) {
+          item.priority = 0.7;
+          item.changefreq = "monthly";
+        }
+        // Contact and other pages
+        else if (item.url.includes("/contact")) {
+          item.priority = 0.6;
+          item.changefreq = "monthly";
+        }
+
+        // Ensure lastmod is set for all pages
+        item.lastmod = new Date();
+
+        return item;
+      },
+    }),
+    react(),
+  ],
 });
