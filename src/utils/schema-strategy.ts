@@ -1,6 +1,6 @@
 /**
  * Schema Strategy Utilities
- * 
+ *
  * This utility provides functions to generate and manage structured data
  * across the NV Flight website for optimal SEO performance.
  */
@@ -68,7 +68,8 @@ export interface SchemaConfig {
 export const DEFAULT_SCHEMA_CONFIG: SchemaConfig = {
   organization: {
     name: COMPANY_NAME,
-    description: "Premier flight training school in Reno, Nevada, offering comprehensive pilot education from private pilot licenses to advanced commercial certifications.",
+    description:
+      "Premier flight training school in Reno, Nevada, offering comprehensive pilot education from private pilot licenses to advanced commercial certifications.",
     url: WEBSITE_URL,
     logo: "/nvflight-nobg.webp",
     contactInfo: {
@@ -76,22 +77,29 @@ export const DEFAULT_SCHEMA_CONFIG: SchemaConfig = {
       email: "renodesk@nvflight.com",
       address: {
         street: "Gentry Wy",
-        city: "Reno", 
+        city: "Reno",
         state: "NV",
-        zip: "89502"
-      }
+        zip: "89502",
+      },
     },
     socialProfiles: [
       "https://www.facebook.com/nvflight/",
-      "https://www.instagram.com/nvflight/"
+      "https://www.instagram.com/nvflight/",
     ],
     businessHours: [
       {
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        dayOfWeek: [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+        ],
         opens: "09:00",
-        closes: "17:00"
-      }
-    ]
+        closes: "17:00",
+      },
+    ],
   },
 
   services: [
@@ -99,198 +107,208 @@ export const DEFAULT_SCHEMA_CONFIG: SchemaConfig = {
       name: "Private Pilot License Training",
       description: "Complete training program for private pilot certification",
       category: "Flight Training",
-      duration: "6-12 months"
+      duration: "6-12 months",
     },
     {
-      name: "Instrument Rating Training", 
-      description: "Advanced training for instrument flight rules certification",
+      name: "Instrument Rating Training",
+      description:
+        "Advanced training for instrument flight rules certification",
       category: "Advanced Training",
-      duration: "3-6 months"
+      duration: "3-6 months",
     },
     {
       name: "Commercial Pilot License Training",
       description: "Professional pilot certification training program",
-      category: "Professional Training", 
-      duration: "12-18 months"
+      category: "Professional Training",
+      duration: "12-18 months",
     },
     {
       name: "Multi-Engine Rating",
       description: "Training for multi-engine aircraft operations",
       category: "Advanced Training",
-      duration: "2-4 weeks"
+      duration: "2-4 weeks",
     },
     {
       name: "Certified Flight Instructor Training",
       description: "Training to become a certified flight instructor",
       category: "Instructor Training",
-      duration: "4-8 weeks"
+      duration: "4-8 weeks",
     },
     {
       name: "Discovery Flights",
       description: "Introductory flight experience for prospective pilots",
       category: "Introduction",
       duration: "1-2 hours",
-      price: "Starting at $199"
-    }
+      price: "Starting at $199",
+    },
   ],
 
   courses: [
     {
       name: "Private Pilot Ground School",
-      description: "Comprehensive ground training for private pilot certification",
+      description:
+        "Comprehensive ground training for private pilot certification",
       provider: COMPANY_NAME,
       courseMode: "blended",
-      timeRequired: "40 hours"
+      timeRequired: "40 hours",
     },
     {
-      name: "Instrument Rating Ground School", 
+      name: "Instrument Rating Ground School",
       description: "Advanced ground training for instrument rating",
       provider: COMPANY_NAME,
       courseMode: "blended",
-      timeRequired: "35 hours"
+      timeRequired: "35 hours",
     },
     {
       name: "Commercial Pilot Ground School",
       description: "Professional pilot ground training program",
       provider: COMPANY_NAME,
-      courseMode: "blended", 
-      timeRequired: "60 hours"
-    }
+      courseMode: "blended",
+      timeRequired: "60 hours",
+    },
   ],
 
   seo: {
     defaultRating: {
       value: 4.9,
-      count: 127
+      count: 127,
     },
     keywords: [
       "flight training",
-      "pilot school", 
+      "pilot school",
       "aviation education",
       "private pilot license",
       "instrument rating",
       "commercial pilot",
       "flight instructor",
-      "discovery flight"
+      "discovery flight",
     ],
-    categories: [
-      "Education",
-      "Aviation",
-      "Training",
-      "Transportation"
-    ]
-  }
+    categories: ["Education", "Aviation", "Training", "Transportation"],
+  },
 };
 
 /**
  * Generate organization schema based on configuration
  */
-export function generateOrganizationSchema(config: SchemaConfig = DEFAULT_SCHEMA_CONFIG) {
+export function generateOrganizationSchema(
+  config: SchemaConfig = DEFAULT_SCHEMA_CONFIG
+) {
   const { organization, seo } = config;
-  
+
   return {
     "@context": "https://schema.org",
-    "@type": ["Organization", "FlightSchool", "EducationalOrganization", "LocalBusiness"],
+    "@type": [
+      "Organization",
+      "FlightSchool",
+      "EducationalOrganization",
+      "LocalBusiness",
+    ],
     "@id": `${organization.url}#organization`,
-    "name": organization.name,
-    "description": organization.description,
-    "url": organization.url,
-    "logo": {
+    name: organization.name,
+    description: organization.description,
+    url: organization.url,
+    logo: {
       "@type": "ImageObject",
-      "url": new URL(organization.logo, organization.url).toString()
+      url: new URL(organization.logo, organization.url).toString(),
     },
-    "telephone": organization.contactInfo.phone,
-    "email": organization.contactInfo.email,
-    "address": {
+    telephone: organization.contactInfo.phone,
+    email: organization.contactInfo.email,
+    address: {
       "@type": "PostalAddress",
-      "streetAddress": organization.contactInfo.address.street,
-      "addressLocality": organization.contactInfo.address.city,
-      "addressRegion": organization.contactInfo.address.state,
-      "postalCode": organization.contactInfo.address.zip,
-      "addressCountry": "US"
+      streetAddress: organization.contactInfo.address.street,
+      addressLocality: organization.contactInfo.address.city,
+      addressRegion: organization.contactInfo.address.state,
+      postalCode: organization.contactInfo.address.zip,
+      addressCountry: "US",
     },
-    "sameAs": organization.socialProfiles,
-    "openingHoursSpecification": organization.businessHours,
-    "aggregateRating": {
+    sameAs: organization.socialProfiles,
+    openingHoursSpecification: organization.businessHours,
+    aggregateRating: {
       "@type": "AggregateRating",
-      "ratingValue": seo.defaultRating.value.toString(),
-      "reviewCount": seo.defaultRating.count.toString(),
-      "bestRating": "5",
-      "worstRating": "1"
-    }
+      ratingValue: seo.defaultRating.value.toString(),
+      reviewCount: seo.defaultRating.count.toString(),
+      bestRating: "5",
+      worstRating: "1",
+    },
   };
 }
 
 /**
  * Generate service schema based on configuration
  */
-export function generateServiceSchema(config: SchemaConfig = DEFAULT_SCHEMA_CONFIG) {
+export function generateServiceSchema(
+  config: SchemaConfig = DEFAULT_SCHEMA_CONFIG
+) {
   const { services, organization } = config;
-  
-  return services.map(service => ({
+
+  return services.map((service) => ({
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": service.name,
-    "description": service.description,
-    "category": service.category,
-    "provider": {
+    name: service.name,
+    description: service.description,
+    category: service.category,
+    provider: {
       "@type": "Organization",
-      "name": organization.name,
-      "@id": `${organization.url}#organization`
+      name: organization.name,
+      "@id": `${organization.url}#organization`,
     },
-    "offers": {
+    offers: {
       "@type": "Offer",
-      "price": service.price || "Contact for pricing",
-      "priceCurrency": "USD"
+      price: service.price || "Contact for pricing",
+      priceCurrency: "USD",
     },
-    "timeRequired": service.duration
+    timeRequired: service.duration,
   }));
 }
 
 /**
  * Generate course schema based on configuration
  */
-export function generateCourseSchema(config: SchemaConfig = DEFAULT_SCHEMA_CONFIG) {
+export function generateCourseSchema(
+  config: SchemaConfig = DEFAULT_SCHEMA_CONFIG
+) {
   const { courses, organization } = config;
-  
-  return courses.map(course => ({
+
+  return courses.map((course) => ({
     "@context": "https://schema.org",
     "@type": "Course",
-    "name": course.name,
-    "description": course.description,
-    "provider": {
+    name: course.name,
+    description: course.description,
+    provider: {
       "@type": "Organization",
-      "name": course.provider,
-      "@id": `${organization.url}#organization`
+      name: course.provider,
+      "@id": `${organization.url}#organization`,
     },
-    "hasCourseInstance": {
+    hasCourseInstance: {
       "@type": "CourseInstance",
-      "courseMode": course.courseMode,
-      "timeRequired": course.timeRequired
-    }
+      courseMode: course.courseMode,
+      timeRequired: course.timeRequired,
+    },
   }));
 }
 
 /**
  * Generate website schema with search capabilities
  */
-export function generateWebsiteSchema(config: SchemaConfig = DEFAULT_SCHEMA_CONFIG) {
+export function generateWebsiteSchema(
+  config: SchemaConfig = DEFAULT_SCHEMA_CONFIG
+) {
   const { organization } = config;
-  
+
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": `${organization.url}#website`,
-    "name": organization.name,
-    "url": organization.url,
-    "potentialAction": {
+    name: organization.name,
+    url: organization.url,
+    potentialAction: {
       "@type": "SearchAction",
-      "target": {
+      target: {
         "@type": "EntryPoint",
-        "urlTemplate": `${organization.url}/search?q={search_term_string}`
+        urlTemplate: `${organization.url}/search?q={search_term_string}`,
       },
-      "query-input": "required name=search_term_string"
-    }
+      "query-input": "required name=search_term_string",
+    },
   };
 }
 
@@ -299,18 +317,18 @@ export function generateWebsiteSchema(config: SchemaConfig = DEFAULT_SCHEMA_CONF
  */
 export class SchemaValidator {
   static validateOrganization(schema: any): boolean {
-    const required = ['@context', '@type', 'name', 'url'];
-    return required.every(field => schema[field]);
+    const required = ["@context", "@type", "name", "url"];
+    return required.every((field) => schema[field]);
   }
 
   static validateService(schema: any): boolean {
-    const required = ['@context', '@type', 'name', 'provider'];
-    return required.every(field => schema[field]);
+    const required = ["@context", "@type", "name", "provider"];
+    return required.every((field) => schema[field]);
   }
 
   static validateCourse(schema: any): boolean {
-    const required = ['@context', '@type', 'name', 'provider'];
-    return required.every(field => schema[field]);
+    const required = ["@context", "@type", "name", "provider"];
+    return required.every((field) => schema[field]);
   }
 
   static logValidation(schemaType: string, schema: any, isValid: boolean) {
@@ -331,33 +349,35 @@ export class SEOEnhancer {
    */
   static extractKeywords(schemas: any[]): string[] {
     const keywords = new Set<string>();
-    
-    schemas.forEach(schema => {
+
+    schemas.forEach((schema) => {
       if (schema.name) {
         keywords.add(schema.name.toLowerCase());
       }
       if (schema.description) {
         // Extract meaningful words from description
-        const words = schema.description
-          .toLowerCase()
-          .match(/\b[a-z]{3,}\b/g) || [];
-        words.forEach(word => keywords.add(word));
+        const words =
+          schema.description.toLowerCase().match(/\b[a-z]{3,}\b/g) || [];
+        words.forEach((word) => keywords.add(word));
       }
     });
-    
+
     return Array.from(keywords);
   }
 
   /**
    * Generate meta description from schema
    */
-  static generateMetaDescription(organizationSchema: any, maxLength: number = 160): string {
-    let description = organizationSchema.description || '';
-    
+  static generateMetaDescription(
+    organizationSchema: any,
+    maxLength: number = 160
+  ): string {
+    let description = organizationSchema.description || "";
+
     if (description.length > maxLength) {
-      description = description.substring(0, maxLength - 3) + '...';
+      description = description.substring(0, maxLength - 3) + "...";
     }
-    
+
     return description;
   }
 
@@ -366,14 +386,19 @@ export class SEOEnhancer {
    */
   static calculateCompletenessScore(schema: any): number {
     const optionalFields = [
-      'description', 'image', 'telephone', 'address', 
-      'openingHours', 'aggregateRating', 'sameAs'
+      "description",
+      "image",
+      "telephone",
+      "address",
+      "openingHours",
+      "aggregateRating",
+      "sameAs",
     ];
-    
-    const presentFields = optionalFields.filter(field => 
-      schema[field] !== undefined && schema[field] !== null
+
+    const presentFields = optionalFields.filter(
+      (field) => schema[field] !== undefined && schema[field] !== null
     );
-    
+
     return Math.round((presentFields.length / optionalFields.length) * 100);
   }
 }

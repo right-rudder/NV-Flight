@@ -29,8 +29,11 @@ const desiredOrder = [
 
 // normalize: lowercase, strip non-alphanumerics, collapse spaces
 const baseNorm = (s) =>
-  String(s || "").toLowerCase().replace(/\([^)]*\)/g, "") // remove (CFII), etc.
-    .replace(/[^a-z0-9]+/g, " ").trim();
+  String(s || "")
+    .toLowerCase()
+    .replace(/\([^)]*\)/g, "") // remove (CFII), etc.
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
 
 // alias map to unify variants
 const alias = new Map([
@@ -46,30 +49,37 @@ const norm = (s) => {
 const orderIndex = new Map(desiredOrder.map((t, i) => [norm(t), i]));
 
 const itemsSorted = items.slice().sort((a, b) => {
-  const ai = orderIndex.has(norm(a.data.title)) ? orderIndex.get(norm(a.data.title)) : 999;
-  const bi = orderIndex.has(norm(b.data.title)) ? orderIndex.get(norm(b.data.title)) : 999;
+  const ai = orderIndex.has(norm(a.data.title))
+    ? orderIndex.get(norm(a.data.title))
+    : 999;
+  const bi = orderIndex.has(norm(b.data.title))
+    ? orderIndex.get(norm(b.data.title))
+    : 999;
   if (ai !== bi) return ai - bi;
   return a.data.title.localeCompare(b.data.title);
 });
-  
+
 const siteTitle = "Accelerated & Individual Programs | NV Flight";
-const siteDescription = "Train with intent. Instructors tailor a plan around your schedule and goals while holding you to FAA ACS standards.";
+const siteDescription =
+  "Train with intent. Instructors tailor a plan around your schedule and goals while holding you to FAA ACS standards.";
 
 const dataHero = {
   title: "Accelerated & Individual Programs",
   headerH1: "Pilot Training Programs",
-  paragraph: "Our programs take you from first flight to advanced ratings with a clear, proven structure. Each course follows an ACS-aligned syllabus, blends targeted ground with scenario-based flight, and includes stage checks to verify real-world proficiency. Whether you train individually or on an accelerated timeline, you’ll build disciplined habits, sound judgment, and the confidence to fly safely, every time.",
-  imagePath: "/src/assets/N7824W-plane-with-student-pilot-reno-flight-lessons.webp",
+  paragraph:
+    "Our programs take you from first flight to advanced ratings with a clear, proven structure. Each course follows an ACS-aligned syllabus, blends targeted ground with scenario-based flight, and includes stage checks to verify real-world proficiency. Whether you train individually or on an accelerated timeline, you’ll build disciplined habits, sound judgment, and the confidence to fly safely, every time.",
+  imagePath:
+    "/src/assets/N7824W-plane-with-student-pilot-reno-flight-lessons.webp",
   imageAlt: "NV Flight aircraft in flight over the Sierra Nevada",
   buttons: [
     { name: "Get Started", link: "/contact", primary: true },
-    { name: "Schedule a Discovery Flight", link: "/discovery-flight" }
-  ]
+    { name: "Schedule a Discovery Flight", link: "/discovery-flight" },
+  ],
 };
 ---
 
-<BaseLayout 
-  siteTitle={siteTitle} 
+<BaseLayout
+  siteTitle={siteTitle}
   siteDescription={siteDescription}
   pageType="service"
   includeOrganizationSchema={true}
@@ -77,13 +87,28 @@ const dataHero = {
   includeCourseSchema={true}
 >
   <HeaderSmall content={dataHero} />
-  <section class="relative isolate overflow-hidden bg-gradient-to-b from-slate-50 to-white">
+  <section
+    class="relative isolate overflow-hidden bg-gradient-to-b from-slate-50 to-white"
+  >
     <div class="mx-auto max-w-7xl px-6 pb-8 pt-24 lg:px-8">
       <div class="mx-auto max-w-5xl text-center">
-        <p class="text-xs uppercase tracking-[0.2em] text-accent-700 font-semibold">Explore our Programs</p>
-        <h1 class="mt-3 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">Accelerated & Individual Training</h1>
+        <p
+          class="text-xs uppercase tracking-[0.2em] text-accent-700 font-semibold"
+        >
+          Explore our Programs
+        </p>
+        <h1
+          class="mt-3 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl"
+        >
+          Accelerated & Individual Training
+        </h1>
         <p class="mt-5 text-lg leading-8 text-muted-600">
-          Our programs take you from first flight to advanced ratings with a clear, proven structure. Each course follows an ACS-aligned syllabus, blends targeted ground with scenario-based flight, and includes stage checks to verify real-world proficiency. Whether you train individually or on an accelerated timeline, you’ll build disciplined habits, sound judgment, and the confidence to fly safely, every time.
+          Our programs take you from first flight to advanced ratings with a
+          clear, proven structure. Each course follows an ACS-aligned syllabus,
+          blends targeted ground with scenario-based flight, and includes stage
+          checks to verify real-world proficiency. Whether you train
+          individually or on an accelerated timeline, you’ll build disciplined
+          habits, sound judgment, and the confidence to fly safely, every time.
         </p>
       </div>
     </div>
@@ -91,33 +116,54 @@ const dataHero = {
 
   <section class="mx-auto max-w-7xl px-6 py-10 sm:py-16 lg:px-8">
     <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      {itemsSorted.map(({ slug, data }) => (
-        <article class="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:shadow-lg">
-          <a href={`/programs/${slug}`} class="focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2">
-            <ImageComp imagePath={data.imagePath} imageAlt={data.imageAlt} styles="h-56 w-full object-cover" quality={80} />
-          </a>
-          <div class="flex flex-1 flex-col justify-between p-6">
-            <div>
-              <h2 class="text-xl font-semibold text-slate-900 group-hover:text-accent-700">
-                <a href={`/programs/${slug}`}>{data.title}</a>
-              </h2>
-              <p class="mt-2 text-sm text-slate-600">{data.description}</p>
-              <div class="mt-4 flex items-center gap-2 text-xs text-slate-500">
-                {data.part && <span class="inline-flex items-center rounded-full bg-primary-500/40 px-2 py-1 text-primary-700 ring-1 ring-primary-200">{data.part}</span>}
-                {data.syllabus && <span class="inline-flex items-center rounded-full bg-slate-50 px-2 py-1 text-slate-700 ring-1 ring-slate-200">{data.syllabus}</span>}
+      {
+        itemsSorted.map(({ slug, data }) => (
+          <article class="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:shadow-lg">
+            <a
+              href={`/programs/${slug}`}
+              class="focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2"
+            >
+              <ImageComp
+                imagePath={data.imagePath}
+                imageAlt={data.imageAlt}
+                styles="h-56 w-full object-cover"
+                quality={80}
+              />
+            </a>
+            <div class="flex flex-1 flex-col justify-between p-6">
+              <div>
+                <h2 class="text-xl font-semibold text-slate-900 group-hover:text-accent-700">
+                  <a href={`/programs/${slug}`}>{data.title}</a>
+                </h2>
+                <p class="mt-2 text-sm text-slate-600">{data.description}</p>
+                <div class="mt-4 flex items-center gap-2 text-xs text-slate-500">
+                  {data.part && (
+                    <span class="inline-flex items-center rounded-full bg-primary-500/40 px-2 py-1 text-primary-700 ring-1 ring-primary-200">
+                      {data.part}
+                    </span>
+                  )}
+                  {data.syllabus && (
+                    <span class="inline-flex items-center rounded-full bg-slate-50 px-2 py-1 text-slate-700 ring-1 ring-slate-200">
+                      {data.syllabus}
+                    </span>
+                  )}
+                </div>
               </div>
-            </div>
-            <div class="mt-6 flex items-center gap-3">
-              <a href={`/programs/${slug}`} class="inline-flex items-center rounded-full border border-transparent btn-primary px-4 py-2 text-sm font-medium text-white transition hover:bg-accent-700">
-                View program
-              </a>
-              {/* <a href="/contact" class="inline-flex items-center rounded-lg border btn-accent px-4 py-2 text-sm font-medium btn-accent transition hover:bg-accent-50">
+              <div class="mt-6 flex items-center gap-3">
+                <a
+                  href={`/programs/${slug}`}
+                  class="inline-flex items-center rounded-full border border-transparent btn-primary px-4 py-2 text-sm font-medium text-white transition hover:bg-accent-700"
+                >
+                  View program
+                </a>
+                {/* <a href="/contact" class="inline-flex items-center rounded-lg border btn-accent px-4 py-2 text-sm font-medium btn-accent transition hover:bg-accent-50">
                 Ask a question
               </a> */}
+              </div>
             </div>
-          </div>
-        </article>
-      ))}
+          </article>
+        ))
+      }
     </div>
   </section>
   <CTAColor content={flyWithUsCTA2} />

@@ -11,10 +11,11 @@ The schema strategy provides a centralized, automated approach to generating str
 ### Core Components
 
 #### 1. **SchemaManager.astro**
+
 Central component that orchestrates all structured data generation based on page context and requirements.
 
 ```astro
-<SchemaManager 
+<SchemaManager
   pageType="homepage"
   includeOrganization={true}
   includeServices={true}
@@ -23,6 +24,7 @@ Central component that orchestrates all structured data generation based on page
 ```
 
 #### 2. **Schema Strategy Utilities** (`/utils/schema-strategy.ts`)
+
 Comprehensive utility functions for generating different types of structured data:
 
 - `generateOrganizationSchema()` - Core business information
@@ -33,6 +35,7 @@ Comprehensive utility functions for generating different types of structured dat
 - `SEOEnhancer` - SEO optimization utilities
 
 #### 3. **Individual Schema Components**
+
 Specialized components for specific schema types:
 
 - `OrganizationSchema.astro` - Business entity markup
@@ -45,6 +48,7 @@ Specialized components for specific schema types:
 ## Schema Types Implemented
 
 ### 1. Organization Schema
+
 ```json
 {
   "@type": ["Organization", "FlightSchool", "EducationalOrganization", "LocalBusiness"],
@@ -57,11 +61,13 @@ Specialized components for specific schema types:
 ```
 
 **Benefits:**
+
 - Enhanced local search visibility
 - Rich snippets in search results
 - Clear business identity for search engines
 
 ### 2. Service Schema
+
 ```json
 {
   "@type": "Service",
@@ -73,14 +79,16 @@ Specialized components for specific schema types:
 ```
 
 **Benefits:**
+
 - Service-specific search results
 - Clear pricing and duration information
 - Enhanced service discovery
 
 ### 3. Course Schema
+
 ```json
 {
-  "@type": "Course", 
+  "@type": "Course",
   "name": "Private Pilot Ground School",
   "provider": {...},
   "hasCourseInstance": {...}
@@ -88,11 +96,13 @@ Specialized components for specific schema types:
 ```
 
 **Benefits:**
+
 - Educational content visibility
 - Course comparison features
 - Learning outcome clarity
 
 ### 4. Review Schema
+
 ```json
 {
   "@type": "Review",
@@ -103,6 +113,7 @@ Specialized components for specific schema types:
 ```
 
 **Benefits:**
+
 - Star ratings in search results
 - Social proof display
 - Trust indicators
@@ -110,14 +121,16 @@ Specialized components for specific schema types:
 ## Page-Specific Implementation
 
 ### Homepage Schema Stack
+
 - ✅ Organization (primary business info)
-- ✅ Website (search capabilities)  
+- ✅ Website (search capabilities)
 - ✅ Services (all training programs)
 - ✅ Courses (educational content)
 - ✅ Breadcrumbs (navigation)
 - ✅ FAQ (common questions)
 
 ### Service Pages Schema Stack
+
 - ✅ Organization (business context)
 - ✅ Service (specific offering)
 - ✅ Course (if educational)
@@ -125,6 +138,7 @@ Specialized components for specific schema types:
 - ✅ WebPage (page metadata)
 
 ### Blog Pages Schema Stack
+
 - ✅ Organization (business context)
 - ✅ Article (content markup)
 - ✅ Breadcrumbs (navigation)
@@ -132,6 +146,7 @@ Specialized components for specific schema types:
 - ✅ Author (content creator)
 
 ### Contact Pages Schema Stack
+
 - ✅ Organization (contact info)
 - ✅ ContactPoint (communication)
 - ✅ Breadcrumbs (navigation)
@@ -140,6 +155,7 @@ Specialized components for specific schema types:
 ## Configuration Management
 
 ### Default Configuration
+
 The system uses a comprehensive default configuration in `schema-strategy.ts`:
 
 ```typescript
@@ -164,6 +180,7 @@ export const DEFAULT_SCHEMA_CONFIG: SchemaConfig = {
 ```
 
 ### Custom Configuration
+
 Pages can override default settings:
 
 ```astro
@@ -184,18 +201,21 @@ const customConfig = {
 ## SEO Benefits
 
 ### Search Result Enhancements
+
 - **Rich Snippets**: Star ratings, business info, pricing
 - **Knowledge Panels**: Complete business profile
 - **Service Listings**: Individual service visibility
 - **Course Catalogs**: Educational content discovery
 
-### Local SEO Improvements  
+### Local SEO Improvements
+
 - **Map Listings**: Enhanced local business presence
 - **Contact Information**: Direct phone/email display
 - **Operating Hours**: Business availability info
 - **Location Details**: Precise geographic data
 
 ### Content Discovery
+
 - **Breadcrumb Navigation**: Site structure clarity
 - **FAQ Display**: Direct answer snippets
 - **Article Markup**: Blog content optimization
@@ -204,21 +224,24 @@ const customConfig = {
 ## Validation & Debugging
 
 ### Development Tools
+
 ```javascript
 // Automatic validation in development
 if (import.meta.env.DEV) {
-  SchemaValidator.logValidation('Organization', schema, isValid);
+  SchemaValidator.logValidation("Organization", schema, isValid);
   console.log(`Schema completeness: ${completenessScore}%`);
 }
 ```
 
 ### Testing Tools
+
 - **Google Rich Results Test**: Validate markup
 - **Schema.org Validator**: Check structure
 - **Search Console**: Monitor performance
 - **Browser DevTools**: Debug implementation
 
 ### Validation Methods
+
 ```typescript
 // Built-in validation
 SchemaValidator.validateOrganization(schema);
@@ -232,18 +255,21 @@ SEOEnhancer.calculateCompletenessScore(schema);
 ## Implementation Guide
 
 ### Basic Integration
+
 1. **Import SchemaManager** in layouts
 2. **Configure page type** and schema includes
 3. **Test in development** with console logging
 4. **Validate with tools** before deployment
 
 ### Advanced Customization
+
 1. **Create custom configurations** for specific pages
 2. **Add new schema types** as needed
 3. **Implement tracking** for schema performance
 4. **Monitor search results** for improvements
 
 ### Best Practices
+
 - **Use page-specific schemas** rather than global
 - **Validate all markup** before deployment
 - **Monitor schema completeness** scores
@@ -253,12 +279,14 @@ SEOEnhancer.calculateCompletenessScore(schema);
 ## Performance Considerations
 
 ### Optimization Features
+
 - **Conditional loading** based on page type
 - **Schema validation** only in development
 - **Minimal payload** for production
 - **Efficient generation** with utility functions
 
 ### Monitoring
+
 - Track schema completeness scores
 - Monitor rich result appearances
 - Measure local search performance
@@ -267,6 +295,7 @@ SEOEnhancer.calculateCompletenessScore(schema);
 ## Future Enhancements
 
 ### Planned Features
+
 - **Dynamic schema generation** from CMS data
 - **A/B testing** for schema variations
 - **Multilingual schema** support
@@ -274,6 +303,7 @@ SEOEnhancer.calculateCompletenessScore(schema);
 - **Event schema automation**
 
 ### Integration Opportunities
+
 - **CRM integration** for customer data
 - **Review platform APIs** for ratings
 - **Calendar systems** for events
@@ -282,12 +312,14 @@ SEOEnhancer.calculateCompletenessScore(schema);
 ## Maintenance
 
 ### Regular Tasks
+
 - **Update business information** as needed
 - **Add new services/courses** to configuration
 - **Monitor schema validation** results
 - **Check rich result performance**
 
 ### Troubleshooting
+
 - **Validation errors**: Check required fields
 - **Missing rich results**: Verify markup completeness
 - **Performance issues**: Optimize schema generation
