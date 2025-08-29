@@ -1,0 +1,82 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Navbar from "../components/Navbar";
+import SocialMediaSchema from "../components/SocialMediaSchema.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import BreadcrumbSchema from "../components/BreadcrumbSchema.astro";
+import { SITE_TITLE, SITE_DESCRIPTION, KEYWORDS, OG_IMAGE } from "../consts";
+import { generateBreadcrumbs } from "../utils/breadcrumbs";
+
+interface Props {
+  siteTitle?: string;
+  siteDescription?: string;
+  keywords?: string;
+  showBreadcrumbs?: boolean;
+  breadcrumbsClassName?: string;
+}
+
+const {
+  siteTitle,
+  siteDescription,
+  keywords,
+  showBreadcrumbs = true,
+  breadcrumbsClassName = "px-6 py-4 bg-gray-50/50 border-b border-gray-200",
+} = Astro.props;
+
+const { pathname } = Astro.url;
+const breadcrumbs = showBreadcrumbs ? await generateBreadcrumbs(Astro.url) : [];
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <BaseHead
+      title={siteTitle || SITE_TITLE}
+      description={siteDescription || SITE_DESCRIPTION}
+      keywords={keywords || KEYWORDS}
+      image={OG_IMAGE}
+    />
+    {
+      showBreadcrumbs && breadcrumbs.length > 1 && (
+        <BreadcrumbSchema items={breadcrumbs} />
+      )
+    }
+  </head>
+  <body class="font-sans">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-MF23MRJM"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <header class="w-full h-0 sticky inset-0 z-50 font-sans tracking-wider">
+      <Navbar pathname={pathname} client:load />
+    </header>
+
+    <!-- Breadcrumbs Navigation -->
+    {
+      showBreadcrumbs && breadcrumbs.length > 1 && (
+        <div class={breadcrumbsClassName}>
+          <div class="max-w-7xl mx-auto">
+            <Breadcrumbs items={breadcrumbs} />
+          </div>
+        </div>
+      )
+    }
+
+    <main>
+      <slot />
+    </main>
+
+    <Footer />
+    <SocialMediaSchema
+      title={siteTitle || SITE_TITLE}
+      description={siteDescription || SITE_DESCRIPTION}
+    />
+  </body>
+</html>

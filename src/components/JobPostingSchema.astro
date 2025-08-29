@@ -1,0 +1,77 @@
+---
+import { COMPANY_NAME, WEBSITE_URL } from "../consts";
+
+interface Props {
+  jobTitle: string;
+  description: string;
+  requirements?: string[];
+  responsibilities?: string[];
+  salary?: string;
+  employmentType?: "FULL_TIME" | "PART_TIME" | "CONTRACTOR" | "TEMPORARY";
+  experienceLevel?: "EntryLevel" | "Internship" | "MidLevel" | "SeniorLevel" | "Executive";
+  location?: string;
+  datePosted?: string;
+  validThrough?: string;
+}
+
+const {
+  jobTitle,
+  description,
+  requirements = [],
+  responsibilities = [],
+  salary,
+  employmentType = "FULL_TIME",
+  experienceLevel = "MidLevel", 
+  location = "Reno, NV",
+  datePosted = new Date().toISOString().split('T')[0],
+  validThrough
+} = Astro.props;
+
+const websiteUrl = Astro.site?.toString() || WEBSITE_URL;
+const jobId = `${websiteUrl}/careers#${jobTitle.toLowerCase().replace(/\s+/g, '-')}`;
+---
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "JobPosting",
+  "@id": jobId,
+  "title": jobTitle,
+  "description": description,
+  "identifier": {
+    "@type": "PropertyValue",
+    "name": COMPANY_NAME,
+    "value": jobId
+  },
+  "datePosted": datePosted,
+  "validThrough": validThrough,
+  "employmentType": employmentType,
+  "hiringOrganization": {
+    "@type": "Organization",
+    "name": COMPANY_NAME,
+    "@id": `${websiteUrl}#organization`
+  },
+  "jobLocation": {
+    "@type": "Place",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Reno",
+      "addressRegion": "NV",
+      "addressCountry": "US"
+    }
+  },
+  "baseSalary": salary ? {
+    "@type": "MonetaryAmount",
+    "currency": "USD",
+    "value": {
+      "@type": "QuantitativeValue", 
+      "value": salary
+    }
+  } : undefined,
+  "qualifications": requirements.join("; "),
+  "responsibilities": responsibilities.join("; "),
+  "experienceRequirements": experienceLevel,
+  "occupationalCategory": "Aviation and Aerospace",
+  "industry": "Education and Training",
+  "workHours": employmentType === "FULL_TIME" ? "40 hours per week" : undefined
+})}>
+</script>

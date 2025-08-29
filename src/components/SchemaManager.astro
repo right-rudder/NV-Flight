@@ -1,0 +1,101 @@
+---
+import { 
+  generateOrganizationSchema, 
+  generateServiceSchema, 
+  generateCourseSchema,
+  generateWebsiteSchema,
+  DEFAULT_SCHEMA_CONFIG,
+  SchemaValidator,
+  SEOEnhancer
+} from "../utils/schema-strategy";
+
+interface Props {
+  pageType?: "homepage" | "service" | "course" | "blog" | "contact" | "about";
+  includeOrganization?: boolean;
+  includeServices?: boolean;
+  includeCourses?: boolean;
+  includeWebsite?: boolean;
+  customConfig?: any;
+}
+
+const {
+  pageType = "homepage",
+  includeOrganization = true,
+  includeServices = false,
+  includeCourses = false,
+  includeWebsite = true,
+  customConfig
+} = Astro.props;
+
+const config = customConfig || DEFAULT_SCHEMA_CONFIG;
+const schemas: any[] = [];
+
+// Generate schemas based on page type and props
+if (includeOrganization) {
+  const orgSchema = generateOrganizationSchema(config);
+  if (SchemaValidator.validateOrganization(orgSchema)) {
+    schemas.push(orgSchema);
+  }
+}
+
+if (includeWebsite) {
+  const websiteSchema = generateWebsiteSchema(config);
+  schemas.push(websiteSchema);
+}
+
+if (includeServices) {
+  const serviceSchemas = generateServiceSchema(config);
+  serviceSchemas.forEach(schema => {
+    if (SchemaValidator.validateService(schema)) {
+      schemas.push(schema);
+    }
+  });
+}
+
+if (includeCourses) {
+  const courseSchemas = generateCourseSchema(config);
+  courseSchemas.forEach(schema => {
+    if (SchemaValidator.validateCourse(schema)) {
+      schemas.push(schema);
+    }
+  });
+}
+
+// Auto-include based on page type
+if (pageType === "service" || pageType === "homepage") {
+  const serviceSchemas = generateServiceSchema(config);
+  serviceSchemas.forEach(schema => {
+    if (SchemaValidator.validateService(schema)) {
+      schemas.push(schema);
+    }
+  });
+}
+
+if (pageType === "course" || pageType === "homepage") {
+  const courseSchemas = generateCourseSchema(config);
+  courseSchemas.forEach(schema => {
+    if (SchemaValidator.validateCourse(schema)) {
+      schemas.push(schema);
+    }
+  });
+}
+
+// Development logging
+if (import.meta.env.DEV) {
+  schemas.forEach(schema => {
+    const schemaType = Array.isArray(schema['@type']) ? schema['@type'][0] : schema['@type'];
+    if (schemaType === 'Organization' || (Array.isArray(schema['@type']) && schema['@type'].includes('Organization'))) {
+      SchemaValidator.logValidation('Organization', schema, SchemaValidator.validateOrganization(schema));
+      console.log(`Schema completeness: ${SEOEnhancer.calculateCompletenessScore(schema)}%`);
+    }
+  });
+  
+  console.log(`📊 Generated ${schemas.length} schema(s) for page type: ${pageType}`);
+  console.log(`🔍 Keywords extracted: ${SEOEnhancer.extractKeywords(schemas).slice(0, 10).join(', ')}`);
+}
+---
+
+{schemas.map(schema => 
+  <script type="application/ld+json" set:html={JSON.stringify(schema)}>
+  </script>
+)}

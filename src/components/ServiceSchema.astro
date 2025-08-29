@@ -1,0 +1,72 @@
+---
+import { COMPANY_NAME, WEBSITE_URL } from "../consts";
+
+interface ServiceProps {
+  name: string;
+  description: string;
+  price?: string;
+  duration?: string;
+  category?: string;
+  prerequisites?: string[];
+  outcomes?: string[];
+  serviceType?: "training" | "rental" | "review" | "certification";
+}
+
+interface Props {
+  services: ServiceProps[];
+}
+
+const { services } = Astro.props;
+
+const websiteUrl = Astro.site?.toString() || WEBSITE_URL;
+
+const serviceSchemas = services.map((service, index) => ({
+  "@context": "https://schema.org",
+  "@type": "Service", 
+  "@id": `${websiteUrl}/services#${service.name.toLowerCase().replace(/\s+/g, '-')}`,
+  "name": service.name,
+  "description": service.description,
+  "category": service.category || "Flight Training",
+  "provider": {
+    "@type": "Organization",
+    "name": COMPANY_NAME,
+    "@id": `${websiteUrl}#organization`
+  },
+  "areaServed": {
+    "@type": "State",
+    "name": "Nevada"
+  },
+  "serviceType": service.serviceType || "training",
+  "offers": {
+    "@type": "Offer",
+    "price": service.price || "Contact for pricing",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "validFrom": new Date().toISOString().split('T')[0],
+    "priceSpecification": {
+      "@type": "PriceSpecification",
+      "valueAddedTaxIncluded": true
+    }
+  },
+  "hasOfferCatalog": service.outcomes ? {
+    "@type": "ItemList",
+    "name": "Learning Outcomes",
+    "itemListElement": service.outcomes.map((outcome, idx) => ({
+      "@type": "LearningResource",
+      "name": outcome,
+      "position": idx + 1
+    }))
+  } : undefined,
+  "requirements": service.prerequisites ? service.prerequisites.join(", ") : undefined,
+  "timeRequired": service.duration,
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Student Pilots, Licensed Pilots"
+  }
+}));
+---
+
+{serviceSchemas.map(schema => 
+  <script type="application/ld+json" set:html={JSON.stringify(schema)}>
+  </script>
+)}

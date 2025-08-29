@@ -4,19 +4,42 @@
 User-agent: *
 Allow: /
 
-# Prevent indexing of any temporary or admin pages if they exist
+# Prevent indexing of confirmation pages, admin areas, and sensitive content
 Disallow: /admin/
 Disallow: /temp/
 Disallow: /draft/
+Disallow: /*-form-confirmation
+Disallow: /404/
+Disallow: /500/
+Disallow: /privacy-policy/
+Disallow: /terms-of-service/
 
-# Allow all bots to access the sitemap
+# Allow crawling of important directories
+Allow: /blog/
+Allow: /programs/
+Allow: /nv-flight-about/
+
+# Sitemaps - both Astro-generated and custom enhanced version
 Sitemap: https://nvflight.com/sitemap-index.xml
+Sitemap: https://nvflight.com/sitemap.xml
+
+# Crawl-delay for respectful crawling (in seconds)
+Crawl-delay: 1
 
 # Specific instructions for major search engines
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Social media crawlers
+User-agent: facebookexternalhit/*
+Allow: /
+
+User-agent: Twitterbot
 Allow: /
 
 User-agent: DuckDuckBot

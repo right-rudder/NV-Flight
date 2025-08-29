@@ -1,0 +1,79 @@
+---
+import { COMPANY_NAME, WEBSITE_URL } from "../consts";
+
+interface ReviewProps {
+  author: string;
+  rating: number;
+  reviewBody: string;
+  datePublished: string;
+  title?: string;
+}
+
+interface Props {
+  reviews: ReviewProps[];
+  itemName?: string;
+  aggregateRating?: {
+    ratingValue: number;
+    reviewCount: number;
+    bestRating?: number;
+    worstRating?: number;
+  };
+}
+
+const { 
+  reviews, 
+  itemName = COMPANY_NAME,
+  aggregateRating
+} = Astro.props;
+
+const websiteUrl = Astro.site?.toString() || WEBSITE_URL;
+
+// Calculate aggregate rating if not provided
+const calculatedAggregateRating = aggregateRating || {
+  ratingValue: reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length,
+  reviewCount: reviews.length,
+  bestRating: 5,
+  worstRating: 1
+};
+
+const reviewSchemas = reviews.map((review, index) => ({
+  "@type": "Review",
+  "@id": `${websiteUrl}/reviews#review-${index + 1}`,
+  "author": {
+    "@type": "Person",
+    "name": review.author
+  },
+  "reviewRating": {
+    "@type": "Rating",
+    "ratingValue": review.rating,
+    "bestRating": 5,
+    "worstRating": 1
+  },
+  "reviewBody": review.reviewBody,
+  "name": review.title || `Review by ${review.author}`,
+  "datePublished": review.datePublished,
+  "itemReviewed": {
+    "@type": "Organization",
+    "name": itemName,
+    "@id": `${websiteUrl}#organization`
+  }
+}));
+
+const aggregateSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": `${websiteUrl}#organization`,
+  "name": itemName,
+  "aggregateRating": {
+    "@type": "AggregateRating", 
+    "ratingValue": calculatedAggregateRating.ratingValue.toFixed(1),
+    "reviewCount": calculatedAggregateRating.reviewCount,
+    "bestRating": calculatedAggregateRating.bestRating || 5,
+    "worstRating": calculatedAggregateRating.worstRating || 1
+  },
+  "review": reviewSchemas
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(aggregateSchema)}>
+</script>

@@ -1,0 +1,285 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BreadcrumbsAdvanced from "../components/BreadcrumbsAdvanced.astro";
+import {
+  testBreadcrumbs,
+  validateBreadcrumbs,
+  logBreadcrumbValidation,
+} from "../utils/breadcrumb-testing";
+
+// This page is only for development testing
+if (!import.meta.env.DEV) {
+  return Astro.redirect("/");
+}
+
+// Log validation results for different breadcrumb types
+Object.entries(testBreadcrumbs).forEach(([key, breadcrumbs]) => {
+  logBreadcrumbValidation(breadcrumbs, key);
+});
+---
+
+<BaseLayout
+  siteTitle="Breadcrumb Testing | NV Flight"
+  siteDescription="Development page for testing breadcrumb implementations"
+  showBreadcrumbs={false}
+>
+  <div class="max-w-7xl mx-auto px-6 py-12">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">
+        Breadcrumb Components Testing
+      </h1>
+      <p class="text-lg text-gray-600">
+        Development page for testing different breadcrumb styles and
+        configurations
+      </p>
+      <p class="text-sm text-red-600 mt-2">
+        ⚠️ This page is only available in development mode
+      </p>
+    </div>
+
+    <div class="space-y-12">
+      <!-- Default Breadcrumbs -->
+      <section class="bg-white p-6 rounded-lg shadow-sm border">
+        <h2 class="text-2xl font-semibold mb-4">Default Style</h2>
+        <div class="space-y-4">
+          <div>
+            <h3 class="text-lg font-medium mb-2">Homepage (should be empty)</h3>
+            <BreadcrumbsAdvanced items={testBreadcrumbs.home} />
+          </div>
+
+          <div>
+            <h3 class="text-lg font-medium mb-2">Blog Index</h3>
+            <BreadcrumbsAdvanced items={testBreadcrumbs.blog} />
+          </div>
+
+          <div>
+            <h3 class="text-lg font-medium mb-2">Blog Post</h3>
+            <BreadcrumbsAdvanced items={testBreadcrumbs.blogPost} />
+          </div>
+
+          <div>
+            <h3 class="text-lg font-medium mb-2">Programs Index</h3>
+            <BreadcrumbsAdvanced items={testBreadcrumbs.programs} />
+          </div>
+
+          <div>
+            <h3 class="text-lg font-medium mb-2">Individual Program</h3>
+            <BreadcrumbsAdvanced items={testBreadcrumbs.programPage} />
+          </div>
+
+          <div>
+            <h3 class="text-lg font-medium mb-2">About Team</h3>
+            <BreadcrumbsAdvanced items={testBreadcrumbs.aboutTeam} />
+          </div>
+        </div>
+      </section>
+
+      <!-- Compact Breadcrumbs -->
+      <section class="bg-gray-50 p-6 rounded-lg shadow-sm border">
+        <h2 class="text-2xl font-semibold mb-4">Compact Style</h2>
+        <div class="space-y-4">
+          <div>
+            <h3 class="text-lg font-medium mb-2">Blog Post (Compact)</h3>
+            <BreadcrumbsAdvanced
+              items={testBreadcrumbs.blogPost}
+              variant="compact"
+            />
+          </div>
+
+          <div>
+            <h3 class="text-lg font-medium mb-2">About Fleet (Compact)</h3>
+            <BreadcrumbsAdvanced
+              items={testBreadcrumbs.aboutFleet}
+              variant="compact"
+            />
+          </div>
+
+          <div>
+            <h3 class="text-lg font-medium mb-2">Discovery Flight (Compact)</h3>
+            <BreadcrumbsAdvanced
+              items={testBreadcrumbs.discoveryFlight}
+              variant="compact"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Minimal Breadcrumbs -->
+      <section class="bg-blue-50 p-6 rounded-lg shadow-sm border">
+        <h2 class="text-2xl font-semibold mb-4">Minimal Style</h2>
+        <div class="space-y-4">
+          <div>
+            <h3 class="text-lg font-medium mb-2">Program Page (Minimal)</h3>
+            <BreadcrumbsAdvanced
+              items={testBreadcrumbs.programPage}
+              variant="minimal"
+            />
+          </div>
+
+          <div>
+            <h3 class="text-lg font-medium mb-2">Contact Page (Minimal)</h3>
+            <BreadcrumbsAdvanced
+              items={testBreadcrumbs.contact}
+              variant="minimal"
+            />
+          </div>
+
+          <div>
+            <h3 class="text-lg font-medium mb-2">
+              Become a Pilot (Minimal, No Home Icon)
+            </h3>
+            <BreadcrumbsAdvanced
+              items={testBreadcrumbs.becomePilot}
+              variant="minimal"
+              showHomeIcon={false}
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Custom Styling Examples -->
+      <section class="bg-primary-50 p-6 rounded-lg shadow-sm border">
+        <h2 class="text-2xl font-semibold mb-4">Custom Styled Examples</h2>
+        <div class="space-y-4">
+          <div>
+            <h3 class="text-lg font-medium mb-2">Programs (Custom Classes)</h3>
+            <BreadcrumbsAdvanced
+              items={testBreadcrumbs.programs}
+              className="bg-white p-3 rounded-md border"
+            />
+          </div>
+
+          <div>
+            <h3 class="text-lg font-medium mb-2">
+              Enroll Page (Compact, Custom)
+            </h3>
+            <BreadcrumbsAdvanced
+              items={testBreadcrumbs.enroll}
+              variant="compact"
+              className="bg-primary-100 p-2 rounded-full"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Validation Results -->
+      <section class="bg-green-50 p-6 rounded-lg shadow-sm border">
+        <h2 class="text-2xl font-semibold mb-4">Validation Results</h2>
+        <p class="text-gray-600 mb-4">
+          Check the browser console for detailed validation logs.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {
+            Object.entries(testBreadcrumbs).map(([key, breadcrumbs]) => {
+              const validation = validateBreadcrumbs(breadcrumbs);
+              return (
+                <div class="bg-white p-4 rounded-md border">
+                  <div class="flex items-center justify-between mb-2">
+                    <h3 class="font-medium">{key}</h3>
+                    <span
+                      class={`px-2 py-1 rounded text-xs ${validation.isValid ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"}`}
+                    >
+                      {validation.isValid ? "✅ Valid" : "❌ Invalid"}
+                    </span>
+                  </div>
+
+                  <p class="text-sm text-gray-600 mb-2">
+                    {breadcrumbs.length} item
+                    {breadcrumbs.length !== 1 ? "s" : ""}
+                  </p>
+
+                  {validation.errors.length > 0 && (
+                    <div class="text-xs text-red-600">
+                      <strong>Errors:</strong>
+                      <ul class="list-disc list-inside">
+                        {validation.errors.map((error) => (
+                          <li>{error}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {validation.warnings.length > 0 && (
+                    <div class="text-xs text-yellow-600 mt-1">
+                      <strong>Warnings:</strong>
+                      <ul class="list-disc list-inside">
+                        {validation.warnings.map((warning) => (
+                          <li>{warning}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              );
+            })
+          }
+        </div>
+      </section>
+
+      <!-- Implementation Notes -->
+      <section class="bg-gray-900 text-white p-6 rounded-lg shadow-sm">
+        <h2 class="text-2xl font-semibold mb-4">Implementation Notes</h2>
+        <div class="space-y-4 text-sm">
+          <div>
+            <h3 class="font-medium text-gray-300 mb-2">Automatic Generation</h3>
+            <p>
+              Breadcrumbs are automatically generated based on the current URL
+              path using the <code class="bg-gray-800 px-2 py-1 rounded"
+                >generateBreadcrumbs()</code
+              > function.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="font-medium text-gray-300 mb-2">
+              Schema.org Integration
+            </h3>
+            <p>
+              Breadcrumbs include structured data markup for better SEO,
+              automatically added to the page head when breadcrumbs are present.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="font-medium text-gray-300 mb-2">Accessibility</h3>
+            <p>
+              All breadcrumb components include proper ARIA labels, focus
+              management, and keyboard navigation support.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="font-medium text-gray-300 mb-2">Responsive Design</h3>
+            <p>
+              Breadcrumbs adapt to mobile devices with appropriate sizing and
+              wrapping behavior.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="font-medium text-gray-300 mb-2">Custom Configuration</h3>
+            <p>
+              Breadcrumbs can be disabled on specific pages by setting <code
+                class="bg-gray-800 px-2 py-1 rounded"
+                >showBreadcrumbs={false}</code
+              > in BaseLayout props.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  /* Additional testing styles */
+  .testing-section {
+    border-left: 4px solid theme(colors.primary.500);
+    padding-left: 1rem;
+  }
+
+  code {
+    font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+  }
+</style>

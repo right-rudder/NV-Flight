@@ -1,0 +1,30 @@
+# Netlify redirects file
+# https://docs.netlify.com/routing/redirects/
+
+/doyle/ /nv-flight-about 301
+/watermark/ / 301
+/img_20180901_152514693_hdr/ /nv-flight-about 301
+/img_5937/ /nv-flight-about 301
+/about-us/ /nv-flight-about/team 301
+/accelerated-courses/ /become-a-pilot 301
+/contact-2/ /contact 301
+/our-aircraft/ /nv-flight-about/our-fleet 301
+/fried-gator/ / 301
+/placeholder-image/ / 301
+/international-student-pilots/ /blog 301
+/flight-training-financing/ /become-a-pilot 301
+/individual-accelerated-program/ /programs/private-pilot-asel 301
+/doyle/supplies-materials/ / 301
+/edited-copy-2/ / 301
+/bw-savannah-street/ / 301
+/far-141-flight-training/ / 301
+/our-pilots-achieving-goals/ / 301
+/learn-to-fly-reno/ /become-a-pilot 301
+/92812860-d09a-4c10-b71e-7e839f4ab699/ / 301
+/pilot-medical-qa/ /blog 301
+/how-long-to-get-your-private-pilot-license/ /blog 301
+/what-is-the-difference-between-141-and-61-flight-training/ /blog 301
+/wp-content/uploads/2021/12/aircraft-wb.pdf / 301
+/wp-content/uploads/2023/06/n7969w-wb.pdf / 301
+/wp-content/uploads/2022/08/pilot-rental-agreement-v.3.pdf / 301
+/wp-content/uploads/2021/12/pa-28-180-d-poh.pdf / 301

@@ -4,8 +4,68 @@ import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION, KEYWORDS, OG_IMAGE } from "../consts";
 import Navbar from "../components/Navbar";
 import SocialMediaSchema from "../components/SocialMediaSchema.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import BreadcrumbSchema from "../components/BreadcrumbSchema.astro";
+import SchemaManager from "../components/SchemaManager.astro";
+import KeywordsManager from "../components/KeywordsManager.astro";
+import TitleDescriptionManager from "../components/TitleDescriptionManager.astro";
+import { generateBreadcrumbs } from "../utils/breadcrumbs";
+import { PAGE_KEYWORD_TEMPLATES } from "../utils/keywords-strategy";
+
+interface Props {
+  siteTitle?: string;
+  siteDescription?: string;
+  keywords?: string;
+  customKeywords?: string[];
+  showBreadcrumbs?: boolean;
+  breadcrumbsClassName?: string;
+  pageType?: keyof typeof PAGE_KEYWORD_TEMPLATES;
+  includeOrganizationSchema?: boolean;
+  includeServiceSchema?: boolean;
+  includeCourseSchema?: boolean;
+  location?: string;
+  enableKeywordOptimization?: boolean;
+  enableAdvancedTitleStrategy?: boolean;
+}
+
+const {
+  siteTitle,
+  siteDescription,
+  keywords,
+  customKeywords = [],
+  showBreadcrumbs = true,
+  breadcrumbsClassName = "px-6 py-4 bg-gray-50/50 border-b border-gray-200",
+  pageType = "homepage",
+  includeOrganizationSchema = true,
+  includeServiceSchema = false,
+  includeCourseSchema = false,
+  location = "Reno, NV",
+  enableKeywordOptimization = true,
+  enableAdvancedTitleStrategy = true,
+} = Astro.props;
+
 const { pathname } = Astro.url;
-const { siteTitle, siteDescription, keywords } = Astro.props;
+const breadcrumbs = showBreadcrumbs ? await generateBreadcrumbs(Astro.url) : [];
+
+// Map keywords pageType to schema pageType
+const schemaPageType:
+  | "homepage"
+  | "service"
+  | "course"
+  | "blog"
+  | "contact"
+  | "about" =
+  pageType === "programs"
+    ? "service"
+    : pageType === "discovery"
+      ? "service"
+      : (pageType as
+          | "homepage"
+          | "service"
+          | "course"
+          | "blog"
+          | "contact"
+          | "about");
 ---
 
 <!doctype html>
@@ -17,6 +77,47 @@ const { siteTitle, siteDescription, keywords } = Astro.props;
       keywords={keywords || KEYWORDS}
       image={OG_IMAGE}
     />
+    <!-- Comprehensive Schema Strategy -->
+    <SchemaManager
+      pageType={schemaPageType}
+      includeOrganization={includeOrganizationSchema}
+      includeServices={includeServiceSchema}
+      includeCourses={includeCourseSchema}
+    />
+
+    <!-- Advanced Title & Description Strategy -->
+    {
+      enableAdvancedTitleStrategy && (
+        <TitleDescriptionManager
+          pageType={pageType}
+          baseTitle={siteTitle}
+          baseDescription={siteDescription}
+          customKeywords={customKeywords}
+          location={location}
+          enableAnalysis={true}
+          generateVariations={import.meta.env.DEV}
+        />
+      )
+    }
+
+    <!-- Keywords Strategy -->
+    {
+      enableKeywordOptimization && (
+        <KeywordsManager
+          pageType={pageType}
+          baseTitle={siteTitle}
+          baseDescription={siteDescription}
+          customKeywords={customKeywords}
+          location={location}
+          enableAdvancedStrategies={enableAdvancedTitleStrategy}
+        />
+      )
+    }
+    {
+      showBreadcrumbs && breadcrumbs.length > 1 && (
+        <BreadcrumbSchema items={breadcrumbs} />
+      )
+    }
   </head>
   <body class="font-sans">
     <!-- Google Tag Manager (noscript) -->
@@ -31,10 +132,21 @@ const { siteTitle, siteDescription, keywords } = Astro.props;
     <header class="w-full h-0 sticky inset-0 z-50 font-sans tracking-wider">
       <Navbar pathname={pathname} client:load />
     </header>
+
+    <!-- Breadcrumbs Navigation -->
+    {
+      showBreadcrumbs && breadcrumbs.length > 1 && (
+        <div class={breadcrumbsClassName}>
+          <div class="max-w-7xl mx-auto">
+            <Breadcrumbs items={breadcrumbs} />
+          </div>
+        </div>
+      )
+    }
+
     <main>
       <slot />
     </main>
     <Footer />
-    <SocialMediaSchema title={siteTitle} description={siteDescription} />
   </body>
 </html>

@@ -1,0 +1,17 @@
+---
+import type { BreadcrumbItem } from "../utils/breadcrumbs";
+
+interface Props {
+  programTitle: string;
+  programSlug: string;
+}
+
+const { programTitle, programSlug } = Astro.props;
+
+// Create breadcrumb items specifically for program pages
+export const programBreadcrumbs: BreadcrumbItem[] = [
+  { name: "Home", url: "/" },
+  { name: "Programs", url: "/programs" },
+  { name: programTitle, url: `/programs/${programSlug}`, current: true },
+];
+---
