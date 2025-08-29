@@ -1,0 +1,17 @@
+---
+import type { BreadcrumbItem } from "../utils/breadcrumbs";
+
+interface Props {
+  blogTitle: string;
+  blogSlug: string;
+}
+
+const { blogTitle, blogSlug } = Astro.props;
+
+// Create breadcrumb items specifically for blog posts
+export const blogBreadcrumbs: BreadcrumbItem[] = [
+  { name: "Home", url: "/" },
+  { name: "Blog", url: "/blog" },
+  { name: blogTitle, url: `/blog/${blogSlug}`, current: true },
+];
+---

@@ -68,7 +68,14 @@ const dataHero = {
 };
 ---
 
-<BaseLayout siteTitle={siteTitle} siteDescription={siteDescription}>
+<BaseLayout 
+  siteTitle={siteTitle} 
+  siteDescription={siteDescription}
+  pageType="service"
+  includeOrganizationSchema={true}
+  includeServiceSchema={true}
+  includeCourseSchema={true}
+>
   <HeaderSmall content={dataHero} />
   <section class="relative isolate overflow-hidden bg-gradient-to-b from-slate-50 to-white">
     <div class="mx-auto max-w-7xl px-6 pb-8 pt-24 lg:px-8">

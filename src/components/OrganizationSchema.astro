@@ -1,0 +1,164 @@
+---
+import { 
+  COMPANY_NAME, 
+  SITE_DESCRIPTION, 
+  WEBSITE_URL, 
+  PHONE_NUMBER, 
+  EMAIL_ADDRESS,
+  FACEBOOK_URL,
+  INSTAGRAM_URL,
+  LOCATIONS
+} from "../consts";
+
+interface Props {
+  aggregateRating?: {
+    ratingValue: string;
+    reviewCount: string;
+  };
+  services?: string[];
+  additionalTypes?: string[];
+}
+
+const {
+  aggregateRating = {
+    ratingValue: "4.9",
+    reviewCount: "127"
+  },
+  services = [
+    "Private Pilot License Training",
+    "Instrument Rating Training", 
+    "Commercial Pilot License Training",
+    "Multi-Engine Rating Training",
+    "Certified Flight Instructor Training",
+    "Discovery Flights",
+    "Aircraft Rental",
+    "Flight Review (BFR)",
+    "Instrument Proficiency Check"
+  ],
+  additionalTypes = [
+    "https://schema.org/FlightSchool",
+    "https://schema.org/EducationalOrganization",
+    "https://schema.org/LocalBusiness"
+  ]
+} = Astro.props;
+
+const primaryLocation = LOCATIONS[0];
+const logoUrl = new URL("/nvflight-nobg.webp", Astro.url).toString();
+const websiteUrl = Astro.site?.toString() || WEBSITE_URL;
+
+// Generate service offerings
+const serviceOfferings = services.map(service => ({
+  "@type": "Service",
+  "name": service,
+  "provider": {
+    "@type": "Organization",
+    "name": COMPANY_NAME
+  },
+  "areaServed": {
+    "@type": "State",
+    "name": "Nevada"
+  }
+}));
+
+// Social media profiles (filter out null values)
+const socialProfiles = [FACEBOOK_URL, INSTAGRAM_URL, websiteUrl].filter(Boolean);
+---
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": ["Organization", "FlightSchool", "EducationalOrganization", "LocalBusiness"],
+  "@id": `${websiteUrl}#organization`,
+  "additionalType": additionalTypes,
+  "name": COMPANY_NAME,
+  "alternateName": "NV Flight School",
+  "description": SITE_DESCRIPTION,
+  "url": websiteUrl,
+  "logo": {
+    "@type": "ImageObject",
+    "url": logoUrl,
+    "width": "300",
+    "height": "300"
+  },
+  "image": logoUrl,
+  "telephone": PHONE_NUMBER,
+  "email": EMAIL_ADDRESS,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": primaryLocation.address,
+    "addressLocality": primaryLocation.city,
+    "addressRegion": primaryLocation.state,
+    "postalCode": primaryLocation.zip,
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 39.49418841375503,
+    "longitude": -119.77432820272948
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "09:00",
+      "closes": "17:00"
+    }
+  ],
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": PHONE_NUMBER,
+      "contactType": "customer service",
+      "email": EMAIL_ADDRESS,
+      "areaServed": "US",
+      "availableLanguage": ["en"]
+    },
+    {
+      "@type": "ContactPoint",
+      "telephone": PHONE_NUMBER,
+      "contactType": "reservations",
+      "email": EMAIL_ADDRESS,
+      "areaServed": "US",
+      "availableLanguage": ["en"]
+    }
+  ],
+  "sameAs": socialProfiles,
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": aggregateRating.ratingValue,
+    "reviewCount": aggregateRating.reviewCount,
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Flight Training Services",
+    "itemListElement": serviceOfferings.map((service, index) => ({
+      "@type": "Offer",
+      "itemOffered": service,
+      "position": index + 1
+    }))
+  },
+  "knowsAbout": [
+    "Flight Training",
+    "Pilot Certification", 
+    "Aircraft Operations",
+    "Aviation Safety",
+    "Instrument Flying",
+    "Commercial Aviation",
+    "Flight Instruction"
+  ],
+  "memberOf": {
+    "@type": "Organization",
+    "name": "Aircraft Owners and Pilots Association",
+    "url": "https://www.aopa.org/"
+  },
+  "accreditedBy": {
+    "@type": "Organization",
+    "name": "Federal Aviation Administration",
+    "url": "https://www.faa.gov/"
+  },
+  "priceRange": "$$",
+  "paymentAccepted": ["Cash", "Credit Card", "Check", "Financing"],
+  "currenciesAccepted": "USD"
+})}>
+</script>

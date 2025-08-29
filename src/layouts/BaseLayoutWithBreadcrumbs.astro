@@ -1,12 +1,11 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION, KEYWORDS, OG_IMAGE } from "../consts";
 import Navbar from "../components/Navbar";
 import SocialMediaSchema from "../components/SocialMediaSchema.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import BreadcrumbSchema from "../components/BreadcrumbSchema.astro";
-import SchemaManager from "../components/SchemaManager.astro";
+import { SITE_TITLE, SITE_DESCRIPTION, KEYWORDS, OG_IMAGE } from "../consts";
 import { generateBreadcrumbs } from "../utils/breadcrumbs";
 
 interface Props {
@@ -15,10 +14,6 @@ interface Props {
   keywords?: string;
   showBreadcrumbs?: boolean;
   breadcrumbsClassName?: string;
-  pageType?: "homepage" | "service" | "course" | "blog" | "contact" | "about";
-  includeOrganizationSchema?: boolean;
-  includeServiceSchema?: boolean;
-  includeCourseSchema?: boolean;
 }
 
 const {
@@ -27,10 +22,6 @@ const {
   keywords,
   showBreadcrumbs = true,
   breadcrumbsClassName = "px-6 py-4 bg-gray-50/50 border-b border-gray-200",
-  pageType = "homepage",
-  includeOrganizationSchema = true,
-  includeServiceSchema = false,
-  includeCourseSchema = false,
 } = Astro.props;
 
 const { pathname } = Astro.url;
@@ -46,13 +37,6 @@ const breadcrumbs = showBreadcrumbs ? await generateBreadcrumbs(Astro.url) : [];
       keywords={keywords || KEYWORDS}
       image={OG_IMAGE}
     />
-    <!-- Comprehensive Schema Strategy -->
-    <SchemaManager 
-      pageType={pageType}
-      includeOrganization={includeOrganizationSchema}
-      includeServices={includeServiceSchema}
-      includeCourses={includeCourseSchema}
-    />
     {
       showBreadcrumbs && breadcrumbs.length > 1 && (
         <BreadcrumbSchema items={breadcrumbs} />
@@ -61,14 +45,15 @@ const breadcrumbs = showBreadcrumbs ? await generateBreadcrumbs(Astro.url) : [];
   </head>
   <body class="font-sans">
     <!-- Google Tag Manager (noscript) -->
-    <noscript
-      ><iframe
+    <noscript>
+      <iframe
         src="https://www.googletagmanager.com/ns.html?id=GTM-MF23MRJM"
         height="0"
         width="0"
-        style="display:none;visibility:hidden"></iframe></noscript
-    >
+        style="display:none;visibility:hidden"></iframe>
+    </noscript>
     <!-- End Google Tag Manager (noscript) -->
+
     <header class="w-full h-0 sticky inset-0 z-50 font-sans tracking-wider">
       <Navbar pathname={pathname} client:load />
     </header>
@@ -87,6 +72,11 @@ const breadcrumbs = showBreadcrumbs ? await generateBreadcrumbs(Astro.url) : [];
     <main>
       <slot />
     </main>
+
     <Footer />
+    <SocialMediaSchema
+      title={siteTitle || SITE_TITLE}
+      description={siteDescription || SITE_DESCRIPTION}
+    />
   </body>
 </html>

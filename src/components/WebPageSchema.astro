@@ -1,0 +1,78 @@
+---
+import { WEBSITE_URL, COMPANY_NAME } from "../consts";
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  type?: "website" | "article" | "product" | "service";
+  keywords?: string[];
+  publishedTime?: string;
+  modifiedTime?: string;
+  section?: string;
+  author?: string;
+}
+
+const {
+  title,
+  description,
+  image = "/nvflight-OG_IMAGE.png", 
+  type = "website",
+  keywords = [],
+  publishedTime,
+  modifiedTime,
+  section,
+  author
+} = Astro.props;
+
+const fullImageUrl = new URL(image, Astro.url).toString();
+const websiteUrl = Astro.site?.toString() || WEBSITE_URL;
+const currentUrl = Astro.url.toString();
+
+// Base WebPage schema
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${currentUrl}#webpage`,
+  "url": currentUrl,
+  "name": title,
+  "description": description,
+  "image": fullImageUrl,
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": `${websiteUrl}#website`
+  },
+  "about": {
+    "@type": "Organization",
+    "@id": `${websiteUrl}#organization`
+  },
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": fullImageUrl
+  },
+  "datePublished": publishedTime,
+  "dateModified": modifiedTime || publishedTime,
+  "keywords": keywords.join(", ")
+};
+
+// Add article-specific properties if type is article
+if (type === "article" && author) {
+  Object.assign(webPageSchema, {
+    "@type": "Article",
+    "headline": title,
+    "author": {
+      "@type": "Person",
+      "name": author
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": COMPANY_NAME,
+      "@id": `${websiteUrl}#organization`
+    },
+    "articleSection": section
+  });
+}
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(webPageSchema)}>
+</script>

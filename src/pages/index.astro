@@ -20,13 +20,17 @@ const faqSchemaItems = GeneralFAQs.map((faq) => ({
   // Remove HTML tags for clean schema
   answer: faq.content.replace(/<[^>]*>?/gm, ""),
 }));
-
 ---
 
 <BaseLayout
   siteTitle={data.pageTitle}
   siteDescription={data.pageDescription}
   keywords={data.pageKeywords}
+  showBreadcrumbs={false}
+  pageType="homepage"
+  includeOrganizationSchema={true}
+  includeServiceSchema={true}
+  includeCourseSchema={true}
 >
   <!-- HEADER -->
   <HeaderScreen content={data.header} />
