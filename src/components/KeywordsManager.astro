@@ -6,6 +6,11 @@ import {
   KeywordValidator,
   PAGE_KEYWORD_TEMPLATES,
 } from "../utils/keywords-strategy";
+import {
+  TitleStrategy,
+  DescriptionStrategy,
+  TitleDescriptionAnalyzer,
+} from "../utils/title-description-strategies";
 
 interface Props {
   pageType?: keyof typeof PAGE_KEYWORD_TEMPLATES;
@@ -14,6 +19,7 @@ interface Props {
   customKeywords?: string[];
   location?: string;
   maxDescriptionLength?: number;
+  enableAdvancedStrategies?: boolean;
 }
 
 const {
@@ -23,23 +29,55 @@ const {
   customKeywords = [],
   location = "Reno, NV",
   maxDescriptionLength = 160,
+  enableAdvancedStrategies = true,
 } = Astro.props;
 
 // Generate optimized keywords for this page
 const pageKeywords = generatePageKeywords(pageType, customKeywords);
 
-// Generate SEO-optimized title and description
-const optimizedTitle = baseTitle
-  ? generateSEOTitle(baseTitle, pageKeywords.title, location)
-  : pageKeywords.title.join(", ");
+// Generate SEO-optimized title and description using advanced strategies
+const optimizedTitle = enableAdvancedStrategies
+  ? TitleStrategy.generateTitle(pageType, {
+      customTitle: baseTitle,
+      keywords: pageKeywords.title,
+      location,
+      brand: "NV Flight",
+      prioritizeKeywords: true,
+    })
+  : baseTitle
+    ? generateSEOTitle(baseTitle, pageKeywords.title, location)
+    : pageKeywords.title.join(", ");
 
-const optimizedDescription = baseDescription
-  ? generateSEODescription(
-      baseDescription,
-      pageKeywords.meta,
-      maxDescriptionLength
-    )
-  : `${pageKeywords.meta.slice(0, 3).join(", ")} in ${location}. ${pageKeywords.content[0] || "Professional flight training services."} Contact us today!`;
+const optimizedDescription = enableAdvancedStrategies
+  ? DescriptionStrategy.generateDescription(pageType, {
+      customDescription: baseDescription,
+      keywords: pageKeywords.meta,
+      location,
+      brand: "NV Flight",
+      maxLength: maxDescriptionLength,
+    })
+  : baseDescription
+    ? generateSEODescription(
+        baseDescription,
+        pageKeywords.meta,
+        maxDescriptionLength
+      )
+    : `${pageKeywords.meta.slice(0, 3).join(", ")} in ${location}. ${pageKeywords.content[0] || "Professional flight training services."} Contact us today!`;
+
+// Analyze title and description quality
+const titleAnalysis = TitleDescriptionAnalyzer.analyzeTitle(
+  optimizedTitle,
+  pageKeywords.title
+);
+const descriptionAnalysis = TitleDescriptionAnalyzer.analyzeDescription(
+  optimizedDescription,
+  pageKeywords.meta
+);
+
+// Generate A/B testing variations if in development
+const variations = import.meta.env.DEV
+  ? TitleDescriptionAnalyzer.generateVariations(pageType, pageKeywords.title, 3)
+  : { titles: [], descriptions: [] };
 
 // Validate keyword implementation
 const validation = KeywordValidator.validatePageKeywords(pageKeywords);
@@ -62,6 +100,29 @@ if (import.meta.env.DEV) {
     title: optimizedTitle,
     description: optimizedDescription.substring(0, 100) + "...",
   });
+
+  // Title and Description Analysis Logging
+  console.log(`📊 Title Analysis (Score: ${titleAnalysis.score}/100):`, {
+    issues: titleAnalysis.issues,
+    recommendations: titleAnalysis.recommendations,
+    strengths: titleAnalysis.strengths,
+  });
+
+  console.log(
+    `📊 Description Analysis (Score: ${descriptionAnalysis.score}/100):`,
+    {
+      issues: descriptionAnalysis.issues,
+      recommendations: descriptionAnalysis.recommendations,
+      strengths: descriptionAnalysis.strengths,
+    }
+  );
+
+  if (variations.titles.length > 0) {
+    console.log(`🔄 A/B Testing Variations:`, {
+      titleVariations: variations.titles,
+      descriptionVariations: variations.descriptions,
+    });
+  }
 }
 
 // Generate keywords meta content
@@ -78,6 +139,9 @@ const keywordData = {
   keywords: metaKeywords,
   pageKeywords,
   validation,
+  titleAnalysis,
+  descriptionAnalysis,
+  variations: import.meta.env.DEV ? variations : undefined,
 };
 
 // Export to global for parent access

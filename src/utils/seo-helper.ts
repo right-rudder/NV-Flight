@@ -13,6 +13,11 @@ import {
   KeywordValidator,
   type PAGE_KEYWORD_TEMPLATES,
 } from "./keywords-strategy";
+import {
+  TitleStrategy,
+  DescriptionStrategy,
+  TitleDescriptionAnalyzer,
+} from "./title-description-strategies";
 
 // SEO Score calculation weights
 const SEO_WEIGHTS = {

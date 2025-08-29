@@ -8,6 +8,7 @@ import Breadcrumbs from "../components/Breadcrumbs.astro";
 import BreadcrumbSchema from "../components/BreadcrumbSchema.astro";
 import SchemaManager from "../components/SchemaManager.astro";
 import KeywordsManager from "../components/KeywordsManager.astro";
+import TitleDescriptionManager from "../components/TitleDescriptionManager.astro";
 import { generateBreadcrumbs } from "../utils/breadcrumbs";
 import { PAGE_KEYWORD_TEMPLATES } from "../utils/keywords-strategy";
 
@@ -24,6 +25,7 @@ interface Props {
   includeCourseSchema?: boolean;
   location?: string;
   enableKeywordOptimization?: boolean;
+  enableAdvancedTitleStrategy?: boolean;
 }
 
 const {
@@ -39,6 +41,7 @@ const {
   includeCourseSchema = false,
   location = "Reno, NV",
   enableKeywordOptimization = true,
+  enableAdvancedTitleStrategy = true,
 } = Astro.props;
 
 const { pathname } = Astro.url;
@@ -82,6 +85,21 @@ const schemaPageType:
       includeCourses={includeCourseSchema}
     />
 
+    <!-- Advanced Title & Description Strategy -->
+    {
+      enableAdvancedTitleStrategy && (
+        <TitleDescriptionManager
+          pageType={pageType}
+          baseTitle={siteTitle}
+          baseDescription={siteDescription}
+          customKeywords={customKeywords}
+          location={location}
+          enableAnalysis={true}
+          generateVariations={import.meta.env.DEV}
+        />
+      )
+    }
+
     <!-- Keywords Strategy -->
     {
       enableKeywordOptimization && (
@@ -91,6 +109,7 @@ const schemaPageType:
           baseDescription={siteDescription}
           customKeywords={customKeywords}
           location={location}
+          enableAdvancedStrategies={enableAdvancedTitleStrategy}
         />
       )
     }
