@@ -1,0 +1,103 @@
+---
+import {
+  generatePageKeywords,
+  generateSEOTitle,
+  generateSEODescription,
+  KeywordValidator,
+  PAGE_KEYWORD_TEMPLATES,
+} from "../utils/keywords-strategy";
+
+interface Props {
+  pageType?: keyof typeof PAGE_KEYWORD_TEMPLATES;
+  baseTitle?: string;
+  baseDescription?: string;
+  customKeywords?: string[];
+  location?: string;
+  maxDescriptionLength?: number;
+}
+
+const {
+  pageType = "homepage",
+  baseTitle,
+  baseDescription,
+  customKeywords = [],
+  location = "Reno, NV",
+  maxDescriptionLength = 160,
+} = Astro.props;
+
+// Generate optimized keywords for this page
+const pageKeywords = generatePageKeywords(pageType, customKeywords);
+
+// Generate SEO-optimized title and description
+const optimizedTitle = baseTitle
+  ? generateSEOTitle(baseTitle, pageKeywords.title, location)
+  : pageKeywords.title.join(", ");
+
+const optimizedDescription = baseDescription
+  ? generateSEODescription(
+      baseDescription,
+      pageKeywords.meta,
+      maxDescriptionLength
+    )
+  : `${pageKeywords.meta.slice(0, 3).join(", ")} in ${location}. ${pageKeywords.content[0] || "Professional flight training services."} Contact us today!`;
+
+// Validate keyword implementation
+const validation = KeywordValidator.validatePageKeywords(pageKeywords);
+
+// Development logging
+if (import.meta.env.DEV) {
+  KeywordValidator.logValidation(pageType, pageKeywords, validation.valid);
+
+  if (!validation.valid) {
+    console.warn(`⚠️ Keyword issues for ${pageType}:`, validation.issues);
+  }
+
+  console.log(`🎯 Keywords for ${pageType}:`, {
+    title: pageKeywords.title,
+    meta: pageKeywords.meta.slice(0, 5),
+    primary: pageKeywords.content.slice(0, 3),
+  });
+
+  console.log(`📝 SEO Optimized:`, {
+    title: optimizedTitle,
+    description: optimizedDescription.substring(0, 100) + "...",
+  });
+}
+
+// Generate keywords meta content
+const metaKeywords = [
+  ...new Set([...pageKeywords.title, ...pageKeywords.meta, ...customKeywords]),
+]
+  .slice(0, 15)
+  .join(", ");
+
+// Make data available to parent components
+const keywordData = {
+  title: optimizedTitle,
+  description: optimizedDescription,
+  keywords: metaKeywords,
+  pageKeywords,
+  validation,
+};
+
+// Export to global for parent access
+if (typeof global !== "undefined") {
+  (global as any).keywordData = keywordData;
+}
+---
+
+<!-- Keywords are integrated into meta tags by parent components --><!-- This component provides the optimization logic and validation -->
+<script is:inline define:vars={{ keywordData }}>
+  // Make keyword data available for development debugging
+  if (window.location.hostname === "localhost") {
+    window.keywordData = keywordData;
+    console.log("🔑 Keyword data available in window.keywordData");
+  }
+</script>
+
+<style>
+  /* Hidden component - provides data only */
+  :host {
+    display: none;
+  }
+</style>

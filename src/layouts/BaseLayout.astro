@@ -7,34 +7,62 @@ import SocialMediaSchema from "../components/SocialMediaSchema.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import BreadcrumbSchema from "../components/BreadcrumbSchema.astro";
 import SchemaManager from "../components/SchemaManager.astro";
+import KeywordsManager from "../components/KeywordsManager.astro";
 import { generateBreadcrumbs } from "../utils/breadcrumbs";
+import { PAGE_KEYWORD_TEMPLATES } from "../utils/keywords-strategy";
 
 interface Props {
   siteTitle?: string;
   siteDescription?: string;
   keywords?: string;
+  customKeywords?: string[];
   showBreadcrumbs?: boolean;
   breadcrumbsClassName?: string;
-  pageType?: "homepage" | "service" | "course" | "blog" | "contact" | "about";
+  pageType?: keyof typeof PAGE_KEYWORD_TEMPLATES;
   includeOrganizationSchema?: boolean;
   includeServiceSchema?: boolean;
   includeCourseSchema?: boolean;
+  location?: string;
+  enableKeywordOptimization?: boolean;
 }
 
 const {
   siteTitle,
   siteDescription,
   keywords,
+  customKeywords = [],
   showBreadcrumbs = true,
   breadcrumbsClassName = "px-6 py-4 bg-gray-50/50 border-b border-gray-200",
   pageType = "homepage",
   includeOrganizationSchema = true,
   includeServiceSchema = false,
   includeCourseSchema = false,
+  location = "Reno, NV",
+  enableKeywordOptimization = true,
 } = Astro.props;
 
 const { pathname } = Astro.url;
 const breadcrumbs = showBreadcrumbs ? await generateBreadcrumbs(Astro.url) : [];
+
+// Map keywords pageType to schema pageType
+const schemaPageType:
+  | "homepage"
+  | "service"
+  | "course"
+  | "blog"
+  | "contact"
+  | "about" =
+  pageType === "programs"
+    ? "service"
+    : pageType === "discovery"
+      ? "service"
+      : (pageType as
+          | "homepage"
+          | "service"
+          | "course"
+          | "blog"
+          | "contact"
+          | "about");
 ---
 
 <!doctype html>
@@ -48,11 +76,24 @@ const breadcrumbs = showBreadcrumbs ? await generateBreadcrumbs(Astro.url) : [];
     />
     <!-- Comprehensive Schema Strategy -->
     <SchemaManager
-      pageType={pageType}
+      pageType={schemaPageType}
       includeOrganization={includeOrganizationSchema}
       includeServices={includeServiceSchema}
       includeCourses={includeCourseSchema}
     />
+
+    <!-- Keywords Strategy -->
+    {
+      enableKeywordOptimization && (
+        <KeywordsManager
+          pageType={pageType}
+          baseTitle={siteTitle}
+          baseDescription={siteDescription}
+          customKeywords={customKeywords}
+          location={location}
+        />
+      )
+    }
     {
       showBreadcrumbs && breadcrumbs.length > 1 && (
         <BreadcrumbSchema items={breadcrumbs} />

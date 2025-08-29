@@ -4,6 +4,7 @@ import HeaderScreen from "../components/HeaderScreen.astro";
 import ProgramSwiper from "../components/ProgramSwiper.astro";
 import CTAColor from "../components/CTAColor.astro";
 import Testimonials from "../components/Testimonials.astro";
+import SEODashboard from "../components/SEODashboard.astro";
 import programsSwiper from "../data/programSwiper";
 import homePage from "../data/homePage";
 import flyWithUsCTA from "../data/fly-with-us-cta";
@@ -12,6 +13,7 @@ import FAQSchema from "../components/FAQSchema.astro";
 import { GeneralFAQs } from "../data/general-faqs";
 import CTAWhyUs from "../components/CTAWhyUs.astro";
 import BlogFeed from "../components/BlogFeed.astro";
+
 const { data } = homePage;
 
 // Transform FAQ format for schema
@@ -20,18 +22,29 @@ const faqSchemaItems = GeneralFAQs.map((faq) => ({
   // Remove HTML tags for clean schema
   answer: faq.content.replace(/<[^>]*>?/gm, ""),
 }));
+
+// Enhanced SEO keywords for homepage
+const customKeywords = [
+  "best flight school Reno",
+  "pilot training Nevada",
+  "learn to fly aircraft",
+  "certified flight instructors",
+];
 ---
 
 <BaseLayout
   siteTitle={data.pageTitle}
   siteDescription={data.pageDescription}
   keywords={data.pageKeywords}
+  customKeywords={customKeywords}
   showBreadcrumbs={false}
   pageType="homepage"
   includeOrganizationSchema={true}
   includeServiceSchema={true}
   includeCourseSchema={true}
+  enableKeywordOptimization={true}
 >
+  >
   <!-- HEADER -->
   <HeaderScreen content={data.header} />
 
@@ -43,5 +56,23 @@ const faqSchemaItems = GeneralFAQs.map((faq) => ({
   <CTAColor content={flyWithUsCTA} />
   <FAQs faqs={GeneralFAQs} type="General" client:visible />
   <FAQSchema items={faqSchemaItems} />
+
+  <!-- SEO Dashboard for Development -->
+  <SEODashboard
+    content={JSON.stringify({
+      title: data.pageTitle,
+      description: data.pageDescription,
+      h1: "Professional Flight Training in Reno, Nevada",
+      content:
+        "Learn to fly with NV Flight's comprehensive pilot training programs. Our certified instructors provide personalized flight lessons for private pilot, instrument rating, and commercial pilot certification in Reno, Nevada.",
+    })}
+    pageType="homepage"
+    metadata={{
+      title: data.pageTitle,
+      description: data.pageDescription,
+      keywords: data.pageKeywords,
+    }}
+  />
+
   <script src="../scripts/creativeSwiper.js"></script>
 </BaseLayout>
