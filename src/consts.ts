@@ -13,7 +13,7 @@ export const KEYWORDS =
 
 export const OG_IMAGE = "/nvflight-OG_IMAGE.png";
 
-export const LOGO_NO_BG = "/src/assets/nvflight-OG_IMAGE.png";
+export const LOGO_NO_BG = "/src/assets/nvflight-nobg.webp";
 
 
 export const COMPANY_NAME = "NV Flight";
