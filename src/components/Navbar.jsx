@@ -2,7 +2,6 @@ import { navbarLinks } from "../data/navbarLinks.js";
 import { mobileNavbarLinks } from "../data/mobileNavbarLinks.js";
 import { useEffect, useState } from "react";
 import { IoIosArrowForward } from "react-icons/io";
-import { LOGO_NO_BG } from "../consts.js";
 
 const Navbar = ({ pathname }) => {
   const [openMobile, setOpenMobile] = useState(false);
@@ -42,7 +41,7 @@ const Navbar = ({ pathname }) => {
         {/* Left: Logo */}
         <a href="/" className="flex items-center">
           <img
-            src={LOGO_NO_BG}
+            src="/nvflight-nobg.webp"
             alt="NV Flight School"
             className={`object-contain transition-all duration-300 ${
               navBar ? "h-12" : "h-20"
