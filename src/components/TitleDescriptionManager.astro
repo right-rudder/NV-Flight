@@ -1,0 +1,283 @@
+---
+import {
+  TitleStrategy,
+  DescriptionStrategy,
+  TitleDescriptionAnalyzer,
+  TITLE_STRATEGIES,
+  DESCRIPTION_STRATEGIES,
+} from "../utils/title-description-strategies";
+import {
+  generatePageKeywords,
+  PAGE_KEYWORD_TEMPLATES,
+} from "../utils/keywords-strategy";
+
+interface Props {
+  pageType?: keyof typeof PAGE_KEYWORD_TEMPLATES;
+  baseTitle?: string;
+  baseDescription?: string;
+  customKeywords?: string[];
+  location?: string;
+  brand?: string;
+  maxTitleLength?: number;
+  maxDescriptionLength?: number;
+  enableAnalysis?: boolean;
+  generateVariations?: boolean;
+}
+
+const {
+  pageType = "homepage",
+  baseTitle,
+  baseDescription,
+  customKeywords = [],
+  location = TITLE_STRATEGIES.location,
+  brand = TITLE_STRATEGIES.brandName,
+  maxTitleLength = TITLE_STRATEGIES.maxLength,
+  maxDescriptionLength = DESCRIPTION_STRATEGIES.maxLength,
+  enableAnalysis = true,
+  generateVariations = import.meta.env.DEV,
+} = Astro.props;
+
+// Generate page keywords for context
+const pageKeywords = generatePageKeywords(pageType, customKeywords);
+
+// Generate optimized title using advanced strategies
+const optimizedTitle = TitleStrategy.generateTitle(pageType, {
+  customTitle: baseTitle,
+  keywords: pageKeywords.title,
+  location,
+  brand,
+  prioritizeKeywords: true,
+});
+
+// Generate optimized description using advanced strategies
+const optimizedDescription = DescriptionStrategy.generateDescription(pageType, {
+  customDescription: baseDescription,
+  keywords: pageKeywords.meta,
+  location,
+  brand,
+  maxLength: maxDescriptionLength,
+});
+
+// Analyze title and description quality
+const titleAnalysis = enableAnalysis
+  ? TitleDescriptionAnalyzer.analyzeTitle(optimizedTitle, pageKeywords.title)
+  : null;
+
+const descriptionAnalysis = enableAnalysis
+  ? TitleDescriptionAnalyzer.analyzeDescription(
+      optimizedDescription,
+      pageKeywords.meta
+    )
+  : null;
+
+// Generate A/B testing variations
+const variations = generateVariations
+  ? TitleDescriptionAnalyzer.generateVariations(pageType, pageKeywords.title, 3)
+  : { titles: [], descriptions: [] };
+
+// Create comprehensive data object
+const titleDescriptionData = {
+  title: optimizedTitle,
+  description: optimizedDescription,
+  titleLength: optimizedTitle.length,
+  descriptionLength: optimizedDescription.length,
+  titleAnalysis,
+  descriptionAnalysis,
+  variations: generateVariations ? variations : undefined,
+  pageKeywords: pageKeywords.title,
+  recommendations: {
+    title: titleAnalysis?.recommendations || [],
+    description: descriptionAnalysis?.recommendations || [],
+  },
+  scores: {
+    title: titleAnalysis?.score || 0,
+    description: descriptionAnalysis?.score || 0,
+    overall:
+      titleAnalysis && descriptionAnalysis
+        ? Math.round((titleAnalysis.score + descriptionAnalysis.score) / 2)
+        : 0,
+  },
+};
+
+// Development logging
+if (import.meta.env.DEV) {
+  console.log(`🏷️ Title Strategy for ${pageType}:`, {
+    original: baseTitle,
+    optimized: optimizedTitle,
+    length: optimizedTitle.length,
+    score: titleAnalysis?.score || 0,
+  });
+
+  console.log(`📄 Description Strategy for ${pageType}:`, {
+    original: baseDescription,
+    optimized:
+      optimizedDescription.substring(0, 100) +
+      (optimizedDescription.length > 100 ? "..." : ""),
+    length: optimizedDescription.length,
+    score: descriptionAnalysis?.score || 0,
+  });
+
+  if (
+    (titleAnalysis?.issues?.length || 0) > 0 ||
+    (descriptionAnalysis?.issues?.length || 0) > 0
+  ) {
+    console.warn(`⚠️ Title/Description Issues:`, {
+      title: titleAnalysis?.issues || [],
+      description: descriptionAnalysis?.issues || [],
+    });
+  }
+
+  if (
+    (titleAnalysis?.recommendations?.length || 0) > 0 ||
+    (descriptionAnalysis?.recommendations?.length || 0) > 0
+  ) {
+    console.log(`💡 Recommendations:`, {
+      title: titleAnalysis?.recommendations || [],
+      description: descriptionAnalysis?.recommendations || [],
+    });
+  }
+
+  if (variations.titles.length > 0) {
+    console.log(`🔄 A/B Testing Variations:`, {
+      titles: variations.titles,
+      descriptions: variations.descriptions.map(
+        (d) => d.substring(0, 80) + "..."
+      ),
+    });
+  }
+
+  // Overall SEO score
+  console.log(
+    `🎯 Overall Title/Description Score: ${titleDescriptionData.scores.overall}/100`
+  );
+}
+
+// Export to global for parent access
+if (typeof global !== "undefined") {
+  (global as any).titleDescriptionData = titleDescriptionData;
+}
+
+// Set document head metadata dynamically
+const script = `
+  if (typeof document !== "undefined") {
+    // Update title
+    document.title = "${optimizedTitle.replace(/"/g, '\\"')}";
+    
+    // Update or create meta description
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement('meta');
+      metaDescription.name = 'description';
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.content = "${optimizedDescription.replace(/"/g, '\\"')}";
+
+    // Update Open Graph title
+    let ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) {
+      ogTitle.content = "${optimizedTitle.replace(/"/g, '\\"')}";
+    }
+
+    // Update Open Graph description
+    let ogDescription = document.querySelector('meta[property="og:description"]');
+    if (ogDescription) {
+      ogDescription.content = "${optimizedDescription.replace(/"/g, '\\"')}";
+    }
+
+    // Update Twitter title
+    let twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    if (twitterTitle) {
+      twitterTitle.content = "${optimizedTitle.replace(/"/g, '\\"')}";
+    }
+
+    // Update Twitter description
+    let twitterDescription = document.querySelector('meta[name="twitter:description"]');
+    if (twitterDescription) {
+      twitterDescription.content = "${optimizedDescription.replace(/"/g, '\\"')}";
+    }
+  }
+`;
+---
+
+<!-- Title and Description optimization component -->
+<script is:inline set:html={script} />
+
+<script is:inline define:vars={{ titleDescriptionData }}>
+  // Make data available for development debugging
+  if (
+    window.location.hostname === "localhost" ||
+    window.location.hostname === "127.0.0.1"
+  ) {
+    window.titleDescriptionData = titleDescriptionData;
+    console.log(
+      "🏷️ Title/Description data available in window.titleDescriptionData"
+    );
+
+    // Add visual indicator for development
+    if (titleDescriptionData.scores.overall < 80) {
+      console.warn(
+        `🚨 Title/Description score is low: ${titleDescriptionData.scores.overall}/100`
+      );
+    }
+  }
+</script>
+
+<!-- Development-only visual feedback -->{
+  import.meta.env.DEV && enableAnalysis && (
+    <div id="title-description-debug" style="display: none;">
+      <div class="title-debug">
+        <strong>Title:</strong> {optimizedTitle} (Score:{" "}
+        {titleAnalysis?.score || 0}/100)
+        {(titleAnalysis?.issues?.length || 0) > 0 && (
+          <ul>
+            {titleAnalysis?.issues?.map((issue: string) => (
+              <li>⚠️ {issue}</li>
+            ))}
+          </ul>
+        )}
+      </div>
+      <div class="description-debug">
+        <strong>Description:</strong> {optimizedDescription.substring(0, 100)}
+        ... (Score: {descriptionAnalysis?.score || 0}/100)
+        {(descriptionAnalysis?.issues?.length || 0) > 0 && (
+          <ul>
+            {descriptionAnalysis?.issues?.map((issue: string) => (
+              <li>⚠️ {issue}</li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </div>
+  )
+}
+
+<style>
+  /* Hidden component - provides functionality only */
+  :host {
+    display: none;
+  }
+
+  /* Development debug styles */
+  #title-description-debug {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 400px;
+    font-size: 12px;
+    z-index: 9999;
+  }
+
+  #title-description-debug ul {
+    margin: 5px 0;
+    padding-left: 15px;
+  }
+
+  #title-description-debug li {
+    margin: 2px 0;
+    font-size: 11px;
+  }
+</style>

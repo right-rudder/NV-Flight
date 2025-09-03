@@ -1,0 +1,69 @@
+---
+import { COMPANY_NAME, WEBSITE_URL } from "../consts";
+
+interface EventProps {
+  name: string;
+  description: string;
+  startDate: string;
+  endDate?: string;
+  location?: string;
+  price?: string;
+  eventType?: "EducationalEvent" | "BusinessEvent" | "SocialEvent";
+  eventStatus?: "EventScheduled" | "EventCancelled" | "EventPostponed" | "EventRescheduled";
+}
+
+interface Props {
+  events: EventProps[];
+}
+
+const { events } = Astro.props;
+
+const websiteUrl = Astro.site?.toString() || WEBSITE_URL;
+
+const eventSchemas = events.map((event, index) => ({
+  "@context": "https://schema.org",
+  "@type": "EducationalEvent",
+  "@id": `${websiteUrl}/events#${event.name.toLowerCase().replace(/\s+/g, '-')}`,
+  "name": event.name,
+  "description": event.description,
+  "startDate": event.startDate,
+  "endDate": event.endDate || event.startDate,
+  "eventStatus": `https://schema.org/${event.eventStatus || 'EventScheduled'}`,
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "location": {
+    "@type": "Place",
+    "name": event.location || "NV Flight School",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Gentry Wy",
+      "addressLocality": "Reno",
+      "addressRegion": "NV",
+      "postalCode": "89502",
+      "addressCountry": "US"
+    }
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": COMPANY_NAME,
+    "@id": `${websiteUrl}#organization`
+  },
+  "offers": event.price ? {
+    "@type": "Offer",
+    "price": event.price,
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "url": websiteUrl
+  } : undefined,
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Student Pilots, Aviation Enthusiasts"
+  },
+  "educationalLevel": "Beginner to Advanced",
+  "teaches": "Aviation Skills and Knowledge"
+}));
+---
+
+{eventSchemas.map(schema => 
+  <script type="application/ld+json" set:html={JSON.stringify(schema)}>
+  </script>
+)}
