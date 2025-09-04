@@ -6,7 +6,6 @@ import ProgramSwiper from "../components/ProgramSwiper.astro";
 import ContactForm from "../components/ContactForm.astro";
 import HeaderSmall from "../components/HeaderSmall.astro";
 
-
 const { data } = contactInfo;
 ---
 
@@ -16,8 +15,7 @@ const { data } = contactInfo;
   keywords={data.pageKeywords}
 >
   <HeaderSmall content={data.header} />
-
-  <ContactForm />
   <ProgramSwiper content={programsSwiper} />
+  <ContactForm />
   <script src="../scripts/creativeSwiper.js"></script>
 </BaseLayout>

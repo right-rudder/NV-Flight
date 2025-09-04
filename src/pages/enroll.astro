@@ -6,7 +6,6 @@ import ProgramSwiper from "../components/ProgramSwiper.astro";
 import EnrollForm from "../components/EnrollForm.astro";
 import HeaderSmall from "../components/HeaderSmall.astro";
 
-
 const { data } = enrollInfo;
 ---
 
@@ -16,8 +15,7 @@ const { data } = enrollInfo;
   keywords={data.pageKeywords}
 >
   <HeaderSmall content={data.header} />
-
-  <EnrollForm />
   <ProgramSwiper content={programsSwiper} />
+  <EnrollForm />
   <script src="../scripts/creativeSwiper.js"></script>
 </BaseLayout>

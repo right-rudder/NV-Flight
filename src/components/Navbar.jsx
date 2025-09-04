@@ -308,7 +308,7 @@ const Navbar = ({ pathname }) => {
                   <a
                     key={idx}
                     href={btn.link || "#"}
-                    className="block w-full text-center font-heading text-lg py-3 rounded-md bg-emerald text-white hover:bg-emerald/90 transition-colors"
+                    className="block w-full text-center font-heading text-lg py-3 btn-white text-white"
                     onClick={() => setOpenMobile(false)}
                   >
                     {btn.name}
