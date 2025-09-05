@@ -6,10 +6,33 @@ import TeamSwiper from "../../components/TeamSwiper";
 import flyWithUsCTA from "../../data/fly-with-us-cta";
 import CTAColor from "../../components/CTAColor.astro";
 
+const pageData = {
+  title:
+    "Meet Our Flight Instructors & Leadership Team | NV Flight School Reno, NV",
+  description:
+    "Get to know NV Flight’s experienced instructors and leadership team. Learn from expert CFIs in Reno, specializing in safe, student-focused pilot training.",
+  keywords:
+    "NV Flight team, flight instructors Reno NV, pilot training staff, experienced flight instructors, flight school team, meet the team NV Flight",
+};
 ---
 
-<BaseLayout title={teamPageData.pageTitle} description={teamPageData.pageDescription}>
+<BaseLayout
+  siteTitle={pageData.title}
+  siteDescription={pageData.description}
+  keywords={pageData.keywords}
+  showBreadcrumbs={false}
+  pageType="about"
+  includeOrganizationSchema={true}
+  includeServiceSchema={true}
+  includeCourseSchema={true}
+  enableKeywordOptimization={true}
+  enableAdvancedTitleStrategy={false}
+>
   <HeaderScreen content={teamPageData.header} />
-  <TeamSwiper pageData={teamPageData} defaultMemberId="emma-justis" client:load />
+  <TeamSwiper
+    pageData={teamPageData}
+    defaultMemberId="emma-justis"
+    client:load
+  />
   <CTAColor content={flyWithUsCTA} />
 </BaseLayout>

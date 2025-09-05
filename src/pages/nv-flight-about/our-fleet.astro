@@ -17,24 +17,29 @@ const faqSchemaItems = GeneralFAQs.map((faq) => ({
   question: faq.title,
   answer: faq.content.replace(/<[^>]*>?/gm, ""),
 }));
-
 ---
 
 <BaseLayout
   siteTitle={data.pageTitle}
   siteDescription={data.pageDescription}
   keywords={data.pageKeywords}
+  showBreadcrumbs={false}
+  pageType="about"
+  includeOrganizationSchema={true}
+  includeServiceSchema={true}
+  includeCourseSchema={true}
+  enableKeywordOptimization={true}
+  enableAdvancedTitleStrategy={false}
 >
   <!-- HEADER -->
   <HeaderScreen content={data.header} />
 
-    <ServicesCarousel
-        services={ data.fleet.planes }
-        description={ data.fleet.description }
-        title={ data.fleet.title }
-    />
+  <ServicesCarousel
+    services={data.fleet.planes}
+    description={data.fleet.description}
+    title={data.fleet.title}
+  />
 
-    
   {
     data.fleet.planes.map((plane, index) => (
       <FleetCard content={plane} index={index} />

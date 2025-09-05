@@ -1,9 +1,9 @@
 const contactInfo = {
   data: {
     // SEO Header Stuff
-    pageTitle: "Contact Us | NV Flight School, Reno, NV",
+    pageTitle: "Contact NV Flight School | Reno, Nevada Flight Training",
     pageDescription:
-      "Get in touch with NV Flight School in Reno, NV. Call, email, or fill out our contact form to learn more about discovery flights and pilot training programs.",
+      "Get in touch with NV Flight School in Reno, NV. Call, email, or visit us to learn about flight training programs, discovery flights, and enrollment options.",
     pageKeywords:
       "contact NV Flight School, Reno flight school contact, flight training Reno NV, discovery flights Reno, pilot training Nevada",
 

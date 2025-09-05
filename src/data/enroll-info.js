@@ -1,9 +1,9 @@
 const enrollInfo = {
   data: {
     // SEO Header Stuff
-    pageTitle: "Enroll Now | NV Flight School, Reno, NV",
+    pageTitle: "Enroll at NV Flight School | Start Pilot Training in Reno",
     pageDescription:
-      "Start your aviation journey with a discovery flight at NV Flight School in Reno, NV. Contact us today to schedule your flight and begin your training!",
+      "Ready to become a pilot? Enroll at NV Flight School in Reno, NV. Choose from private, instrument, commercial, or instructor programs and start flying today!",
     pageKeywords:
       "discovery flight, discovery flight Reno NV, NV Flight School, flight training Reno, aviation academy Nevada, flight training programs, pilot training Reno",
 

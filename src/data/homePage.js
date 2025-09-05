@@ -1,6 +1,7 @@
 const homePage = {
   data: {
     // SEO Header Stuff
+    pageTitle: "NV Flight Pilot Training | Flight Training and Flight School in Reno, NV",
     pageDescription:
       "NV Flight School offers flight training in Reno, NV. We offer private pilot training, instrument rating training, commercial pilot training, and more. Contact us today!",
     pageKeywords:

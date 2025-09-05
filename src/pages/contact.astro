@@ -13,6 +13,12 @@ const { data } = contactInfo;
   siteTitle={data.pageTitle}
   siteDescription={data.pageDescription}
   keywords={data.pageKeywords}
+  pageType="contact"
+  showBreadcrumbs={false}
+  includeOrganizationSchema={true}
+  includeServiceSchema={true}
+  includeCourseSchema={true}
+  enableKeywordOptimization={false}
 >
   <HeaderSmall content={data.header} />
   <ProgramSwiper content={programsSwiper} />

@@ -1,9 +1,9 @@
 const discoveryFlight = {
   data: {
     //SEO Header Stuff
-    pageTitle: "Book Your Discovery Flight | NV Flight, Reno, NV",
+    pageTitle: "Discovery Flights in Reno | NV Flight School Intro Lessons",
     pageDescription:
-      "Book a Discovery Flight at NV Flight in Reno, NV. Experience the thrill of flying and see if becoming a pilot is right for you!",
+      "Take a Discovery Flight with NV Flight in Reno, NV. Fly with a certified instructor, enjoy stunning views, and log flight time toward your pilot license.",
     pageKeywords:
       "Discovery Flight, Flight School, Flight Training, Pilot Training, Learn to Fly, Private Pilot, Sport Pilot, Recreational Pilot, Flight Instructor, Flight Instruction, Flight School Reno, NV, Kankakee Flight School, Kankakee Flight Training, Reno Pilot Training, Reno Learn to Fly, Reno Private Pilot, Reno Sport Pilot, Reno Recreational Pilot, Reno Flight Instructor, Reno Flight Instruction",
     //

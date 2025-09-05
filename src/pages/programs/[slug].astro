@@ -29,7 +29,17 @@ const courseLD = {
 };
 ---
 
-<BaseLayout siteTitle={siteTitle} siteDescription={siteDescription}>
+<BaseLayout
+  siteTitle={siteTitle}
+  siteDescription={siteDescription}
+  showBreadcrumbs={false}
+  pageType="programs"
+  includeOrganizationSchema={true}
+  includeServiceSchema={true}
+  includeCourseSchema={true}
+  enableKeywordOptimization={true}
+  enableAdvancedTitleStrategy={false}
+>
   <script type="application/ld+json">{JSON.stringify(courseLD)}</script>
 
   {/* Background layer (barely visible). Replace the URL with your asset */}

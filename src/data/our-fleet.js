@@ -1,7 +1,7 @@
 const fleetPage = {
   data: {
-    pageDescription:
-      "Explore NV Flight’s fleet of Piper Cherokee 180 aircraft. Reliable, well-maintained training aircraft ideal for student pilots and advanced training in Reno and the Sierra Nevada.",
+    pageTitle: "Our Fleet | Piper Cherokee 180 Aircraft at NV Flight School",
+    pageDescription: "Explore NV Flight’s fleet of Piper Cherokee 180 aircraft in Reno, NV. Reliable, safe, and ideal for student pilots, mountain flying, and accelerated training.",
     pageKeywords:
       "NV Flight fleet, Piper Cherokee 180, Reno flight school planes, Nevada pilot training aircraft, mountain flying planes, Reno",
 
@@ -110,7 +110,8 @@ const fleetPage = {
               imageAlt: "Cockpit interior of Cherokee 180 N7824W",
             },
             {
-              imagePath: "/src/assets/N7824W-plane-with-student-pilot-reno-flight-lessons.webp",
+              imagePath:
+                "/src/assets/N7824W-plane-with-student-pilot-reno-flight-lessons.webp",
               imageAlt: "Cockpit interior of Cherokee 180 N7824W",
             },
             {

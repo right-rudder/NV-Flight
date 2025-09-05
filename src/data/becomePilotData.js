@@ -1,9 +1,8 @@
 // src/data/becomePilotData.js
 const becomePilotData = {
   // SEO
-  pageTitle: "Become a Pilot | Reno’s Flight Training Center | NV Flight",
-  pageDescription:
-    "Book a $185 Discovery Flight, choose self-paced or an 8-week Part 141 Private Pilot program, and train with Northern Nevada’s FAA-approved 141 school. Call or text 775-242-5994.",
+  pageTitle: "Become a Pilot in Reno | NV Flight School Training Programs",
+  pageDescription: "Start your pilot journey with NV Flight School in Reno. From discovery flights to accelerated programs, get expert training in safety, confidence, and mountain flying.",
   pageKeywords:
     "Reno flight school, Discovery Flight $185, Part 141, accelerated PPL 8 weeks, instrument rating, commercial pilot, CFI, mountain flying, NV Flight",
 
@@ -16,7 +15,11 @@ const becomePilotData = {
     paragraph:
       "Reno’s FAA-approved Part 141 training center, offering Discovery Flights, self-paced and accelerated courses, and mountain flying expertise.",
     buttons: [
-      { name: "Book a Discovery Flight", link: "/discovery-flight#form", primary: true },
+      {
+        name: "Book a Discovery Flight",
+        link: "/discovery-flight#form",
+        primary: true,
+      },
     ],
   },
 

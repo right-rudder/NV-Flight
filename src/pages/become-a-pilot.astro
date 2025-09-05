@@ -28,6 +28,13 @@ const has = (obj, key) => obj && Array.isArray(obj[key]) && obj[key].length;
   siteTitle={becomePilotData.pageTitle}
   siteDescription={becomePilotData.pageDescription}
   keywords={becomePilotData.pageKeywords}
+  showBreadcrumbs={false}
+  pageType="programs"
+  includeOrganizationSchema={true}
+  includeServiceSchema={true}
+  includeCourseSchema={true}
+  enableKeywordOptimization={true}
+  enableAdvancedTitleStrategy={false}
 >
   <!-- HEADER -->
   <HeaderSmall content={becomePilotData.header} />

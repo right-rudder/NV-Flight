@@ -7,6 +7,19 @@ import CTAColor from "../../components/CTAColor.astro";
 import flyWithUsCTA from "../../data/fly-with-us-cta.js";
 
 const data = {
+  pageTitle: "NV Flight School Blog | Pilot Training Tips & Aviation News",
+  pageDescription:
+    "Read NV Flight School’s blog for pilot training tips, aviation insights, and news from Reno, NV. Learn from experts and start your journey to becoming a pilot.",
+  pageKeywords:
+    "NV Flight blog, flight training tips, pilot insights, aviation news Reno NV, flight school articles, pilot training blog",
+  customKeywords: [
+    "flight training blog",
+    "pilot tips and insights",
+    "aviation news Reno",
+    "learn to fly articles",
+    "NV Flight updates",
+  ],
+
   header: {
     imagePath: "/src/assets/nv-flight-reno_20220505_084802_205_Original.webp",
     imageAlt: "NV Flight School aircraft over the Sierra Nevada at sunset",
@@ -22,9 +35,14 @@ const posts = (await getCollection("blog")).sort(
 ---
 
 <BaseLayout
-  pageTitle="Blog | NV Flight School"
-  pageDescription="Read the latest insights, training tips, and Reno/Tahoe aviation updates from NV Flight School."
-  pageKeywords="NV Flight blog, flight training blog, aviation blog, pilot training Reno, flight school Nevada, pilot tips, aviation insights"
+  siteTitle={data.pageTitle}
+  siteDescription={data.pageDescription}
+  customKeywords={data.customKeywords}
+  pageType="blog"
+  includeOrganizationSchema={true}
+  includeServiceSchema={true}
+  includeCourseSchema={true}
+  enableKeywordOptimization={false}
 >
   <!-- Header -->
   <HeaderSmall content={data.header} />

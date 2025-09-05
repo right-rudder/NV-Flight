@@ -22,10 +22,13 @@ const {
 ---
 
 <BaseLayout
-  siteTitle={title + " | NV Flight Flight School Blog"}
+  siteTitle={`${title} | NV Flight`}
   siteDescription={description}
-  keywords={category + ", " + tags.join(", ") + keywords ? keywords : KEYWORDS}
-  ogImage={heroImage}
+  pageType="blog"
+  includeOrganizationSchema={true}
+  includeServiceSchema={true}
+  includeCourseSchema={true}
+  enableKeywordOptimization={false}
 >
   <section
     class="flex pt-20 justify-center pb-12 mb-12 bg-gradient-to-b from-primary-50 to-primary-100"

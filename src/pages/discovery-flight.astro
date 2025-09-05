@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import DiscoveryForm from "../components/DiscoveryForm.astro"
+import DiscoveryForm from "../components/DiscoveryForm.astro";
 import discoveryForm from "../data/discovery-form-data.js";
 import HeaderSmall from "../components/HeaderSmall.astro";
 import discoveryFlight from "../data/discovery-flight.js";
@@ -15,6 +15,11 @@ const dataFlight = discoveryFlight.data;
   siteTitle={dataForm.pageTitle}
   siteDescription={dataForm.pageDescription}
   keywords={dataForm.pageKeywords}
+  pageType="discovery"
+  includeOrganizationSchema={true}
+  includeServiceSchema={true}
+  includeCourseSchema={true}
+  enableKeywordOptimization={true}
 >
   <!-- <HeaderScreen content={data.header} /> -->
   <HeaderSmall content={dataForm.header} />
