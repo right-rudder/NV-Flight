@@ -1,0 +1,77 @@
+---
+import becomePilotData from "../data/becomePilotData";
+
+const data = becomePilotData.roadmapItems.milestones.slice(0, 3);
+---
+
+<div
+  class="bg-gradient-to-b from-accent-700/90 to-primary-950 text-white py-24 sm:py-32"
+>
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-4xl sm:text-center">
+      <h2 class="text-lg font-semibold text-primary-300">Pricing</h2>
+      <p
+        class="mt-2 text-3xl font-semibold tracking-tight text-pretty sm:text-6xl sm:text-balance"
+      >
+        Check our program packages and pricing.
+      </p>
+    </div>
+    <div class="mt-20 flow-root">
+      <div
+        class="isolate -mt-16 grid max-w-sm grid-cols-1 gap-y-16 divide-y divide-primary-200 sm:mx-auto lg:-mx-8 lg:mt-0 lg:max-w-none lg:grid-cols-3 lg:divide-x lg:divide-y-0 xl:-mx-4"
+      >
+        {
+          data.map((item) => (
+            <div class="pt-16 lg:px-8 xl:px-4">
+              <h3
+                id="tier-basic"
+                class="text-base/7 font-semibold text-primary-200"
+              >
+                {item.title}
+              </h3>
+              <p class="mt-6 flex items-baseline gap-x-1">
+                <span class="text-5xl font-semibold tracking-tight">
+                  ${item.price}
+                </span>
+                <span class="text-sm/6 font-semibold">
+                  /full course
+                </span>
+              </p>
+              <a
+                href="/enroll"
+                aria-describedby="tier-basic"
+                class="mt-10 btn-primary bg-primary-500 w-full"
+              >
+                Enroll
+              </a>
+              <p class="mt-10 text-sm/6 font-semibold">
+                Everything you need to get started on your journey to become a{" "}
+                {item.title}.
+              </p>
+              <ul role="list" class="mt-6 space-y-3 text-sm/6">
+                {item.features.map((feature) => (
+                  <li class="flex gap-x-3">
+                    <svg
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      data-slot="icon"
+                      aria-hidden="true"
+                      class="h-6 w-5 flex-none text-primary-500"
+                    >
+                      <path
+                        d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
+                        clip-rule="evenodd"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</div>

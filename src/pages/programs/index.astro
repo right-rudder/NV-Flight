@@ -9,6 +9,7 @@ import FAQSchema from "../../components/FAQSchema.astro";
 import { GeneralFAQs } from "../../data/general-faqs";
 import CTAColor from "../../components/CTAColor.astro";
 import flyWithUsCTA2 from "../../data/fly-with-us-cta2";
+import PricingSection from "../../components/PricingSection.astro";
 
 // Transform FAQ format for schema
 const faqSchemaItems = GeneralFAQs.map((faq) => ({
@@ -178,6 +179,8 @@ const dataHero = {
       }
     </div>
   </section>
+
+  <PricingSection />
   <CTAColor content={flyWithUsCTA2} />
   <FAQs faqs={GeneralFAQs} type="General" client:visible />
   <FAQSchema items={faqSchemaItems} />

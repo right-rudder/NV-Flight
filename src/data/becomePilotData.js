@@ -2,7 +2,8 @@
 const becomePilotData = {
   // SEO
   pageTitle: "Become a Pilot in Reno | NV Flight School Training Programs",
-  pageDescription: "Start your pilot journey with NV Flight School in Reno. From discovery flights to accelerated programs, get expert training in safety, confidence, and mountain flying.",
+  pageDescription:
+    "Start your pilot journey with NV Flight School in Reno. From discovery flights to accelerated programs, get expert training in safety, confidence, and mountain flying.",
   pageKeywords:
     "Reno flight school, Discovery Flight $185, Part 141, accelerated PPL 8 weeks, instrument rating, commercial pilot, CFI, mountain flying, NV Flight",
 
@@ -88,35 +89,61 @@ const becomePilotData = {
       {
         id: "ppl",
         title: "Accelerated Private Pilot (Part 141)",
-        desc: "Begin your aviation journey with a structured 8-week program. ~5 flying days/week, from $12,500, includes ~35 flight hrs + ~35 ground hrs and a Gleim kit.",
+        desc: "8-week, Part 141 structured course — $24,000. Includes 70 flight hours, 35 hours of ground training, Lightspeed Zulu 4 headset, Gleim Private Pilot Training Kit, FAA written test, DPE fee, and airplane rental for the checkride.",
+        price: "24,000",
+        features: [
+          "70 Hours Flight Time",
+          "35 Hours Ground Training",
+          "Lightspeed Zulu 4 Headset",
+          "Gleim Private Pilot Training Kit",
+          "DPE for the test",
+          "Written Test",
+          "Airplane Rental for Test",
+        ],
         img: "/nvflight-reno-programs-become-pilot.webp",
         href: "/programs/private-pilot-asel",
       },
       {
         id: "mountain",
         title: "Mountain Flight Training",
-        desc: "Gain confidence in Reno-Tahoe’s unique terrain. Learn density-altitude procedures, terrain navigation, and complete a mountain checkout for rental privileges.",
+        desc: "Gain confidence in Reno-Tahoe’s unique terrain. Learn density-altitude procedures, terrain navigation, and complete a mountain checkout for rental privileges.\n\n3-Day Course\n- 15 hours dual instruction\n- 5 hours ground instruction\n- $4,500.00\n\nLocations\n— Truckee\n— South Lake Tahoe\n— Mammoth / June Lakes",
+        price: "4,500",
+        features: [
+          "15 hours dual instruction",
+          "5 hours ground instruction",
+          "Mountain checkout for rental privileges",
+          "Choose from Truckee, South Lake Tahoe, or Mammoth/June Lakes",
+        ],
         img: "/nvflight-reno-programs-montain-fl.webp",
         href: "/programs/mountain-flight-training",
       },
       {
         id: "instrument",
         title: "Instrument Rating (Accelerated Part 61)",
-        desc: "Advance your skills to fly safely in clouds and weather. Intensive IFR training, from $14,350, focused on real procedures and decision-making.",
+        desc: "Advance your skills to fly safely in clouds and weather — $20,000. Includes 50 hours dual flight with a CFII, 40 hours ground training with a CFII, Gleim Instrument Pilot Training Kit, FAA written test, DPE fee, and airplane rental for the checkride.",
+        price: "20,000",
+        features: [
+          "50 Hours Flight Time w/ CFII",
+          "40 Hours Ground Training w/ CFII",
+          "Gleim Instrument Pilot Training Kit",
+          "DPE for the test",
+          "Written Test",
+          "Airplane Rental for Test",
+        ],
         img: "/nv-flight-reno_5364_Original.webp",
         href: "/programs/instrument-pilot-asel",
       },
       {
         id: "commercial",
         title: "Commercial Pilot (Accelerated Part 61)",
-        desc: "Turn flying into your career path. Master commercial maneuvers and build time efficiently. Programs start at $9,950.",
+        desc: "Take the next step toward a career in aviation. Build confidence with advanced maneuvers, strengthen your skills, and gain the flight experience needed to open doors to professional flying opportunities.",
         img: "/nv-flight-reno_8102_Original.webp",
         href: "/programs/commercial-pilot-asel",
       },
       {
         id: "cfi",
         title: "Flight Instructor (CFI/CFII)",
-        desc: "Launch your teaching career and build flight time while getting paid. From $10,325, includes checkride prep and lesson-plan mastery.",
+        desc: "Share your passion for flying and inspire the next generation of pilots. Learn how to teach effectively, refine your own knowledge, and grow your hours in the cockpit while shaping future aviators.",
         img: "/Trygve CFI Original.JPG",
         href: "/programs/flight-instructor-asel",
       },
