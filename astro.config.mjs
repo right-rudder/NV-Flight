@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import react from "@astrojs/react";
+import critters from "@critters-rs/astro";
 
 // https://astro.build/config
 export default defineConfig({
@@ -68,5 +69,6 @@ export default defineConfig({
       },
     }),
     react(),
+    critters({ pruneSource: true, inlineFonts: true }),
   ],
 });

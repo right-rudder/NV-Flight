@@ -6,6 +6,46 @@
 @tailwind utilities;
 
 /* Components using Tailwind font tokens */
+/* If possible, change the imports at the top to include ?display=swap:
+  @import url("https://fontlibrary.org/face/tex-gyre-adventor?display=swap");
+  @import url("https://fonts.cdnfonts.com/css/altform?display=swap");
+*/
+
+/* Fallback: ensure any locally-available fonts use swap (self-hosted fonts can be defined here too) */
+@layer base {
+  @font-face {
+   font-family: "Altform";
+   font-style: normal;
+   font-weight: 100 900;
+   font-display: swap;
+   src: local("Altform");
+  }
+  @font-face {
+   font-family: "TexGyreAdventor";
+   font-style: normal;
+   font-weight: 100 900;
+   font-display: swap;
+   src: local("Tex Gyre Adventor"), local("TexGyreAdventor");
+  }
+}
+
+:root {
+  /* Use Altform for sans text and Tex Gyre Adventor for headings/display */
+  --font-sans: "Altform", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
+  --font-heading: "TexGyreAdventor", "Tex Gyre Adventor", Arial, sans-serif;
+  --font-display: "TexGyreAdventor", "Tex Gyre Adventor", Arial, sans-serif;
+}
+
+/* Map utilities used in components to the imported font families */
+@layer utilities {
+  .font-heading { font-family: var(--font-heading); }
+  .font-display { font-family: var(--font-display); }
+}
+
+/* Set base typography */
+body { font-family: var(--font-sans); }
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); }
+
 @layer components {
   .btn-primary,
   .btn-accent,

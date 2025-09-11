@@ -29,7 +29,7 @@ export default function FAQs({ faqs, type }) {
   };
 
   return (
-    <div className="bg-white">
+    <div className="bg-muted-300/80">
       <div className="mx-auto max-w-7xl px-6 py-20 sm:py-32 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-4xl">
           {type && (
@@ -74,7 +74,7 @@ export default function FAQs({ faqs, type }) {
           If you have any additional questions, please feel free to{" "}
           <a
             href="/contact"
-            className="text-primary-500 hover:underline hover:brightness-125 duration-200"
+            className="text-primary-600 font-semibold hover:underline hover:brightness-125 duration-200"
           >
             contact us
           </a>
