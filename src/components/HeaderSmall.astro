@@ -12,13 +12,12 @@ const { content } = Astro.props;
     imageAlt={content.imageAlt}
     styles="absolute inset-0 w-full h-full object-cover"
     quality={80}
-    loading="eager"
     className="z-0"
+    loading="eager"
+    decoding="async"
+    fetchpriority="high"
   />
-  <div
-    class="absolute inset-0 w-full bg-muted-950/70 h-full z-0"
-  >
-  </div>
+  <div class="absolute inset-0 w-full bg-muted-950/70 h-full z-0"></div>
   <!-- Text -->
   <div
     class="text-white mt-20 lg:mt-0 text-center lg:text-left z-10 flex flex-col items-center px-5 h-full lg:pt-28 justify-center animate-fade-top"
