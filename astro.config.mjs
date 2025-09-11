@@ -4,8 +4,6 @@ import sitemap from "@astrojs/sitemap";
 import react from "@astrojs/react";
 import critters from "@critters-rs/astro";
 
-import criticalCss from "astro-critical-css";
-
 // https://astro.build/config
 export default defineConfig({
   site: "https://nvflight.com",
